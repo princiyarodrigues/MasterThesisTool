@@ -32,10 +32,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <main className="container mx-auto px-6 py-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">Knowledge Portal</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">Process Model</h1>
         
         <div className="space-y-4 mb-8">
           <SearchBar onSearch={setSearchQuery} />

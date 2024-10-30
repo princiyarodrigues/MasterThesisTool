@@ -18,7 +18,7 @@ export function DepartmentGrid({ departments }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
         {departments.map((dept) => (
           <div key={dept.id}>
             <h2 className="text-xl font-semibold text-gray-800 mb-4">{dept.name}</h2>
@@ -46,9 +46,9 @@ export function DepartmentGrid({ departments }) {
 const CategoryCard = ({ title, description, itemCount, tagCount, onClick }) => (
   <div 
     onClick={onClick}
-    className="group bg-white rounded-xl border border-green-100 p-6 hover:shadow-lg transition-shadow cursor-pointer"
+    className="group bg-white rounded-xl border border-green-600 p-6 hover:shadow-lg transition-shadow cursor-pointer"
   >
-    <div className="flex justify-between items-start mb-4">
+    <div className="flex^ justify-between items-start mb-4">
       <div className="bg-green-100 p-2 rounded-lg">
         <File className="w-5 h-5 text-green-600" />
       </div>
