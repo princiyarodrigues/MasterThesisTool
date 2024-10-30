@@ -1,14 +1,28 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { departments } from '../../../lib/data';
 import { KanbanBoard } from '../../../components/ui/kanban-board';
 import { FilterBar } from '../../../components/filter-bar';
 import { SearchBar } from '../../../components/search-bar';
 import '../../../app/globals.css';
+import KnowledgePortalModal from '@/components/KnowledgePortalModal';
 
 export default function DepartmentPage({ params, searchParams }) {
-  const { slug } = params;  // Access slug directly from params
-  const { category: categoryId } = searchParams; // Access category from searchParams
+  const [slug, setSlug] = useState(null);
+  const [categoryId, setCategoryId] = useState(null);
+
+  useEffect(() => {
+    // Unwrap `params` and `searchParams` promises
+    async function unwrapParams() {
+      const { slug } = await params;
+      const { category: categoryId } = await searchParams;
+
+      setSlug(slug);
+      setCategoryId(categoryId);
+    }
+
+    unwrapParams();
+  }, [params, searchParams]);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
@@ -56,13 +70,13 @@ export default function DepartmentPage({ params, searchParams }) {
 
       <div className="space-y-4">
         <SearchBar onSearch={setSearchQuery} />
-        <FilterBar 
+        {/* <FilterBar 
           tags={getAllItemTags()} 
           onFilterChange={setSelectedTags}
-        />
+        /> */}
       </div>
-
-      <KanbanBoard items={filterItems(category.items)} />
+      <KnowledgePortalModal/>
+      {/* <KanbanBoard items={filterItems(category.items)} /> */}
     </div>
   );
 }

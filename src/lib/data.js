@@ -1,95 +1,112 @@
 export const departments = [
-    {
-      id: 'engineering',
-      name: 'Engineering',
-      description: 'Technical documentation and processes',
-      categories: [
-        {
-          id: 'development',
-          name: 'Development Guidelines',
-          description: 'Best practices and coding standards',
-          tags: ['technical', 'coding'],
-          items: [
-            {
-              id: '1',
-              title: 'Code Review Process',
-              description: 'Guidelines for conducting effective code reviews',
-              status: 'done',
-              priority: 'high',
-              tags: ['process', 'quality']
-            },
-            {
-              id: '2',
-              title: 'Git Workflow',
-              description: 'Standard git branching and commit practices',
-              status: 'in-progress',
-              priority: 'medium',
-              tags: ['git', 'process']
+  {
+    id: 'engineering',
+    name: 'Engineering',
+    description: 'Technical documentation and processes',
+    categories: [
+      {
+        id: 'development',
+        name: 'Development Guidelines',
+        description: 'Best practices and coding standards',
+        tags: ['technical', 'coding'],
+        items: [
+          {
+            id: 'code-review',
+            title: 'Code Review Process',
+            description: 'Guidelines for conducting effective code reviews',
+            status: 'done',
+            priority: 'high',
+            tags: ['process', 'quality'],
+            lastUpdated: '2024-10-15',
+            content: {
+              statement: 'All code changes must go through peer review before deployment',
+              rationale: 'Ensures code quality and knowledge sharing across the team',
+              implications: [
+                'Improved code quality',
+                'Knowledge sharing',
+                'Reduced technical debt'
+              ]
             }
-          ]
-        },
-        {
-          id: 'architecture',
-          name: 'Architecture Documentation',
-          description: 'System design and architecture guidelines',
-          tags: ['technical', 'design'],
-          items: [
-            {
-              id: '3',
-              title: 'System Overview',
-              description: 'High-level architecture documentation',
-              status: 'done',
-              priority: 'high',
-              tags: ['documentation', 'overview']
+          },
+          {
+            id: 'git-workflow',
+            title: 'Git Workflow',
+            description: 'Standard git branching and commit practices',
+            status: 'in-progress',
+            priority: 'medium',
+            tags: ['git', 'process'],
+            lastUpdated: '2024-10-20',
+            content: {
+              statement: 'Follow trunk-based development with feature branches',
+              rationale: 'Enables continuous integration and faster delivery',
+              implications: [
+                'Shorter-lived branches',
+                'Frequent integration',
+                'Reduced merge conflicts'
+              ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      id: 'hr',
-      name: 'Human Resources',
-      description: 'HR policies and procedures',
-      categories: [
-        {
-          id: 'policies',
-          name: 'Company Policies',
-          description: 'Official company policies and guidelines',
-          tags: ['policy', 'compliance'],
-          items: [
-            {
-              id: '4',
-              title: 'Employee Handbook',
-              description: 'Complete employee guidelines and policies',
-              status: 'done',
-              priority: 'high',
-              tags: ['policy', 'guidelines']
+          }
+        ]
+      },
+      {
+        id: 'architecture',
+        name: 'Architecture Documentation',
+        description: 'System design and architecture guidelines',
+        tags: ['technical', 'design'],
+        items: [
+          {
+            id: 'system-overview',
+            title: 'System Overview',
+            description: 'High-level architecture documentation',
+            status: 'done',
+            priority: 'high',
+            tags: ['documentation', 'overview'],
+            lastUpdated: '2024-10-25',
+            content: {
+              statement: 'Microservices-based architecture with event-driven communication',
+              rationale: 'Enables scalability and independent service deployment',
+              implications: [
+                'Service independence',
+                'Improved scalability',
+                'Complex distributed systems'
+              ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      id: 'marketing',
-      name: 'Marketing',
-      description: 'Marketing resources and campaigns',
-      categories: [
-        {
-          id: 'brand',
-          name: 'Brand Guidelines',
-          description: 'Brand identity and usage guidelines',
-          tags: ['brand', 'design'],
-          items: [
-            {
-              id: '5',
-              title: 'Logo Usage',
-              description: 'Guidelines for logo usage and placement',
-              status: 'done',
-              priority: 'medium',
-              tags: ['brand', 'design']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'IT',
+    name: 'Information Technology',
+    description: 'IT Infrastructure and Policies',
+    categories: [
+      {
+        id: 'vendors',
+        name: 'IT Vendors',
+        description: 'Official company policies and guidelines',
+        tags: ['policy', 'compliance'],
+        items: [
+          {
+            id: 'vendor-strategy',
+            title: 'Vendor Strategy BP_020',
+            description: 'Strategic IT vendor selection guidelines',
+            status: 'active',
+            priority: 'high',
+            tags: ['IT', 'Vendor', 'Strategy'],
+            lastUpdated: '2024-10-30',
+            content: {
+              statement: 'Consider applications from strategic IT partners first',
+              rationale: 'Leverages existing partnerships for better support and pricing',
+              implications: [
+                'Standardized vendor selection',
+                'Optimized costs',
+                'Enhanced support'
+              ]
             }
-          ]
-        }
-      ]
-    }
-  ];
+          }
+        ]
+      }
+    ]
+  }
+];
