@@ -104,7 +104,7 @@ const KnowledgePortalModal = ({ onClose }) => {
       {!isDetailModalOpen ? (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl w-[500px] p-6 z-50">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold text-gray-800">IT Vendors Documentation</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">IT Principles</h2>
             <button onClick={handleMainModalClose} className="text-gray-500 hover:text-gray-700">
               <X size={24} />
             </button>
@@ -135,20 +135,12 @@ const KnowledgePortalModal = ({ onClose }) => {
               <div>
                 <div className="flex items-center space-x-2 text-green-100 mb-2">
                   <FileText size={20} />
-                  <span>Business Policy</span>
+                  <span>IT Principles</span>
                   <span>•</span>
                   <span>{selectedOption?.id}</span>
                 </div>
                 <h2 className="text-3xl font-semibold mb-2">{selectedOption?.title}</h2>
                 <div className="flex items-center space-x-4 text-sm">
-                  <div className="flex items-center">
-                    <Clock size={16} className="mr-1" />
-                    Last updated: {selectedOption?.content.lastUpdated}
-                  </div>
-                  <div className="flex items-center">
-                    <Tags size={16} className="mr-1" />
-                    {selectedOption?.content.tags.join(', ')}
-                  </div>
                 </div>
               </div>
               <button onClick={handleDetailModalClose} className="text-white/80 hover:text-white">
@@ -169,16 +161,6 @@ const KnowledgePortalModal = ({ onClose }) => {
                 }`}
               >
                 Details
-              </button>
-              <button
-                onClick={() => setActiveTab('history')}
-                className={`px-4 py-3 font-medium text-sm border-b-2 ${
-                  activeTab === 'history' 
-                    ? 'border-green-500 text-green-600' 
-                    : 'border-transparent text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                Version History
               </button>
             </div>
           </div>
