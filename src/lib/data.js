@@ -1,14 +1,13 @@
 export const departments = [
   {
     id: 'engineering',
-    name: 'Engineering',
+    name: 'Production Department',
     description: 'Technical documentation and processes',
     categories: [
       {
         id: 'development',
-        name: 'Development Guidelines',
-        description: 'Best practices and coding standards',
-        tags: ['technical', 'coding'],
+        name: 'Architecture : Factory Strategic Goals',
+        description: 'Current analysis and strategic targets of the factory',
         items: [
           {
             id: 'code-review',
@@ -16,7 +15,6 @@ export const departments = [
             description: 'Guidelines for conducting effective code reviews',
             status: 'done',
             priority: 'high',
-            tags: ['process', 'quality'],
             lastUpdated: '2024-10-15',
             content: {
               statement: 'All code changes must go through peer review before deployment',
@@ -34,7 +32,6 @@ export const departments = [
             description: 'Standard git branching and commit practices',
             status: 'in-progress',
             priority: 'medium',
-            tags: ['git', 'process'],
             lastUpdated: '2024-10-20',
             content: {
               statement: 'Follow trunk-based development with feature branches',
@@ -50,8 +47,8 @@ export const departments = [
       },
       {
         id: 'architecture',
-        name: 'Architecture Documentation',
-        description: 'System design and architecture guidelines',
+        name: 'Business Capabilities',
+        description: 'Helps in monitor current and targetted business related decisions of the factory',
         tags: ['technical', 'design'],
         items: [
           {
@@ -84,7 +81,7 @@ export const departments = [
       {
         id: 'vendors',
         name: 'IT Vendors',
-        description: 'Official company policies and guidelines',
+        description: 'Current Analysis of the IT Strategy',
         tags: ['policy', 'compliance'],
         items: [
           {
@@ -106,7 +103,34 @@ export const departments = [
             }
           }
         ]
+      },
+      {
+        id: 'tech',
+        name: 'Technical Capabilities',
+        description: 'Helps in monitor current and targetted technical related decisions of the factory',
+        tags: ['policy', 'compliance'],
+        items: [
+          {
+            id: 'vendor-strategy',
+            title: 'Vendor Strategy BP_020',
+            description: 'Helps in monitor current and targetted technical related decisions of the factory',
+            status: 'active',
+            priority: 'high',
+            tags: ['IT', 'Vendor', 'Strategy'],
+            lastUpdated: '2024-10-30',
+            content: {
+              statement: 'Consider applications from strategic IT partners first',
+              rationale: 'Leverages existing partnerships for better support and pricing',
+              implications: [
+                'Standardized vendor selection',
+                'Optimized costs',
+                'Enhanced support'
+              ]
+            }
+          }
+        ]
       }
     ]
   }
+  
 ];
