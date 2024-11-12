@@ -5,7 +5,7 @@ import { ArrowRight, Clock, Tag } from 'lucide-react';
 export function CategoryCard({ category, departmentId }) {
   return (
     <Link 
-      href={`/departments/${departmentId}?category=${category.id}`}
+      href={`/departments/${departmentId}/business-capabilities`}
       className="block group"
     >
       <Card className="p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">

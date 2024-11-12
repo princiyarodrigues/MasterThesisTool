@@ -1,18 +1,17 @@
 'use client';
 import { useState } from 'react';
-import { Navbar } from '../components/navbar';
-import { SearchBar } from '../components/search-bar';
-import { FilterBar } from '../components/filter-bar';
-import { DepartmentGrid } from '../components/department-grid';
-import { departments } from '../lib/data';
-import KnowledgePortalModal from '@/components/KnowledgePortalModal';
+import { Navbar } from '../components/Navbar';
+import { SearchBar } from '../components/Search-bar';
+import { DepartmentGrid } from '../components/Department-grid';
+import { data } from '../lib/data';
+
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
 
   const filterDepartments = () => {
-    return departments.map(dept => ({
+    return data.map(dept => ({
       ...dept,
       categories: dept.categories.filter(cat => {
         const matchesSearch = 

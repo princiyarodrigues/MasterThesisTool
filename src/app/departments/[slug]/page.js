@@ -1,18 +1,18 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { departments } from '../../../lib/data';
-import { KanbanBoard } from '../../../components/ui/kanban-board';
-import { FilterBar } from '../../../components/filter-bar';
-import { SearchBar } from '../../../components/search-bar';
-import '../../../app/globals.css';
+import { useRouter } from 'next/navigation';
+import { data } from '../../../lib/data';
+import { SearchBar } from '../../../components/Search-bar';
 import KnowledgePortalModal from '@/components/KnowledgePortalModal';
+import Link from 'next/link'; // Import Link for navigation
 
 export default function DepartmentPage({ params, searchParams }) {
+  const router = useRouter();
+
   const [slug, setSlug] = useState(null);
   const [categoryId, setCategoryId] = useState(null);
 
   useEffect(() => {
-    // Unwrap `params` and `searchParams` promises
     async function unwrapParams() {
       const { slug } = await params;
       const { category: categoryId } = await searchParams;
@@ -20,45 +20,19 @@ export default function DepartmentPage({ params, searchParams }) {
       setSlug(slug);
       setCategoryId(categoryId);
     }
-
     unwrapParams();
   }, [params, searchParams]);
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState([]);
-
-  // Find the department using slug from the URL
-  const department = departments.find((d) => d.id === slug);
-  // Find the category using categoryId from the URL
-  const category = department?.categories.find(
-    (c) => c.id === categoryId
-  );
+  const department = data.find((d) => d.id === slug);
+  const category = department?.categories.find((c) => c.id === categoryId);
 
   if (!department || !category) {
     return <div>Not found</div>;
   }
 
-  const filterItems = (items) => {
-    return items.filter(item => {
-      const matchesSearch = 
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchesTags = 
-        selectedTags.length === 0 ||
-        item.tags?.some(tag => selectedTags.includes(tag));
-
-      return matchesSearch && matchesTags;
-    });
-  };
-
-  // Get all unique tags from items
-  const getAllItemTags = () => {
-    const tags = new Set();
-    category.items.forEach(item => {
-      item.tags?.forEach(tag => tags.add(tag));
-    });
-    return Array.from(tags);
+  const handleItemClick = (id) => {
+    console.log(`Navigating to /knowledge/${id}`);
+    router.push(`/knowledge/${id}`);
   };
 
   return (
@@ -70,13 +44,17 @@ export default function DepartmentPage({ params, searchParams }) {
 
       <div className="space-y-4">
         <SearchBar onSearch={setSearchQuery} />
-        {/* <FilterBar 
-          tags={getAllItemTags()} 
-          onFilterChange={setSelectedTags}
-        /> */}
       </div>
-      <KnowledgePortalModal/>
-      {/* <KanbanBoard items={filterItems(category.items)} /> */}
+      
+      {/* Pass handleItemClick to KnowledgePortalModal */}
+      <KnowledgePortalModal onItemClick={handleItemClick} />
+
+      {/* Link to Business Capabilities page */}
+      <div className="mt-6">
+        <Link href={`/departments/${slug}/business-capabilities`}>
+          <a className="text-blue-500 underline">View Business Capabilities</a>
+        </Link>
+      </div>
     </div>
   );
 }

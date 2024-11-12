@@ -1,11 +1,11 @@
-export const departments = [
+export const data = [
   {
     id: 'engineering',
     name: 'Production Department',
     description: 'Technical documentation and processes',
     categories: [
       {
-        id: 'development',
+        id: 'architecture-goals',
         name: 'Architecture : Factory Strategic Goals',
         description: 'Current analysis and strategic targets of the factory',
         items: [
@@ -46,10 +46,9 @@ export const departments = [
         ]
       },
       {
-        id: 'architecture',
+        id: 'business-capabilities',
         name: 'Business Capabilities',
-        description: 'Helps in monitor current and targetted business related decisions of the factory',
-        tags: ['technical', 'design'],
+        description: 'Helps in monitoring current and targeted business-related decisions of the factory',
         items: [
           {
             id: 'system-overview',
@@ -79,13 +78,13 @@ export const departments = [
     description: 'IT Infrastructure and Policies',
     categories: [
       {
-        id: 'vendors',
+        id: 'it-vendors',
         name: 'IT Vendors',
         description: 'Current Analysis of the IT Strategy',
         tags: ['policy', 'compliance'],
         items: [
           {
-            id: 'vendor-strategy',
+            id: 'vendor-strategy-1',
             title: 'Vendor Strategy BP_020',
             description: 'Strategic IT vendor selection guidelines',
             status: 'active',
@@ -105,15 +104,15 @@ export const departments = [
         ]
       },
       {
-        id: 'tech',
+        id: 'technical-capabilities',
         name: 'Technical Capabilities',
-        description: 'Helps in monitor current and targetted technical related decisions of the factory',
+        description: 'Helps in monitoring current and targeted technical decisions of the factory',
         tags: ['policy', 'compliance'],
         items: [
           {
-            id: 'vendor-strategy',
-            title: 'Vendor Strategy BP_020',
-            description: 'Helps in monitor current and targetted technical related decisions of the factory',
+            id: 'vendor-strategy-2',
+            title: 'Vendor Strategy BP_021',
+            description: 'Helps in monitoring current and targeted technical decisions of the factory',
             status: 'active',
             priority: 'high',
             tags: ['IT', 'Vendor', 'Strategy'],
@@ -133,19 +132,19 @@ export const departments = [
     ]
   },
   {
-    id: 'Operations',
+    id: 'operations',
     name: 'Operations and Solutions',
     description: 'IT Infrastructure and Policies',
     categories: [
       {
-        id: 'Operations',
+        id: 'use-cases',
         name: 'Use Cases',
-        description: 'Use cases Catalogue based on business and technical capabilities ',
+        description: 'Use cases Catalogue based on business and technical capabilities',
         tags: ['policy', 'compliance'],
         items: [
           {
-            id: 'vendor-strategy',
-            title: 'Vendor Strategy BP_020',
+            id: 'vendor-strategy-3',
+            title: 'Vendor Strategy BP_022',
             description: 'Strategic IT vendor selection guidelines',
             status: 'active',
             priority: 'high',
@@ -165,5 +164,4 @@ export const departments = [
       }
     ]
   }
-  
 ];
