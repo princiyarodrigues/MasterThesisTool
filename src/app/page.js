@@ -15,8 +15,7 @@ export default function Home() {
   const [selectedTags, setSelectedTags] = useState([]);
 
   useEffect(() => {
-    if (status === 'loading') return; // Don't do anything while loading
-    
+    if (status === 'loading') return;
     if (!session) {
       router.push('/auth/signin');
     }
@@ -54,7 +53,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="container mx-auto px-6 py-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">Process Model</h1>
+        <h1 className="text-4xl font-bold text-[#009374] mb-8">Process Model</h1>
         
         <div className="space-y-4 mb-8">
           <SearchBar onSearch={setSearchQuery} />

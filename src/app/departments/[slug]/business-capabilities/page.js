@@ -176,52 +176,49 @@ const BusinessCapabilities = () => {
       ]
     }
   ];
+  const toggleSection = (sectionType) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionType]: !prev[sectionType]
+    }));
+  };
+  const handleSubCapabilityClick = (capability) => {
+    setSelectedCapability(capability);
+    setShowModal(true);
+  };
 
-  const CapabilityCard = ({ number, title, subCapabilities, description }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleCardClick = () => {
-      setSelectedCapability({ number, title, subCapabilities, description });
-      setShowModal(true);
-    };
-
+  const CapabilityCard = ({ number, title, subCapabilities }) => {
     return (
-      <div
-        className="bg-white rounded-xl border border-gray-100 hover:border-orange-200 transition-all duration-300 overflow-hidden group cursor-pointer"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={handleCardClick}
-      >
+      <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="p-6 h-full flex flex-col">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-2">
-              <span className="text-orange-500 font-semibold">{number}</span>
-              <ArrowUpRight
-                className={`w-4 h-4 text-orange-400 transition-transform duration-300 ${
-                  isHovered ? 'translate-x-1 -translate-y-1' : ''
-                }`}
-              />
+              <span className="text-[#009374] font-semibold">{number}</span>
             </div>
-            <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-              <Plus className="w-4 h-4 text-orange-400" />
+            <div className="w-8 h-8 rounded-lg bg-[#009374]/10 flex items-center justify-center">
+              <Plus className="w-4 h-4 text-[#009374]" />
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
             {title}
           </h3>
 
           <div className="space-y-2 flex-grow">
             {subCapabilities.map((sub, index) => (
-              <div
+              <button
                 key={index}
-                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-orange-50/50 transition-colors group/item"
+                onClick={() => handleSubCapabilityClick({ 
+                  number: `${number}.${index + 1}`, 
+                  title: sub 
+                })}
+                className="w-full flex items-center space-x-3 p-3 rounded-lg bg-[#009374]/10 hover:bg-[#009374]/15 transition-colors group cursor-pointer text-left"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-gray-200 group-hover/item:bg-orange-300 transition-colors" />
-                <span className="text-sm text-gray-600 group-hover/item:text-gray-900">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#009374]/60 group-hover:bg-[#009374] transition-colors" />
+                <span className="text-sm text-gray-700 group-hover:text-gray-900">
                   {sub}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -237,12 +234,12 @@ const BusinessCapabilities = () => {
       >
         <div className="flex items-center space-x-4">
           {expandedSections[type] ? (
-            <ChevronDown className="w-6 h-6 text-gray-400" />
+            <ChevronDown className="w-6 h-6 text-[#009374]" />
           ) : (
-            <ChevronRight className="w-6 h-6 text-gray-400" />
+            <ChevronRight className="w-6 h-6 text-[#009374]" />
           )}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+            <h2 className="text-xl font-semibold text-[#009374]">{title}</h2>
             <p className="text-sm text-gray-500 mt-1">{items.length} capabilities</p>
           </div>
         </div>
@@ -263,20 +260,13 @@ const BusinessCapabilities = () => {
     </div>
   );
 
-  const toggleSection = (section) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
-
   return (
     <div className="max-w-[1600px] mx-auto p-8">
       {/* Header */}
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Business Capabilities</h1>
+            <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
             <p className="text-gray-600">
               Comprehensive overview of factory planning and production management capabilities
             </p>
@@ -286,7 +276,7 @@ const BusinessCapabilities = () => {
               <Filter className="w-4 h-4" />
               <span>Filter</span>
             </button>
-            <button className="px-4 py-2 text-sm bg-orange-50 text-orange-600 rounded-lg hover:bg-orange-100 border border-orange-200">
+            <button className="px-4 py-2 text-sm bg-[#009374]/10 text-[#009374] rounded-lg hover:bg-[#009374]/20 border border-[#009374]/20">
               Add New
             </button>
           </div>
@@ -298,7 +288,7 @@ const BusinessCapabilities = () => {
           <input
             type="text"
             placeholder="Search capabilities..."
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-orange-300 focus:ring-2 focus:ring-orange-100"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#009374] focus:ring-2 focus:ring-[#009374]/20"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

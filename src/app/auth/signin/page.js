@@ -41,7 +41,7 @@ export default function SignIn() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-green-600">Digital Twin Factory Tool</h1>
+        <h1 className="text-4xl font-bold text-[#009374]">Digital Twin Factory Tool</h1>
         <p className="mt-2 text-gray-600">Sign in to access the process model</p>
       </div>
 
@@ -64,7 +64,7 @@ export default function SignIn() {
                 id="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-[#009374] focus:ring-[#009374]"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -78,7 +78,7 @@ export default function SignIn() {
                 id="password"
                 type="password"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-[#009374] focus:ring-[#009374]"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
@@ -87,7 +87,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
+              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#009374] hover:bg-[#007a60] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#009374] ${
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
@@ -97,7 +97,7 @@ export default function SignIn() {
 
           <div className="mt-6 text-center text-sm">
             <span className="text-gray-600">Don't have an account?</span>{' '}
-            <Link href="/auth/signup" className="text-green-600 hover:text-green-500 font-medium">
+            <Link href="/auth/signup" className="text-[#009374] hover:text-[#007a60] font-medium">
               Sign up
             </Link>
           </div>
