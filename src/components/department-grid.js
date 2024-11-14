@@ -1,42 +1,51 @@
 'use client';
-import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
-import KnowledgePortalModal from './KnowledgePortalModal';
-import { CategoryCard } from './Category-card';
+import dynamic from 'next/dynamic';
 
-export function DepartmentGrid({ departments }) {
-  const { data: session } = useSession();
+// Dynamic imports with loading fallback
+const KnowledgePortalModal = dynamic(
+  () => import('./KnowledgePortalModal'),
+  { ssr: false, loading: () => <div>Loading modal...</div> }
+);
+
+const CategoryCard = dynamic(
+  () => import('./Category-card').then(mod => ({ default: mod.CategoryCard })),
+  { loading: () => <div>Loading card...</div> }
+);
+
+export function DepartmentGrid() {
+  const [departments, setDepartments] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  useEffect(() => {
+    fetchDepartments();
+  }, []);
+
+  const fetchDepartments = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch('/api/departments');
+      if (!response.ok) throw new Error('Failed to fetch departments');
+      const data = await response.json();
+      setDepartments(data);
+    } catch (error) {
+      console.error('Error:', error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleCategoryClick = (category, departmentId) => {
-    if (!session) {
-      router.push('/auth/signin');
-      return;
-    }
-
-    if (category.id === 'business-capabilities') {
-      router.push(`/departments/${departmentId}/business-capabilities`);
-    } else if (category.name === 'IT Vendors') {
-      setIsModalOpen(true);
-    }
-  };
-
-  const handleItemClick = (id) => {
-    if (!session) {
-      router.push('/auth/signin');
-      return;
-    }
-    router.push(`/knowledge/${id}`);
-  };
+  if (error) return <div className="text-red-500">Error: {error}</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
-    <>
+    <Suspense fallback={<div>Loading departments...</div>}>
       <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
         {departments.map((dept) => (
           <div key={dept.id}>
@@ -45,19 +54,20 @@ export function DepartmentGrid({ departments }) {
               {dept.categories.map((category) => (
                 <CategoryCard
                   key={category.id}
-                  title={category.name}
-                  description={category.description}
-                  itemCount={category.items?.length || 0}
-                  tagCount={category.tags?.length || 0}
-                  onClick={() => handleCategoryClick(category, dept.id)}
+                  category={category}
+                  departmentId={dept.id}
                 />
               ))}
             </div>
           </div>
         ))}
       </div>
-      
-      {isModalOpen && <KnowledgePortalModal onClose={handleCloseModal} onItemClick={handleItemClick} />}
-    </>
+      {isModalOpen && (
+        <KnowledgePortalModal 
+          onClose={() => setIsModalOpen(false)}
+          category={selectedCategory}
+        />
+      )}
+    </Suspense>
   );
 }

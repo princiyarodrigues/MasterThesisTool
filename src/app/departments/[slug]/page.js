@@ -19,7 +19,7 @@ export default function DepartmentPage({ params, searchParams }) {
     } else if (status === 'unauthenticated') {
       router.push('/auth/signin');
     }
-  }, [status]);
+  }, [status, router, unwrapParams]);
 
   const [slug, setSlug] = useState(null);
   const [categoryId, setCategoryId] = useState(null);

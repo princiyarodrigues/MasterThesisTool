@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   {
     id: 'engineering',
     name: 'Production Department',
@@ -165,3 +165,5 @@ export const data = [
     ]
   }
 ];
+
+module.exports = { data };

@@ -1,26 +1,20 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please provide a name'],
-    maxlength: [60, 'Name cannot be more than 60 characters']
+    required: [true, 'Name is required']
   },
   email: {
     type: String,
-    required: [true, 'Please provide an email'],
+    required: [true, 'Email is required'],
     unique: true,
-    trim: true,
     lowercase: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      'Please provide a valid email'
-    ]
+    trim: true
   },
   password: {
     type: String,
-    required: [true, 'Please provide a password'],
-    minlength: [6, 'Password must be at least 6 characters long']
+    required: [true, 'Password is required']
   },
   role: {
     type: String,
@@ -33,7 +27,5 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-// Prevent mongoose from creating multiple models
-const User = mongoose.models.User || mongoose.model('User', UserSchema);
-
-export default User;
+const User = mongoose.models.User || mongoose.model('User', userSchema);
+module.exports = User;

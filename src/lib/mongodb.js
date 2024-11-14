@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 if (!process.env.MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+  throw new Error('Please define the MONGODB_URI environment variable');
 }
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -24,10 +24,13 @@ async function connectDB() {
 
     try {
       cached.promise = mongoose.connect(MONGODB_URI, opts);
-      console.log('MongoDB connection established');
-    } catch (error) {
-      console.error('MongoDB connection error:', error);
-      throw error;
+      cached.conn = await cached.promise;
+      console.log('Successfully connected to MongoDB');
+      return cached.conn;
+    } catch (e) {
+      cached.promise = null;
+      console.error('Error connecting to MongoDB:', e);
+      throw e;
     }
   }
 
@@ -41,4 +44,4 @@ async function connectDB() {
   return cached.conn;
 }
 
-export default connectDB;
+module.exports = connectDB;

@@ -1,28 +1,39 @@
-// src/middleware.js
-import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
 
-export default withAuth(
-  function middleware(req) {
-    // If the user is authenticated and trying to access auth pages, redirect to home
-    if (req.nextUrl.pathname.startsWith('/auth/') && req.nextauth.token) {
-      return NextResponse.redirect(new URL('/', req.url));
-    }
-  },
-  {
-    callbacks: {
-      authorized: ({ req, token }) => {
-        // Allow public access to auth pages
-        if (req.nextUrl.pathname.startsWith('/auth/')) {
-          return true;
-        }
-        // Require authentication for all other pages
-        return !!token;
-      },
-    },
-  }
-);
+export function middleware(request) {
+  const response = NextResponse.next();
+
+  // Add CSP header
+  response.headers.set(
+    'Content-Security-Policy',
+    `
+      default-src 'self';
+      script-src 'self' 'unsafe-eval' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: blob:;
+      font-src 'self';
+      connect-src 'self' ${process.env.NEXT_PUBLIC_API_URL || '*'};
+    `.replace(/\s{2,}/g, ' ').trim()
+  );
+
+  return response;
+}
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    {
+      source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
+      ],
+    },
+  ],
 };
