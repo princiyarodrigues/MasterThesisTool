@@ -1,27 +1,47 @@
 'use client';
-import { useState } from 'react';
-import { Navbar } from '../components/Navbar';
-import { SearchBar } from '../components/Search-bar';
-import { DepartmentGrid } from '../components/Department-grid';
-import { data } from '../lib/data';
-
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { Navbar } from '@/components/Navbar';
+import { SearchBar } from '@/components/Search-bar';
+import { DepartmentGrid } from '@/components/Department-grid';
+import { data } from '@/lib/data';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function Home() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
+
+  useEffect(() => {
+    if (status === 'loading') return; // Don't do anything while loading
+    
+    if (!session) {
+      router.push('/auth/signin');
+    }
+  }, [session, status, router]);
+
+  if (status === 'loading') {
+    return <LoadingSpinner />;
+  }
+
+  if (!session) {
+    return null;
+  }
 
   const filterDepartments = () => {
     return data.map(dept => ({
       ...dept,
       categories: dept.categories.filter(cat => {
         const matchesSearch = 
-          cat.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          cat.description.toLowerCase().includes(searchQuery.toLowerCase());
+          cat.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          cat.description?.toLowerCase().includes(searchQuery.toLowerCase());
         
         const matchesTags = 
           selectedTags.length === 0 ||
           cat.tags?.some(tag => selectedTags.includes(tag)) ||
-          cat.items.some(item => 
+          cat.items?.some(item => 
             item.tags?.some(tag => selectedTags.includes(tag))
           );
 
@@ -31,22 +51,17 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <Navbar />
       <main className="container mx-auto px-6 py-8">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Process Model</h1>
         
         <div className="space-y-4 mb-8">
           <SearchBar onSearch={setSearchQuery} />
-          {/* <FilterBar 
-            tags={getAllTags()} 
-            onFilterChange={setSelectedTags}
-          /> */}
         </div>
 
         <DepartmentGrid departments={filterDepartments()} />
-        {/* <KnowledgePortalModal/> */}
       </main>
-    </div>
+    </>
   );
 }

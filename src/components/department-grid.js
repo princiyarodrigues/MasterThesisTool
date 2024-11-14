@@ -1,9 +1,12 @@
-import { File } from 'lucide-react';
+'use client';
+import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-import KnowledgePortalModal from './KnowledgePortalModal';
 import { useRouter } from 'next/navigation';
+import KnowledgePortalModal from './KnowledgePortalModal';
+import { CategoryCard } from './Category-card';
 
 export function DepartmentGrid({ departments }) {
+  const { data: session } = useSession();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
@@ -12,6 +15,11 @@ export function DepartmentGrid({ departments }) {
   };
 
   const handleCategoryClick = (category, departmentId) => {
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
+
     if (category.id === 'business-capabilities') {
       router.push(`/departments/${departmentId}/business-capabilities`);
     } else if (category.name === 'IT Vendors') {
@@ -20,6 +28,10 @@ export function DepartmentGrid({ departments }) {
   };
 
   const handleItemClick = (id) => {
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
     router.push(`/knowledge/${id}`);
   };
 
@@ -49,19 +61,3 @@ export function DepartmentGrid({ departments }) {
     </>
   );
 }
-
-const CategoryCard = ({ title, description, itemCount, tagCount, onClick }) => (
-  <div 
-    onClick={onClick}
-    className="group bg-white rounded-xl border border-green-600 p-6 hover:shadow-lg transition-shadow cursor-pointer"
-  >
-    <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
-    <p className="text-gray-600 text-sm mb-4">{description}</p>
-    <div className="flex items-center space-x-4 text-sm text-gray-500">
-      <div className="flex items-center">
-        <File className="w-4 h-4 mr-1" />
-        {itemCount} items
-      </div>
-    </div>
-  </div>
-);
