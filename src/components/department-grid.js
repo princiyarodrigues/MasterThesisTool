@@ -12,6 +12,9 @@ export function DepartmentGrid({ departments }) {
     } else if (category.id === 'it-vendors') {
       router.push(`/departments/${departmentId}/it-principles`);
     }
+    else if (category.id === 'use-cases') {
+      router.push(`/departments/${departmentId}/use-cases`);
+    }
   };
 
   return (
