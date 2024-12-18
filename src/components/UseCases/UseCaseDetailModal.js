@@ -100,6 +100,7 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
             </Card>
           </div>
 
+
           {/* Right Column - IT Perspective */}
           <div>
             <Card className="h-full">
