@@ -84,7 +84,7 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
                   <div>
                     <h4 className="font-medium mb-2">Typical value propositions</h4>
                     <ul className="list-disc pl-5 text-gray-600">
-                      <li>Overview of employees' working conditions</li>
+                      <li>Overview of employees&apos; working conditions</li>
                       <li>performance improvement</li>
                     </ul>
                   </div>
