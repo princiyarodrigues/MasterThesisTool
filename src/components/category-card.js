@@ -1,22 +1,31 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, Clock, Tag } from 'lucide-react';
 
 export function CategoryCard({ category, departmentId, onClick }) {
-  const getHref = () => {
-    switch (category.id) {
-      case 'business-capabilities':
-        return `/departments/${departmentId}/business-capabilities`;
-      case 'it-vendors':
-        return `/departments/${departmentId}/it-principles`;
-      default:
-        return '#';
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (category.id === 'architecture-goals') {
+      router.push('/strategic-goals');
+    } else {
+      switch (category.id) {
+        case 'business-capabilities':
+          router.push(`/departments/${departmentId}/business-capabilities`);
+          break;
+        case 'it-vendors':
+          router.push(`/departments/${departmentId}/it-principles`);
+          break;
+        default:
+          onClick();
+      }
     }
   };
 
   return (
     <div 
-      onClick={onClick}
+      onClick={handleClick}
       className="block group cursor-pointer transition-all duration-200 ease-in-out"
     >
       <div className="bg-white rounded-xl border border-green-600 p-6 hover:shadow-lg transition-all duration-200">
@@ -46,7 +55,7 @@ export function CategoryCard({ category, departmentId, onClick }) {
             <div className="flex items-center">
               <ArrowRight 
                 className={`w-5 h-5 text-gray-400 transform group-hover:translate-x-1 group-hover:text-green-600 transition-all duration-200
-                  ${category.id === 'business-capabilities' || category.id === 'it-vendors' ? 'opacity-100' : 'opacity-0'}`}
+                  ${category.id === 'business-capabilities' || category.id === 'it-vendors' || category.id === 'architecture-goals' ? 'opacity-100' : 'opacity-0'}`}
               />
             </div>
           </div>
@@ -56,7 +65,6 @@ export function CategoryCard({ category, departmentId, onClick }) {
   );
 }
 
-// Default props
 CategoryCard.defaultProps = {
   onClick: () => {},
 };
