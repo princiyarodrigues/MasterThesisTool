@@ -1,0 +1,1886 @@
+[
+  {
+    "identifier": "id-8f84999ee28040a3bd59e27bbfbd073a",
+    "type": "Influence",
+    "source": "id-4646ef414db64c279bab39e972170b3e",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-87e78720a8a8435fa3822b79bdb83015",
+    "type": "Influence",
+    "source": "id-4646ef414db64c279bab39e972170b3e",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-55330e71f3cf4742ad3bd80b96cc242c",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-7d6c552f1cde4d4b8c98f3e1c46ca54e",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-b263f49f20af4f66bae3f1bf4d2e507c",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-f5c4d7b7bfde4983a8ff78797605a575",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-d3be03d0bfd2474ebaab41c084bcc867",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-89c1b6cb49874581b14d2c43c6cc4b2a",
+    "type": "Influence",
+    "source": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-db69a9e3a1564879a9b7a15065eca6b3",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-1fb763caf09742ca89b62c5bd1e38f86",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-bcdcbae119a44658b5cffa5571165154",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-dba359c39b7a45ed8d4b5ca7398c9239",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-1218cfee8af34e949df023d1c60a68cc",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-9cfd8652fdde44f1867fe17e04edb055",
+    "type": "Influence",
+    "source": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-edce432fa32d48af9c83bbdf3fe41184",
+    "type": "Influence",
+    "source": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-70dd0c9faea548ba8ad9df80e3d8b3a0",
+    "type": "Influence",
+    "source": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-a34d36d08cfb4dc68367c406567be255",
+    "type": "Influence",
+    "source": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-d76c1c9827e545f798ec7729e43c952e",
+    "type": "Influence",
+    "source": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-2db0e5a87c054d67a8ede238904f6790",
+    "type": "Influence",
+    "source": "id-54695ec421184aa6875e9c80534916e1",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-de700f06342e434f8b7ffeaae13c7a33",
+    "type": "Influence",
+    "source": "id-54695ec421184aa6875e9c80534916e1",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-514b2ef26d524b8fbc44787811201e3a",
+    "type": "Influence",
+    "source": "id-54695ec421184aa6875e9c80534916e1",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-ba8440a586c142679f0f1bfa825b440f",
+    "type": "Influence",
+    "source": "id-54695ec421184aa6875e9c80534916e1",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-9d208db7cd804be6a4f51343e78bb0d4",
+    "type": "Influence",
+    "source": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-abbe2dc95c744cbb842dd7a3957ed341",
+    "type": "Influence",
+    "source": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-2e93eba18cfd49708bb264e0069887b8",
+    "type": "Influence",
+    "source": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-6dfdab23cc9c426092e45f8b12560a9e",
+    "type": "Influence",
+    "source": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a5f9ba16882d476b80d41727df4e1b5a",
+    "type": "Influence",
+    "source": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-2bfa6cdf2ad04eeaaf4bfeeec3ea279a",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-30d84671f06d4f2385baf288bcecc3d0",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-9d60dcccd2984bafa109c816f06f52d7",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-a335278257eb40bf92c272ebfb866bb4",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-ee388c12b1544b16b64a08f01a67fe56",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-f11ab1ba8b6d43bdbc449f78e5ba173d",
+    "type": "Influence",
+    "source": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-a81871db64794d50a0cedc47051290b4",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-cde9da958b3744df8352802b8b521157",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-a9211e22adaa4c708b5ae92f7b3a55f0",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-e7883aec131a479893ce0314147d353b",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-4a93b8a192664e848cd9ce05f720cfab",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-b84b1118bf0f4ea39b5fafdab5d107ea",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-dbf59ee9b5f64e3484a0ae09d0e11ded",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-3b74ec591af04fb19baf0a447069dcdb",
+    "type": "Influence",
+    "source": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-5609d85690504be281aecad9c3b7566d",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-bdef5f4752a14a869da3098053262181",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-d3e1fd53d21a4cc2b01029b52a7d127c",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-0dcbf54f9a4848949721146b795b2128",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-eda6ae6cdcb94fc5999e3d4249fd968f",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-8d1b4ab80713436bba17e327e2670fd1",
+    "type": "Influence",
+    "source": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-7ca034eab2c2403e8cb30db97c6b2eb5",
+    "type": "Influence",
+    "source": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-068c1633aa6f4f5896bd7b0bd60d3b90",
+    "type": "Influence",
+    "source": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-82e867c5fe2045deb8d07e5605f4f6d9",
+    "type": "Influence",
+    "source": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-cff8af481d3848f88044818e8046b885",
+    "type": "Influence",
+    "source": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-cbc6cd306cf84ef9b697a18fb270231b",
+    "type": "Influence",
+    "source": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-04ff3ced2ba940db9c937504fee45599",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-0fab1ebd68044a489faf4a3a2eff201b",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-99088265b93f45468e76cc1e594baadb",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-eefd7ef54004411895ea8f843240e1b5",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-8adec7817003484ba09d0d660d947cc9",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-81fb43a66231487aa7bed7499ab66afd",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-b0d35eb4d1a44132bea5d00fe53c2e2c",
+    "type": "Influence",
+    "source": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-b5e4f4d118bb4c2ba36fa31b84317cc6",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-4a64a13547164c5a86d0359bbdbcc29c",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-57f78a701a404748b49a95c6aec41f9d",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-75a1a5f0e6aa483488648b7070a45be1",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-66a16227dd5b468bb49b3615dbf68674",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-f3b4ec9450de4a9282c8547e792e97e3",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-b201878af15241838455935070cba237",
+    "type": "Influence",
+    "source": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-57614ae5d5604770bb5258ca063d19e0",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-4a1933b10a5846b5b79968d8c193c93d",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-a6acd49291094383964799cbbbe75de4",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-aaa4e6f48cac40b4b269bad2bcbfdebd",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-f3dbe724a3874c529f459c61991cb2c5",
+    "type": "Influence",
+    "source": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-3edd7b86510540648f265acc2798e927",
+    "type": "Influence",
+    "source": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-bd56bae352ea4781af268316bef5cdfc",
+    "type": "Influence",
+    "source": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-5f0ab09f8a784cba95023a28bd9b7e29",
+    "type": "Influence",
+    "source": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-cccc3428f08245529313005c696f430d",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-ae4283b08e374a478dc3a98021dbb364",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-1fd3f19177ba49d99a7f9d1ef6db1e9c",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-4476d36d777140a9b390effa81af2ead",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-8f39baea1667464ca1954b2167860ed5",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-5169c4919202489ea36ae27fc8160bbb",
+    "type": "Influence",
+    "source": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-a3f0dac57b6e4fb3a5fbcc32e6ff1778",
+    "type": "Influence",
+    "source": "id-a8a253b674eb499789578afa0a71f779",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-bb42d04cbca94f48845f2c72017ab7b2",
+    "type": "Influence",
+    "source": "id-a8a253b674eb499789578afa0a71f779",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-80fc6a26b4df4190ad07ecf67ab2913a",
+    "type": "Influence",
+    "source": "id-a8a253b674eb499789578afa0a71f779",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-b266d060a7194fb588a884689d5094a1",
+    "type": "Influence",
+    "source": "id-a8a253b674eb499789578afa0a71f779",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-0b623f091b2f46e994f989e593184276",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-97a3f61a58de4521b928f821f6cff788",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-bb132fabd9f4425badb8dc76677fa446",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-8554af4bfe4f46bea94f13c9d89777ed",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-337143e818b24e98bf3d49b3e6915a4f",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-7331fe85cc1e4c868b732684266f2153",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-e9b121551c7d4597b6f5b3a26d8f88a4",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a6d6c116e7bc4b90b30a2e2dbbd532e8",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-cc4ab352be8646a99fbd54fd16582a52",
+    "type": "Influence",
+    "source": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-a186cc228ee94b2e9ab7936d524cb1ea",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-5d50e96f736047bb98b086227749dd76",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-f9791072ab9d4f55bc95250919cde617",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-1500f4b2e6e04c64b6f1a8a23410d6ec",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-46ede3fdf0314d9c97ea511044ec40a7",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-d3f09cc1f29b47dfa83d4630d23232b1",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-31c5b3f1ae7c43e596eba55fd0b0b4bc",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-b5d4c7370f8c41f5a4630d4f36ac7b77",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-3a065123867c43daa592f11193995d60",
+    "type": "Influence",
+    "source": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-f83f1d31a2d74cce97d737b3a5232b85",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-a4a10613443943b5ab6f9319ffd41c5f",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-0ce01d38168142bfbd97a0119f136a14",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-1d6867672aa841a4be3de6cef36fa7f2",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-a2f4b71825ab441fab63c89b49da840e",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-c7be9f66fdb740559d914d473ef9daa7",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-8ec52a0ea53e4c078df3632c790acc3b",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-10f40486b8d24fc89a19601632398c60",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-84b4aa59f6d64ed9a720bdf8f18b1e3d",
+    "type": "Influence",
+    "source": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-d2a807cf454d405187409b6d3580fe8e",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-e85909bbedc542fd9b2a1f3ece177b63",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-ae3dcaa222384a8c8cca1eb67970aac2",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-cfcde365951f40e9b613aa0e17aa53dd",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-f64767f0feae47bcab7d86eae46208c8",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-7da4821ae6854c7885e74025e2377875",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-d68fa380f10a40ab907bc9007db063b1",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-4084e078b8524efaa59a396c137c74df",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-1988aea2dae648309a1e8dc97d1f3caf",
+    "type": "Influence",
+    "source": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-8818063cee4c49ddbfbcd57130ac70f9",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-72af66de39ea44dd850dd50abd97cc23",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-532b1f82cd11468190d49531f67c5e50",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-80188312eed54a1e9d00380e1c8b90fb",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-56716869c61346818cfaba96cfa99f41",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-c27a18cc465a490fb6d7feb38c98f9f6",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a5f3fab2b3d5426db6e38e2ecd5bfa51",
+    "type": "Influence",
+    "source": "id-302b8a2a630543549a635446e953d818",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-3007835d0db04d4796a0296f42717aed",
+    "type": "Influence",
+    "source": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-99ba4c17f5c04d5f8282fb1ee8dc1c17",
+    "type": "Influence",
+    "source": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-a001487d794a4ad395cc575994a1cbe1",
+    "type": "Influence",
+    "source": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-c7861b9386fb4e4e9578c23a40cf66fe",
+    "type": "Influence",
+    "source": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-ebe734a17ae447e0a0a8ef36e8ceb9be",
+    "type": "Influence",
+    "source": "id-566780e6923a45129f9da533a3b9c626",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-61ea9f2bfda04831a2c7e67a14c5540d",
+    "type": "Influence",
+    "source": "id-566780e6923a45129f9da533a3b9c626",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a2f94863081748af95d23c1e9afa9c61",
+    "type": "Influence",
+    "source": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-a7104ff7b5b5408ba3e83edefc756280",
+    "type": "Influence",
+    "source": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-d1864199bbd84d95813062fd6fc21d21",
+    "type": "Influence",
+    "source": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-e5b9f41d357f42e09066ed532c8a2c0b",
+    "type": "Influence",
+    "source": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-ea75a8167700485e83d401ad7c5bf8ed",
+    "type": "Influence",
+    "source": "id-ad797572b3574dc49ae91a374d088d28",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-fc1569452d6b48d990bece89fc08bc72",
+    "type": "Influence",
+    "source": "id-ad797572b3574dc49ae91a374d088d28",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-ec649f247eaf451ea843b4abc017e5f3",
+    "type": "Influence",
+    "source": "id-ad797572b3574dc49ae91a374d088d28",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a62de8af3ca048e38f216807da3c4442",
+    "type": "Influence",
+    "source": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-4ed991dff2f74591bf98e0d2d03c0caf",
+    "type": "Influence",
+    "source": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-11ffcac083024cf882f4c1422a8e56e7",
+    "type": "Influence",
+    "source": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-85b0e5fbc17f41508ef474afc756c87d",
+    "type": "Influence",
+    "source": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-05db6d9155474c41a71ec2c8825da5ae",
+    "type": "Influence",
+    "source": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-212d9206d1d642a38fda39efb9af2746",
+    "type": "Influence",
+    "source": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-739f3b39f2e7427398985576de2bc22f",
+    "type": "Influence",
+    "source": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-a0eb8e6868564efeacb921969da29d3f",
+    "type": "Influence",
+    "source": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-b5ee77e7cf44469ea59de318e0f930f0",
+    "type": "Influence",
+    "source": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-02b38aa2ab3b4e29887c1b717e8e1fa1",
+    "type": "Influence",
+    "source": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-f8f2ecd364714af6b8e01bfc1d9947b2",
+    "type": "Influence",
+    "source": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-d7f00f32daa645efa85fbe5e8f9d6e28",
+    "type": "Influence",
+    "source": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-dd10c1ac0eca4f5aaadd07ee0e45c5ac",
+    "type": "Influence",
+    "source": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-aa20fe4ef2d34b1387f98305051dc43b",
+    "type": "Influence",
+    "source": "id-96a6741884e24fbc8318b23ee99b0285",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-64c4f94cd427499d900f066f5ed571bd",
+    "type": "Influence",
+    "source": "id-96a6741884e24fbc8318b23ee99b0285",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-5a98f60bb7c243238c1c6b01194b8892",
+    "type": "Influence",
+    "source": "id-96a6741884e24fbc8318b23ee99b0285",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-934c984338d5478fa78452e99f11f8b4",
+    "type": "Influence",
+    "source": "id-96a6741884e24fbc8318b23ee99b0285",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-9fd8e09406c74072b602112abeabd49f",
+    "type": "Influence",
+    "source": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-8463eabb887847fb841bb2a4d77b6235",
+    "type": "Influence",
+    "source": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-afbd7090ef3248dfa16ddbf6354a4fc5",
+    "type": "Influence",
+    "source": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-d876b55e200b4666822e8f73328f6c80",
+    "type": "Influence",
+    "source": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-f9848100fa0944ca800e7748b7358ed4",
+    "type": "Influence",
+    "source": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-01591de2d6d140b0b36b722a0ad54021",
+    "type": "Influence",
+    "source": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-af77a8ec7ce048a894f7ebd04223e1c3",
+    "type": "Influence",
+    "source": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-5d6271ae56ea435daa48211eb78f1608",
+    "type": "Influence",
+    "source": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-9688c47e425248169dbbf6ec30d037e9",
+    "type": "Influence",
+    "source": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-e714c6d1ff5f4639adb501ead5ef35ec",
+    "type": "Influence",
+    "source": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-7166e52d75874779b1d79bf5fbca0dd0",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-800e585676d04d4196bdfe936e36b7fd",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-88221bc20b274841b123bce5722da1cd",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-f9fd65274db04c8f92216a0b95358350",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-080f3d825cb14cca90bd32ae6c30f6ef",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-913fbf08ad564189b58b8ec59d6b4319",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-f7a094fe72024669a2d5408a73be56da",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-c36a10ecb5ed4224aed9601a235ba0b5",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-ad47a0072543411e9272a244ff4510fd",
+    "type": "Influence",
+    "source": "id-617f84d90f784ede979c70728faaae62",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-083fec1cddd846fd91b54ef9bd597521",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-983d9a89652c435ead05c4ec55da379e",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-1c928e2d294c4bafa8a7eb2fc21136e5",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-059abc0f856f4298af6557db8f165a99",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-db8960e168f24efdb7e688ce8078daf5",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-63620da6556a4114a5766951d4bd3645",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-59446539c91d4e57804d5e9c28e33aa1",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-ae11e2789dcd4e18b27dab7bc288aa4d",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-1e88dd6bb7b24e55b335484bd43e0e34",
+    "type": "Influence",
+    "source": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-e47756bf6b094fa8b5a2c49214fc7739",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-3f707d78153345159d19dc1ed370051f",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-cf7a3ba3c8b84d3cb04cb191bff2e86b",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-b950354136354d7d8b3c2e93018334c1",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-efb498c6ce7a493bac0b6a5fceaa30b1",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-4ba0eb887edc4053ade72f1f187d8016",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-29e780894b2a477db88bac4a58734061",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-6ff86e06cd674c50b3d5d59c84925855",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-474fce8a39c7423fa5fb6d95269a3109",
+    "type": "Influence",
+    "source": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-69358a5119964d9db666f5dc177dfb3e",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-c65ce4bc4fc246f6a04c7d63550d9148",
+    "type": "Influence",
+    "source": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-57d0ea8c605c4dd486b93150420b1c5f",
+    "type": "Influence",
+    "source": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-2fc27e6bb7d248a991994d9270ba58fc",
+    "type": "Influence",
+    "source": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-9c727d9f104a45b9b32a95aae52d1b91",
+    "type": "Influence",
+    "source": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-4dab0f0394b94adc8165b96e67b68087",
+    "type": "Influence",
+    "source": "id-688234b4d9714354b05eb95f12c13067",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-9acc31db61fe46a493238fb8816f9dce",
+    "type": "Influence",
+    "source": "id-688234b4d9714354b05eb95f12c13067",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-249e0d66cc4b42a3bbb566c233c438a7",
+    "type": "Influence",
+    "source": "id-688234b4d9714354b05eb95f12c13067",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-8c24357ee39b4e66862d49efc577dbac",
+    "type": "Influence",
+    "source": "id-688234b4d9714354b05eb95f12c13067",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-0308084477464e04a9c849068b108822",
+    "type": "Influence",
+    "source": "id-8b21a680072249f087798797c119828d",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-7764407caf504ad6a09926d7c3e3046b",
+    "type": "Influence",
+    "source": "id-8b21a680072249f087798797c119828d",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-44e0a67d270a4dfeac6849ff1d4e0b29",
+    "type": "Influence",
+    "source": "id-8b21a680072249f087798797c119828d",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-101fce5327bf49ecab664950bf3d9003",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-af06b0a8f6c34aa9af9e47e8c3900b30",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-e96612b4539e4d97a8c5b043ec54a351",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-01a25092b6794fdfbbe279ac37129b45",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-2f5ae6363e114c63bbe7c89ffab11262",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-ea7be32d8ccc4d0bb12751ae06e931b1",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-077851d5a6024f96bea1a10176879fb0",
+    "type": "Influence",
+    "source": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-5463471e78494353a54360ad4de0972d",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-d9ab827586a94d3d94719be5afdde9a2",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-2c393c8528034067b4128077778f8902",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-c514566a8e2348c1ab49b2fceff8a93f",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-c1c275a5c5134443a325278740fb0782",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-6dd1107f55a44e0ba14cf60c3d2bb9fc",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-ed951bd6465b4fa2a623311cbf76fe6c",
+    "type": "Influence",
+    "source": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-5dcf00dffacd4973849e9035110c2b8a",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-660bda64e4b646e19eb984bf64d05c02",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-93de8e9d4b224651aed19995d8c9b9d9",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-1c78429b0a1b4abd9e9941677d0b7170",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-e5e52d02144e4efe9ef18d94736c0974",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-081acea4c84a40b3a0c8a43698313c9a",
+    "type": "Influence",
+    "source": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-f81c6454c3c74c37a3f5b4cfc5e15e9b",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-058777cdc99d4cd089f32915e183b110",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-14a6ae8e540344f2ba23c34b6f25acf6",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-f1a4f220af764ce58f283287a35b4a55",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-efc95052cd484355a04118a87d7294af",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-cbe13642fea84a7a8a3536c14396b629",
+    "type": "Influence",
+    "source": "id-aac4827af05848e4b8084b59a221547f",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-1845b1f73b10416dabb4d9678bd532eb",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-b81b719b37454aefab62813338b585eb",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-1cf5a64c546f43ecb777be05b374dd79",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-330656f7a08d4c848b3db2ea2bfb3034",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-0d9b59378cff45c5b1213d781a3c284d",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-537609556a024bf0815c2ab499c72971",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-d3c6746c6f054eba9543fc87da9c9aee",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-4047ec57bd2444c696e85f4b42da96dc",
+    "type": "Influence",
+    "source": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-56fb58edb5664c65b931b31e31bff6da",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-79c4e3c578684b6c806b91c8affa1a2f",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-5cca53079a0b4f089cc3f23bc3ffa307",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-44071b849d984954995768f44803bd79",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-8405c0a02f1f4d578faeffb90d241f43",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-dcbc6304ecd24ce2a7e1efa4d7021397",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-08d9b0cc796b42d5bf3874e7f1acb3ef",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-781a211ee38745548541bfa872151097",
+    "type": "Influence",
+    "source": "id-65f074f61fd248599439b0e05ff24d57",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-c8b35e08390448708f4bc8f3e2ba1ef7",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-bf412b48f9b54b11a7b59e7745f993ae",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-353a6dc0ae6143b5808c783afe3ad6f0",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-6ebbf8c74b49434384ae535f7f13ab18",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-2921f3bbc50c45cab8cedc7622718e8a",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-19170d0c6d734162be04efff007e4a82",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-58bf3e775f474bdc925c8e286a1382fb",
+    "type": "Influence",
+    "source": "id-87f2fd293d834474852d0249d612d248",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-c85ccf5306f84efa8696733723574400",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-09cdeb38201b41b3ab675bf2bc4d2dc4",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-4e40467af46f46359fb6a8d3b23a905a",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-9fc1dda18fe14df1a8690eec042cf631",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-1b1c2400392243ddac059a2f0572731e",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-981299e4951f4d82b619b35b4b3f5797",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-5d613fa982a34352862ac0a0b3b138f0",
+    "type": "Influence",
+    "source": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-04e74adf5a19436ab45a383c8596b4c2",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-7c085524bc534ef1a0cdfb90c6f0a123",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-cad29e66da9c48d3a21124fe295ee600",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-73da4701a62446198b99feb8efd8aa92",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-64ad4b84e2aa42828a09f34e934a21db",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-426cd908a085464d9e2fabcc3f2df068",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-cb04aaf69a384b74b4aa9e861dfffab5",
+    "type": "Influence",
+    "source": "id-4c4e411491b44aab848d886a5b9068da",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-13afdd9f0acf460b90d7775c248fc92c",
+    "type": "Influence",
+    "source": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-a9b793e69ed64413854e17d3ea946fb9",
+    "type": "Influence",
+    "source": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-a5f8f3e7d6c34a78b6a892e1b469225b",
+    "type": "Influence",
+    "source": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-f9914e85b98d4d03bbec806a5c477d44",
+    "type": "Influence",
+    "source": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-8c036e1f7ad240239f84b09dfc6fe961",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-5a811fe8d2c5477e9fe70a32817f085a",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-63f78269cb5b463aa3faaf045aa67b1e",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-4c51b4f889034dad9007c1f4d5c259cc",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-ddf4454a1cd344b7a126208efa1465bf",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-99d8262fcb8f41f9808f5f3c699557c2",
+    "type": "Influence",
+    "source": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-6830b41148e547f9b41627a7330eb85d",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-b111195f048347eebfbdf9b14c0289a0",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-61e2c8bc045c4b709e539ba0c4b02c12",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-dbd32afdafb54c9882eeabd491541d9c",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-a370fe46cd93481fae75b84b05ca47de"
+  },
+  {
+    "identifier": "id-a48b47f5430f44b298da79ddc60bb654",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-c72213273b7a4811bf54b7d4191d2859",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-988ef99d3f8045319ad4119768867d5d",
+    "type": "Influence",
+    "source": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-ef8aedf2bab14dbab143278d1817b5da",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-40cbb80f01de423fb7b7fc3866fd6329",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-92cb15dc166145139a8914616ea44361"
+  },
+  {
+    "identifier": "id-fe1f70ec9aa5439298e56e3bb59badb3",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-d7b9574c1fb54458bd1282586a70f76a",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-36f673dac0c947feb6f2a6a1a9d4b23b",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-a966dd56ac4f4fb8bf2ae1e07ef72b05",
+    "type": "Influence",
+    "source": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-4de15fe8b48141bc9e036b389cb95679",
+    "type": "Influence",
+    "source": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-365bab5bc16643f0a7b9e7f21acc5528",
+    "type": "Influence",
+    "source": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target": "id-0fe8daa36a5d46a1bcd37ef57328e619"
+  },
+  {
+    "identifier": "id-0fec5a86344548929d211eed2c1caca6",
+    "type": "Influence",
+    "source": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-9d97b1b9c8514e58af15e512b003c007",
+    "type": "Influence",
+    "source": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-7f4889ed5ff84901a9c03a8904a4e721",
+    "type": "Influence",
+    "source": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-197f9f1b06094eb091297379322d79ae",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-eb79013754b94007bc7488f67aec3412",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5"
+  },
+  {
+    "identifier": "id-e4e29a128e824aa1a6b3471ae0c52a71",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-bb2c51c80c0547f8a82b678097ddb383",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-bb6fa984bf4b46f39ed4aed4963f401f",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-84e95c7c79d54a86a1859700bcdda0ae",
+    "type": "Influence",
+    "source": "id-82c82c4707454e6496550de15ae487f5",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-9a28298c81344532865c50cf89ac51ce",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  },
+  {
+    "identifier": "id-f905f2de4d644a2eae981eecbf88e22e",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-c36815b62397408ea0e8197399ac2746",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-b93390d97e114cbfb87e9a104a1e90a1",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-2436358885524fbb8d313010f749bb5e"
+  },
+  {
+    "identifier": "id-215f4d830aff4fecae243953983c1605",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-b79e5502abf847aabadb80e97285b051",
+    "type": "Influence",
+    "source": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-7486ea47df744138862b1025482cabd4",
+    "type": "Influence",
+    "source": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target": "id-b405f25f25b945978a72493527f75a85"
+  },
+  {
+    "identifier": "id-22d07a495dcc44389221947f1b077bca",
+    "type": "Influence",
+    "source": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target": "id-57bf1eb79db247d4ae0737d3dab40a6e"
+  },
+  {
+    "identifier": "id-5e2e9a46b4d849aba0a3e51d938df35e",
+    "type": "Influence",
+    "source": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target": "id-378e61fb192c48b5bd69d4f8ee25d4db"
+  },
+  {
+    "identifier": "id-a8ed39f77f924fc6b61747e614ab9309",
+    "type": "Influence",
+    "source": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target": "id-666376c10d6e43f5a9b45f70311c45d8"
+  },
+  {
+    "identifier": "id-4fcb5fb5b5444ffa957676fe519f59f1",
+    "type": "Influence",
+    "source": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target": "id-88910bb6647348ea8a0ee615178a455a"
+  }
+]
