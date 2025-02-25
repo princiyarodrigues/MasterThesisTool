@@ -1,8 +1,9 @@
+// src/app/api/strategic-goals/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import connectDB from '@/lib/mongodb';
 import User from '@/models/User';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 // GET: Fetch the user's strategic goal selections
 export async function GET(req) {

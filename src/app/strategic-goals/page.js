@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowRight, Check, Save, AlertCircle } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { useSession } from 'next-auth/react';
@@ -15,39 +15,116 @@ export default function StrategicGoalsPage() {
   const [saveStatus, setSaveStatus] = useState({ type: '', message: '' });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [initialized, setInitialized] = useState(false);
 
+  // Redirect if not authenticated
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/auth/signin');
     }
   }, [status, router]);
 
-  // Fetch goals from the database
+  // Initialize from localStorage
   useEffect(() => {
-    const fetchGoals = async () => {
+    if (status === 'authenticated' && !initialized) {
+      // Get from localStorage first
       try {
-        setLoading(true);
-        const response = await fetch('/api/goals');
+        const savedSelections = localStorage.getItem('strategicGoalSelections');
+        if (savedSelections) {
+          const parsedSelections = JSON.parse(savedSelections);
+          console.log('Loaded selections from localStorage:', parsedSelections);
+          
+          // Filter out any invalid selections (like undefined keys)
+          const validSelections = {};
+          Object.entries(parsedSelections).forEach(([key, value]) => {
+            if (key !== 'undefined' && key !== 'null') {
+              validSelections[key] = value;
+            }
+          });
+          
+          setSelectedGoals(validSelections);
+        }
+      } catch (e) {
+        console.error('Error parsing saved selections:', e);
+      } finally {
+        setInitialized(true);
+      }
+    }
+  }, [status, initialized]);
+
+  // Save to localStorage whenever selections change
+  useEffect(() => {
+    if (initialized) {
+      console.log('Saving selections to localStorage:', selectedGoals);
+      localStorage.setItem('strategicGoalSelections', JSON.stringify(selectedGoals));
+    }
+  }, [selectedGoals, initialized]);
+
+  // Fetch goals and selections from database
+  useEffect(() => {
+    const fetchData = async () => {
+      if (status !== 'authenticated' || !initialized) return;
+      
+      setLoading(true);
+      
+      try {
+        // Fetch goals
+        const goalsResponse = await fetch('/api/goals');
         
-        if (!response.ok) {
+        if (!goalsResponse.ok) {
           throw new Error('Failed to fetch goals');
         }
         
-        const data = await response.json();
-        // Format the goals data to match the expected structure
-        const formattedGoals = data.map(goal => ({
-          id: goal.id,
-          title: goal.name.split(' ').slice(1).join(' '), // Extract title from name
-          description: goal.name, // Use the full name as description for now
-          // Determine color based on goal ID prefix
-          color: goal.name.startsWith('1.') ? 'bg-blue-50'
-            : goal.name.startsWith('2.') ? 'bg-green-50'
-            : goal.name.startsWith('3.') ? 'bg-purple-50'
-            : goal.name.startsWith('4.') ? 'bg-orange-50'
-            : 'bg-gray-50'
-        }));
+        const goalsData = await goalsResponse.json();
+        console.log('Fetched goals from API:', goalsData);
+        
+        // Format goals data
+        const formattedGoals = goalsData.map(goal => {
+          // Ensure ID is a string and not undefined
+          const goalId = String(goal._id || goal.id);
+          console.log('Processing goal ID:', goalId, 'from goal:', goal);
+          
+          return {
+            id: goalId,
+            name: goal.name,
+            title: goal.name.split(' ').slice(1).join(' '), // Extract title from name
+            description: goal.name, // Use the full name as description for now
+            // Determine color based on goal name prefix
+            color: goal.name.startsWith('1.') ? 'bg-blue-50'
+              : goal.name.startsWith('2.') ? 'bg-green-50'
+              : goal.name.startsWith('3.') ? 'bg-purple-50'
+              : goal.name.startsWith('4.') ? 'bg-orange-50'
+              : 'bg-gray-50'
+          };
+        });
         
         setGoals(formattedGoals);
+        
+        // Fetch selections from backend
+        try {
+          const selectionsResponse = await fetch('/api/strategic-goals');
+          
+          if (selectionsResponse.ok) {
+            const selectionsData = await selectionsResponse.json();
+            console.log('Fetched selections from backend:', selectionsData);
+            
+            // Only update if we got valid data and it's not empty
+            if (selectionsData && Object.keys(selectionsData).length > 0) {
+              // Filter out any invalid selections (like undefined keys)
+              const validSelections = {};
+              Object.entries(selectionsData).forEach(([key, value]) => {
+                if (key !== 'undefined' && key !== 'null') {
+                  validSelections[key] = value;
+                }
+              });
+              
+              setSelectedGoals(validSelections);
+            }
+          }
+        } catch (selectionsError) {
+          console.error('Error fetching selections:', selectionsError);
+          // Continue execution - we'll use the localStorage data we loaded earlier
+        }
       } catch (err) {
         console.error('Error fetching goals:', err);
         setError(err.message);
@@ -56,57 +133,62 @@ export default function StrategicGoalsPage() {
       }
     };
 
-    // Fetch selections
-    const fetchSelections = async () => {
-      try {
-        // First try to get from localStorage
-        const savedSelections = localStorage.getItem('strategicGoalSelections');
-        if (savedSelections) {
-          console.log('Found selections in localStorage:', JSON.parse(savedSelections));
-          setSelectedGoals(JSON.parse(savedSelections));
-        }
+    fetchData();
+  }, [status, initialized]);
 
-        // Then try to fetch from backend
-        const response = await fetch('/api/strategic-goals');
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Fetched selections from backend:', data);
-          setSelectedGoals(data);
-          localStorage.setItem('strategicGoalSelections', JSON.stringify(data));
-        }
-      } catch (error) {
-        console.error('Error fetching selections:', error);
-      }
-    };
-
-    if (status === 'authenticated') {
-      fetchGoals();
-      fetchSelections();
+  // Use useCallback to memoize the handler
+  const handleGoalSelection = useCallback((goalId) => {
+    // Skip if goalId is invalid
+    if (!goalId || goalId === 'undefined' || goalId === 'null') {
+      console.error('Invalid goal ID:', goalId);
+      return;
     }
-  }, [status]);
+    
+    console.log('Goal clicked:', goalId);
+    console.log('Current selection state:', selectedGoals);
+    
+    setSelectedGoals(prevSelections => {
+      // Check current selection explicitly
+      const currentlySelected = prevSelections[goalId] === true;
+      console.log('Is currently selected:', currentlySelected);
+      
+      const newSelections = {
+        ...prevSelections,
+        [goalId]: !currentlySelected
+      };
+      
+      console.log('New selections:', newSelections);
+      return newSelections;
+    });
+  }, []);
 
-  const handleGoalSelection = (goalId) => {
-    const newSelections = {
-      ...selectedGoals,
-      [goalId]: !selectedGoals[goalId]
-    };
-    setSelectedGoals(newSelections);
-    // Explicitly save to localStorage whenever a selection changes
-    localStorage.setItem('strategicGoalSelections', JSON.stringify(newSelections));
-  };
-
-  const handleSave = async () => {
+  const handleSave = useCallback(async () => {
     setIsSaving(true);
     setSaveStatus({ type: '', message: '' });
 
     try {
+      // Filter out any invalid selections before saving
+      const validSelections = {};
+      Object.entries(selectedGoals).forEach(([key, value]) => {
+        if (key !== 'undefined' && key !== 'null') {
+          validSelections[key] = value;
+        }
+      });
+      
+      console.log('Saving selections to database:', validSelections);
+      
       const response = await fetch('/api/strategic-goals', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ selections: selectedGoals }),
+        body: JSON.stringify({ 
+          selections: validSelections
+        }),
       });
+
+      const responseData = await response.json();
+      console.log('Save response:', responseData);
 
       if (response.ok) {
         setSaveStatus({
@@ -114,10 +196,10 @@ export default function StrategicGoalsPage() {
           message: 'Selections saved successfully'
         });
       } else {
-        const data = await response.json();
-        throw new Error(data.error || 'Error saving selections');
+        throw new Error(responseData.error || 'Error saving selections');
       }
     } catch (error) {
+      console.error('Error saving selections:', error);
       setSaveStatus({
         type: 'error',
         message: error.message
@@ -126,7 +208,7 @@ export default function StrategicGoalsPage() {
       setIsSaving(false);
       setTimeout(() => setSaveStatus({ type: '', message: '' }), 3000);
     }
-  };
+  }, [selectedGoals]);
 
   if (status === 'loading' || loading) {
     return <LoadingSpinner />;
@@ -148,6 +230,15 @@ export default function StrategicGoalsPage() {
   if (!session) {
     return null;
   }
+
+  // Ensure each goal has a unique string ID
+  const goalsWithUniqueKeys = goals.map((goal, index) => {
+    console.log('Creating unique key for goal:', goal.id, 'at index:', index);
+    return {
+      ...goal,
+      uniqueKey: `goal-${String(goal.id || 'unknown')}-${index}`
+    };
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -190,13 +281,18 @@ export default function StrategicGoalsPage() {
             <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 transform -translate-y-1/2 z-0" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
-              {goals.map((goal, index) => {
-                const isSelected = selectedGoals[goal.id] || false;
+              {goalsWithUniqueKeys.map((goal, index) => {
+                // Ensure goal.id is valid and log it
+                const goalId = goal.id;
+                console.log('Rendering goal:', goalId);
+                
+                // Check for selection with explicit comparison
+                const isSelected = selectedGoals[goalId] === true;
                 
                 return (
                   <div
-                    key={goal.id}
-                    onClick={() => handleGoalSelection(goal.id)}
+                    key={goal.uniqueKey}
+                    onClick={() => handleGoalSelection(goalId)}
                     className={`
                       ${goal.color} rounded-lg p-4 shadow-sm border cursor-pointer
                       ${isSelected ? 'border-green-500' : 'border-gray-200'}
@@ -213,7 +309,7 @@ export default function StrategicGoalsPage() {
                     </div>
 
                     {/* Connector Arrow */}
-                    {index !== goals.length - 1 && (
+                    {index !== goalsWithUniqueKeys.length - 1 && (
                       <div className="hidden lg:block absolute -right-2 top-1/2 transform -translate-y-1/2 z-20">
                         <ArrowRight className="w-4 h-4 text-gray-400" />
                       </div>
@@ -222,7 +318,7 @@ export default function StrategicGoalsPage() {
                     <div className="flex flex-col h-full pr-8">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-semibold text-gray-600">
-                          {goal.id}
+                          {goal.name ? goal.name.split(' ')[0] : ''}
                         </span>
                       </div>
                       <h3 className="font-medium text-gray-900 mb-1">
