@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const connectDB = require('../src/lib/mongodb'); // Adjust the path accordingly
 const fs = require('fs');
@@ -5,10 +6,32 @@ const { Capability, Goal, Composition, Influence } = require('../src/models'); /
 require('dotenv').config();
 
 // Load JSON data
-const capabilities = JSON.parse(fs.readFileSync('scripts/capabilities.json', 'utf8'));
+const factoryPlanningCapabilities = JSON.parse(fs.readFileSync('scripts/businessCapabilitiesFactory.json', 'utf8'));
+const productionPlanningCapabilities = JSON.parse(fs.readFileSync('scripts/businessCapabilitiesProduction.json', 'utf8'));
+const technicalCapabilities = JSON.parse(fs.readFileSync('scripts/technicalCapabilities.json', 'utf8'));
 const goals = JSON.parse(fs.readFileSync('scripts/goals.json', 'utf8'));
 const compositions = JSON.parse(fs.readFileSync('scripts/composition_relationships.json', 'utf8'));
 const influences = JSON.parse(fs.readFileSync('scripts/influence_relationships.json', 'utf8'));
+
+// Add category to each capability
+factoryPlanningCapabilities.forEach(cap => {
+    cap.category = 'Factory Planning';
+});
+
+productionPlanningCapabilities.forEach(cap => {
+    cap.category = 'Production Planning';
+});
+
+technicalCapabilities.forEach(cap => {
+    cap.category = 'Technical';
+});
+
+// Combine all capabilities
+const capabilities = [
+    ...factoryPlanningCapabilities,
+    ...productionPlanningCapabilities,
+    ...technicalCapabilities
+];
 
 // Function to ensure `_id` is stored as a **valid ObjectId** or **string**
 const convertToObjectId = (id) => {
@@ -17,7 +40,7 @@ const convertToObjectId = (id) => {
         : id; // Keep as a string if not valid ObjectId
 };
 
-// ✅ Convert fields where necessary
+// Convert fields where necessary
 capabilities.forEach(item => {
     item._id = item.identifier; // Keep `_id` as a string
     item.name = String(item.name);
@@ -26,7 +49,7 @@ goals.forEach(item => {
     item._id = item.identifier;
     item.name = String(item.name);
 });
-// Self referenced relationship for capabilites. It is 1 to 1 relationship where there are parent and miultiple capabilites
+// Self referenced relationship for capabilites. It is 1 to 1 relationship where there are parent and multiple capabilites
 compositions.forEach(item => {
     item._id = item.identifier;
     item.source = convertToObjectId(item.source);

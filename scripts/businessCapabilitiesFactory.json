@@ -1,0 +1,157 @@
+[
+    {
+      "identifier": "id-4646ef414db64c279bab39e972170b3e",
+      "type": "Capability",
+      "name": "1.0 Zielplanung"
+    },
+    {
+      "identifier": "id-8fc586d205cf480b89cc0250cd9f3e02",
+      "type": "Capability",
+      "name": "1.1 Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-f5373a122a1a4f17b3f925e62784cc46",
+      "type": "Capability",
+      "name": "1.2 Zielszenarienabsicherung"
+    },
+    {
+      "identifier": "id-1cc71a396f7344928a40df22dcbeb078",
+      "type": "Capability",
+      "name": "2.0 Standortauswahl"
+    },
+    {
+      "identifier": "id-232ec21f9c2e4a7ea39bf2387529202b",
+      "type": "Capability",
+      "name": "2.1 Standortübertrag (bestehende Werksbestandteile)"
+    },
+    {
+      "identifier": "id-a0dddcd57033435e92eebe8135affaac",
+      "type": "Capability",
+      "name": "3.0 Werkstruktur- & Layoutplanung"
+    },
+    {
+      "identifier": "id-54695ec421184aa6875e9c80534916e1",
+      "type": "Capability",
+      "name": "3.1 Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-5203aeddb7c04d5094e7b7f71807db16",
+      "type": "Capability",
+      "name": "3.2 Materialflussüberwachung"
+    },
+    {
+      "identifier": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+      "type": "Capability",
+      "name": "3.3 Virtuelle Fabrikgestaltung"
+    },
+    {
+      "identifier": "id-9bbb4e630c1543dd83c82bcc5589252c",
+      "type": "Capability",
+      "name": "3.4 Automatisierte Generierung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-e0f47838ec8b441a874968e54ee5b9d2",
+      "type": "Capability",
+      "name": "4.0 Umsetzungsplanung"
+    },
+    {
+      "identifier": "id-81f0026099e94a5eae1112f7b2944ae6",
+      "type": "Capability",
+      "name": "4.1 (Schrittweise) Erweiterungsplanung"
+    },
+    {
+      "identifier": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+      "type": "Capability",
+      "name": "4.3 Virtuelle Inbetriebnahme"
+    },
+    {
+      "identifier": "id-e6efe2833def4ac0bcff38a28c6a0863",
+      "type": "Capability",
+      "name": "5.0 Wirtschaftlichkeitsberechnung"
+    },
+    {
+      "identifier": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+      "type": "Capability",
+      "name": "5.1 Kennzahlentracking (Echtzeit)"
+    },
+    {
+      "identifier": "id-9dc05b28fb8540f0bd94a95454abee5b",
+      "type": "Capability",
+      "name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel"
+    },
+    {
+      "identifier": "id-579b4f463438424d8b3d9e293d8f5c26",
+      "type": "Capability",
+      "name": "6.6 Automatisierte Dimensionierung Betriebsmittel"
+    },
+    {
+      "identifier": "id-f0002839928a4a7e9d17c060e7e36d2d",
+      "type": "Capability",
+      "name": "7.0 Prozessplanung"
+    },
+    {
+      "identifier": "id-402902ec7d1f4e48acb8f0800f1cd68c",
+      "type": "Capability",
+      "name": "8.0 Personal- & Organisationsplanung"
+    },
+    {
+      "identifier": "id-95f9426360534796bf6c4d01f1621974",
+      "type": "Capability",
+      "name": "9.0 IT-Ausstattungsplanung"
+    },
+    {
+      "identifier": "id-09b9670c68174931b4cde30f0dc5c8f9",
+      "type": "Capability",
+      "name": "10.0 Produktionsstrukturplanung"
+    },
+    {
+      "identifier": "id-bdd8791faf1249f194efbb42f00562bb",
+      "type": "Capability",
+      "name": "10.1 Automatisierte Dimensionierung Funktionsschema"
+    },
+    {
+      "identifier": "id-96a6741884e24fbc8318b23ee99b0285",
+      "type": "Capability",
+      "name": "10.2 Automatisierte Dimensionierung Flächen"
+    },
+    {
+      "identifier": "id-243d0153f12d44578a0058953930bc38",
+      "type": "Capability",
+      "name": "11.0 Arbeitsplatzgestaltung"
+    },
+    {
+      "identifier": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+      "type": "Capability",
+      "name": "11.1 Virtuelle Arbeitsplatzgestaltung"
+    },
+    {
+      "identifier": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+      "type": "Capability",
+      "name": "6.0 Arbeitsvorbereitung"
+    },
+    {
+      "identifier": "id-8d0eacf62fab4392aa3a823bd20b5972",
+      "type": "Capability",
+      "name": "6.1 Automatisierte Vorgabezeitermittlung"
+    },
+    {
+      "identifier": "id-8b21a680072249f087798797c119828d",
+      "type": "Capability",
+      "name": "6.3 Automatisierte Entwicklung Arbeitsablaufschema"
+    },
+    {
+      "identifier": "id-67f1593fceb646aa8ba670f43141c22a",
+      "type": "Capability",
+      "name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel"
+    },
+    {
+      "identifier": "id-a3cc79903bdc4cd88855b18e358f8f72",
+      "type": "Capability",
+      "name": "6.5 Automatisierte Dimensionierung Betriebsmittel"
+    },
+    {
+      "identifier": "id-688234b4d9714354b05eb95f12c13067",
+      "type": "Capability",
+      "name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)"
+    }
+  ]

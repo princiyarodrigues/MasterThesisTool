@@ -57,17 +57,42 @@ export async function fetchGoals() {
   }
   
   /**
+   * Fetches capabilities by category
+   * @param {string} category - The category to filter capabilities by ('Factory Planning', 'Production Planning', 'Technical')
+   * @returns {Promise<Array>} Array of capability objects matching the category
+   */
+  export async function fetchCapabilitiesByCategory(category) {
+    try {
+      const response = await fetch(`/api/capabilities/by-category/${encodeURIComponent(category)}`);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch capabilities for category ${category}: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error(`Error fetching capabilities for category ${category}:`, error);
+      throw error;
+    }
+  }
+  
+  /**
    * Fetches capabilities grouped by parent capability
    * This is useful for the business capabilities view
+   * @param {string} category - Optional category to filter by ('Factory Planning', 'Production Planning')
    * @returns {Promise<Array>} Array of parent capabilities with their children
    */
-  export async function fetchCapabilityHierarchy() {
+  export async function fetchCapabilityHierarchy(category) {
     try {
-      // First fetch all capabilities
-      const capabilities = await fetchCapabilities();
+      // First fetch all capabilities, optionally filtered by category
+      let capabilities;
+      if (category) {
+        capabilities = await fetchCapabilitiesByCategory(category);
+      } else {
+        capabilities = await fetchCapabilities();
+      }
       
-      // Then fetch the composition relationships using a new endpoint 
-      // (you'll need to create this endpoint)
+      // Then fetch the composition relationships
       const response = await fetch('/api/compositions');
       
       if (!response.ok) {
@@ -110,4 +135,28 @@ export async function fetchGoals() {
       console.error('Error fetching capability hierarchy:', error);
       throw error;
     }
+  }
+  
+  /**
+   * Fetches factory planning capabilities
+   * @returns {Promise<Array>} Array of factory planning capability objects
+   */
+  export async function fetchFactoryPlanningCapabilities() {
+    return fetchCapabilitiesByCategory('Factory Planning');
+  }
+  
+  /**
+   * Fetches production planning capabilities
+   * @returns {Promise<Array>} Array of production planning capability objects
+   */
+  export async function fetchProductionPlanningCapabilities() {
+    return fetchCapabilitiesByCategory('Production Planning');
+  }
+  
+  /**
+   * Fetches technical capabilities
+   * @returns {Promise<Array>} Array of technical capability objects
+   */
+  export async function fetchTechnicalCapabilities() {
+    return fetchCapabilitiesByCategory('Technical');
   }

@@ -1,0 +1,202 @@
+[
+    {
+      "identifier": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+      "type": "Capability",
+      "name": "1.0 Datenintegration"
+    },
+    {
+      "identifier": "id-cc44224d58744b45b171ff0371cecfd1",
+      "type": "Capability",
+      "name": "1.1 Datenakquise & Speicherung"
+    },
+    {
+      "identifier": "id-d95139dd0cda4c369a79353a36a7f5c4",
+      "type": "Capability",
+      "name": "1.2 Datenstreaming & -transformation"
+    },
+    {
+      "identifier": "id-b56979ba39814051924460d618ba1dbe",
+      "type": "Capability",
+      "name": "1.3 Datenkontextualisierung"
+    },
+    {
+      "identifier": "id-cf3aa867a7354c59b3a0a1936604eb87",
+      "type": "Capability",
+      "name": "1.3 Datenkontextualisierung"
+    },
+    {
+      "identifier": "id-692db27ab5c3420eb61352ae7001ae4a",
+      "type": "Capability",
+      "name": "1.4 Echtzeit-Verarbeitung"
+    },
+    {
+      "identifier": "id-2f812ea6cfc14086b762faed5208a287",
+      "type": "Capability",
+      "name": "1.4 Echtzeit-Verarbeitung"
+    },
+    {
+      "identifier": "id-463a343de13b48838ad63e938d3e785d",
+      "type": "Capability",
+      "name": "1.5 Publish-Subscriber-Mechanismus"
+    },
+    {
+      "identifier": "id-6194aeff9c774f68ace08daaece7c06a",
+      "type": "Capability",
+      "name": "1.5 Publish-Subscriber-Mechanismus"
+    },
+    {
+      "identifier": "id-f20d1e26c3e148ed92277067bc539769",
+      "type": "Capability",
+      "name": "1.6 Ontologie-Management"
+    },
+    {
+      "identifier": "id-8c0c7aa2d1ab42ca89bbce4a59b1a280",
+      "type": "Capability",
+      "name": "1.7 DZ-Strukturmodell Management"
+    },
+    {
+      "identifier": "id-d68ac3c81f7e48d8b237bd334f30eca1",
+      "type": "Capability",
+      "name": "1.8 DZ-Simulationsmodell Management"
+    },
+    {
+      "identifier": "id-2a044dd2d734455db8ded41d7745ad4d",
+      "type": "Capability",
+      "name": "1.9 DZ-KI-Modell Management"
+    },
+    {
+      "identifier": "id-76894b590ed74ceaa270f88a8f0025b2",
+      "type": "Capability",
+      "name": "2.0 Integration"
+    },
+    {
+      "identifier": "id-7775c0f6373e43098db72420d2efc9f6",
+      "type": "Capability",
+      "name": "2.1 Enterprise-IT-Systemintegration"
+    },
+    {
+      "identifier": "id-473fa0e6aa7e44faa1a478693363bc00",
+      "type": "Capability",
+      "name": "2.2 Engineering-IT-Systemintegration"
+    },
+    {
+      "identifier": "id-03ee2560fda741058ed159fc5075006c",
+      "type": "Capability",
+      "name": "2.3 Produktions-IT-Systemintegration"
+    },
+    {
+      "identifier": "id-4a015ffd63394ccdb6ede1201f14401a",
+      "type": "Capability",
+      "name": "2.4 Integration weiterer DZs"
+    },
+    {
+      "identifier": "id-2e8df8e530f44028bd37ee741f75cc56",
+      "type": "Capability",
+      "name": "2.5 Bereitstellen von Schnittstellen-Services"
+    },
+    {
+      "identifier": "id-fcd1a0e365ba40f0a08ae0c19b6ff01f",
+      "type": "Capability",
+      "name": "3.0 Intelligentes Verhalten"
+    },
+    {
+      "identifier": "id-2ade4c73d3b043999d86dcf3cf932df4",
+      "type": "Capability",
+      "name": "3.1 Alarm- & Benachrichtigungsmanagement"
+    },
+    {
+      "identifier": "id-914573ea07774c3e92a2e646aa7217c2",
+      "type": "Capability",
+      "name": "3.2 Berichtsgenerierung"
+    },
+    {
+      "identifier": "id-58da908f80eb4eab9c3c1af693c2ff74",
+      "type": "Capability",
+      "name": "3.3 Integration von Data Analytics Methoden"
+    },
+    {
+      "identifier": "id-d250a3f2055c4ada8bf64e38a137de25",
+      "type": "Capability",
+      "name": "3.4 Automatisiertes Verhalten aufgrung von Workflows basierend auf Geschäftslogik"
+    },
+    {
+      "identifier": "id-24c3d5762f8f4533a05c26897117ee17",
+      "type": "Capability",
+      "name": "4.0 Benutzerschnittstelle"
+    },
+    {
+      "identifier": "id-55071435b64244e296a03474e5cc29e5",
+      "type": "Capability",
+      "name": "4.1 3D-Visualisierung"
+    },
+    {
+      "identifier": "id-ab1f9c2f5be443ae87e8cdb46f602b91",
+      "type": "Capability",
+      "name": "4.2 Einbindung komplexer Dashboards / Kennzahlen"
+    },
+    {
+      "identifier": "id-5fd5978bc9d94af582edf1714412daad",
+      "type": "Capability",
+      "name": "4.3 Hierarchische Darstellung der DZ-Komponenten"
+    },
+    {
+      "identifier": "id-adc3d07c3853475a8a5932ce20a15a32",
+      "type": "Capability",
+      "name": "4.4 Augmented- & Virtual Reality"
+    },
+    {
+      "identifier": "id-1a19ab335e8a4e79aad2923727f67c3a",
+      "type": "Capability",
+      "name": "4.5 Ad-Hoc Datenanalysen"
+    },
+    {
+      "identifier": "id-baa889c21cce4a83a9ed7e3b453cedcb",
+      "type": "Capability",
+      "name": "4.6 Visualisierung Geschäftsprozesse & Workflow"
+    },
+    {
+      "identifier": "id-4fb5d93948c44377ad4c81f43113bffb",
+      "type": "Capability",
+      "name": "5.0 Systemsoftware"
+    },
+    {
+      "identifier": "id-051faefc56484b46bf426103d9a9844c",
+      "type": "Capability",
+      "name": "5.1 Gerätemanagement (Authentifizierung, Konfiguration, etc.)"
+    },
+    {
+      "identifier": "id-f546849e40a6458f8680b0c1d1eff3e0",
+      "type": "Capability",
+      "name": "5.2 DZ-Systemmonitoring (Verfügbarkeit, etc.)"
+    },
+    {
+      "identifier": "id-572c196b76234e71be3577ec0431d22f",
+      "type": "Capability",
+      "name": "5.3 Logging DZ-Daten"
+    },
+    {
+      "identifier": "id-34c789af889646ffbc5c3a5d230c721e",
+      "type": "Capability",
+      "name": "5.4 Governance DZ-Daten"
+    },
+    {
+      "identifier": "id-3104e08df01448e09c0bbd33a2995e8c",
+      "type": "Capability",
+      "name": "6.0 Vertrauenswürdigkeit"
+    },
+    {
+      "identifier": "id-e67b30207b184ea69bc22829f4c11601",
+      "type": "Capability",
+      "name": "6.1 Verschlüsselung DZ-Daten"
+    },
+    {
+      "identifier": "id-fa261ba444c2480095eafcf04afd737b",
+      "type": "Capability",
+      "name": "6.2 DZ-Systemsicherheitsmanagement"
+    },
+    {
+      "identifier": "id-2c47a64901334d81a1987559657a7735",
+      "type": "Capability",
+      "name": "6.3 DZ-Systemrechtemanagement"
+    }
+  ]

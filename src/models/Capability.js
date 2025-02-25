@@ -11,6 +11,10 @@ const capabilitySchema = new mongoose.Schema({
   },
   type: {
     type: String
+  },
+  category: {   // Add this field if not already present
+    type: String,
+    enum: ['Factory Planning', 'Production Planning', 'Technical']
   }
 }, { strict: false });
 
