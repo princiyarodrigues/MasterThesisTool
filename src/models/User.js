@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  // Add the strategic goal selections field
+  strategicGoalSelections: {
+    type: mongoose.Schema.Types.Mixed,
+    default: {}
   }
 });
 

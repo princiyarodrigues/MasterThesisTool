@@ -1,17 +1,20 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, Save, AlertCircle } from 'lucide-react';
-import { goalsData } from '@/data/goalsData';
 import { Navbar } from '@/components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function StrategicGoalsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [goals, setGoals] = useState([]);
   const [selectedGoals, setSelectedGoals] = useState({});
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState({ type: '', message: '' });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -19,7 +22,41 @@ export default function StrategicGoalsPage() {
     }
   }, [status, router]);
 
+  // Fetch goals from the database
   useEffect(() => {
+    const fetchGoals = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/goals');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch goals');
+        }
+        
+        const data = await response.json();
+        // Format the goals data to match the expected structure
+        const formattedGoals = data.map(goal => ({
+          id: goal.id,
+          title: goal.name.split(' ').slice(1).join(' '), // Extract title from name
+          description: goal.name, // Use the full name as description for now
+          // Determine color based on goal ID prefix
+          color: goal.name.startsWith('1.') ? 'bg-blue-50'
+            : goal.name.startsWith('2.') ? 'bg-green-50'
+            : goal.name.startsWith('3.') ? 'bg-purple-50'
+            : goal.name.startsWith('4.') ? 'bg-orange-50'
+            : 'bg-gray-50'
+        }));
+        
+        setGoals(formattedGoals);
+      } catch (err) {
+        console.error('Error fetching goals:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Fetch selections
     const fetchSelections = async () => {
       try {
         // First try to get from localStorage
@@ -43,6 +80,7 @@ export default function StrategicGoalsPage() {
     };
 
     if (status === 'authenticated') {
+      fetchGoals();
       fetchSelections();
     }
   }, [status]);
@@ -90,8 +128,21 @@ export default function StrategicGoalsPage() {
     }
   };
 
-  if (status === 'loading') {
-    return <div>Loading...</div>;
+  if (status === 'loading' || loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <main className="container mx-auto px-6 py-8">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            Error loading strategic goals: {error}
+          </div>
+        </main>
+      </div>
+    );
   }
 
   if (!session) {
@@ -139,7 +190,7 @@ export default function StrategicGoalsPage() {
             <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 transform -translate-y-1/2 z-0" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
-              {goalsData.map((goal, index) => {
+              {goals.map((goal, index) => {
                 const isSelected = selectedGoals[goal.id] || false;
                 
                 return (
@@ -162,7 +213,7 @@ export default function StrategicGoalsPage() {
                     </div>
 
                     {/* Connector Arrow */}
-                    {index !== goalsData.length - 1 && (
+                    {index !== goals.length - 1 && (
                       <div className="hidden lg:block absolute -right-2 top-1/2 transform -translate-y-1/2 z-20">
                         <ArrowRight className="w-4 h-4 text-gray-400" />
                       </div>
