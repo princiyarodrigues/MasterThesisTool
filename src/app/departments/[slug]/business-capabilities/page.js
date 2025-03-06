@@ -1,7 +1,8 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronDown, ChevronRight, Plus, Search, Filter } from 'lucide-react';
 import BusinessCapabilityModal from '@/components/BusinessCapabilities/BusinessCapabilityModal';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const BusinessCapabilities = () => {
   const [expandedSections, setExpandedSections] = useState({
@@ -13,114 +14,17 @@ const BusinessCapabilities = () => {
   const [showModal, setShowModal] = useState(false);
   const [factoryCapabilities, setFactoryCapabilities] = useState([]);
   const [productionCapabilities, setProductionCapabilities] = useState([]);
+  const [userGoals, setUserGoals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    // Function to fetch capabilities hierarchy by category
-    const fetchCapabilitiesByCategory = async (category) => {
-      try {
-        const response = await fetch(`/api/capabilities/by-category/${encodeURIComponent(category)}`);
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch ${category} capabilities: ${response.status}`);
-        }
-        
-        return await response.json();
-      } catch (error) {
-        console.error(`Error fetching ${category} capabilities:`, error);
-        throw error;
-      }
-    };
-
-    // Function to fetch composition relationships
-    const fetchCompositions = async () => {
-      try {
-        const response = await fetch('/api/compositions');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch compositions: ${response.status}`);
-        }
-        
-        return await response.json();
-      } catch (error) {
-        console.error('Error fetching compositions:', error);
-        throw error;
-      }
-    };
-
-    // Function to organize capabilities in a parent-child hierarchy
-    const organizeCapabilitiesHierarchy = (capabilities, compositions) => {
-      // Map to store capabilities by ID
-      const capabilitiesMap = capabilities.reduce((map, cap) => {
-        map[cap.id] = { ...cap, subCapabilities: [] };
-        return map;
-      }, {});
-      
-      // Map to identify parent-child relationships
-      const parentChildMap = {};
-      compositions.forEach(comp => {
-        if (!parentChildMap[comp.source]) {
-          parentChildMap[comp.source] = [];
-        }
-        parentChildMap[comp.source].push(comp.target);
-      });
-      
-      // Identify root capabilities (those that are sources but not targets)
-      const childIds = new Set(compositions.map(comp => comp.target));
-      const rootCapabilities = capabilities
-        .filter(cap => !childIds.has(cap.id))
-        .map(cap => {
-          // For each root capability, gather its children recursively
-          const result = { ...cap, subCapabilities: [] };
-          
-          // Function to recursively add children
-          const addChildren = (parentId, parentResult) => {
-            const childrenIds = parentChildMap[parentId] || [];
-            childrenIds.forEach(childId => {
-              if (capabilitiesMap[childId]) {
-                const childCap = { ...capabilitiesMap[childId], subCapabilities: [] };
-                parentResult.subCapabilities.push(childCap);
-                // Recursively add this child's children
-                addChildren(childId, childCap);
-              }
-            });
-          };
-          
-          addChildren(cap.id, result);
-          return result;
-        });
-      
-      return rootCapabilities;
-    };
-
-    const loadAllData = async () => {
-      setLoading(true);
-      try {
-        // Fetch capabilities for both categories and compositions
-        const [factoryCaps, productionCaps, allCompositions] = await Promise.all([
-          fetchCapabilitiesByCategory('Factory Planning'),
-          fetchCapabilitiesByCategory('Production Planning'),
-          fetchCompositions()
-        ]);
-        
-        // Organize capabilities into hierarchies
-        const factoryHierarchy = organizeCapabilitiesHierarchy(factoryCaps, allCompositions);
-        const productionHierarchy = organizeCapabilitiesHierarchy(productionCaps, allCompositions);
-        
-        setFactoryCapabilities(factoryHierarchy);
-        setProductionCapabilities(productionHierarchy);
-        setError(null);
-      } catch (err) {
-        console.error('Error loading capability data:', err);
-        setError('Failed to load capabilities. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadAllData();
-  }, []);
+    // Load data when component mounts
+    if (!initialized) {
+      loadAllData();
+    }
+  }, [initialized]);
 
   const toggleSection = (sectionType) => {
     setExpandedSections(prev => ({
@@ -141,6 +45,284 @@ const BusinessCapabilities = () => {
       title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
       subCapabilities: capability.subCapabilities.map(sub => sub.name)
     };
+  };
+  
+  // Function to fetch user profile and get selected strategic goals
+  const fetchUserProfile = async () => {
+    try {
+      const response = await fetch('/api/user/profile');
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch user profile: ${response.status}`);
+      }
+      
+      const userData = await response.json();
+      console.log('User profile data:', userData);
+      
+      // Extract goal IDs from strategicGoalSelections where value is true
+      const selectedGoalIds = [];
+      if (userData.strategicGoalSelections) {
+        Object.entries(userData.strategicGoalSelections).forEach(([goalId, isSelected]) => {
+          if (isSelected === true) {
+            selectedGoalIds.push(goalId);
+          }
+        });
+      }
+      
+      setUserGoals(selectedGoalIds);
+      console.log('Selected goal IDs:', selectedGoalIds);
+      return selectedGoalIds;
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      return [];
+    }
+  };
+
+  // Fetch capabilities by category
+  const fetchCapabilitiesByCategory = async (category) => {
+    try {
+      const response = await fetch(`/api/capabilities/by-category/${encodeURIComponent(category)}`);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${category} capabilities: ${response.status}`);
+      }
+      
+      const capabilities = await response.json();
+      console.log(`Fetched ${capabilities.length} ${category} capabilities`);
+      return capabilities;
+    } catch (error) {
+      console.error(`Error fetching ${category} capabilities:`, error);
+      return [];
+    }
+  };
+
+  // Fetch compositions for parent-child relationships
+  const fetchCompositions = async () => {
+    try {
+      const response = await fetch('/api/compositions');
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch compositions: ${response.status}`);
+      }
+      
+      const compositions = await response.json();
+      return compositions;
+    } catch (error) {
+      console.error('Error fetching compositions:', error);
+      return [];
+    }
+  };
+
+  // Function to organize capabilities into hierarchy
+  const organizeCapabilitiesHierarchy = (capabilities, compositions) => {
+    // Map to store capabilities by ID
+    const capabilitiesMap = capabilities.reduce((map, cap) => {
+      map[cap.id] = { ...cap, subCapabilities: [] };
+      return map;
+    }, {});
+    
+    // Map for parent-child relationships
+    const parentChildMap = {};
+    compositions.forEach(comp => {
+      if (!parentChildMap[comp.source]) {
+        parentChildMap[comp.source] = [];
+      }
+      parentChildMap[comp.source].push(comp.target);
+    });
+    
+    // Find root capabilities
+    const childIds = new Set(compositions.map(comp => comp.target));
+    const rootCapabilities = capabilities
+      .filter(cap => !childIds.has(cap.id))
+      .map(cap => {
+        const result = { ...cap, subCapabilities: [] };
+        
+        // Function to recursively add children
+        const addChildren = (parentId, parentResult) => {
+          const childrenIds = parentChildMap[parentId] || [];
+          childrenIds.forEach(childId => {
+            if (capabilitiesMap[childId]) {
+              const childCap = { ...capabilitiesMap[childId], subCapabilities: [] };
+              parentResult.subCapabilities.push(childCap);
+              addChildren(childId, childCap);
+            }
+          });
+        };
+        
+        addChildren(cap.id, result);
+        return result;
+      });
+    
+    return rootCapabilities;
+  };
+
+  // Filter capabilities based on goals
+  const fetchCapabilitiesForGoals = async (goalIds) => {
+    if (!goalIds || goalIds.length === 0) {
+      return [];
+    }
+    
+    try {
+      // Try direct query approach for better performance
+      const response = await fetch('/api/direct-query/influences-by-goals', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ goalIds })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed direct query: ${response.status}`);
+      }
+      
+      const capabilities = await response.json();
+      
+      // If direct query returns empty but we have goals, we'll try individual queries
+      if (capabilities.length === 0 && goalIds.length > 0) {
+        console.log('Direct query returned no results, trying individual goal queries');
+        
+        // Create a set for unique capability IDs
+        const capabilityIdsSet = new Set();
+        
+        // Try for each goal individually
+        for (const goalId of goalIds) {
+          const goalResponse = await fetch(`/api/capabilities/by-goal/${goalId}`);
+          if (goalResponse.ok) {
+            const goalCapabilities = await goalResponse.json();
+            goalCapabilities.forEach(cap => {
+              if (cap && cap.id) {
+                capabilityIdsSet.add(cap.id);
+              }
+            });
+          }
+        }
+        
+        return Array.from(capabilityIdsSet);
+      }
+      
+      return capabilities.map(cap => cap.id);
+    } catch (error) {
+      console.error('Error fetching capabilities for goals:', error);
+      
+      // Fallback to individual goal queries
+      try {
+        const capabilityIdsSet = new Set();
+        
+        for (const goalId of goalIds) {
+          const response = await fetch(`/api/capabilities/by-goal/${goalId}`);
+          if (response.ok) {
+            const goalCapabilities = await response.json();
+            goalCapabilities.forEach(cap => {
+              if (cap && cap.id) {
+                capabilityIdsSet.add(cap.id);
+              }
+            });
+          }
+        }
+        
+        return Array.from(capabilityIdsSet);
+      } catch (fallbackError) {
+        console.error('Error in fallback approach:', fallbackError);
+        return [];
+      }
+    }
+  };
+
+  // Filter capabilities based on goal influence
+  const filterCapabilitiesByGoalInfluence = (capabilities, relevantCapabilityIds) => {
+    if (!relevantCapabilityIds || relevantCapabilityIds.length === 0) {
+      // Return empty array if no relevant capability IDs to ensure we don't show all capabilities
+      console.log('No relevant capability IDs provided, returning empty array');
+      return [];
+    }
+    
+    const relevantCapabilityIdsSet = new Set(relevantCapabilityIds);
+    console.log(`Filtering capabilities with ${relevantCapabilityIdsSet.size} relevant IDs`);
+    
+    // Helper function to check if a capability or any of its descendants is relevant
+    const isCapabilityOrDescendantRelevant = (capability) => {
+      // Check if this capability is relevant
+      if (relevantCapabilityIdsSet.has(capability.id)) {
+        return true;
+      }
+      
+      // Check if any sub-capability is relevant
+      return capability.subCapabilities && 
+             capability.subCapabilities.some(subCap => isCapabilityOrDescendantRelevant(subCap));
+    };
+    
+    // Filter the root capabilities
+    const filteredCapabilities = capabilities.filter(cap => isCapabilityOrDescendantRelevant(cap));
+    console.log(`Filtered down to ${filteredCapabilities.length} root capabilities`);
+    
+    return filteredCapabilities;
+  };
+
+  const loadAllData = async () => {
+    setLoading(true);
+    try {
+      // 1. Get selected goals from user profile
+      const selectedGoalIds = await fetchUserProfile();
+      console.log('Selected goal IDs:', selectedGoalIds);
+      
+      // If no goals selected, show no capabilities and return early
+      if (!selectedGoalIds || selectedGoalIds.length === 0) {
+        console.log('No goals selected, showing no capabilities');
+        setFactoryCapabilities([]);
+        setProductionCapabilities([]);
+        setLoading(false);
+        setInitialized(true);
+        return;
+      }
+      
+      // 2. Fetch all capabilities and compositions
+      const [factoryCaps, productionCaps, allCompositions] = await Promise.all([
+        fetchCapabilitiesByCategory('Factory Planning'),
+        fetchCapabilitiesByCategory('Production Planning'),
+        fetchCompositions()
+      ]);
+      
+      console.log(`Fetched capabilities: ${factoryCaps.length} factory, ${productionCaps.length} production`);
+      
+      // 3. Organize capabilities into hierarchies
+      const factoryHierarchy = organizeCapabilitiesHierarchy(factoryCaps, allCompositions);
+      const productionHierarchy = organizeCapabilitiesHierarchy(productionCaps, allCompositions);
+      
+      // 4. Get capabilities that influence these goals
+      const relevantCapabilityIds = await fetchCapabilitiesForGoals(selectedGoalIds);
+      console.log('Relevant capability IDs:', relevantCapabilityIds);
+      
+      if (relevantCapabilityIds && relevantCapabilityIds.length > 0) {
+        // Filter hierarchies to show only capabilities related to selected goals
+        const filteredFactoryHierarchy = filterCapabilitiesByGoalInfluence(
+          factoryHierarchy, 
+          relevantCapabilityIds
+        );
+        
+        const filteredProductionHierarchy = filterCapabilitiesByGoalInfluence(
+          productionHierarchy, 
+          relevantCapabilityIds
+        );
+        
+        console.log(`Filtered factory hierarchy: ${filteredFactoryHierarchy.length} capabilities`);
+        console.log(`Filtered production hierarchy: ${filteredProductionHierarchy.length} capabilities`);
+        
+        setFactoryCapabilities(filteredFactoryHierarchy);
+        setProductionCapabilities(filteredProductionHierarchy);
+      } else {
+        // If no relevant capabilities found, set empty arrays
+        console.warn('No relevant capabilities found for selected goals. Showing no capabilities.');
+        setFactoryCapabilities([]);
+        setProductionCapabilities([]);
+      }
+      
+      setError(null);
+    } catch (err) {
+      console.error('Error loading capability data:', err);
+      setError('Failed to load capabilities. Please try again later.');
+    } finally {
+      setLoading(false);
+      setInitialized(true);
+    }
   };
 
   const CapabilityCard = ({ capability }) => {
@@ -207,17 +389,32 @@ const BusinessCapabilities = () => {
         <div className="p-8 border-t border-gray-100">
           {loading ? (
             <div className="flex justify-center p-6">
-              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#009374]"></div>
+              <LoadingSpinner />
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {capabilities.map(capability => (
-                <CapabilityCard
-                  key={capability.id}
-                  capability={capability}
-                />
-              ))}
-            </div>
+            <>
+              {capabilities.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {capabilities.map(capability => (
+                    <CapabilityCard
+                      key={capability.id}
+                      capability={capability}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8 text-gray-500">
+                  <p>No {title.toLowerCase()} capabilities found for your selected strategic goals.</p>
+                  <p className="mt-2 font-medium">Please select strategic goals on the goals page to see relevant capabilities.</p>
+                  <a 
+                    href="/strategic-goals" 
+                    className="inline-block mt-4 px-4 py-2 bg-[#009374] text-white rounded-lg hover:bg-[#007d60] transition-colors"
+                  >
+                    Go to Strategic Goals
+                  </a>
+                </div>
+              )}
+            </>
           )}
         </div>
       )}
@@ -248,14 +445,19 @@ const BusinessCapabilities = () => {
           <div>
             <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
             <p className="text-gray-600">
-              Comprehensive overview of factory planning and production management capabilities
+              {userGoals.length > 0 
+                ? "Showing capabilities filtered by your selected strategic goals"
+                : "Select strategic goals to view relevant business capabilities"}
             </p>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50">
+            <a 
+              href="/strategic-goals"
+              className="flex items-center space-x-2 px-4 py-2 text-sm text-[#009374] hover:text-white border border-[#009374] rounded-lg hover:bg-[#009374] transition-colors"
+            >
               <Filter className="w-4 h-4" />
-              <span>Filter</span>
-            </button>
+              <span>Select Goals</span>
+            </a>
             <button className="px-4 py-2 text-sm bg-[#009374]/10 text-[#009374] rounded-lg hover:bg-[#009374]/20 border border-[#009374]/20">
               Add New
             </button>

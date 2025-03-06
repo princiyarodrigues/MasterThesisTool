@@ -4,9 +4,18 @@ import { Capability } from '@/models';
 
 export async function GET(request, { params }) {
   try {
-    const { category } = params;
-    
+    // Connect to MongoDB first
     await connectDB();
+    
+    // In Next.js 15, params must be awaited or accessed after an async operation
+    const category = params?.category;
+    
+    if (!category) {
+      return NextResponse.json(
+        { error: 'Category is required' },
+        { status: 400 }
+      );
+    }
     
     // Fetch capabilities by category
     const capabilities = await Capability.find({ category });

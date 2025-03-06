@@ -7,16 +7,16 @@ const capabilitySchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: [true, 'Capability name is required']
+    required: true
   },
   type: {
-    type: String
+    type: String,
+    default: 'Capability'
   },
-  category: {   // Add this field if not already present
+  category: {
     type: String,
     enum: ['Factory Planning', 'Production Planning', 'Technical']
   }
 }, { strict: false });
 
-const Capability = mongoose.models.Capability || mongoose.model('Capability', capabilitySchema);
-module.exports = Capability;
+module.exports = mongoose.models.Capability || mongoose.model('Capability', capabilitySchema);

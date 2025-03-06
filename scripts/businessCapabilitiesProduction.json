@@ -1,172 +1,162 @@
 [
-    {
-      "identifier": "id-c7d967885909417ea9ba6c402ad59851",
-      "type": "Capability",
-      "name": "2.0 Auftragsmanagement"
-    },
-    {
-      "identifier": "id-39bc28104a4f4c52b23c9329b48dabd6",
-      "type": "Capability",
-      "name": "2.1 Automatisierte Buchung von Materialbewegungen"
-    },
-    {
-      "identifier": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
-      "type": "Capability",
-      "name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten"
-    },
-    {
-      "identifier": "id-7628d3dd1b0d460ca8056b5346d1587d",
-      "type": "Capability",
-      "name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting"
-    },
-    {
-      "identifier": "id-a8a253b674eb499789578afa0a71f779",
-      "type": "Capability",
-      "name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt"
-    },
-    {
-      "identifier": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
-      "type": "Capability",
-      "name": "1.0 Produktionsprogrammplanung"
-    },
-    {
-      "identifier": "id-1ac60b91476f4fecba5febc5f73858fc",
-      "type": "Capability",
-      "name": "1.1 Dynamische Auslastungsüberwachung"
-    },
-    {
-      "identifier": "id-b42d3a5555014c81bcfd941f01d0394f",
-      "type": "Capability",
-      "name": "1.2 Automatisierte Ableitung Kapazitätsbedarf"
-    },
-    {
-      "identifier": "id-f2e5358235f447b9aa38cdbc65a5bcad",
-      "type": "Capability",
-      "name": "3.0 Produktionsbedarfsplanung"
-    },
-    {
-      "identifier": "id-df0344e6bd20452895b0c0a555efcb00",
-      "type": "Capability",
-      "name": "3.1 Dynamische Produktionsplanung"
-    },
-    {
-      "identifier": "id-4c4e411491b44aab848d886a5b9068da",
-      "type": "Capability",
-      "name": "3.2 Intelligente Personaleinsatzplanung"
-    },
-    {
-      "identifier": "id-3c9a491e1ee4488481fe69a49456c7c4",
-      "type": "Capability",
-      "name": "3.3 Dynamische Produktionsplanung"
-    },
-    {
-      "identifier": "id-ed2b194ca94241d88ccc341f4a797a83",
-      "type": "Capability",
-      "name": "3.3 Dynamische Bestimmung von notwendigen externen Kapazitäten"
-    },
-    {
-      "identifier": "id-aa717f83645b4da6b5a2a28d320bdfd2",
-      "type": "Capability",
-      "name": "3.4 Intelligente Personaleinsatzplanung"
-    },
-    {
-      "identifier": "id-1c48f57b9f9d41ef81919ca40e4e3a37",
-      "type": "Capability",
-      "name": "4.0 Arbeitsorganisation"
-    },
-    {
-      "identifier": "id-3bc5ac7901ab4b348293f1ed997c2543",
-      "type": "Capability",
-      "name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)"
-    },
-    {
-      "identifier": "id-ed459ddbd28a4ba083866edb8a46a6f2",
-      "type": "Capability",
-      "name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)"
-    },
-    {
-      "identifier": "id-82c82c4707454e6496550de15ae487f5",
-      "type": "Capability",
-      "name": "4.3 Intelligentes Energieverbrauchsmanagement"
-    },
-    {
-      "identifier": "id-886b65137c1c423b877b3a8a08a03fa3",
-      "type": "Capability",
-      "name": "5.0 Wartung & Instandhaltung"
-    },
-    {
-      "identifier": "id-a63abd1d228a414d920ac4462ce2c5e1",
-      "type": "Capability",
-      "name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring"
-    },
-    {
-      "identifier": "id-bac20a0b57104f67813592ef3f40cedd",
-      "type": "Capability",
-      "name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance"
-    },
-    {
-      "identifier": "id-9d7d21b3331846aeb63aaefd40429824",
-      "type": "Capability",
-      "name": "6.0 Fertigung & Montage"
-    },
-    {
-      "identifier": "id-617f84d90f784ede979c70728faaae62",
-      "type": "Capability",
-      "name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung"
-    },
-    {
-      "identifier": "id-c4279fa8297645b7a7be4b4e526d93b3",
-      "type": "Capability",
-      "name": "6.2 Dynamische (Fertigungs-) Prozessanpassung"
-    },
-    {
-      "identifier": "id-24895b6285cd4dae9bf541826cd0ab5f",
-      "type": "Capability",
-      "name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion"
-    },
-    {
-      "identifier": "id-d2da8a56aeb749aa8a3c852461fef733",
-      "type": "Capability",
-      "name": "7.0 Logistik"
-    },
-    {
-      "identifier": "id-c3db31388346427aa07e168d0a4c4c16",
-      "type": "Capability",
-      "name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge"
-    },
-    {
-      "identifier": "id-aac4827af05848e4b8084b59a221547f",
-      "type": "Capability",
-      "name": "7.2 Intelligentes Tracking Flurförderfahrzeuge"
-    },
-    {
-      "identifier": "id-791c360df8b745b287582b9c9c5d6a0c",
-      "type": "Capability",
-      "name": "7.3 Intelligentes Materialtracking"
-    },
-    {
-      "identifier": "id-65f074f61fd248599439b0e05ff24d57",
-      "type": "Capability",
-      "name": "7.4 Automatisierte Abwicklung von Lieferungen"
-    },
-    {
-      "identifier": "id-87f2fd293d834474852d0249d612d248",
-      "type": "Capability",
-      "name": "7.5 Intelligente Wahl der Anstellstrategie"
-    },
-    {
-      "identifier": "id-fce0f202fcb44577b1a5631d0aac9170",
-      "type": "Capability",
-      "name": "8.0 Qualitätsmanagement"
-    },
-    {
-      "identifier": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
-      "type": "Capability",
-      "name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates"
-    },
-    {
-      "identifier": "id-c5efe17937e5465da09c24f1786c53b1",
-      "type": "Capability",
-      "name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting"
-    }
+  {
+    "identifier": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "type": "Capability",
+    "name": "1.0 Produktionsprogrammplanung"
+  },
+  {
+    "identifier": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "type": "Capability",
+    "name": "1.1 Dynamische Auslastungsüberwachung"
+  },
+  {
+    "identifier": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "type": "Capability",
+    "name": "1.2 Automatisierte Ableitung Kapazitätsbedarf"
+  },
+  {
+    "identifier": "id-c7d967885909417ea9ba6c402ad59851",
+    "type": "Capability",
+    "name": "2.0 Auftragsmanagement"
+  },
+  {
+    "identifier": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "type": "Capability",
+    "name": "2.1 Automatisierte Buchung von Materialbewegungen"
+  },
+  {
+    "identifier": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "type": "Capability",
+    "name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten"
+  },
+  {
+    "identifier": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "type": "Capability",
+    "name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting"
+  },
+  {
+    "identifier": "id-a8a253b674eb499789578afa0a71f779",
+    "type": "Capability",
+    "name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt"
+  },
+  {
+    "identifier": "id-f2e5358235f447b9aa38cdbc65a5bcad",
+    "type": "Capability",
+    "name": "3.0 Produktionsbedarfsplanung"
+  },
+  {
+    "identifier": "id-df0344e6bd20452895b0c0a555efcb00",
+    "type": "Capability",
+    "name": "3.1 Dynamische Produktionsplanung"
+  },
+  {
+    "identifier": "id-4c4e411491b44aab848d886a5b9068da",
+    "type": "Capability",
+    "name": "3.2 Intelligente Personaleinsatzplanung"
+  },
+  {
+    "identifier": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "type": "Capability",
+    "name": "3.3 Dynamische Bestimmung von notwendigen externen Kapazitäten"
+  },
+  {
+    "identifier": "id-1c48f57b9f9d41ef81919ca40e4e3a37",
+    "type": "Capability",
+    "name": "4.0 Arbeitsorganisation"
+  },
+  {
+    "identifier": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "type": "Capability",
+    "name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)"
+  },
+  {
+    "identifier": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "type": "Capability",
+    "name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)"
+  },
+  {
+    "identifier": "id-82c82c4707454e6496550de15ae487f5",
+    "type": "Capability",
+    "name": "4.3 Intelligentes Energieverbrauchsmanagement"
+  },
+  {
+    "identifier": "id-886b65137c1c423b877b3a8a08a03fa3",
+    "type": "Capability",
+    "name": "5.0 Wartung & Instandhaltung"
+  },
+  {
+    "identifier": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "type": "Capability",
+    "name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring"
+  },
+  {
+    "identifier": "id-bac20a0b57104f67813592ef3f40cedd",
+    "type": "Capability",
+    "name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance"
+  },
+  {
+    "identifier": "id-9d7d21b3331846aeb63aaefd40429824",
+    "type": "Capability",
+    "name": "6.0 Fertigung & Montage"
+  },
+  {
+    "identifier": "id-617f84d90f784ede979c70728faaae62",
+    "type": "Capability",
+    "name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung"
+  },
+  {
+    "identifier": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "type": "Capability",
+    "name": "6.2 Dynamische (Fertigungs-) Prozessanpassung"
+  },
+  {
+    "identifier": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "type": "Capability",
+    "name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion"
+  },
+  {
+    "identifier": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "type": "Capability",
+    "name": "7.0 Logistik"
+  },
+  {
+    "identifier": "id-c3db31388346427aa07e168d0a4c4c16",
+    "type": "Capability",
+    "name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge"
+  },
+  {
+    "identifier": "id-aac4827af05848e4b8084b59a221547f",
+    "type": "Capability",
+    "name": "7.2 Intelligentes Tracking Flurförderfahrzeuge"
+  },
+  {
+    "identifier": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "type": "Capability",
+    "name": "7.3 Intelligentes Materialtracking"
+  },
+  {
+    "identifier": "id-65f074f61fd248599439b0e05ff24d57",
+    "type": "Capability",
+    "name": "7.4 Automatisierte Abwicklung von Lieferungen"
+  },
+  {
+    "identifier": "id-87f2fd293d834474852d0249d612d248",
+    "type": "Capability",
+    "name": "7.5 Intelligente Wahl der Anstellstrategie"
+  },
+  {
+    "identifier": "id-fce0f202fcb44577b1a5631d0aac9170",
+    "type": "Capability",
+    "name": "8.0 Qualitätsmanagement"
+  },
+  {
+    "identifier": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "type": "Capability",
+    "name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates"
+  },
+  {
+    "identifier": "id-c5efe17937e5465da09c24f1786c53b1",
+    "type": "Capability",
+    "name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting"
+  }
 ]
