@@ -161,9 +161,37 @@ const data = [
             }
           }
         ]
+      },
+      {
+        id: 'reference-architecture',
+        name: 'Reference Architecture',
+        description: 'Use cases Catalogue based on business and technical capabilities',
+        tags: ['policy', 'compliance'],
+        items: [
+          {
+            id: 'vendor-strategy-3',
+            title: 'Vendor Strategy BP_022',
+            description: 'Strategic IT vendor selection guidelines',
+            status: 'active',
+            priority: 'high',
+            tags: ['IT', 'Vendor', 'Strategy'],
+            lastUpdated: '2024-10-30',
+            content: {
+              statement: 'Consider applications from strategic IT partners first',
+              rationale: 'Leverages existing partnerships for better support and pricing',
+              implications: [
+                'Standardized vendor selection',
+                'Optimized costs',
+                'Enhanced support'
+              ]
+            }
+          }
+        ]
       }
     ]
-  }
+  },
+  
+
 ];
 
 module.exports = { data };

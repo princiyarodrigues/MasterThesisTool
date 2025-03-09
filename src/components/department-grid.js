@@ -11,9 +11,10 @@ export function DepartmentGrid({ departments }) {
       router.push(`/departments/${departmentId}/business-capabilities`);
     } else if (category.id === 'it-vendors') {
       router.push(`/departments/${departmentId}/it-principles`);
-    }
-    else if (category.id === 'use-cases') {
+    } else if (category.id === 'use-cases') {
       router.push(`/departments/${departmentId}/use-cases`);
+    } else if (category.id === 'reference-architecture') {
+      router.push(`/departments/${departmentId}/reference-architecture`);
     }
   };
 
