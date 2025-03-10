@@ -26,20 +26,20 @@ export function CategoryCard({ category, departmentId, onClick }) {
   return (
     <div 
       onClick={handleClick}
-      className="block group cursor-pointer transition-all duration-200 ease-in-out"
+      className="block group cursor-pointer transition-all duration-200 ease-in-out h-full"
     >
-      <div className="bg-white rounded-xl border border-green-600 p-6 hover:shadow-lg transition-all duration-200">
-        <div className="space-y-4">
+      <div className="bg-white rounded-xl border border-green-600 p-6 hover:shadow-lg transition-all duration-200 h-full flex flex-col">
+        <div className="space-y-4 flex-grow">
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-green-600 transition-colors duration-200">
+            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-green-600 transition-colors duration-200 min-h-[1.75rem]">
               {category.name}
             </h3>
-            <p className="text-gray-600 text-sm mt-2">
+            <p className="text-gray-600 text-sm mt-2 min-h-[2.5rem]">
               {category.description}
             </p>
           </div>
           
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center justify-between pt-2 mt-auto">
             <div className="flex items-center space-x-4 text-sm text-gray-500">
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />

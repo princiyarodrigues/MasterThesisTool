@@ -343,7 +343,7 @@ const height = 70;
   // Render the factory diagram
   const renderFactoryDiagram = () => {
     return (
-      <svg width="100%" height="600" viewBox="0 0 1100 600" className="bg-white border border-gray-200 rounded-lg overflow-visible">
+      <svg width="100%" height="600" viewBox="0 0 1100 600" className="bg-white border border-gray-200 rounded-lg overflow-visible mx-0 px-0">
         {/* Horizontal divider line */}
         <line x1="50" y1="220" x2="1050" y2="220" stroke="#e5e7eb" strokeDasharray="4,4" />
         
@@ -811,8 +811,8 @@ const height = 70;
               <h2 className="text-xl font-bold text-gray-800">Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Fabrik</h2>
             </div>
             
-            <div className="p-4">
-              <div className={`${fullscreen ? 'fixed inset-0 z-50 bg-white p-4' : ''}`}>
+            <div className="px-0">
+              <div className={`${fullscreen ? 'fixed inset-0 z-50 bg-white p-0' : ''}`}>
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-medium text-gray-700">
                     <button 

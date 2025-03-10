@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+ 
       <main className="container mx-auto px-6 py-8">
         <h1 className="text-4xl font-bold text-[#009374] mb-8">Process Model</h1>
         

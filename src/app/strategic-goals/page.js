@@ -242,7 +242,7 @@ export default function StrategicGoalsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      
       <div className="container mx-auto px-6 py-8">
         <div className="mb-8 flex justify-between items-start">
           <div>

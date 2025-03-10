@@ -21,11 +21,11 @@ export function DepartmentGrid({ departments }) {
   return (
     <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
       {departments?.map((dept) => (
-        <div key={dept.id}>
+        <div key={dept.id} className="grid grid-rows-[1fr]">
           <h2 className="text-xl font-semibold text-green-600 mb-4">
             {dept.name}
           </h2>
-          <div className="grid gap-4">
+          <div className="grid grid-cols-1 gap-4">
             {dept.categories?.map((category) => (
               <CategoryCard
                 key={category.id}
