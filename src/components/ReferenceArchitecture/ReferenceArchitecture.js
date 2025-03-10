@@ -1,5 +1,4 @@
-'use client';
-import { useState } from 'react';
+import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import FactoryArchitectureViewer from './FactoryArchitectureViewer';

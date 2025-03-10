@@ -1,12 +1,12 @@
 'use client';
 import { useParams } from 'next/navigation';
-import ReferenceArchitecture from '@/components/ReferenceArchitecture/ReferenceArchitecture';
+import ReferenceArchitecture from '@/components/ReferenceArchitecture';
 import { Navbar } from '@/components/Navbar';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function ReferenceArchitecturePage() {
   const params = useParams();
-  const { slug } = params; // Change from departmentId to slug
+  const { slug } = params;
   
   return (
     <ProtectedRoute>
