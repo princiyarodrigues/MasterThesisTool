@@ -9,7 +9,7 @@ export default function UseCasesPage() {
   return (
     <div className="min-h-screen bg-white">
   
-      <main className="container mx-auto px-6 py-8">
+      <main className="mx-auto px-6 py-8">
         <UseCases />
       </main>
     </div>

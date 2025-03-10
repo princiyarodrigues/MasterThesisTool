@@ -218,7 +218,7 @@ export default function StrategicGoalsPage() {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
-        <main className="container mx-auto px-6 py-8">
+        <main className="mx-auto px-6 py-8">
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
             Error loading strategic goals: {error}
           </div>
@@ -243,7 +243,7 @@ export default function StrategicGoalsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       
-      <div className="container mx-auto px-6 py-8">
+      <div className="mx-auto px-6 py-8">
         <div className="mb-8 flex justify-between items-start">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Factory Strategic Goals</h1>

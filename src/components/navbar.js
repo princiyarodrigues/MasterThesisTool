@@ -18,7 +18,7 @@ export function Navbar() {
 
   return (
     <nav className="bg-[#009374] border-b border-white sticky top-0 z-50">
-      <div className="container mx-auto px-6 py-4">
+      <div className="mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center">
