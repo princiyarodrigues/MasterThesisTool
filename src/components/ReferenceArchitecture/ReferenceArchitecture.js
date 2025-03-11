@@ -1,19 +1,27 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import FactoryArchitectureViewer from './FactoryArchitectureViewer';
+import EnhancedReferenceArchitecture from './EnhancedReferenceArchitecture';
 
-export default function ReferenceArchitecture({ departmentId }) {
+const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
   return (
-    <>
-      <div className="mb-4">
-        <Link href="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-2">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Home
-        </Link>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto p-4">
+        {/* Navigation */}
+        <div className="mb-4">
+          <Link 
+            href={`/departments/${departmentId}`} 
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            <span>Back to Department</span>
+          </Link>
+        </div>  
+        {/* Enhanced Architecture Component */}
+        <EnhancedReferenceArchitecture />
       </div>
-
-      <FactoryArchitectureViewer />
-    </>
+    </div>
   );
-}
+};
+
+export default ReferenceArchitecture;
