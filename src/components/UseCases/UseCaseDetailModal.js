@@ -14,11 +14,11 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
       {/* Modal */}
       <div className="absolute inset-4 md:inset-10 bg-white rounded-xl shadow-xl overflow-auto">
         {/* Header */}
-        <div className="bg-gray-600 p-6 text-white">
+        <div className="bg-[#009374] border-b border-white sticky top-0 z-50">
           <div className="flex justify-between items-start">
             <div>
-              <div className="text-gray-200 text-sm mb-2">UC {useCase.number}</div>
-              <h2 className="text-2xl font-bold">{useCase.title}</h2>
+              <div className=" text-white text-sm mb-2">UC {useCase.number}</div>
+              <h2 className=" text-white text-2xl font-bold">{useCase.title}</h2>
             </div>
             <button onClick={onClose} className="text-gray-300 hover:text-white">
               <X size={24} />
@@ -32,7 +32,7 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
           <div>
             <Card className="h-full">
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-700 bg-gray-600 p-2">Description</h3>
+                <h3 className="text-xl font-semibold  text-white bg-[#009374] p-2">Description</h3>
                 <div className="p-4">
                   <p className="text-gray-600">{useCase.description}</p>
                   <div className="mt-4">
@@ -49,7 +49,7 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
           <div>
             <Card className="h-full">
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-700 bg-gray-600 p-2 mb-4">
+                <h3 className="text-xl font-semibold  text-white bg-[#009374] p-2 mb-4">
                   business perspective
                 </h3>
                 
@@ -105,7 +105,7 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
           <div>
             <Card className="h-full">
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-700 bg-gray-600 p-2 mb-4">
+                <h3 className="text-xl font-semibold  text-white bg-[#009374] p-2 mb-4">
                   IT perspective
                 </h3>
                 
