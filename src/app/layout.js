@@ -1,6 +1,6 @@
 // src/app/layout.js
 import localFont from "next/font/local";
-import { Navbar } from '../components/Navbar';
+import { Navbar } from '../components/Navbar.js';
 import Providers from '../components/Providers';
 import './globals.css';
 

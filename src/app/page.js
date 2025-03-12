@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 // import { SearchBar } from '@/components/Search-bar';
-import { DepartmentGrid } from '../components/Department-grid'
+import { DepartmentGrid } from '../components/Department-grid.js'
 import { data } from '@/lib/data';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
