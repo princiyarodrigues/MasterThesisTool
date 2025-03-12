@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowRight, Check, Save, AlertCircle } from 'lucide-react';
-import { Navbar } from '@/components/Navbar';
+import { Navbar } from '../../components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import LoadingSpinner from '@/components/LoadingSpinner';
