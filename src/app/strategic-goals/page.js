@@ -6,6 +6,8 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
+
+
 export default function StrategicGoalsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();

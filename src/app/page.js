@@ -2,8 +2,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Navbar } from '@/components/Navbar';
-import { SearchBar } from '@/components/Search-bar';
+// import { SearchBar } from '@/components/Search-bar';
 import { DepartmentGrid } from '@/components/Department-grid';
 import { data } from '@/lib/data';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -55,9 +54,9 @@ export default function Home() {
       <main className="mx-auto px-0 py-0">
         <h1 className="text-4xl font-bold text-[#009374] mb-8">Process Model</h1>
         
-        <div className="space-y-4 mb-8">
+        {/* <div className="space-y-4 mb-8">
           <SearchBar onSearch={setSearchQuery} />
-        </div>
+        </div> */}
 
         <DepartmentGrid departments={filterDepartments()} />
       </main>

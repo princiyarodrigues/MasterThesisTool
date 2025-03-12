@@ -1,7 +1,7 @@
 'use client';
 import { useParams } from 'next/navigation';
 import UseCases from '../../../../components/UseCases/UseCases';
-import { Navbar } from '../../../../components/Navbar';
+
 
 export default function UseCasesPage() {
   const params = useParams();

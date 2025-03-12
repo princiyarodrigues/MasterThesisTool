@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { data } from '../../../lib/data';
-import { SearchBar } from '../../../components/Search-bar';
+// import { SearchBar } from '../../../components/Search-bar';
 import KnowledgePortalModal from '@/components/KnowledgePortalModal';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Link from 'next/link';
@@ -57,9 +57,9 @@ export default function DepartmentPage({ params, searchParams }) {
         <h2 className="text-xl text-gray-600 mt-2">{category.name}</h2>
       </div>
 
-      <div className="space-y-4">
+      {/* <div className="space-y-4">
         <SearchBar onSearch={setSearchQuery} />
-      </div>
+      </div> */}
       
       {/* Pass handleItemClick to KnowledgePortalModal */}
       <KnowledgePortalModal onItemClick={handleItemClick} />

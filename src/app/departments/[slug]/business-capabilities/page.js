@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect} from 'react';
 import { ChevronDown, ChevronRight, Plus, Search, Filter } from 'lucide-react';
 import BusinessCapabilityModal from '@/components/BusinessCapabilities/BusinessCapabilityModal';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -443,7 +443,7 @@ const BusinessCapabilities = () => {
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
+            <h1 className="text-3xl font-bold text-[#009374] mb-2">Technical Capabilities</h1>
             <p className="text-gray-600">
               {userGoals.length > 0 
                 ? "Showing capabilities filtered by your selected strategic goals"

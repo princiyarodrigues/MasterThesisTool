@@ -1,7 +1,7 @@
 'use client';
 import { useParams } from 'next/navigation';
 import ITPrinciples from '../../../../components/ITPrinciples/ITPrinciples';
-import { Navbar } from '../../../../components/Navbar';
+
 
 export default function ITPrinciplesPage() {
   const params = useParams();
