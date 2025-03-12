@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { CategoryCard } from '../components/Category-card';
+import { CategoryCard } from './CategoryCard';
 
 export default function DepartmentGrid({ departments }) {
   const router = useRouter();
