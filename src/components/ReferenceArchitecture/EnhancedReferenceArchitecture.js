@@ -110,7 +110,7 @@ const EnhancedReferenceArchitecture = () => {
 
   return (
     <div className="bg-gray-50 p-4 min-h-screen">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-full mx-auto">
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-800">Reference Architecture</h1>
           <p className="text-gray-600">Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht</p>

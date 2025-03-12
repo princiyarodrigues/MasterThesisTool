@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "seed": "node scripts/seed.js",
+    "seed": "node scripts/insertMongoData.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,15 +13,16 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "lucide-react": "^0.454.0",
-    "mongoose": "^8.8.1",
+    "mongoose": "^8.11.0",
     "next": "15.0.2",
     "next-auth": "^4.24.10",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.4",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
