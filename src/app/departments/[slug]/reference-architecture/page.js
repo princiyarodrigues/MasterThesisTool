@@ -1,7 +1,6 @@
 'use client';
 import { useParams } from 'next/navigation';
 import ReferenceArchitecture from '@/components/ReferenceArchitecture/ReferenceArchitecture';
-import { Navbar } from '@/components/Navbar';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function ReferenceArchitecturePage() {
