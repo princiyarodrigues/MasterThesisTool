@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { CategoryCard } from './CategoryCard';
 
-export default function DepartmentGrid({ departments }) {
+export function DepartmentGrid({ departments }) {
   const router = useRouter();
 
   const handleCategoryClick = (category, departmentId) => {

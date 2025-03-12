@@ -4,7 +4,7 @@ import { File, LogOut, User } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-export default function Navbar() {
+export function Navbar() {
   const { data: session } = useSession();
   const router = useRouter();
 
