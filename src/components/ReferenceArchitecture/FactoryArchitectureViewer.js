@@ -7,7 +7,7 @@ import { ArchitectureDiagram } from './ArchitectureDiagram';
 import { ArchitectureLegend } from './ArchitectureLegend';
 import { CollapsibleSection } from './CollapsibleSection';
 import { PerspectiveTabs } from './PerspectiveTabs';
-import { architectureElements, relationships } from './ArchitrectureData';
+import { architectureElements, relationships } from './ArchitectureData';
 
 const FactoryArchitectureViewer = () => {
   // State management

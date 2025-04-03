@@ -611,26 +611,26 @@ const ProductReferenceArchitecture = ({ departmentId = 'operations' }) => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-full mx-auto p-4">
         {/* Navigation Back Link */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <Link 
             href={`/departments/${departmentId}`} 
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Back to Department</span>
+            <span>Back to Departmengkjhjgt</span>
           </Link>
-        </div>
+        </div> */}
 
         {/* Header */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-800">Reference Architecture</h1>
-          <p className="text-gray-600">Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht</p>
-        </div>
+          <p className="text-gray-600">Referenzarchitektur Digitaler Fabrikzwillinfcuzukvkg: Prozesssicht</p>
+        </div> */}
 
         {/* Main Content Container */}
         <div className="bg-white rounded-lg shadow-sm mb-6">
           {/* Perspective Tabs */}
-          <div className="flex border-b border-gray-200">
+          {/* <div className="flex border-b border-gray-200">
             <button
               className={`px-6 py-3 text-sm font-medium ${
                 activePerspective === 'factory' 
@@ -661,7 +661,7 @@ const ProductReferenceArchitecture = ({ departmentId = 'operations' }) => {
             >
               Perspektive Auftrag
             </button>
-          </div>
+          </div> */}
 
           {/* Content Tabs */}
           <div className="flex border-b border-gray-200">
@@ -1093,7 +1093,7 @@ const ProductReferenceArchitecture = ({ departmentId = 'operations' }) => {
         </div>
 
         {/* Legend */}
-        <div className="mt-6 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+        {/* <div className="mt-6 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-medium text-gray-700 mb-2">Legend</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="flex items-center">
@@ -1140,7 +1140,7 @@ const ProductReferenceArchitecture = ({ departmentId = 'operations' }) => {
               <span className="font-medium">Tip:</span> Click on any element in the diagram to highlight its related elements and connections.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
