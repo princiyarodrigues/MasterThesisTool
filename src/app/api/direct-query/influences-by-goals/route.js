@@ -48,19 +48,98 @@ export async function POST(request) {
       const capabilityIds = [...new Set(influences.map(influence => influence.source))];
       console.log(`Direct Query API: Extracted ${capabilityIds.length} unique capability IDs`);
       
-      // 3. Fetch capabilities in a single query
-      const capabilities = await Capability.find({ _id: { $in: capabilityIds } });
-      console.log(`Direct Query API: Found ${capabilities.length} capabilities`);
+      // 3. Fetch all capabilities in a single query
+      const allCapabilities = await Capability.find({});
+      console.log(`Direct Query API: Fetched ${allCapabilities.length} total capabilities`);
       
-      // 4. Format capabilities for response
-      const formattedCapabilities = capabilities.map(cap => ({
-        id: cap._id,
-        name: cap.name,
-        type: cap.type,
-        category: cap.category
+      // Filter to ones we're looking for
+      const capabilities = allCapabilities.filter(cap => 
+        capabilityIds.includes(cap._id.toString())
+      );
+      console.log(`Direct Query API: Filtered to ${capabilities.length} relevant capabilities`);
+      
+      // 4. Group capabilities by parent-child relationships
+      const parentCapabilities = capabilities.filter(cap => cap.isParent);
+      const childCapabilities = capabilities.filter(cap => cap.parentId);
+      
+      // Get unique parent IDs from child capabilities
+      const parentIds = [...new Set(childCapabilities.map(child => child.parentId))];
+      
+      // Find all parent capabilities, including ones that might not be directly related
+      const allParents = allCapabilities.filter(cap => 
+        cap.isParent || parentIds.includes(cap._id.toString())
+      );
+      
+      // Identify target capability groups - update the detection logic to match actual capability names
+      const targetParents = allParents.filter(parent => {
+        const parentName = parent.name || '';
+        // Check for various possible naming patterns
+        return parentName.includes('Factory Planning') || 
+              parentName.includes('Production Management') ||
+              parentName.includes('FactoryPlanning') ||
+              parentName.includes('ProductionManagement') ||
+              parentName.includes('businessFactoryPlanningCapas') ||
+              parentName.includes('BusinessProductionManagementCapas') ||
+              // Log each parent to help debugging
+              (console.log(`Checking parent: ${parent._id} - ${parentName}`), false);
+      });
+      
+      // If no target parents found, add all capabilities as standalone
+      if (targetParents.length === 0) {
+        console.log('No target parents found, using all capabilities as is');
+        
+        // Return all relevant capabilities to ensure filtering works
+        const allRelevantCapabilities = capabilities.map(capability => ({
+          id: capability._id,
+          name: capability.name,
+          type: capability.type || 'Capability',
+          category: capability.category,
+          parentId: capability.parentId,
+          isParent: capability.isParent
+        }));
+        
+        return new Response(JSON.stringify(allRelevantCapabilities), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      
+      console.log(`Direct Query API: Identified ${targetParents.length} target parent capabilities`);
+      
+      // Create a map of parent capabilities with their children
+      const capabilitiesMap = targetParents.map(parent => {
+        // Find children for this parent
+        const children = allCapabilities.filter(cap => 
+          cap.parentId === parent._id.toString()
+        ).map(child => ({
+          id: child._id,
+          name: child.name,
+          type: child.type || 'Capability',
+          category: child.category,
+          parentId: child.parentId
+        }));
+        
+        return {
+          id: parent._id,
+          name: parent.name,
+          type: parent.type || 'Capability',
+          category: parent.category,
+          isParent: true,
+          children: children
+        };
+      });
+      
+      // Also include any standalone capabilities from our original list
+      const standaloneCapabilities = capabilities.filter(cap => 
+        !cap.isParent && !cap.parentId
+      ).map(capability => ({
+        id: capability._id,
+        name: capability.name,
+        type: capability.type || 'Capability',
+        category: capability.category
       }));
       
-      return new Response(JSON.stringify(formattedCapabilities), {
+      return new Response(JSON.stringify([...capabilitiesMap, ...standaloneCapabilities]), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       });

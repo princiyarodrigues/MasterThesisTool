@@ -1,0 +1,4378 @@
+[
+  {
+    "identifier": "id-8f84999ee28040a3bd59e27bbfbd073a",
+    "type": "Influence",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-87e78720a8a8435fa3822b79bdb83015",
+    "type": "Influence",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-55330e71f3cf4742ad3bd80b96cc242c",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-7d6c552f1cde4d4b8c98f3e1c46ca54e",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-b263f49f20af4f66bae3f1bf4d2e507c",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-f5c4d7b7bfde4983a8ff78797605a575",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d3be03d0bfd2474ebaab41c084bcc867",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-89c1b6cb49874581b14d2c43c6cc4b2a",
+    "type": "Influence",
+    "source_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "source_name": "1.1 Zielszenariensimulation",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-db69a9e3a1564879a9b7a15065eca6b3",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-1fb763caf09742ca89b62c5bd1e38f86",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-bcdcbae119a44658b5cffa5571165154",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-dba359c39b7a45ed8d4b5ca7398c9239",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-1218cfee8af34e949df023d1c60a68cc",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-9cfd8652fdde44f1867fe17e04edb055",
+    "type": "Influence",
+    "source_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "source_name": "1.2 Zielszenarienabsicherung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-edce432fa32d48af9c83bbdf3fe41184",
+    "type": "Influence",
+    "source_id": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-70dd0c9faea548ba8ad9df80e3d8b3a0",
+    "type": "Influence",
+    "source_id": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-a34d36d08cfb4dc68367c406567be255",
+    "type": "Influence",
+    "source_id": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-d76c1c9827e545f798ec7729e43c952e",
+    "type": "Influence",
+    "source_id": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-2db0e5a87c054d67a8ede238904f6790",
+    "type": "Influence",
+    "source_id": "id-54695ec421184aa6875e9c80534916e1",
+    "source_name": "3.1 Materialflussplanung & -optimierung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-de700f06342e434f8b7ffeaae13c7a33",
+    "type": "Influence",
+    "source_id": "id-54695ec421184aa6875e9c80534916e1",
+    "source_name": "3.1 Materialflussplanung & -optimierung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-514b2ef26d524b8fbc44787811201e3a",
+    "type": "Influence",
+    "source_id": "id-54695ec421184aa6875e9c80534916e1",
+    "source_name": "3.1 Materialflussplanung & -optimierung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-ba8440a586c142679f0f1bfa825b440f",
+    "type": "Influence",
+    "source_id": "id-54695ec421184aa6875e9c80534916e1",
+    "source_name": "3.1 Materialflussplanung & -optimierung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-9d208db7cd804be6a4f51343e78bb0d4",
+    "type": "Influence",
+    "source_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "source_name": "3.2 Materialflussüberwachung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-abbe2dc95c744cbb842dd7a3957ed341",
+    "type": "Influence",
+    "source_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "source_name": "3.2 Materialflussüberwachung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-2e93eba18cfd49708bb264e0069887b8",
+    "type": "Influence",
+    "source_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "source_name": "3.2 Materialflussüberwachung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-6dfdab23cc9c426092e45f8b12560a9e",
+    "type": "Influence",
+    "source_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "source_name": "3.2 Materialflussüberwachung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a5f9ba16882d476b80d41727df4e1b5a",
+    "type": "Influence",
+    "source_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "source_name": "3.2 Materialflussüberwachung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-2bfa6cdf2ad04eeaaf4bfeeec3ea279a",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-30d84671f06d4f2385baf288bcecc3d0",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-9d60dcccd2984bafa109c816f06f52d7",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-a335278257eb40bf92c272ebfb866bb4",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-ee388c12b1544b16b64a08f01a67fe56",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-f11ab1ba8b6d43bdbc449f78e5ba173d",
+    "type": "Influence",
+    "source_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "source_name": "3.3 Virtuelle Fabrikgestaltung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-a81871db64794d50a0cedc47051290b4",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-cde9da958b3744df8352802b8b521157",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-a9211e22adaa4c708b5ae92f7b3a55f0",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-e7883aec131a479893ce0314147d353b",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-4a93b8a192664e848cd9ce05f720cfab",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-b84b1118bf0f4ea39b5fafdab5d107ea",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-dbf59ee9b5f64e3484a0ae09d0e11ded",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-3b74ec591af04fb19baf0a447069dcdb",
+    "type": "Influence",
+    "source_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "source_name": "3.4 Automatisierte Generierung von Layoutvarianten",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-5609d85690504be281aecad9c3b7566d",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-bdef5f4752a14a869da3098053262181",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d3e1fd53d21a4cc2b01029b52a7d127c",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-0dcbf54f9a4848949721146b795b2128",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-eda6ae6cdcb94fc5999e3d4249fd968f",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-8d1b4ab80713436bba17e327e2670fd1",
+    "type": "Influence",
+    "source_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "source_name": "4.1 (Schrittweise) Erweiterungsplanung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-7ca034eab2c2403e8cb30db97c6b2eb5",
+    "type": "Influence",
+    "source_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "source_name": "4.2 Umsetzungsstandüberwachung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-068c1633aa6f4f5896bd7b0bd60d3b90",
+    "type": "Influence",
+    "source_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "source_name": "4.2 Umsetzungsstandüberwachung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-82e867c5fe2045deb8d07e5605f4f6d9",
+    "type": "Influence",
+    "source_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "source_name": "4.2 Umsetzungsstandüberwachung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-cff8af481d3848f88044818e8046b885",
+    "type": "Influence",
+    "source_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "source_name": "4.2 Umsetzungsstandüberwachung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-cbc6cd306cf84ef9b697a18fb270231b",
+    "type": "Influence",
+    "source_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "source_name": "4.2 Umsetzungsstandüberwachung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-04ff3ced2ba940db9c937504fee45599",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-0fab1ebd68044a489faf4a3a2eff201b",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-99088265b93f45468e76cc1e594baadb",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-eefd7ef54004411895ea8f843240e1b5",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8adec7817003484ba09d0d660d947cc9",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-81fb43a66231487aa7bed7499ab66afd",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-b0d35eb4d1a44132bea5d00fe53c2e2c",
+    "type": "Influence",
+    "source_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "source_name": "4.3 Virtuelle Inbetriebnahme",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-b5e4f4d118bb4c2ba36fa31b84317cc6",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-4a64a13547164c5a86d0359bbdbcc29c",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-57f78a701a404748b49a95c6aec41f9d",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-75a1a5f0e6aa483488648b7070a45be1",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-66a16227dd5b468bb49b3615dbf68674",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-f3b4ec9450de4a9282c8547e792e97e3",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-b201878af15241838455935070cba237",
+    "type": "Influence",
+    "source_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "source_name": "5.1 Kennzahlentracking (Echtzeit)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-57614ae5d5604770bb5258ca063d19e0",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-4a1933b10a5846b5b79968d8c193c93d",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-a6acd49291094383964799cbbbe75de4",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-aaa4e6f48cac40b4b269bad2bcbfdebd",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-f3dbe724a3874c529f459c61991cb2c5",
+    "type": "Influence",
+    "source_id": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "source_name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-3edd7b86510540648f265acc2798e927",
+    "type": "Influence",
+    "source_id": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "source_name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-bd56bae352ea4781af268316bef5cdfc",
+    "type": "Influence",
+    "source_id": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "source_name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-5f0ab09f8a784cba95023a28bd9b7e29",
+    "type": "Influence",
+    "source_id": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "source_name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-cccc3428f08245529313005c696f430d",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-ae4283b08e374a478dc3a98021dbb364",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-1fd3f19177ba49d99a7f9d1ef6db1e9c",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-4476d36d777140a9b390effa81af2ead",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8f39baea1667464ca1954b2167860ed5",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-5169c4919202489ea36ae27fc8160bbb",
+    "type": "Influence",
+    "source_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "source_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-a3f0dac57b6e4fb3a5fbcc32e6ff1778",
+    "type": "Influence",
+    "source_id": "id-a8a253b674eb499789578afa0a71f779",
+    "source_name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-bb42d04cbca94f48845f2c72017ab7b2",
+    "type": "Influence",
+    "source_id": "id-a8a253b674eb499789578afa0a71f779",
+    "source_name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-80fc6a26b4df4190ad07ecf67ab2913a",
+    "type": "Influence",
+    "source_id": "id-a8a253b674eb499789578afa0a71f779",
+    "source_name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-b266d060a7194fb588a884689d5094a1",
+    "type": "Influence",
+    "source_id": "id-a8a253b674eb499789578afa0a71f779",
+    "source_name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-0b623f091b2f46e994f989e593184276",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-97a3f61a58de4521b928f821f6cff788",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-bb132fabd9f4425badb8dc76677fa446",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-8554af4bfe4f46bea94f13c9d89777ed",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-337143e818b24e98bf3d49b3e6915a4f",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-7331fe85cc1e4c868b732684266f2153",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-e9b121551c7d4597b6f5b3a26d8f88a4",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a6d6c116e7bc4b90b30a2e2dbbd532e8",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-cc4ab352be8646a99fbd54fd16582a52",
+    "type": "Influence",
+    "source_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "source_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-a186cc228ee94b2e9ab7936d524cb1ea",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-5d50e96f736047bb98b086227749dd76",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-f9791072ab9d4f55bc95250919cde617",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-1500f4b2e6e04c64b6f1a8a23410d6ec",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-46ede3fdf0314d9c97ea511044ec40a7",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-d3f09cc1f29b47dfa83d4630d23232b1",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-31c5b3f1ae7c43e596eba55fd0b0b4bc",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-b5d4c7370f8c41f5a4630d4f36ac7b77",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-3a065123867c43daa592f11193995d60",
+    "type": "Influence",
+    "source_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "source_name": "6.6 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-f83f1d31a2d74cce97d737b3a5232b85",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-a4a10613443943b5ab6f9319ffd41c5f",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-0ce01d38168142bfbd97a0119f136a14",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-1d6867672aa841a4be3de6cef36fa7f2",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-a2f4b71825ab441fab63c89b49da840e",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c7be9f66fdb740559d914d473ef9daa7",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8ec52a0ea53e4c078df3632c790acc3b",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-10f40486b8d24fc89a19601632398c60",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-84b4aa59f6d64ed9a720bdf8f18b1e3d",
+    "type": "Influence",
+    "source_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "source_name": "7.1 Virtuelle Produktionsprozessgestaltung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-d2a807cf454d405187409b6d3580fe8e",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-e85909bbedc542fd9b2a1f3ece177b63",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-ae3dcaa222384a8c8cca1eb67970aac2",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-cfcde365951f40e9b613aa0e17aa53dd",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-f64767f0feae47bcab7d86eae46208c8",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-7da4821ae6854c7885e74025e2377875",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d68fa380f10a40ab907bc9007db063b1",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-4084e078b8524efaa59a396c137c74df",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-1988aea2dae648309a1e8dc97d1f3caf",
+    "type": "Influence",
+    "source_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "source_name": "7.2 Selbstoptimierende digitale Planung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-8818063cee4c49ddbfbcd57130ac70f9",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-72af66de39ea44dd850dd50abd97cc23",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-532b1f82cd11468190d49531f67c5e50",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-80188312eed54a1e9d00380e1c8b90fb",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-56716869c61346818cfaba96cfa99f41",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c27a18cc465a490fb6d7feb38c98f9f6",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a5f3fab2b3d5426db6e38e2ecd5bfa51",
+    "type": "Influence",
+    "source_id": "id-302b8a2a630543549a635446e953d818",
+    "source_name": "7.3 Automatisierte Ermittlung Produktionsprozesse",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-3007835d0db04d4796a0296f42717aed",
+    "type": "Influence",
+    "source_id": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "source_name": "7.4 Root-Cause Fehleranalysen mit Echtzeitdaten",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-99ba4c17f5c04d5f8282fb1ee8dc1c17",
+    "type": "Influence",
+    "source_id": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "source_name": "7.4 Root-Cause Fehleranalysen mit Echtzeitdaten",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-a001487d794a4ad395cc575994a1cbe1",
+    "type": "Influence",
+    "source_id": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "source_name": "7.4 Root-Cause Fehleranalysen mit Echtzeitdaten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c7861b9386fb4e4e9578c23a40cf66fe",
+    "type": "Influence",
+    "source_id": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "source_name": "7.4 Root-Cause Fehleranalysen mit Echtzeitdaten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-ebe734a17ae447e0a0a8ef36e8ceb9be",
+    "type": "Influence",
+    "source_id": "id-566780e6923a45129f9da533a3b9c626",
+    "source_name": "7.5 Verknüpfung zu Erkenntnissen (z.B. Servicemeldungen) aus Produktnutzungsphase",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-61ea9f2bfda04831a2c7e67a14c5540d",
+    "type": "Influence",
+    "source_id": "id-566780e6923a45129f9da533a3b9c626",
+    "source_name": "7.5 Verknüpfung zu Erkenntnissen (z.B. Servicemeldungen) aus Produktnutzungsphase",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a2f94863081748af95d23c1e9afa9c61",
+    "type": "Influence",
+    "source_id": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "source_name": "8.1 Automatisierte Dimensionierung Personalmittel",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-a7104ff7b5b5408ba3e83edefc756280",
+    "type": "Influence",
+    "source_id": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "source_name": "8.1 Automatisierte Dimensionierung Personalmittel",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-d1864199bbd84d95813062fd6fc21d21",
+    "type": "Influence",
+    "source_id": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "source_name": "8.1 Automatisierte Dimensionierung Personalmittel",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-e5b9f41d357f42e09066ed532c8a2c0b",
+    "type": "Influence",
+    "source_id": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "source_name": "8.1 Automatisierte Dimensionierung Personalmittel",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-ea75a8167700485e83d401ad7c5bf8ed",
+    "type": "Influence",
+    "source_id": "id-ad797572b3574dc49ae91a374d088d28",
+    "source_name": "9.1 Reichweitenplanung & -überwachung Funksignale",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-fc1569452d6b48d990bece89fc08bc72",
+    "type": "Influence",
+    "source_id": "id-ad797572b3574dc49ae91a374d088d28",
+    "source_name": "9.1 Reichweitenplanung & -überwachung Funksignale",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-ec649f247eaf451ea843b4abc017e5f3",
+    "type": "Influence",
+    "source_id": "id-ad797572b3574dc49ae91a374d088d28",
+    "source_name": "9.1 Reichweitenplanung & -überwachung Funksignale",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a62de8af3ca048e38f216807da3c4442",
+    "type": "Influence",
+    "source_id": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "source_name": "11.1 Virtuelle Arbeitsplatzgestaltung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-4ed991dff2f74591bf98e0d2d03c0caf",
+    "type": "Influence",
+    "source_id": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "source_name": "11.1 Virtuelle Arbeitsplatzgestaltung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-11ffcac083024cf882f4c1422a8e56e7",
+    "type": "Influence",
+    "source_id": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "source_name": "11.1 Virtuelle Arbeitsplatzgestaltung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-85b0e5fbc17f41508ef474afc756c87d",
+    "type": "Influence",
+    "source_id": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "source_name": "11.1 Virtuelle Arbeitsplatzgestaltung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-05db6d9155474c41a71ec2c8825da5ae",
+    "type": "Influence",
+    "source_id": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "source_name": "11.2 Analyse (ergonomischer, wirtschaftlicher) Arbeitsbedingungen mit Echtzeitdaten",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-212d9206d1d642a38fda39efb9af2746",
+    "type": "Influence",
+    "source_id": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "source_name": "11.2 Analyse (ergonomischer, wirtschaftlicher) Arbeitsbedingungen mit Echtzeitdaten",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-739f3b39f2e7427398985576de2bc22f",
+    "type": "Influence",
+    "source_id": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "source_name": "11.2 Analyse (ergonomischer, wirtschaftlicher) Arbeitsbedingungen mit Echtzeitdaten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-a0eb8e6868564efeacb921969da29d3f",
+    "type": "Influence",
+    "source_id": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "source_name": "11.2 Analyse (ergonomischer, wirtschaftlicher) Arbeitsbedingungen mit Echtzeitdaten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-b5ee77e7cf44469ea59de318e0f930f0",
+    "type": "Influence",
+    "source_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "source_name": "10.1 Automatisierte Dimensionierung Funktionsschema",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-02b38aa2ab3b4e29887c1b717e8e1fa1",
+    "type": "Influence",
+    "source_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "source_name": "10.1 Automatisierte Dimensionierung Funktionsschema",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-f8f2ecd364714af6b8e01bfc1d9947b2",
+    "type": "Influence",
+    "source_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "source_name": "10.1 Automatisierte Dimensionierung Funktionsschema",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-d7f00f32daa645efa85fbe5e8f9d6e28",
+    "type": "Influence",
+    "source_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "source_name": "10.1 Automatisierte Dimensionierung Funktionsschema",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-dd10c1ac0eca4f5aaadd07ee0e45c5ac",
+    "type": "Influence",
+    "source_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "source_name": "10.1 Automatisierte Dimensionierung Funktionsschema",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-aa20fe4ef2d34b1387f98305051dc43b",
+    "type": "Influence",
+    "source_id": "id-96a6741884e24fbc8318b23ee99b0285",
+    "source_name": "10.2 Automatisierte Dimensionierung Flächen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-64c4f94cd427499d900f066f5ed571bd",
+    "type": "Influence",
+    "source_id": "id-96a6741884e24fbc8318b23ee99b0285",
+    "source_name": "10.2 Automatisierte Dimensionierung Flächen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-5a98f60bb7c243238c1c6b01194b8892",
+    "type": "Influence",
+    "source_id": "id-96a6741884e24fbc8318b23ee99b0285",
+    "source_name": "10.2 Automatisierte Dimensionierung Flächen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-934c984338d5478fa78452e99f11f8b4",
+    "type": "Influence",
+    "source_id": "id-96a6741884e24fbc8318b23ee99b0285",
+    "source_name": "10.2 Automatisierte Dimensionierung Flächen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-9fd8e09406c74072b602112abeabd49f",
+    "type": "Influence",
+    "source_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "source_name": "1.1 Dynamische Auslastungsüberwachung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-8463eabb887847fb841bb2a4d77b6235",
+    "type": "Influence",
+    "source_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "source_name": "1.1 Dynamische Auslastungsüberwachung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-afbd7090ef3248dfa16ddbf6354a4fc5",
+    "type": "Influence",
+    "source_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "source_name": "1.1 Dynamische Auslastungsüberwachung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-d876b55e200b4666822e8f73328f6c80",
+    "type": "Influence",
+    "source_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "source_name": "1.1 Dynamische Auslastungsüberwachung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-f9848100fa0944ca800e7748b7358ed4",
+    "type": "Influence",
+    "source_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "source_name": "1.1 Dynamische Auslastungsüberwachung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-01591de2d6d140b0b36b722a0ad54021",
+    "type": "Influence",
+    "source_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "source_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-af77a8ec7ce048a894f7ebd04223e1c3",
+    "type": "Influence",
+    "source_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "source_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-5d6271ae56ea435daa48211eb78f1608",
+    "type": "Influence",
+    "source_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "source_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-9688c47e425248169dbbf6ec30d037e9",
+    "type": "Influence",
+    "source_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "source_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-e714c6d1ff5f4639adb501ead5ef35ec",
+    "type": "Influence",
+    "source_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "source_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-7166e52d75874779b1d79bf5fbca0dd0",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-800e585676d04d4196bdfe936e36b7fd",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-88221bc20b274841b123bce5722da1cd",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-f9fd65274db04c8f92216a0b95358350",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-080f3d825cb14cca90bd32ae6c30f6ef",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-913fbf08ad564189b58b8ec59d6b4319",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-f7a094fe72024669a2d5408a73be56da",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-c36a10ecb5ed4224aed9601a235ba0b5",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-ad47a0072543411e9272a244ff4510fd",
+    "type": "Influence",
+    "source_id": "id-617f84d90f784ede979c70728faaae62",
+    "source_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-083fec1cddd846fd91b54ef9bd597521",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-983d9a89652c435ead05c4ec55da379e",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-1c928e2d294c4bafa8a7eb2fc21136e5",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-059abc0f856f4298af6557db8f165a99",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-db8960e168f24efdb7e688ce8078daf5",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-63620da6556a4114a5766951d4bd3645",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-59446539c91d4e57804d5e9c28e33aa1",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-ae11e2789dcd4e18b27dab7bc288aa4d",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-1e88dd6bb7b24e55b335484bd43e0e34",
+    "type": "Influence",
+    "source_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "source_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-e47756bf6b094fa8b5a2c49214fc7739",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-3f707d78153345159d19dc1ed370051f",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-cf7a3ba3c8b84d3cb04cb191bff2e86b",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-b950354136354d7d8b3c2e93018334c1",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-efb498c6ce7a493bac0b6a5fceaa30b1",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-4ba0eb887edc4053ade72f1f187d8016",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-29e780894b2a477db88bac4a58734061",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-6ff86e06cd674c50b3d5d59c84925855",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-474fce8a39c7423fa5fb6d95269a3109",
+    "type": "Influence",
+    "source_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "source_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-69358a5119964d9db666f5dc177dfb3e",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-c65ce4bc4fc246f6a04c7d63550d9148",
+    "type": "Influence",
+    "source_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "source_name": "2.1 Automatisierte Buchung von Materialbewegungen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-57d0ea8c605c4dd486b93150420b1c5f",
+    "type": "Influence",
+    "source_id": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "source_name": "6.1 Automatisierte Vorgabezeitermittlung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-2fc27e6bb7d248a991994d9270ba58fc",
+    "type": "Influence",
+    "source_id": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "source_name": "6.1 Automatisierte Vorgabezeitermittlung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-9c727d9f104a45b9b32a95aae52d1b91",
+    "type": "Influence",
+    "source_id": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "source_name": "6.1 Automatisierte Vorgabezeitermittlung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-4dab0f0394b94adc8165b96e67b68087",
+    "type": "Influence",
+    "source_id": "id-688234b4d9714354b05eb95f12c13067",
+    "source_name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-9acc31db61fe46a493238fb8816f9dce",
+    "type": "Influence",
+    "source_id": "id-688234b4d9714354b05eb95f12c13067",
+    "source_name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-249e0d66cc4b42a3bbb566c233c438a7",
+    "type": "Influence",
+    "source_id": "id-688234b4d9714354b05eb95f12c13067",
+    "source_name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-8c24357ee39b4e66862d49efc577dbac",
+    "type": "Influence",
+    "source_id": "id-688234b4d9714354b05eb95f12c13067",
+    "source_name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-0308084477464e04a9c849068b108822",
+    "type": "Influence",
+    "source_id": "id-8b21a680072249f087798797c119828d",
+    "source_name": "6.3 Automatisierte Entwicklung Arbeitsablaufschema",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-7764407caf504ad6a09926d7c3e3046b",
+    "type": "Influence",
+    "source_id": "id-8b21a680072249f087798797c119828d",
+    "source_name": "6.3 Automatisierte Entwicklung Arbeitsablaufschema",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-44e0a67d270a4dfeac6849ff1d4e0b29",
+    "type": "Influence",
+    "source_id": "id-8b21a680072249f087798797c119828d",
+    "source_name": "6.3 Automatisierte Entwicklung Arbeitsablaufschema",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-101fce5327bf49ecab664950bf3d9003",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-af06b0a8f6c34aa9af9e47e8c3900b30",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-e96612b4539e4d97a8c5b043ec54a351",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-01a25092b6794fdfbbe279ac37129b45",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-2f5ae6363e114c63bbe7c89ffab11262",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-ea7be32d8ccc4d0bb12751ae06e931b1",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-077851d5a6024f96bea1a10176879fb0",
+    "type": "Influence",
+    "source_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "source_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-5463471e78494353a54360ad4de0972d",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-d9ab827586a94d3d94719be5afdde9a2",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-2c393c8528034067b4128077778f8902",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c514566a8e2348c1ab49b2fceff8a93f",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-c1c275a5c5134443a325278740fb0782",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-6dd1107f55a44e0ba14cf60c3d2bb9fc",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-ed951bd6465b4fa2a623311cbf76fe6c",
+    "type": "Influence",
+    "source_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "source_name": "6.5 Automatisierte Dimensionierung Betriebsmittel",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-5dcf00dffacd4973849e9035110c2b8a",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-660bda64e4b646e19eb984bf64d05c02",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-93de8e9d4b224651aed19995d8c9b9d9",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-1c78429b0a1b4abd9e9941677d0b7170",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-e5e52d02144e4efe9ef18d94736c0974",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-081acea4c84a40b3a0c8a43698313c9a",
+    "type": "Influence",
+    "source_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "source_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-f81c6454c3c74c37a3f5b4cfc5e15e9b",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-058777cdc99d4cd089f32915e183b110",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-14a6ae8e540344f2ba23c34b6f25acf6",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-f1a4f220af764ce58f283287a35b4a55",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-efc95052cd484355a04118a87d7294af",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-cbe13642fea84a7a8a3536c14396b629",
+    "type": "Influence",
+    "source_id": "id-aac4827af05848e4b8084b59a221547f",
+    "source_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-1845b1f73b10416dabb4d9678bd532eb",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-b81b719b37454aefab62813338b585eb",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-1cf5a64c546f43ecb777be05b374dd79",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-330656f7a08d4c848b3db2ea2bfb3034",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-0d9b59378cff45c5b1213d781a3c284d",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-537609556a024bf0815c2ab499c72971",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d3c6746c6f054eba9543fc87da9c9aee",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-4047ec57bd2444c696e85f4b42da96dc",
+    "type": "Influence",
+    "source_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "source_name": "7.3 Intelligentes Materialtracking",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-56fb58edb5664c65b931b31e31bff6da",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-79c4e3c578684b6c806b91c8affa1a2f",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-5cca53079a0b4f089cc3f23bc3ffa307",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-44071b849d984954995768f44803bd79",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8405c0a02f1f4d578faeffb90d241f43",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-dcbc6304ecd24ce2a7e1efa4d7021397",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-08d9b0cc796b42d5bf3874e7f1acb3ef",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-781a211ee38745548541bfa872151097",
+    "type": "Influence",
+    "source_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "source_name": "7.4 Automatisierte Abwicklung von Lieferungen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-c8b35e08390448708f4bc8f3e2ba1ef7",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-bf412b48f9b54b11a7b59e7745f993ae",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-353a6dc0ae6143b5808c783afe3ad6f0",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-6ebbf8c74b49434384ae535f7f13ab18",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-2921f3bbc50c45cab8cedc7622718e8a",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-19170d0c6d734162be04efff007e4a82",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-58bf3e775f474bdc925c8e286a1382fb",
+    "type": "Influence",
+    "source_id": "id-87f2fd293d834474852d0249d612d248",
+    "source_name": "7.5 Intelligente Wahl der Anstellstrategie",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-c85ccf5306f84efa8696733723574400",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-09cdeb38201b41b3ab675bf2bc4d2dc4",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-4e40467af46f46359fb6a8d3b23a905a",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-9fc1dda18fe14df1a8690eec042cf631",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-1b1c2400392243ddac059a2f0572731e",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-981299e4951f4d82b619b35b4b3f5797",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-5d613fa982a34352862ac0a0b3b138f0",
+    "type": "Influence",
+    "source_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "source_name": "3.1 Dynamische Produktionsplanung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-04e74adf5a19436ab45a383c8596b4c2",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-7c085524bc534ef1a0cdfb90c6f0a123",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-cad29e66da9c48d3a21124fe295ee600",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-73da4701a62446198b99feb8efd8aa92",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-64ad4b84e2aa42828a09f34e934a21db",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-426cd908a085464d9e2fabcc3f2df068",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-cb04aaf69a384b74b4aa9e861dfffab5",
+    "type": "Influence",
+    "source_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "source_name": "3.2 Intelligente Personaleinsatzplanung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-13afdd9f0acf460b90d7775c248fc92c",
+    "type": "Influence",
+    "source_id": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "source_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-a9b793e69ed64413854e17d3ea946fb9",
+    "type": "Influence",
+    "source_id": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "source_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-a5f8f3e7d6c34a78b6a892e1b469225b",
+    "type": "Influence",
+    "source_id": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "source_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-f9914e85b98d4d03bbec806a5c477d44",
+    "type": "Influence",
+    "source_id": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "source_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-8c036e1f7ad240239f84b09dfc6fe961",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-5a811fe8d2c5477e9fe70a32817f085a",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-63f78269cb5b463aa3faaf045aa67b1e",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-4c51b4f889034dad9007c1f4d5c259cc",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-ddf4454a1cd344b7a126208efa1465bf",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-99d8262fcb8f41f9808f5f3c699557c2",
+    "type": "Influence",
+    "source_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "source_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-6830b41148e547f9b41627a7330eb85d",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-b111195f048347eebfbdf9b14c0289a0",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-61e2c8bc045c4b709e539ba0c4b02c12",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-dbd32afdafb54c9882eeabd491541d9c",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-a48b47f5430f44b298da79ddc60bb654",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c72213273b7a4811bf54b7d4191d2859",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-988ef99d3f8045319ad4119768867d5d",
+    "type": "Influence",
+    "source_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "source_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-ef8aedf2bab14dbab143278d1817b5da",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-40cbb80f01de423fb7b7fc3866fd6329",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-fe1f70ec9aa5439298e56e3bb59badb3",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-d7b9574c1fb54458bd1282586a70f76a",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-36f673dac0c947feb6f2a6a1a9d4b23b",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-a966dd56ac4f4fb8bf2ae1e07ef72b05",
+    "type": "Influence",
+    "source_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "source_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-4de15fe8b48141bc9e036b389cb95679",
+    "type": "Influence",
+    "source_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "source_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-365bab5bc16643f0a7b9e7f21acc5528",
+    "type": "Influence",
+    "source_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "source_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-0fec5a86344548929d211eed2c1caca6",
+    "type": "Influence",
+    "source_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "source_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-9d97b1b9c8514e58af15e512b003c007",
+    "type": "Influence",
+    "source_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "source_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-7f4889ed5ff84901a9c03a8904a4e721",
+    "type": "Influence",
+    "source_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "source_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-197f9f1b06094eb091297379322d79ae",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-eb79013754b94007bc7488f67aec3412",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-e4e29a128e824aa1a6b3471ae0c52a71",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-bb2c51c80c0547f8a82b678097ddb383",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-bb6fa984bf4b46f39ed4aed4963f401f",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-84e95c7c79d54a86a1859700bcdda0ae",
+    "type": "Influence",
+    "source_id": "id-82c82c4707454e6496550de15ae487f5",
+    "source_name": "4.3 Intelligentes Energieverbrauchsmanagement",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-9a28298c81344532865c50cf89ac51ce",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-f905f2de4d644a2eae981eecbf88e22e",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-c36815b62397408ea0e8197399ac2746",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-b93390d97e114cbfb87e9a104a1e90a1",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-215f4d830aff4fecae243953983c1605",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-b79e5502abf847aabadb80e97285b051",
+    "type": "Influence",
+    "source_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "source_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-7486ea47df744138862b1025482cabd4",
+    "type": "Influence",
+    "source_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "source_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-22d07a495dcc44389221947f1b077bca",
+    "type": "Influence",
+    "source_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "source_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-5e2e9a46b4d849aba0a3e51d938df35e",
+    "type": "Influence",
+    "source_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "source_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-a8ed39f77f924fc6b61747e614ab9309",
+    "type": "Influence",
+    "source_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "source_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-4fcb5fb5b5444ffa957676fe519f59f1",
+    "type": "Influence",
+    "source_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "source_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-6c1380b8164e497a8b5c6922f977c8c3",
+    "type": "Influence",
+    "source_id": "id-47daa35eb3b14e85b54885c322943a6d",
+    "source_name": "1.1 Datengetriebene Zielszenariensimulation",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-9dd4ab2570574a119e4afb03f7262781",
+    "type": "Influence",
+    "source_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+    "source_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-9e2c14242a634528baef29884cf4b66b",
+    "type": "Influence",
+    "source_id": "id-6bf3391be3124655805364053cfb1954",
+    "source_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-6cc86dbc89fd485e98535c77236a9538",
+    "type": "Influence",
+    "source_id": "id-bff4fe965c2546ada2315c866ee86e21",
+    "source_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-b6eec46540cb4d7a9d4edce4142a4c30",
+    "type": "Influence",
+    "source_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "source_name": "3.2 Echtzeit-Überwachung von Materialströmen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-febb66134a8a40c39ec6c411843f4032",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-452362a75efc4a1db602d54b717b43e1",
+    "type": "Influence",
+    "source_id": "id-163194248ea7440ca783abcbd810ba61",
+    "source_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-f6cc207c081c4c8dbcdb5c883b9e9e93",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-988b144ce946475c9df67bf1722696f0",
+    "type": "Influence",
+    "source_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "source_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-19f912b8325e4bd7a5696b7cbeb8d3d9",
+    "type": "Influence",
+    "source_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "source_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-84c0d6a6b2964f8bbe048f9ff98430c9",
+    "type": "Influence",
+    "source_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+    "source_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-4510156ecea2472b81d8d520bfe1a9c1",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-b13152bd46e442bdb475a30f9f2ada76",
+    "type": "Influence",
+    "source_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "source_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-679775be9b4b41609b04930e3ce3abb7",
+    "type": "Influence",
+    "source_id": "id-21f796c662b94b9682a066f7c7aecec6",
+    "source_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-4c39288d66a2460ea9f3b60eee27d542",
+    "type": "Influence",
+    "source_id": "id-d01904f82417470db57860fa8ea89a66",
+    "source_name": "7.6 Datengetriebene Prognose von Prozessabweichungen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-7f8fd9b8ed064c5ea0ceb3d5cda35dc3",
+    "type": "Influence",
+    "source_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "source_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-24b2288765ac46bb970bce00f1279e36",
+    "type": "Influence",
+    "source_id": "id-28c55d69759c4419a49a2c99c46f101c",
+    "source_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-1878391c1e2a415b89251d51d67010da",
+    "type": "Influence",
+    "source_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "source_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-52f7bf4807e443259f6db8cadf37068d",
+    "type": "Influence",
+    "source_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+    "source_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-f1ab535325974184ac970ed891d89c97",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-c746c935f5ac4e6a94f328060371b0b2",
+    "type": "Influence",
+    "source_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+    "source_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung",
+    "target_id": "id-88910bb6647348ea8a0ee615178a455a",
+    "target_name": "1.1 Qualität"
+  },
+  {
+    "identifier": "id-10b8bdd7f3c14af49015c8188ada83af",
+    "type": "Influence",
+    "source_id": "id-47daa35eb3b14e85b54885c322943a6d",
+    "source_name": "1.1 Datengetriebene Zielszenariensimulation",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-a326a88e9b274a028cb844410ce2e701",
+    "type": "Influence",
+    "source_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+    "source_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-1f493863180443e285f4a26a5e5df41b",
+    "type": "Influence",
+    "source_id": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+    "source_name": "2.2 Simulationsgestützte Bewertung neuer Standorte",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-576d77e9819b4380979d084f9e7caa48",
+    "type": "Influence",
+    "source_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+    "source_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-bd9fabe1a4d849a885713448e36ddf89",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-41299ee680064665830a6bf61d0d6fde",
+    "type": "Influence",
+    "source_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "source_name": "3.2 Echtzeit-Überwachung von Materialströmen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-00ec1c7c4cea49e1957b3229ae0755f2",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-fca360d80f6c427e80aee5bb2b85842e",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-83f90172be7943159a617f1de866cb50",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-8a4369d567994f718b7490a3e9e19130",
+    "type": "Influence",
+    "source_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "source_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-5109ad6550e242fc98477a8d54afaafa",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-200f46ec52d742a6bcb94cd01fd41634",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-640e7fb44b8c493b9055f6b3d543fe28",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-f1a349e403414984ba73312f265d2397",
+    "type": "Influence",
+    "source_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "source_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-9b5c6ca648be443a913a8018b67debb6",
+    "type": "Influence",
+    "source_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+    "source_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-9391b680c0a144daa44aaad8293b2ce0",
+    "type": "Influence",
+    "source_id": "id-abb4a057963240cb8e29153b77f375e4",
+    "source_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-e50b4c48cce44b67bba6d566cbd90d32",
+    "type": "Influence",
+    "source_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+    "source_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-65a8c2b2341a4c9c8bdb6bd6f9c1c55d",
+    "type": "Influence",
+    "source_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "source_name": "8.3 Dynamische Umplanung von Personalressourcen",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-6c051dc2564b4560aff97819f963b899",
+    "type": "Influence",
+    "source_id": "id-0867690cf90d408fb4d8edf875514af1",
+    "source_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-10325cb7d5c9436fa5d169fde90e2587",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-1badd18aabbf412cb4e7249144538279",
+    "type": "Influence",
+    "source_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "source_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-4f8c08ef9b8f41508aa38ed1e1c75991",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-8990110ec3284addab76b6379ce8ca44",
+    "type": "Influence",
+    "source_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "source_name": "2.1 Automatisiertes Materialtracking & -buchung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-d3ad07efba114235b1dd756f850436bd",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-f739ae9c098b41d9a6b5a409baeef479",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-d7a6c32448584790b1c40e41f428fedc",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-3ee64bfdb98e42fe81dc70e4a29b4939",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-06dc8faba0d64e979d1a7d3fcba5a38e",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "target_name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-f335deb27eb14b86a897f2959aa2c124",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-5e4969fd83fb4b4097ad36cff3e5e824",
+    "type": "Influence",
+    "source_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "source_name": "3.2 Echtzeit-Überwachung von Materialströmen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-b7aaa3a5d96d4d68b7be431857ac0ddf",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-4f2a875463704965803639ea3d57ff05",
+    "type": "Influence",
+    "source_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "source_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-6ae26f7ea01a443c8abedd9c73d89ca0",
+    "type": "Influence",
+    "source_id": "id-12327486d2ca4021b57891d419dd0671",
+    "source_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-e8de30ab54234a35be2f02e01fef8168",
+    "type": "Influence",
+    "source_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+    "source_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-dccb592c34744f27a4815255088b8bbc",
+    "type": "Influence",
+    "source_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "source_name": "8.3 Dynamische Umplanung von Personalressourcen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-34351dd42b8f43b7a66f997db1d739d0",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-ecfe174f2b4847cf9936a7d045c4ee52",
+    "type": "Influence",
+    "source_id": "id-21f796c662b94b9682a066f7c7aecec6",
+    "source_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-c33f4f02ea354534a8cf68780eb021b8",
+    "type": "Influence",
+    "source_id": "id-d01904f82417470db57860fa8ea89a66",
+    "source_name": "7.6 Datengetriebene Prognose von Prozessabweichungen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-4afd6822bdc74be4b648fb97d7e2e839",
+    "type": "Influence",
+    "source_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "source_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-d65fc01043b045798b2ee610fc9f9c63",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-bce1d1cec3ad427c8534c100353ed619",
+    "type": "Influence",
+    "source_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "source_name": "2.1 Automatisiertes Materialtracking & -buchung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-8b1509b1d46d4832bcacdf2d43aff879",
+    "type": "Influence",
+    "source_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "source_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-9109791d136546bcaf09f8ad9fcc7194",
+    "type": "Influence",
+    "source_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+    "source_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-a1643b6f14a6471999a4db9fd20620aa",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-93c2001c18b742b19e8ece50e203dee5",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-5455babbe99f40aa8f8426a4f871877c",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-7ac9c3a6296e40919cc86522571848f4",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "target_name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-8973618c4897425c8a1fc7dbe406cfc4",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-f9d467d5377b4d9ab817c78fbc684988",
+    "type": "Influence",
+    "source_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+    "source_name": "1.2 Automatisierte, adaptive Kapazitätsplanung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-bf6eed2d480c4a7285aef8a898a43f90",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-0451cc1ced0d4a309f60114ce491b58d",
+    "type": "Influence",
+    "source_id": "id-55aae4ba434744b6a054ae8de6dc95c8",
+    "source_name": "4.2 Vorausschauende, simulationsbasierte Materialbedarfsermittlung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-30b4070471a94b4f8a7327f9e750d22d",
+    "type": "Influence",
+    "source_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+    "source_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-9459181821d84d04b394315dd5d49f6f",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-40685e55fc9641b58befa9b7d6c199b5",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-3672de10fa54440a947fec67275b26f1",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-8bd09e63e8ba4b94ab21bf684ac08b8f",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-e3e83e08585f48428890b11b4bbd4193",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-e0af0c6e08104cd387fa5d68fbc83ada",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-a370fe46cd93481fae75b84b05ca47de",
+    "target_name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-98a272adcaa24fa8a80acad22e00b2dc",
+    "type": "Influence",
+    "source_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-24a25f14193945e99f6f1797a1220932",
+    "type": "Influence",
+    "source_id": "id-bff4fe965c2546ada2315c866ee86e21",
+    "source_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-9f774a45c4c147589f57c04ffa5ddd2d",
+    "type": "Influence",
+    "source_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+    "source_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-404225956f074d6c93a50b98c3586ed0",
+    "type": "Influence",
+    "source_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+    "source_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-91c35842f43a456f8bfba6707887ce1f",
+    "type": "Influence",
+    "source_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+    "source_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-7bfefbcb75a747e1b2ee516d3758bc31",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-712f407abda74dac8ea4e48591e21600",
+    "type": "Influence",
+    "source_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "source_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-c397fa2668684bf0a852ed3697d557fc",
+    "type": "Influence",
+    "source_id": "id-21f796c662b94b9682a066f7c7aecec6",
+    "source_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-448846c22d954ff4bd7e1331760ae3b2",
+    "type": "Influence",
+    "source_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+    "source_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-1767cad0145e4250a065dcc158b6d9bb",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-65d355bd68654b31acb67bf7cbc88957",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-5e26eb53f9b84ab29916258fbc5b7d82",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-8c1a45876f714c26889ba34acbaaad31",
+    "type": "Influence",
+    "source_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "source_name": "8.3 Dynamische Umplanung von Personalressourcen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-d3d89dd998944f31a7a11a497980cc4b",
+    "type": "Influence",
+    "source_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+    "source_name": "4.1 Agile Erweiterungsplanung mit Simulationen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-0612a46f3544420eb12d83b3cb3a1cbc",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-5e2b3988ec0d4e0fa47c854e8707092b",
+    "type": "Influence",
+    "source_id": "id-12327486d2ca4021b57891d419dd0671",
+    "source_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-5b1f23bf366b4179b622c1fed441640e",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-92171657d267474f8442ece6c4b69f1f",
+    "type": "Influence",
+    "source_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "source_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-cddccf1e2de743fa8a89cb7180f9b19c",
+    "type": "Influence",
+    "source_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+    "source_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-92429f2f36f847bda6852f7f6418e1ca",
+    "type": "Influence",
+    "source_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+    "source_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-8d75d85e0cb64c4387bd1cd670676d36",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-204557bf845647d9977ed567fd113fac",
+    "type": "Influence",
+    "source_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+    "source_name": "1.2 Automatisierte, adaptive Kapazitätsplanung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-85d1951e7f2d46b484c82884df925623",
+    "type": "Influence",
+    "source_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "source_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-759c7c061fe9415aa159b300a65bc785",
+    "type": "Influence",
+    "source_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "source_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-ff3eaca1d93a4a6188acf60c2ee79c28",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-57dcbe0a3c234de5aa213098928876b0",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-45ac900c0b3a4b81bf21a74447d35202",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-2c2ab7cd85ad46129f572506329876c9",
+    "type": "Influence",
+    "source_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+    "source_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung",
+    "target_id": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "target_name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-2f3a96bd937041d395c98d7dae9ef714",
+    "type": "Influence",
+    "source_id": "id-28c55d69759c4419a49a2c99c46f101c",
+    "source_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-6409e48cb86e4ff391849d8b2bd647f8",
+    "type": "Influence",
+    "source_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "source_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-aa5e6951b199464c8ec077ca96f1b99a",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-d72cd7a748114c578ec498b8653d2c54",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-1f85732a78e5477eb4aa4083b30bccbb",
+    "type": "Influence",
+    "source_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "source_name": "2.1 Automatisiertes Materialtracking & -buchung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-96a788b66b904306b48f5ab6b1c90e75",
+    "type": "Influence",
+    "source_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+    "source_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-2d9492145bc64c89a4db21bf21c6b708",
+    "type": "Influence",
+    "source_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+    "source_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-035fb10f2a364f5e9a5c262bcb26c310",
+    "type": "Influence",
+    "source_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "source_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-0b0e4af05dad491c9642b537440b3cbf",
+    "type": "Influence",
+    "source_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+    "source_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-c2b46726313b4c8c88804b3ae6229917",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-1c49ad0f68ce497ba176ac04434a6581",
+    "type": "Influence",
+    "source_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+    "source_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-aa8a26b5ac964e60a3e3c6ab359eab6d",
+    "type": "Influence",
+    "source_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "source_name": "8.3 Dynamische Umplanung von Personalressourcen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-bc47ac5fe73c4b83b0b142c98d2ed138",
+    "type": "Influence",
+    "source_id": "id-abb4a057963240cb8e29153b77f375e4",
+    "source_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-246ed78b0960481c8be27e2f1a668853",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-350a775520414cf8a7b1ae8fbb55a01f",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-012491d18d094659ab5ddeacd6705e3f",
+    "type": "Influence",
+    "source_id": "id-d01904f82417470db57860fa8ea89a66",
+    "source_name": "7.6 Datengetriebene Prognose von Prozessabweichungen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-847c96a969ee4c258a8c9c07aec10efe",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-155101f538d745668824e9f9f656992e",
+    "type": "Influence",
+    "source_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+    "source_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-6102939fa64f47699605763ac56b17cd",
+    "type": "Influence",
+    "source_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-e759c3b0dcff42ea895847b224ea64a1",
+    "type": "Influence",
+    "source_id": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+    "source_name": "2.2 Simulationsgestützte Bewertung neuer Standorte",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-beca9fb3043340299059ed9623cdc7d2",
+    "type": "Influence",
+    "source_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+    "source_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-94c56096a3e245c7a169cef3d2a64d93",
+    "type": "Influence",
+    "source_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "source_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-4a134bb49149450c809d134d161e35ec",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-23dd9bb6e85941ccaa312fa772e61e04",
+    "type": "Influence",
+    "source_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+    "source_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-1b0ae9e53844449f93dd2e5756528a20",
+    "type": "Influence",
+    "source_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+    "source_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-980e3d4331674046bb1b8e35c684c5c9",
+    "type": "Influence",
+    "source_id": "id-6bf3391be3124655805364053cfb1954",
+    "source_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-e87b9d6d4a934b8fafa3e23ce98fa0e3",
+    "type": "Influence",
+    "source_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+    "source_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-9c2d216757d54d73b2c7e10c719cbe1a",
+    "type": "Influence",
+    "source_id": "id-47daa35eb3b14e85b54885c322943a6d",
+    "source_name": "1.1 Datengetriebene Zielszenariensimulation",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-99ee90408a8b44efa740a0828077f031",
+    "type": "Influence",
+    "source_id": "id-bff4fe965c2546ada2315c866ee86e21",
+    "source_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik",
+    "target_id": "id-b405f25f25b945978a72493527f75a85",
+    "target_name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-fa1babd7f0db4bc386ae64cdefc61b86",
+    "type": "Influence",
+    "source_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-667232bfcd3d46f5a6241790df7042fc",
+    "type": "Influence",
+    "source_id": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+    "source_name": "2.2 Simulationsgestützte Bewertung neuer Standorte",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-3206c78147b44e64b918174f66681e6a",
+    "type": "Influence",
+    "source_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+    "source_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-c6f91392a8b14465b8a803bd70e8a596",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-241fcf0ca7ce432c97ae4b4fd33f0b12",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-e29fcac8e4f04bba9c2996d7e73ff9d1",
+    "type": "Influence",
+    "source_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+    "source_name": "4.1 Agile Erweiterungsplanung mit Simulationen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-529ae41420eb4579bb2404cdbea5b2d0",
+    "type": "Influence",
+    "source_id": "id-163194248ea7440ca783abcbd810ba61",
+    "source_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-d5ce1b3a46bc4d1daa336963d2a2fa11",
+    "type": "Influence",
+    "source_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "source_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-12686f7128534aada3ead30caca1f3ff",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-b8e59dcc93d14df892ee4543350ffd6a",
+    "type": "Influence",
+    "source_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+    "source_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-988ecf5a7bbb4d4cba980f24ec54b834",
+    "type": "Influence",
+    "source_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+    "source_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-e8d23dccd6d44570bb98101f4da20db5",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-1d4a65e8a78c4b3fa90c6ad1c78fb4ce",
+    "type": "Influence",
+    "source_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+    "source_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-d5a270ac2e744ee98142ac92740d0579",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-8580a9aee65f477f8f2405a050dd5e48",
+    "type": "Influence",
+    "source_id": "id-12327486d2ca4021b57891d419dd0671",
+    "source_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-b4af35fb54bd4ea1a4e7a1c858919ada",
+    "type": "Influence",
+    "source_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "source_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-cc226ab2bd24478aa903dcf51e4c815d",
+    "type": "Influence",
+    "source_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "source_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-5fb724d04cd042498046a8cceafc9def",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-abb0517588404087909d1747aa1da1f3",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-2298f93879a74a64a5e9ee6fd730ac7c",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-854297274de84e77acf7b5c804d669f2",
+    "type": "Influence",
+    "source_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+    "source_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-14b3ee332dcd4c5a95afc6fe4be8819f",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-784f019fb2b54a229d4e061f962c0e63",
+    "type": "Influence",
+    "source_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "source_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-d58db9b70e6942dc8dc8a77ad764f406",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-6104b78acbc14a568de46b4e9b48c332",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-92cb15dc166145139a8914616ea44361",
+    "target_name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-fd7f4e081af64b0882c78975bfc06a3c",
+    "type": "Influence",
+    "source_id": "id-6bf3391be3124655805364053cfb1954",
+    "source_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-1156a0dd36804315897f96a09352edbd",
+    "type": "Influence",
+    "source_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-6eb62309a3f94d698b9a445afdd950f3",
+    "type": "Influence",
+    "source_id": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+    "source_name": "2.2 Simulationsgestützte Bewertung neuer Standorte",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-3ef52a009e244176b2b7c15754abd942",
+    "type": "Influence",
+    "source_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+    "source_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-27dd4dd577f04ed39486383514dd8121",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-ac411848f7604456a60c11b70e4074e2",
+    "type": "Influence",
+    "source_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "source_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-8879e5029a394ab486c9d95f415a22ca",
+    "type": "Influence",
+    "source_id": "id-163194248ea7440ca783abcbd810ba61",
+    "source_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-8589e4a57c0f4a34aed2d89b7cbc9e00",
+    "type": "Influence",
+    "source_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "source_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-05ba4be30a894a8885e463a09ab35aeb",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-e4783369a3d74b6283864b2e90a166d2",
+    "type": "Influence",
+    "source_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+    "source_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-e8310ad0a34749b19a011fbc959bca6f",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-3953aadf71d946959a9b7af394d556c2",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-2bf0ffc18c804b11a2b2c83f4740b14a",
+    "type": "Influence",
+    "source_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "source_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-aa414fdc83eb42e18d5721b79d8e0f1f",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-f3ed20efa2174b85b21a4d8330df583b",
+    "type": "Influence",
+    "source_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+    "source_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-ebf6be28fafd4b6e86a62009d9efb4a4",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "target_name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-4159de70fdb349ce9d398c1732150edc",
+    "type": "Influence",
+    "source_id": "id-6bf3391be3124655805364053cfb1954",
+    "source_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-41474e01dc9d49b0913edb8db11c3a95",
+    "type": "Influence",
+    "source_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+    "source_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-b2d20ad3522a4ed5b66b08bac57f1cc5",
+    "type": "Influence",
+    "source_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "source_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-95cb5e6840b3448693e86025aac89ea9",
+    "type": "Influence",
+    "source_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "source_name": "3.1 Dynamische Materialflussplanung & -optimierung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-84261d84561e44e393f1d0f63b988c48",
+    "type": "Influence",
+    "source_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "source_name": "3.2 Echtzeit-Überwachung von Materialströmen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-e067d72ab7864a1a89403e1f9deb3b96",
+    "type": "Influence",
+    "source_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "source_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-9d709bf0a294470884d16de5927c1d2e",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-9ea5d312fb7a4721be411f9d41dd4bd4",
+    "type": "Influence",
+    "source_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+    "source_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-6c933d86f76d44b18a0c7b795fb9f3ae",
+    "type": "Influence",
+    "source_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+    "source_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-f8cf27d8937948fb9a4e804584501af9",
+    "type": "Influence",
+    "source_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "source_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-868d03bf5d094b6894814c43c705b476",
+    "type": "Influence",
+    "source_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "source_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-fe21bd8c5c9e4f0990e31219bd8677bc",
+    "type": "Influence",
+    "source_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "source_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-87f3c4e0b77e40f19fc324e6e6b0c6eb",
+    "type": "Influence",
+    "source_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "source_name": "8.3 Dynamische Umplanung von Personalressourcen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-95a1bc48c0a84c85b3ea27a4e24b5348",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-b82294bf884e4930a54b77810d2eda03",
+    "type": "Influence",
+    "source_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "source_name": "1.1 Dynamische Produktionsauslastungssteuerung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-3c49797a99c64ba29f4f1a18be02c839",
+    "type": "Influence",
+    "source_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+    "source_name": "1.2 Automatisierte, adaptive Kapazitätsplanung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-0214fff6f0324bab96fae737e5132d51",
+    "type": "Influence",
+    "source_id": "id-852bcc807ba2482e8ad06275194b448b",
+    "source_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-83a3c46441a44526b3c428f491c5b38b",
+    "type": "Influence",
+    "source_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "source_name": "2.1 Automatisiertes Materialtracking & -buchung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-4535312b76cc45239203d6638b538d6c",
+    "type": "Influence",
+    "source_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "source_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-92a958c52bb64d4da4cfc14f97887fa3",
+    "type": "Influence",
+    "source_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+    "source_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-33d3f9780ea44be4b3f0fad0c2dd51d0",
+    "type": "Influence",
+    "source_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "source_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-525e9b6306f1457c93fd52c14e3ffe05",
+    "type": "Influence",
+    "source_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "source_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-d11e6ccc9cc14347aea5b03cda7aac33",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-7f1e12eafe204eab9bb49b8a15bec283",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-e94a2314d0b64ebdb34db63c67ce493d",
+    "type": "Influence",
+    "source_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+    "source_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-d10693e87fbe49ecbf6389025b26e0ab",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-1180ff16c2544ea693ee70f225a0c9b5",
+    "type": "Influence",
+    "source_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "source_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-97ca7c54951c45b583350e9aae907211",
+    "type": "Influence",
+    "source_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+    "source_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-c9701517a6984915ae024db880c685a6",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-5e57aab09cc74f7fa5bfe05d9e80e864",
+    "type": "Influence",
+    "source_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+    "source_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung",
+    "target_id": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "target_name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-e1ab52e0398c4c128dbd46a0bb297866",
+    "type": "Influence",
+    "source_id": "id-28c55d69759c4419a49a2c99c46f101c",
+    "source_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-89991201b5ec4bf5864fa6f4b7e3e536",
+    "type": "Influence",
+    "source_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "source_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d737c33b98b449eeb3e5df0ea2d5f3e4",
+    "type": "Influence",
+    "source_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+    "source_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-da1c135842c044a7b8acc27115c30827",
+    "type": "Influence",
+    "source_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "source_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-a773707fe50f4d17ae3b839b569b8bd1",
+    "type": "Influence",
+    "source_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "source_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-f0e5008736c545bb886560ea69b3d23b",
+    "type": "Influence",
+    "source_id": "id-1fd39b26737d46379c217240d2730aca",
+    "source_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-e127206f7cca4b8980d216c0da3ea023",
+    "type": "Influence",
+    "source_id": "id-da76928929bf4e959694250d3925e139",
+    "source_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-47f9656946084762b3d261f07466e431",
+    "type": "Influence",
+    "source_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "source_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8ba48591871d4d25a0964b7e42164bc8",
+    "type": "Influence",
+    "source_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "source_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-4d76e7f1a1d24762ab72e7238108e0ef",
+    "type": "Influence",
+    "source_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "source_name": "2.1 Automatisiertes Materialtracking & -buchung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-c8be3f768d444ab79acfb3876e5c8e9f",
+    "type": "Influence",
+    "source_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+    "source_name": "1.2 Automatisierte, adaptive Kapazitätsplanung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-de8a72c1af07476f88e4918d5dff5475",
+    "type": "Influence",
+    "source_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+    "source_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-03d450d4eb574e158acd307e82ed09d4",
+    "type": "Influence",
+    "source_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "source_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-6397a6bca314427e9b69f58b30db7c2b",
+    "type": "Influence",
+    "source_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "source_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-ced4b6df8d0a4ebf8601d1db166627c8",
+    "type": "Influence",
+    "source_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "source_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d015f11faa5543aeb9255dea6cc5d27c",
+    "type": "Influence",
+    "source_id": "id-163194248ea7440ca783abcbd810ba61",
+    "source_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d710458011b54cba936ebefca079b9d1",
+    "type": "Influence",
+    "source_id": "id-abb4a057963240cb8e29153b77f375e4",
+    "source_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-4f16d1744c864aa080c2944a88a15df5",
+    "type": "Influence",
+    "source_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "source_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-151a30804b7f4076bf2c816320050f11",
+    "type": "Influence",
+    "source_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "source_name": "3.2 Echtzeit-Überwachung von Materialströmen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-d1d728b5e0154418b4bc148a7f1b01c0",
+    "type": "Influence",
+    "source_id": "id-d01904f82417470db57860fa8ea89a66",
+    "source_name": "7.6 Datengetriebene Prognose von Prozessabweichungen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-5728e5bd46c142049c5bef883bc486c0",
+    "type": "Influence",
+    "source_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+    "source_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-e08134f50e904b3c8513825d52061993",
+    "type": "Influence",
+    "source_id": "id-21f796c662b94b9682a066f7c7aecec6",
+    "source_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-8b99f70b33134576bd961daa903686e3",
+    "type": "Influence",
+    "source_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "source_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-6f0d04d903a547c0a08931d2d310f862",
+    "type": "Influence",
+    "source_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "source_name": "7.2 Selbstlernende, adaptive Prozessgestaltung",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-7b38b032079c4879833f198a8296c5ca",
+    "type": "Influence",
+    "source_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "source_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-52f076fcfa394b55897cf2f2764aa8a7",
+    "type": "Influence",
+    "source_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+    "source_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation",
+    "target_id": "id-2436358885524fbb8d313010f749bb5e",
+    "target_name": "2.2 Vernetzungsfähigkeit"
+  }
+]

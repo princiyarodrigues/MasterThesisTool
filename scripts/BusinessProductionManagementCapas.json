@@ -1,0 +1,133 @@
+[ 
+  {
+    "map": {
+      "identifier": "id-102febeff4f94efbbc62d05a344ff88b",
+      "name": "1.0 Produktionsprogrammplanung V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-d0b0afe7fcd445a9b00a72339eb12279",
+        "type": "Capability",
+        "name": "1.1 Dynamische Produktionsauslastungssteuerung"
+      },
+      {
+        "identifier": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+        "type": "Capability",
+        "name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+      },
+      {
+        "identifier": "id-852bcc807ba2482e8ad06275194b448b",
+        "type": "Capability",
+        "name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-08438848a0c940e5a4e432c30b247b80",
+      "name": "2.0 Auftragsmanagement V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-1245f310b8424bfca5c15503a6fb26cf",
+        "type": "Capability",
+        "name": "2.1 Automatisiertes Materialtracking & -buchung"
+      },
+      {
+        "identifier": "id-f3b0ae51898247b6bce5601a80127ebc",
+        "type": "Capability",
+        "name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+      },
+      {
+        "identifier": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+        "type": "Capability",
+        "name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+      }
+    ]
+  },
+
+  {
+    "map": {
+      "identifier": "id-8a627ff9efc649508e500f976aa154be",
+      "name": "3.0 Arbeitsorganisation V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-28c55d69759c4419a49a2c99c46f101c",
+        "type": "Capability",
+        "name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+      },
+      {
+        "identifier": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+        "type": "Capability",
+        "name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-57f7e92e824148cf9c3beeedc7b17c81",
+      "name": "4.0 Shopfloor & Logistik V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-e9bd3609b2674d3482fde8be63edaad1",
+        "type": "Capability",
+        "name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge"
+      },
+      {
+        "identifier": "id-55aae4ba434744b6a054ae8de6dc95c8",
+        "type": "Capability",
+        "name": "4.2 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+      },
+      {
+        "identifier": "id-1f760b27efeb42598c5fef573d6af645",
+        "type": "Capability",
+        "name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+      },
+      {
+        "identifier": "id-da76928929bf4e959694250d3925e139",
+        "type": "Capability",
+        "name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+      },
+      {
+        "identifier": "id-5736cc8d314345a8a5d0b1236c46805d",
+        "type": "Capability",
+        "name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+      },
+      {
+        "identifier": "id-1fd39b26737d46379c217240d2730aca",
+        "type": "Capability",
+        "name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+      },
+      {
+        "identifier": "id-9c245d6fdbaf4334828d1454391e44ba",
+        "type": "Capability",
+        "name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-0fb2baf2fb6a49858d1d813bae47ea78",
+      "name": "5.0 Qualitätsmanagement V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-3f8c8825ede84da89df4e8b88665bfe2",
+        "type": "Capability",
+        "name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+      },
+      {
+        "identifier": "id-d29a81f039e24acdb6658a09e0e09d40",
+        "type": "Capability",
+        "name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+      },
+      {
+        "identifier": "id-192c3ba9092d4731bb5a40171893f0cd",
+        "type": "Capability",
+        "name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+      }      
+    ]
+  }
+]  

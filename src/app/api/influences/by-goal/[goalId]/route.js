@@ -1,12 +1,13 @@
 import connectDB from '@/lib/mongodb';
 import { Influence } from '@/models';
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
     // Connect to MongoDB
     await connectDB();
     
-    // Important: In Next.js 15, params must be awaited
+    // In Next.js 15, access params via context
+    const { params } = context;
     const goalId = params.goalId;
     
     if (!goalId) {

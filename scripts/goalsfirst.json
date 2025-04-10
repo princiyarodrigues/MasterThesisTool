@@ -1,0 +1,52 @@
+[
+  {
+    "identifier": "id-0fe8daa36a5d46a1bcd37ef57328e619",
+    "type": "Goal",
+    "name": "1.3 Durchlaufzeit"
+  },
+  {
+    "identifier": "id-a370fe46cd93481fae75b84b05ca47de",
+    "type": "Goal",
+    "name": "1.4 Bestände"
+  },
+  {
+    "identifier": "id-378e61fb192c48b5bd69d4f8ee25d4db",
+    "type": "Goal",
+    "name": "2.1 Flexibilität / Anpassungs-fähigkeit"
+  },
+  {
+    "identifier": "id-2436358885524fbb8d313010f749bb5e",
+    "type": "Goal",
+    "name": "2.2 Vernetzungsfähigkeit"
+  },
+  {
+    "identifier": "id-57bf1eb79db247d4ae0737d3dab40a6e",
+    "type": "Goal",
+    "name": "3.1 Ressourceneffizienz"
+  },
+  {
+    "identifier": "id-6fb0c7f3fe9d44d1bf6e4aeae806f9a5",
+    "type": "Goal",
+    "name": "3.2 Emissionen"
+  },
+  {
+    "identifier": "id-92cb15dc166145139a8914616ea44361",
+    "type": "Goal",
+    "name": "4.1 Erscheinungsbild"
+  },
+  {
+    "identifier": "id-b405f25f25b945978a72493527f75a85",
+    "type": "Goal",
+    "name": "4.2 Arbeitsgestaltung"
+  },
+  {
+    "identifier": "id-666376c10d6e43f5a9b45f70311c45d8",
+    "type": "Goal",
+    "name": "1.2 Gewinn"
+  },
+  {
+    "identifier": "id-88910bb6647348ea8a0ee615178a455a",
+    "type": "Goal",
+    "name": "1.1 Qualität"
+  }
+]

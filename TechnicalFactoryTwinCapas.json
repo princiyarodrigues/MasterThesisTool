@@ -1,0 +1,151 @@
+[
+  {
+    "map": {
+      "identifier": "id-a4f14b9a69164eeb995656f0bf98da39",
+      "name": "1.0 Datenintegration V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-e210c44ef23b4e63ac4ad03dda469ba9",
+        "type": "Capability",
+        "name": "1.1 Datenakquise & Speicherung V2"
+      },
+      {
+        "identifier": "id-8354640e7a03460c930ce9d30e8495a2",
+        "type": "Capability",
+        "name": "1.2 Datenstreaming & -transformation V2"
+      },
+      {
+        "identifier": "id-2e522c0e26284d87a40a389d1ad79552",
+        "type": "Capability",
+        "name": "1.3 Datenkontextualisierung V2"
+      },
+      {
+        "identifier": "id-21b2d005ff1d4ee7b107dbde89b513d6",
+        "type": "Capability",
+        "name": "1.4 Echtzeit-Verarbeitung V2"
+      },
+      {
+        "identifier": "id-6f7e9409bec1489ba25deafc14da8ca5",
+        "type": "Capability",
+        "name": "1.5 Publish-Subscriber-Mechanismus V2"
+      },
+      {
+        "identifier": "id-4d54936ce3344e068e28b33bb5e7682e",
+        "type": "Capability",
+        "name": "1.6 Ontologie-Management V2"
+      },
+     
+      {
+        "identifier": "id-18ee6dff55e543608868e163f8cc8ec0",
+        "type": "Capability",
+        "name": "1.7 DZ-Strukturmodell Management V2"
+      },
+
+      {
+        "identifier": "id-2f74e960d42c4c22892e42e8c91eab6b",
+        "type": "Capability",
+        "name": "1.8 DZ-Simulationsmodell Management  V2"
+      },
+      {
+        "identifier": "id-e111a9d58da54e328800f3f695f8026b",
+        "type": "Capability",
+        "name": "1.9 DZ-KI-Modell Management V2"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-a4fb2c409a5a4a7580509760514e5746",
+      "name": "2.0 Integration V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-b4db3152c03f4a6cbfa93ff29539c746",
+        "type": "Capability",
+        "name": "2.1 Enterprise-IT-Systemintegration V2"
+      },
+      {
+        "identifier": "id-7f2fbc8bb584483584609fc7b6121a12",
+        "type": "Capability",
+        "name": "2.2 Engineering-IT-Systemintegration V2"
+      },
+      {
+        "identifier": "id-4a804be30b304733b4ad96700e923c79",
+        "type": "Capability",
+        "name": "2.3 Produktions-IT-Systemintegration V2"
+      },
+      {
+        "identifier": "id-12cc12a0f94a450284babab91b6395fb",
+        "type": "Capability",
+        "name": "2.4 Bereitstellen von Schnittstellen-Services"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-f072968e18b74123896906f11e48f163",
+      "name": "3.0 Intelligentes Verhalten V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-9d98d5af5ce748e09ae4356ca7884a22",
+        "type": "Capability",
+        "name": "3.1 Alarm- & Benachrichtigungsmanagement V2"
+      },
+      {
+        "identifier": "id-a3eed8ea840443018247155697012850",
+        "type": "Capability",
+        "name": "3.2 Berichtsgenerierung V2"
+      },
+      {
+        "identifier": "id-f24594f7deed495b82439bc4cd85a7c7",
+        "type": "Capability",
+        "name": "3.3 Integration von Data Analytics Methoden V2"
+      },
+      {
+        "identifier": "id-224d4098ce3d4ed4a94405080e9a7145",
+        "type": "Capability",
+        "name": "3.4 Automatisiertes Verhalten aufgrung von Workflows basierend auf Geschäftslogik V2"
+      }
+    ]
+  },
+  {
+    "map": {
+      "identifier": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+      "name": "4.0 Benutzerschnittstelle V2"
+    },
+    "children_capabilities": [
+      {
+        "identifier": "id-f37feb0e6abd47fc9163abb83319da18",
+        "type": "Capability",
+        "name": "4.1 3D-Visualisierung V2"
+      },
+      {
+        "identifier": "id-11eacdf4a3c04239817b4cb530c6ae38",
+        "type": "Capability",
+        "name": "4.2 Einbindung komplexer Dashboards / Kennzahlen V2"
+      },
+      {
+        "identifier": "id-bb82ef84d04b4e4ba3399e967a02ca55",
+        "type": "Capability",
+        "name": "4.3 Hierarchische Darstellung der DZ-Komponenten V2"
+      },
+      {
+        "identifier": "id-df3a0ddd59904abf9512ee2463bee682",
+        "type": "Capability",
+        "name": "4.4 Augmented- & Virtual Reality V2"
+      },
+      {
+        "identifier": "id-49059cd1f0104f87882e1382f3fda4e9",
+        "type": "Capability",
+        "name": "4.5 Ad-Hoc Datenanalysen V2"
+      },
+      {
+        "identifier": "id-665d19d03c5d43938b3ebb0d8f585d34",
+        "type": "Capability",
+        "name": "4.6 Visualisierung Geschäftsprozesse & Workflow V2"
+      }
+    ]
+  }
+]

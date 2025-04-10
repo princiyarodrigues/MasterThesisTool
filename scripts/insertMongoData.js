@@ -2,17 +2,64 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const connectDB = require('../src/lib/mongodb'); // Adjust the path accordingly
 const fs = require('fs');
+const path = require('path');
 const { Capability, Goal, Composition, Influence } = require('../src/models'); // Adjust path if needed
 
-// Load JSON data
-const factoryPlanningCapabilities = JSON.parse(fs.readFileSync('scripts/businessCapabilitiesFactory.json', 'utf8'));
-const productionPlanningCapabilities = JSON.parse(fs.readFileSync('scripts/businessCapabilitiesProduction.json', 'utf8'));
-const technicalCapabilities = JSON.parse(fs.readFileSync('scripts/technicalCapabilities.json', 'utf8'));
-const goals = JSON.parse(fs.readFileSync('scripts/goals.json', 'utf8'));
-const compositions = JSON.parse(fs.readFileSync('scripts/composition_relationships.json', 'utf8'));
-const influences = JSON.parse(fs.readFileSync('scripts/influence_relationships.json', 'utf8'));
+// Get the root directory
+const rootDir = process.cwd();
 
-console.log(`Loaded data: ${goals.length} goals, ${influences.length} influences`);
+// Load JSON data from new locations
+const factoryPlanningCapabilitiesData = JSON.parse(fs.readFileSync(path.join(rootDir, 'BusinessFactoryPlanningCapas.json'), 'utf8'));
+const productionPlanningCapabilitiesData = JSON.parse(fs.readFileSync(path.join(rootDir, 'BusinessProductionManagementCapas.json'), 'utf8'));
+const technicalCapabilities = JSON.parse(fs.readFileSync(path.join(rootDir, 'scripts', 'technicalCapabilities.json'), 'utf8'));
+const goals = JSON.parse(fs.readFileSync(path.join(rootDir, 'goalsfirst.json'), 'utf8'));
+const compositions = JSON.parse(fs.readFileSync(path.join(rootDir, 'composition_capabilities_capabilitiesfirst.json'), 'utf8'));
+const influences = JSON.parse(fs.readFileSync(path.join(rootDir, 'influence_capabilities_goalsfirst.json'), 'utf8'));
+
+console.log(`Loaded data: ${goals.length} goals, ${influences.length} influences, ${compositions.length} compositions`);
+
+// Extract capabilities from parent-child structure
+const factoryPlanningCapabilities = [];
+factoryPlanningCapabilitiesData.forEach(item => {
+  // Add the parent capability
+  const parent = {
+    _id: item.map.identifier,
+    identifier: item.map.identifier,
+    name: item.map.name,
+    type: 'Capability',
+    isParent: true
+  };
+  factoryPlanningCapabilities.push(parent);
+  
+  // Add all children capabilities
+  if (item.children_capabilities && Array.isArray(item.children_capabilities)) {
+    item.children_capabilities.forEach(child => {
+      child.parentId = item.map.identifier;
+      factoryPlanningCapabilities.push(child);
+    });
+  }
+});
+
+const productionPlanningCapabilities = [];
+productionPlanningCapabilitiesData.forEach(item => {
+  // Add the parent capability
+  const parent = {
+    _id: item.map.identifier,
+    identifier: item.map.identifier,
+    name: item.map.name,
+    type: 'Capability',
+    isParent: true
+  };
+  productionPlanningCapabilities.push(parent);
+  
+  // Add all children capabilities
+  if (item.children_capabilities && Array.isArray(item.children_capabilities)) {
+    item.children_capabilities.forEach(child => {
+      child.parentId = item.map.identifier;
+      productionPlanningCapabilities.push(child);
+    });
+  }
+});
 
 // Add category to each capability
 factoryPlanningCapabilities.forEach(cap => {
@@ -48,19 +95,21 @@ goals.forEach(item => {
 
 compositions.forEach(item => {
     item._id = item.identifier; // Keep the ID exactly as it is in the source
-    item.source = item.source; // No conversion, keep as string
-    item.target = item.target; // No conversion, keep as string
+    item.source = item.source_id; // Use source_id as source
+    item.target = item.target_id; // Use target_id as target
 });
 
 influences.forEach(item => {
     item._id = item.identifier; // Keep the ID exactly as it is in the source
-    item.source = item.source; // No conversion, keep as string
-    item.target = item.target; // No conversion, keep as string
+    item.source = item.source_id; // Use source_id as source
+    item.target = item.target_id; // Use target_id as target
 });
 
 // Log sample data for verification
 console.log('Sample goal:', goals[0]);
 console.log('Sample influence:', influences[0]);
+console.log('Sample composition:', compositions[0]);
+console.log('Sample capability:', capabilities[0]);
 
 async function seedDatabase() {
     let connection;
@@ -103,8 +152,10 @@ async function seedDatabase() {
         // Verify data was inserted correctly
         const goalsCount = await Goal.countDocuments();
         const influencesCount = await Influence.countDocuments();
+        const capabilitiesCount = await Capability.countDocuments();
+        const compositionsCount = await Composition.countDocuments();
         
-        console.log(`Verification: ${goalsCount} goals, ${influencesCount} influences in database`);
+        console.log(`Verification: ${goalsCount} goals, ${influencesCount} influences, ${capabilitiesCount} capabilities, ${compositionsCount} compositions in database`);
         
         // Sample query to verify an ID can be found
         if (goals.length > 0) {
@@ -117,11 +168,6 @@ async function seedDatabase() {
             const sampleInfluenceId = influences[0]._id;
             const foundInfluence = await Influence.findById(sampleInfluenceId);
             console.log(`Verification query for influence ${sampleInfluenceId}: ${foundInfluence ? 'FOUND' : 'NOT FOUND'}`);
-            
-            // Check if a specific ID exists
-            const specificId = "id-88910bb6647348ea8a0ee615178a455a";
-            const influencesWithSpecificTarget = await Influence.find({ target: specificId });
-            console.log(`Influences targeting ${specificId}: ${influencesWithSpecificTarget.length}`);
         }
 
     } catch (error) {

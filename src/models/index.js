@@ -4,6 +4,8 @@ const Composition = require('./Composition');
 const Influence = require('./Influence');
 const Department = require('./Department');
 const User = require('./User');
+const UseCase = require('./UseCase');
+const TechnicalCapability = require('./technicalCapability');
 
 module.exports = {
   Capability,
@@ -11,5 +13,7 @@ module.exports = {
   Composition,
   Influence,
   Department,
-  User
+  User,
+  UseCase,
+  TechnicalCapability
 };

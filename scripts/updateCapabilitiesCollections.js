@@ -16,18 +16,63 @@ async function updateCapabilitiesCollections() {
     console.log('Clearing existing capabilities...');
     await Capability.deleteMany({});
     
-    // Step 2: Load the three capability JSON files
+    // Step 2: Load the three capability JSON files (updated to use new files)
     const scriptsDir = path.join(process.cwd(), 'scripts');
+    const rootDir = process.cwd();
     
-    const factoryPlanningCapabilities = JSON.parse(
-      fs.readFileSync(path.join(scriptsDir, 'businessCapabilitiesFactory.json'), 'utf8')
+    // Use new files with parent-child structure
+    const factoryPlanningCapabilitiesData = JSON.parse(
+      fs.readFileSync(path.join(rootDir, 'BusinessFactoryPlanningCapas.json'), 'utf8')
     );
-    const productionPlanningCapabilities = JSON.parse(
-      fs.readFileSync(path.join(scriptsDir, 'businessCapabilitiesProduction.json'), 'utf8')
+    const productionPlanningCapabilitiesData = JSON.parse(
+      fs.readFileSync(path.join(rootDir, 'BusinessProductionManagementCapas.json'), 'utf8')
     );
     const technicalCapabilities = JSON.parse(
       fs.readFileSync(path.join(scriptsDir, 'technicalCapabilities.json'), 'utf8')
     );
+    
+    // Extract capabilities from parent-child structure
+    const factoryPlanningCapabilities = [];
+    factoryPlanningCapabilitiesData.forEach(item => {
+      // Add the parent capability
+      const parent = {
+        _id: item.map.identifier,
+        identifier: item.map.identifier,
+        name: item.map.name,
+        type: 'Capability',
+        isParent: true
+      };
+      factoryPlanningCapabilities.push(parent);
+      
+      // Add all children capabilities
+      if (item.children_capabilities && Array.isArray(item.children_capabilities)) {
+        item.children_capabilities.forEach(child => {
+          child.parentId = item.map.identifier;
+          factoryPlanningCapabilities.push(child);
+        });
+      }
+    });
+    
+    const productionPlanningCapabilities = [];
+    productionPlanningCapabilitiesData.forEach(item => {
+      // Add the parent capability
+      const parent = {
+        _id: item.map.identifier,
+        identifier: item.map.identifier,
+        name: item.map.name,
+        type: 'Capability',
+        isParent: true
+      };
+      productionPlanningCapabilities.push(parent);
+      
+      // Add all children capabilities
+      if (item.children_capabilities && Array.isArray(item.children_capabilities)) {
+        item.children_capabilities.forEach(child => {
+          child.parentId = item.map.identifier;
+          productionPlanningCapabilities.push(child);
+        });
+      }
+    });
     
     console.log(`Loaded ${factoryPlanningCapabilities.length} factory planning capabilities`);
     console.log(`Loaded ${productionPlanningCapabilities.length} production planning capabilities`);

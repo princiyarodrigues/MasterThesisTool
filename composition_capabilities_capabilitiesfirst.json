@@ -1,0 +1,1850 @@
+[
+  {
+    "identifier": "id-5b4d5005f1b14520a7cee6ec851c4624",
+    "type": "Composition",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-8fc586d205cf480b89cc0250cd9f3e02",
+    "target_name": "1.1 Zielszenariensimulation"
+  },
+  {
+    "identifier": "id-b06d3e6179f84670b920aaa7bcea5a49",
+    "type": "Composition",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-f5373a122a1a4f17b3f925e62784cc46",
+    "target_name": "1.2 Zielszenarienabsicherung"
+  },
+  {
+    "identifier": "id-570a975f3be442f781ea3e70c2613954",
+    "type": "Composition",
+    "source_id": "id-1cc71a396f7344928a40df22dcbeb078",
+    "source_name": "2.0 Standortauswahl",
+    "target_id": "id-232ec21f9c2e4a7ea39bf2387529202b",
+    "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile)"
+  },
+  {
+    "identifier": "id-281389e9305f4d95b49f64cfa4ae090d",
+    "type": "Composition",
+    "source_id": "id-a0dddcd57033435e92eebe8135affaac",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung",
+    "target_id": "id-5203aeddb7c04d5094e7b7f71807db16",
+    "target_name": "3.2 Materialflussüberwachung"
+  },
+  {
+    "identifier": "id-00c487c79fb74d85ab3a3a94d4613c7d",
+    "type": "Composition",
+    "source_id": "id-a0dddcd57033435e92eebe8135affaac",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung",
+    "target_id": "id-54695ec421184aa6875e9c80534916e1",
+    "target_name": "3.1 Materialflussplanung & -optimierung"
+  },
+  {
+    "identifier": "id-e32ce237146e40b0b38053ef10dfd3cd",
+    "type": "Composition",
+    "source_id": "id-a0dddcd57033435e92eebe8135affaac",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung",
+    "target_id": "id-7b252b3d5a264d9988fa90e0ea1c677f",
+    "target_name": "3.3 Virtuelle Fabrikgestaltung"
+  },
+  {
+    "identifier": "id-712fe62f649b4d31ba1b46e230517df3",
+    "type": "Composition",
+    "source_id": "id-a0dddcd57033435e92eebe8135affaac",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung",
+    "target_id": "id-9bbb4e630c1543dd83c82bcc5589252c",
+    "target_name": "3.4 Automatisierte Generierung von Layoutvarianten"
+  },
+  {
+    "identifier": "id-490710dba67b4f599778c4fee9a7ed36",
+    "type": "Composition",
+    "source_id": "id-e0f47838ec8b441a874968e54ee5b9d2",
+    "source_name": "4.0 Umsetzungsplanung",
+    "target_id": "id-093d1a6ca9fd433c8fc5c96300ee393b",
+    "target_name": "4.3 Virtuelle Inbetriebnahme"
+  },
+  {
+    "identifier": "id-833cd2d78d384920ad4cd8ef9f07cc4e",
+    "type": "Composition",
+    "source_id": "id-e0f47838ec8b441a874968e54ee5b9d2",
+    "source_name": "4.0 Umsetzungsplanung",
+    "target_id": "id-3b949fcd27d34f5887e263f260dbcab2",
+    "target_name": "4.2 Umsetzungsstandüberwachung"
+  },
+  {
+    "identifier": "id-7d4aa9bbb1d34ec0a93b664d22b2c360",
+    "type": "Composition",
+    "source_id": "id-e0f47838ec8b441a874968e54ee5b9d2",
+    "source_name": "4.0 Umsetzungsplanung",
+    "target_id": "id-81f0026099e94a5eae1112f7b2944ae6",
+    "target_name": "4.1 (Schrittweise) Erweiterungsplanung"
+  },
+  {
+    "identifier": "id-e7e5c11ee66a4f8b92cb0b9fb586c4d7",
+    "type": "Composition",
+    "source_id": "id-e6efe2833def4ac0bcff38a28c6a0863",
+    "source_name": "5.0 Wirtschaftlichkeitsberechnung",
+    "target_id": "id-6bfd35195a054c6c84ac745f6b4bbe64",
+    "target_name": "5.1 Kennzahlentracking (Echtzeit)"
+  },
+  {
+    "identifier": "id-a5ade3095c274fa79f67e74315dbcbba",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-a8a253b674eb499789578afa0a71f779",
+    "target_name": "2.5 Dynamisches Echtzeittracking Auftragsfortschritt"
+  },
+  {
+    "identifier": "id-7296e870db9141479a6ca098d9db6bf8",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-7628d3dd1b0d460ca8056b5346d1587d",
+    "target_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting"
+  },
+  {
+    "identifier": "id-97f812158edd4f51bdcef8bf8052fb76",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-d5eb8be753ac4eeea7d16cf3e4c60f28",
+    "target_name": "2.2 Automatisierte Buchung von durchgeführten Arbeitsschritten"
+  },
+  {
+    "identifier": "id-a21764e2b45149828d7d2aaa178cc7e6",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-39bc28104a4f4c52b23c9329b48dabd6",
+    "target_name": "2.1 Automatisierte Buchung von Materialbewegungen"
+  },
+  {
+    "identifier": "id-debc4fdf9c8f4b70b4119a001d0667b7",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-9dc05b28fb8540f0bd94a95454abee5b",
+    "target_name": "6.5 Automatisierte Dimensionierung Förder- & Lagermittel"
+  },
+  {
+    "identifier": "id-1591b424e32341479e17325eca33c3eb",
+    "type": "Composition",
+    "source_id": "id-c7d967885909417ea9ba6c402ad59851",
+    "source_name": "2.0 Auftragsmanagement",
+    "target_id": "id-579b4f463438424d8b3d9e293d8f5c26",
+    "target_name": "6.6 Automatisierte Dimensionierung Betriebsmittel"
+  },
+  {
+    "identifier": "id-287866a527b14928be5af01b45d908ba",
+    "type": "Composition",
+    "source_id": "id-f0002839928a4a7e9d17c060e7e36d2d",
+    "source_name": "7.0 Prozessplanung",
+    "target_id": "id-4aca922f75b443e29f37a9ac2d81cc1f",
+    "target_name": "7.4 Root-Cause Fehleranalysen mit Echtzeitdaten"
+  },
+  {
+    "identifier": "id-54f5ad58a5634b0fab2d20f89f95feed",
+    "type": "Composition",
+    "source_id": "id-f0002839928a4a7e9d17c060e7e36d2d",
+    "source_name": "7.0 Prozessplanung",
+    "target_id": "id-302b8a2a630543549a635446e953d818",
+    "target_name": "7.3 Automatisierte Ermittlung Produktionsprozesse"
+  },
+  {
+    "identifier": "id-749e25970a514d89be07e800e7a8ed08",
+    "type": "Composition",
+    "source_id": "id-f0002839928a4a7e9d17c060e7e36d2d",
+    "source_name": "7.0 Prozessplanung",
+    "target_id": "id-566780e6923a45129f9da533a3b9c626",
+    "target_name": "7.5 Verknüpfung zu Erkenntnissen (z.B. Servicemeldungen) aus Produktnutzungsphase"
+  },
+  {
+    "identifier": "id-7f00206a815c427b89ab7327457d235d",
+    "type": "Composition",
+    "source_id": "id-f0002839928a4a7e9d17c060e7e36d2d",
+    "source_name": "7.0 Prozessplanung",
+    "target_id": "id-3e31725de6c84dfa8dd5f31653d16fcf",
+    "target_name": "7.2 Selbstoptimierende digitale Planung"
+  },
+  {
+    "identifier": "id-f3f7e642e35946c9ae0d71d0ac89119e",
+    "type": "Composition",
+    "source_id": "id-f0002839928a4a7e9d17c060e7e36d2d",
+    "source_name": "7.0 Prozessplanung",
+    "target_id": "id-a0aacbf150f74920bd4efe60e38f3f59",
+    "target_name": "7.1 Virtuelle Produktionsprozessgestaltung"
+  },
+  {
+    "identifier": "id-277974c21e7743fa9f70bc178a1e9ecc",
+    "type": "Composition",
+    "source_id": "id-402902ec7d1f4e48acb8f0800f1cd68c",
+    "source_name": "8.0 Personal- & Organisationsplanung",
+    "target_id": "id-f1c04b5fbc054a05ba3f4349d0b8b5ed",
+    "target_name": "8.1 Automatisierte Dimensionierung Personalmittel"
+  },
+  {
+    "identifier": "id-db03bf5c083e4b88a6e477bf334f1b60",
+    "type": "Composition",
+    "source_id": "id-95f9426360534796bf6c4d01f1621974",
+    "source_name": "9.0 IT-Ausstattungsplanung",
+    "target_id": "id-ad797572b3574dc49ae91a374d088d28",
+    "target_name": "9.1 Reichweitenplanung & -überwachung Funksignale"
+  },
+  {
+    "identifier": "id-59b1bd283f124d1195e491333bd6608d",
+    "type": "Composition",
+    "source_id": "id-09b9670c68174931b4cde30f0dc5c8f9",
+    "source_name": "10.0 Produktionsstrukturplanung",
+    "target_id": "id-bdd8791faf1249f194efbb42f00562bb",
+    "target_name": "10.1 Automatisierte Dimensionierung Funktionsschema"
+  },
+  {
+    "identifier": "id-57a7f392092342bf928f35007cd48cdc",
+    "type": "Composition",
+    "source_id": "id-09b9670c68174931b4cde30f0dc5c8f9",
+    "source_name": "10.0 Produktionsstrukturplanung",
+    "target_id": "id-96a6741884e24fbc8318b23ee99b0285",
+    "target_name": "10.2 Automatisierte Dimensionierung Flächen"
+  },
+  {
+    "identifier": "id-15c249405ac84f22ba27f06515db30f3",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-b42d3a5555014c81bcfd941f01d0394f",
+    "target_name": "1.2 Automatisierte Ableitung Kapazitätsbedarf"
+  },
+  {
+    "identifier": "id-ebe5d422a03445e7858ab1ab7c0e5558",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-1ac60b91476f4fecba5febc5f73858fc",
+    "target_name": "1.1 Dynamische Auslastungsüberwachung"
+  },
+  {
+    "identifier": "id-0cd320be07714e91bdc98e1ecaeeb92d",
+    "type": "Composition",
+    "source_id": "id-243d0153f12d44578a0058953930bc38",
+    "source_name": "11.0 Arbeitsplatzgestaltung",
+    "target_id": "id-5d845fbd0fa64312a1dd7b3572df2aa9",
+    "target_name": "11.1 Virtuelle Arbeitsplatzgestaltung"
+  },
+  {
+    "identifier": "id-a52ef52695b0461e9d30f5019d34274d",
+    "type": "Composition",
+    "source_id": "id-243d0153f12d44578a0058953930bc38",
+    "source_name": "11.0 Arbeitsplatzgestaltung",
+    "target_id": "id-5b07e96cbfb64d82b2fa62d56a99a042",
+    "target_name": "11.2 Analyse (ergonomischer, wirtschaftlicher) Arbeitsbedingungen mit Echtzeitdaten"
+  },
+  {
+    "identifier": "id-6a6465e12a6342a0a24099320a9a0812",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-cf3aa867a7354c59b3a0a1936604eb87",
+    "target_name": "1.3 Datenkontextualisierung"
+  },
+  {
+    "identifier": "id-b6fefa6d52644affb30645485236e47e",
+    "type": "Composition",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-aa717f83645b4da6b5a2a28d320bdfd2",
+    "target_name": "3.4 Intelligente Personaleinsatzplanung"
+  },
+  {
+    "identifier": "id-49e3086cbe15486e94a872ed2177f8e1",
+    "type": "Composition",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-b29a62f991344851a78e673abdb5ef2e",
+    "target_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten"
+  },
+  {
+    "identifier": "id-73900f33cef14d2c9889a1709e0068ac",
+    "type": "Composition",
+    "source_id": "id-4646ef414db64c279bab39e972170b3e",
+    "source_name": "1.0 Zielplanung",
+    "target_id": "id-3c9a491e1ee4488481fe69a49456c7c4",
+    "target_name": "3.3 Dynamische Produktionsplanung"
+  },
+  {
+    "identifier": "id-81e7741227f8403a9d1e03ce07a1af0f",
+    "type": "Composition",
+    "source_id": "id-1c48f57b9f9d41ef81919ca40e4e3a37",
+    "source_name": "4.0 Arbeitsorganisation",
+    "target_id": "id-3bc5ac7901ab4b348293f1ed997c2543",
+    "target_name": "4.1 Intelligente Werkerunsterstützung (Werkerassistenzsystem)"
+  },
+  {
+    "identifier": "id-04e52eea6d4645c3ae0a3c8fbe8b3419",
+    "type": "Composition",
+    "source_id": "id-1c48f57b9f9d41ef81919ca40e4e3a37",
+    "source_name": "4.0 Arbeitsorganisation",
+    "target_id": "id-ed459ddbd28a4ba083866edb8a46a6f2",
+    "target_name": "4.2 Intelligentes Werkerbewegungsmanagement (Ergonomie, Wege)"
+  },
+  {
+    "identifier": "id-c2ae0b97954c4d21a5d84362e83b2c96",
+    "type": "Composition",
+    "source_id": "id-886b65137c1c423b877b3a8a08a03fa3",
+    "source_name": "5.0 Wartung & Instandhaltung",
+    "target_id": "id-a63abd1d228a414d920ac4462ce2c5e1",
+    "target_name": "5.1 Intelligente Überwachung Fabrikteilsysteme / Condition Monitoring"
+  },
+  {
+    "identifier": "id-2f80601b458e462d89c3cf781bce6c99",
+    "type": "Composition",
+    "source_id": "id-886b65137c1c423b877b3a8a08a03fa3",
+    "source_name": "5.0 Wartung & Instandhaltung",
+    "target_id": "id-bac20a0b57104f67813592ef3f40cedd",
+    "target_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance"
+  },
+  {
+    "identifier": "id-66f85eec5a224840b992475ffd194415",
+    "type": "Composition",
+    "source_id": "id-9d7d21b3331846aeb63aaefd40429824",
+    "source_name": "6.0 Fertigung & Montage",
+    "target_id": "id-c4279fa8297645b7a7be4b4e526d93b3",
+    "target_name": "6.2 Dynamische (Fertigungs-) Prozessanpassung"
+  },
+  {
+    "identifier": "id-efe3004997854cd8b3d12404b7622b28",
+    "type": "Composition",
+    "source_id": "id-9d7d21b3331846aeb63aaefd40429824",
+    "source_name": "6.0 Fertigung & Montage",
+    "target_id": "id-617f84d90f784ede979c70728faaae62",
+    "target_name": "6.1 Intelligente (Fertigungs-) Prozessüberwachung"
+  },
+  {
+    "identifier": "id-8859cb545a9d470fbf3b26c6f6661e01",
+    "type": "Composition",
+    "source_id": "id-1c48f57b9f9d41ef81919ca40e4e3a37",
+    "source_name": "4.0 Arbeitsorganisation",
+    "target_id": "id-82c82c4707454e6496550de15ae487f5",
+    "target_name": "4.3 Intelligentes Energieverbrauchsmanagement"
+  },
+  {
+    "identifier": "id-440636a0704c4f5f80ad6a920ae1e5a8",
+    "type": "Composition",
+    "source_id": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "source_name": "7.0 Logistik",
+    "target_id": "id-c3db31388346427aa07e168d0a4c4c16",
+    "target_name": "7.1 Intelligente Routenplanung Flurförderfahrzeuge"
+  },
+  {
+    "identifier": "id-79d7e1759672431496aad7960eb8799e",
+    "type": "Composition",
+    "source_id": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "source_name": "7.0 Logistik",
+    "target_id": "id-791c360df8b745b287582b9c9c5d6a0c",
+    "target_name": "7.3 Intelligentes Materialtracking"
+  },
+  {
+    "identifier": "id-08f542de8df142d2a3c2f3c30977dae6",
+    "type": "Composition",
+    "source_id": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "source_name": "7.0 Logistik",
+    "target_id": "id-aac4827af05848e4b8084b59a221547f",
+    "target_name": "7.2 Intelligentes Tracking Flurförderfahrzeuge"
+  },
+  {
+    "identifier": "id-e862959d5c5b4bdfa47e43a1b27ed6b3",
+    "type": "Composition",
+    "source_id": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "source_name": "7.0 Logistik",
+    "target_id": "id-65f074f61fd248599439b0e05ff24d57",
+    "target_name": "7.4 Automatisierte Abwicklung von Lieferungen"
+  },
+  {
+    "identifier": "id-e2e6ac15bff94af7af1a871c6c6f9570",
+    "type": "Composition",
+    "source_id": "id-d2da8a56aeb749aa8a3c852461fef733",
+    "source_name": "7.0 Logistik",
+    "target_id": "id-87f2fd293d834474852d0249d612d248",
+    "target_name": "7.5 Intelligente Wahl der Anstellstrategie"
+  },
+  {
+    "identifier": "id-2c31b897fdc441e2a8cfa47a9236db26",
+    "type": "Composition",
+    "source_id": "id-9d7d21b3331846aeb63aaefd40429824",
+    "source_name": "6.0 Fertigung & Montage",
+    "target_id": "id-24895b6285cd4dae9bf541826cd0ab5f",
+    "target_name": "6.3 Dynamisches Management von Mensch-Cobot Interaktion"
+  },
+  {
+    "identifier": "id-6eedb9d7f89340cb836fb17035dbce2b",
+    "type": "Composition",
+    "source_id": "id-fce0f202fcb44577b1a5631d0aac9170",
+    "source_name": "8.0 Qualitätsmanagement",
+    "target_id": "id-c5efe17937e5465da09c24f1786c53b1",
+    "target_name": "8.2 Dynamisches Management von notwendiger Nacharbeit & Rerouting"
+  },
+  {
+    "identifier": "id-e32a7d7c22444b528f5b4cea39964f78",
+    "type": "Composition",
+    "source_id": "id-fce0f202fcb44577b1a5631d0aac9170",
+    "source_name": "8.0 Qualitätsmanagement",
+    "target_id": "id-56a5ae7ccda24a21a0619ade54ab7b5e",
+    "target_name": "8.1 Automatisierte Qualitätsüberwachung / Qualitygates"
+  },
+  {
+    "identifier": "id-79b0775cdab34ab0a6ae408c6618ff95",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-2f812ea6cfc14086b762faed5208a287",
+    "target_name": "1.4 Echtzeit-Verarbeitung"
+  },
+  {
+    "identifier": "id-201813db16934f02a28360bc7f4eff73",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-6194aeff9c774f68ace08daaece7c06a",
+    "target_name": "1.5 Publish-Subscriber-Mechanismus"
+  },
+  {
+    "identifier": "id-1c0a894028a24776bccd19e482005057",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-f20d1e26c3e148ed92277067bc539769",
+    "target_name": "1.6 Ontologie-Management"
+  },
+  {
+    "identifier": "id-dfb407ebdaa94906a96f2aa8fe1600b9",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-8c0c7aa2d1ab42ca89bbce4a59b1a280",
+    "target_name": "1.7 DZ-Strukturmodell Management"
+  },
+  {
+    "identifier": "id-ee802e343a0347c99d3cd19f11e27b62",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-d68ac3c81f7e48d8b237bd334f30eca1",
+    "target_name": "1.8 DZ-Simulationsmodell Management"
+  },
+  {
+    "identifier": "id-4b728860c9b848c4bd1489e766617392",
+    "type": "Composition",
+    "source_id": "id-6033b2b3a8524144b7c6ec96dbc5da7b",
+    "source_name": "1.0 Produktionsprogrammplanung",
+    "target_id": "id-2a044dd2d734455db8ded41d7745ad4d",
+    "target_name": "1.9 DZ-KI-Modell Management"
+  },
+  {
+    "identifier": "id-10042bd2df6d4edfabee240ab70b4fc6",
+    "type": "Composition",
+    "source_id": "id-76894b590ed74ceaa270f88a8f0025b2",
+    "source_name": "2.0 Integration",
+    "target_id": "id-2e8df8e530f44028bd37ee741f75cc56",
+    "target_name": "2.5 Bereitstellen von Schnittstellen-Services"
+  },
+  {
+    "identifier": "id-cd1fa2bb56a14250bb876e155c8aa642",
+    "type": "Composition",
+    "source_id": "id-76894b590ed74ceaa270f88a8f0025b2",
+    "source_name": "2.0 Integration",
+    "target_id": "id-03ee2560fda741058ed159fc5075006c",
+    "target_name": "2.3 Produktions-IT-Systemintegration"
+  },
+  {
+    "identifier": "id-2cebad39ce1843d8bdc197888506a055",
+    "type": "Composition",
+    "source_id": "id-76894b590ed74ceaa270f88a8f0025b2",
+    "source_name": "2.0 Integration",
+    "target_id": "id-4a015ffd63394ccdb6ede1201f14401a",
+    "target_name": "2.4 Integration weiterer DZs"
+  },
+  {
+    "identifier": "id-efbf03a2c82040f6a03957b94cd4b51c",
+    "type": "Composition",
+    "source_id": "id-76894b590ed74ceaa270f88a8f0025b2",
+    "source_name": "2.0 Integration",
+    "target_id": "id-473fa0e6aa7e44faa1a478693363bc00",
+    "target_name": "2.2 Engineering-IT-Systemintegration"
+  },
+  {
+    "identifier": "id-6d3ecd54233a43639006422ff5b1f641",
+    "type": "Composition",
+    "source_id": "id-76894b590ed74ceaa270f88a8f0025b2",
+    "source_name": "2.0 Integration",
+    "target_id": "id-7775c0f6373e43098db72420d2efc9f6",
+    "target_name": "2.1 Enterprise-IT-Systemintegration"
+  },
+  {
+    "identifier": "id-1cc93daf95814be39a25d66bd8c6e869",
+    "type": "Composition",
+    "source_id": "id-fcd1a0e365ba40f0a08ae0c19b6ff01f",
+    "source_name": "3.0 Intelligentes Verhalten",
+    "target_id": "id-914573ea07774c3e92a2e646aa7217c2",
+    "target_name": "3.2 Berichtsgenerierung"
+  },
+  {
+    "identifier": "id-0af5c903eec6444d9816a5961e877e68",
+    "type": "Composition",
+    "source_id": "id-fcd1a0e365ba40f0a08ae0c19b6ff01f",
+    "source_name": "3.0 Intelligentes Verhalten",
+    "target_id": "id-58da908f80eb4eab9c3c1af693c2ff74",
+    "target_name": "3.3 Integration von Data Analytics Methoden"
+  },
+  {
+    "identifier": "id-3515b17c99344781ab6159d15f0e36cc",
+    "type": "Composition",
+    "source_id": "id-fcd1a0e365ba40f0a08ae0c19b6ff01f",
+    "source_name": "3.0 Intelligentes Verhalten",
+    "target_id": "id-2ade4c73d3b043999d86dcf3cf932df4",
+    "target_name": "3.1 Alarm- & Benachrichtigungsmanagement"
+  },
+  {
+    "identifier": "id-26b403baeecf46bbaefec929e7cc5f5b",
+    "type": "Composition",
+    "source_id": "id-fcd1a0e365ba40f0a08ae0c19b6ff01f",
+    "source_name": "3.0 Intelligentes Verhalten",
+    "target_id": "id-d250a3f2055c4ada8bf64e38a137de25",
+    "target_name": "3.4 Automatisiertes Verhalten aufgrung von Workflows basierend auf Geschäftslogik"
+  },
+  {
+    "identifier": "id-e9960c72d95842f79d863e4048694830",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-ab1f9c2f5be443ae87e8cdb46f602b91",
+    "target_name": "4.2 Einbindung komplexer Dashboards / Kennzahlen"
+  },
+  {
+    "identifier": "id-8ed7df11aaed4b14a8de46eba761f7d1",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-adc3d07c3853475a8a5932ce20a15a32",
+    "target_name": "4.4 Augmented- & Virtual Reality"
+  },
+  {
+    "identifier": "id-996333c36ac94d4381fe82769b0817a4",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-55071435b64244e296a03474e5cc29e5",
+    "target_name": "4.1 3D-Visualisierung"
+  },
+  {
+    "identifier": "id-07d5b13b41aa4705a9dd3939ef280312",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-5fd5978bc9d94af582edf1714412daad",
+    "target_name": "4.3 Hierarchische Darstellung der DZ-Komponenten"
+  },
+  {
+    "identifier": "id-bc6b928f57534cf9a8567e0728a5bf90",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-1a19ab335e8a4e79aad2923727f67c3a",
+    "target_name": "4.5 Ad-Hoc Datenanalysen"
+  },
+  {
+    "identifier": "id-912ecfcfac9b433089ebd74f0ecda1ab",
+    "type": "Composition",
+    "source_id": "id-24c3d5762f8f4533a05c26897117ee17",
+    "source_name": "4.0 Benutzerschnittstelle",
+    "target_id": "id-baa889c21cce4a83a9ed7e3b453cedcb",
+    "target_name": "4.6 Visualisierung Geschäftsprozesse & Workflow"
+  },
+  {
+    "identifier": "id-22b50044da1e48b5870d1e993f1f453c",
+    "type": "Composition",
+    "source_id": "id-4fb5d93948c44377ad4c81f43113bffb",
+    "source_name": "5.0 Systemsoftware",
+    "target_id": "id-051faefc56484b46bf426103d9a9844c",
+    "target_name": "5.1 Gerätemanagement (Authentifizierung, Konfiguration, etc.)"
+  },
+  {
+    "identifier": "id-78aa93407b8d408293186be704022c17",
+    "type": "Composition",
+    "source_id": "id-4fb5d93948c44377ad4c81f43113bffb",
+    "source_name": "5.0 Systemsoftware",
+    "target_id": "id-34c789af889646ffbc5c3a5d230c721e",
+    "target_name": "5.4 Governance DZ-Daten"
+  },
+  {
+    "identifier": "id-7c8631da49e542ff99f104267f3b069b",
+    "type": "Composition",
+    "source_id": "id-4fb5d93948c44377ad4c81f43113bffb",
+    "source_name": "5.0 Systemsoftware",
+    "target_id": "id-f546849e40a6458f8680b0c1d1eff3e0",
+    "target_name": "5.2 DZ-Systemmonitoring (Verfügbarkeit, etc.)"
+  },
+  {
+    "identifier": "id-360be2b1adde46eabc6ab884f99b4857",
+    "type": "Composition",
+    "source_id": "id-4fb5d93948c44377ad4c81f43113bffb",
+    "source_name": "5.0 Systemsoftware",
+    "target_id": "id-572c196b76234e71be3577ec0431d22f",
+    "target_name": "5.3 Logging DZ-Daten"
+  },
+  {
+    "identifier": "id-cd48cc3397644673adaa84ecc51b65b2",
+    "type": "Composition",
+    "source_id": "id-3104e08df01448e09c0bbd33a2995e8c",
+    "source_name": "6.0 Vertrauenswürdigkeit",
+    "target_id": "id-e67b30207b184ea69bc22829f4c11601",
+    "target_name": "6.1 Verschlüsselung DZ-Daten"
+  },
+  {
+    "identifier": "id-5197f1f0955e42c88cb4cee3cd07db4b",
+    "type": "Composition",
+    "source_id": "id-3104e08df01448e09c0bbd33a2995e8c",
+    "source_name": "6.0 Vertrauenswürdigkeit",
+    "target_id": "id-2c47a64901334d81a1987559657a7735",
+    "target_name": "6.3 DZ-Systemrechtemanagement"
+  },
+  {
+    "identifier": "id-97117d0a7fd04e3789455a3164708f65",
+    "type": "Composition",
+    "source_id": "id-3104e08df01448e09c0bbd33a2995e8c",
+    "source_name": "6.0 Vertrauenswürdigkeit",
+    "target_id": "id-fa261ba444c2480095eafcf04afd737b",
+    "target_name": "6.2 DZ-Systemsicherheitsmanagement"
+  },
+  {
+    "identifier": "id-b73b21b94b3e43218d67fb286bb424c6",
+    "type": "Composition",
+    "source_id": "id-f2e5358235f447b9aa38cdbc65a5bcad",
+    "source_name": "3.0 Produktionsbedarfsplanung",
+    "target_id": "id-4c4e411491b44aab848d886a5b9068da",
+    "target_name": "3.2 Intelligente Personaleinsatzplanung"
+  },
+  {
+    "identifier": "id-a14e011b2c574e2e9255e56a39017951",
+    "type": "Composition",
+    "source_id": "id-f2e5358235f447b9aa38cdbc65a5bcad",
+    "source_name": "3.0 Produktionsbedarfsplanung",
+    "target_id": "id-df0344e6bd20452895b0c0a555efcb00",
+    "target_name": "3.1 Dynamische Produktionsplanung"
+  },
+  {
+    "identifier": "id-c6b4d78e8ef04fbd8121527647eef8dd",
+    "type": "Composition",
+    "source_id": "id-f2e5358235f447b9aa38cdbc65a5bcad",
+    "source_name": "3.0 Produktionsbedarfsplanung",
+    "target_id": "id-ed2b194ca94241d88ccc341f4a797a83",
+    "target_name": "3.3  Dynamische Bestimmung von notwendigen externen Kapazitäten"
+  },
+  {
+    "identifier": "id-17ab17f9a97742b9940f4c58f5adc084",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-d95139dd0cda4c369a79353a36a7f5c4",
+    "target_name": "1.2 Datenstreaming & -transformation"
+  },
+  {
+    "identifier": "id-a59e9cdf461a48a2a13c06b014bc2600",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-b56979ba39814051924460d618ba1dbe",
+    "target_name": "1.3 Datenkontextualisierung"
+  },
+  {
+    "identifier": "id-949670e54c5948349115682bd5645db0",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-463a343de13b48838ad63e938d3e785d",
+    "target_name": "1.5 Publish-Subscriber-Mechanismus"
+  },
+  {
+    "identifier": "id-371cc8017f974cf6bec05ecc24386ae8",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-cc44224d58744b45b171ff0371cecfd1",
+    "target_name": "1.1 Datenakquise & Speicherung"
+  },
+  {
+    "identifier": "id-f71344753860473ea3d2fc508057a083",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-692db27ab5c3420eb61352ae7001ae4a",
+    "target_name": "1.4 Echtzeit-Verarbeitung"
+  },
+  {
+    "identifier": "id-9a8d2db6ead74b86af11b86b9b52f49e",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-f20d1e26c3e148ed92277067bc539769",
+    "target_name": "1.6 Ontologie-Management"
+  },
+  {
+    "identifier": "id-39aff8e3ea7e4fc3a90c4ccb65341ded",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-8c0c7aa2d1ab42ca89bbce4a59b1a280",
+    "target_name": "1.7 DZ-Strukturmodell Management"
+  },
+  {
+    "identifier": "id-a9bbb55861064689a7137963b03dd57b",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-d68ac3c81f7e48d8b237bd334f30eca1",
+    "target_name": "1.8 DZ-Simulationsmodell Management"
+  },
+  {
+    "identifier": "id-2831a617c5bb49ceb82bc0184daa0959",
+    "type": "Composition",
+    "source_id": "id-7ac46c8919984b36ad0bfa4a0a920b01",
+    "source_name": "1.0 Datenintegration",
+    "target_id": "id-2a044dd2d734455db8ded41d7745ad4d",
+    "target_name": "1.9 DZ-KI-Modell Management"
+  },
+  {
+    "identifier": "id-c90865e9d882433bad750fdf1d865d26",
+    "type": "Composition",
+    "source_id": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+    "source_name": "6.0 Arbeitsvorbereitung",
+    "target_id": "id-8b21a680072249f087798797c119828d",
+    "target_name": "6.3 Automatisierte Entwicklung Arbeitsablaufschema"
+  },
+  {
+    "identifier": "id-ee5f4989768c43228c3275630ec12c1b",
+    "type": "Composition",
+    "source_id": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+    "source_name": "6.0 Arbeitsvorbereitung",
+    "target_id": "id-a3cc79903bdc4cd88855b18e358f8f72",
+    "target_name": "6.5 Automatisierte Dimensionierung Betriebsmittel"
+  },
+  {
+    "identifier": "id-f1303c93125142fc952e929c0cb7990a",
+    "type": "Composition",
+    "source_id": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+    "source_name": "6.0 Arbeitsvorbereitung",
+    "target_id": "id-67f1593fceb646aa8ba670f43141c22a",
+    "target_name": "6.4 Automatisierte Dimensionierung Förder- & Lagermittel"
+  },
+  {
+    "identifier": "id-8ada7a62fc274159b158a5d900c4b9fb",
+    "type": "Composition",
+    "source_id": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+    "source_name": "6.0 Arbeitsvorbereitung",
+    "target_id": "id-688234b4d9714354b05eb95f12c13067",
+    "target_name": "6.2 Virtualisierung bestehender Fabrikbestandteile (Punktwolke)"
+  },
+  {
+    "identifier": "id-4f1ff994ade746e799f3f188a8ec9a47",
+    "type": "Composition",
+    "source_id": "id-5f8e6a6f2f6346beb20d1a652e77531c",
+    "source_name": "6.0 Arbeitsvorbereitung",
+    "target_id": "id-8d0eacf62fab4392aa3a823bd20b5972",
+    "target_name": "6.1 Automatisierte Vorgabezeitermittlung"
+  },
+  {
+    "identifier": "id-299e840c582f44c7ac6910bc99f48bc0",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-21f796c662b94b9682a066f7c7aecec6",
+    "target_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)"
+  },
+  {
+    "identifier": "id-e0c30875d7264eddb6d8fb6eb38bdab7",
+    "type": "Composition",
+    "source_id": "id-6cb5649b327c40b5b5256a24e72b5492",
+    "source_name": "8.0 Personal- & Organisationsplanung V2",
+    "target_id": "id-abb4a057963240cb8e29153b77f375e4",
+    "target_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung"
+  },
+  {
+    "identifier": "id-1169bd04548d417a9b51a07a69991ca4",
+    "type": "Composition",
+    "source_id": "id-9ae8adb8254d4d5fbbb59183d4f1cd72",
+    "source_name": "4.0 Umsetzungsplanung V2",
+    "target_id": "id-163194248ea7440ca783abcbd810ba61",
+    "target_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme"
+  },
+  {
+    "identifier": "id-34c725c5e3994e40b292ea06c9822878",
+    "type": "Composition",
+    "source_id": "id-19f1a0f348b8417fb6d0b862ca025f1d",
+    "source_name": "10.0 Arbeitsplatzgestaltung V2",
+    "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+    "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+  },
+  {
+    "identifier": "id-64d380ebfde441d886f4a8b0c0b4d794",
+    "type": "Composition",
+    "source_id": "id-4c056623a44e4686a436765364688275",
+    "source_name": "9.0 Produktionsstrukturplanung V2",
+    "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+    "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+  },
+  {
+    "identifier": "id-ce223f6eb370438d87adfd32d40411a6",
+    "type": "Composition",
+    "source_id": "id-19f1a0f348b8417fb6d0b862ca025f1d",
+    "source_name": "10.0 Arbeitsplatzgestaltung V2",
+    "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+    "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+  },
+  {
+    "identifier": "id-619cf9800c584ca08f05a55afa788ac2",
+    "type": "Composition",
+    "source_id": "id-4c056623a44e4686a436765364688275",
+    "source_name": "9.0 Produktionsstrukturplanung V2",
+    "target_id": "id-dfdda87977484d08b34918a8d7855255",
+    "target_name": "10.2 Automatisierte Dimensionierung Flächen (copy)"
+  },
+  {
+    "identifier": "id-8c32dc9253654437bb50e9339c1cfe27",
+    "type": "Composition",
+    "source_id": "id-19568688f26140dc9a0c2d800690ab48",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung V2",
+    "target_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+    "target_name": "3.2 Echtzeit-Überwachung von Materialströmen"
+  },
+  {
+    "identifier": "id-0044b5bb510b431c87010d502ec6c41c",
+    "type": "Composition",
+    "source_id": "id-f6e3097db62945b78b4d2d75a46ee459",
+    "source_name": "1.0 Zielplanung V2",
+    "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+    "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+  },
+  {
+    "identifier": "id-33e02f887154470696ad18612fd50a2a",
+    "type": "Composition",
+    "source_id": "id-19568688f26140dc9a0c2d800690ab48",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung V2",
+    "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+    "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+  },
+  {
+    "identifier": "id-4cc61c5e6e78405b8b70e127ece4f3e9",
+    "type": "Composition",
+    "source_id": "id-82d3fcdce7bf4c49b8eba1b5556b6722",
+    "source_name": "5.0 Wirtschaftlichkeitsberechnung V2",
+    "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+    "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+  },
+  {
+    "identifier": "id-2c3d6116f83942bdb603696c10215f06",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+    "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+  },
+  {
+    "identifier": "id-8d356ad6ee154bd9896848f8205df574",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-a7a0049c77ff481798ec659056d6ce3a",
+    "target_name": "6.4 Automatisierte Optimierung von Förder- & Lagermitteln"
+  },
+  {
+    "identifier": "id-6017bf0ba51643babbf248d3b7088016",
+    "type": "Composition",
+    "source_id": "id-19568688f26140dc9a0c2d800690ab48",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung V2",
+    "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+    "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+  },
+  {
+    "identifier": "id-d690856967c644938c103d47c68fc7d7",
+    "type": "Composition",
+    "source_id": "id-d028fc187b5d43acbfd79327910b5d54",
+    "source_name": "9.0 IT-Ausstattungsplanung V2",
+    "target_id": "id-139ea5cf06ef4f06a763b5da056983e9",
+    "target_name": "9.1 Datengetriebene visuelle Reichweitenplanung & Überwachung von Funksignalen"
+  },
+  {
+    "identifier": "id-542fbd67dbb5493e9cf266b42d41acb9",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+    "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+  },
+  {
+    "identifier": "id-98ba7fd468c24b888fe3bb541a173069",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+    "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+  },
+  {
+    "identifier": "id-d25deb27f0c846bdaa143e5485341fff",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+    "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+  },
+  {
+    "identifier": "id-b06fcf7875fc4a7dac0324ccbbe631c0",
+    "type": "Composition",
+    "source_id": "id-19568688f26140dc9a0c2d800690ab48",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung V2",
+    "target_id": "id-4cf1315b83ca4150a0f88189eafbfb4f",
+    "target_name": "3.4 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+  },
+  {
+    "identifier": "id-7c8e0c890dfc48729673a8cd56f937ef",
+    "type": "Composition",
+    "source_id": "id-f6e3097db62945b78b4d2d75a46ee459",
+    "source_name": "1.0 Zielplanung V2",
+    "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+    "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+  },
+  {
+    "identifier": "id-650e8a410bc0447aaa2053814502f354",
+    "type": "Composition",
+    "source_id": "id-09ca69f54d904bce9532545a04c90f5f",
+    "source_name": "2.0 Standortauswahl V2",
+    "target_id": "id-d8544c0da1e1410a923127142c9273b8",
+    "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+  },
+  {
+    "identifier": "id-dd7331321c9f493aa52de0dfb19012f2",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+    "target_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+  },
+  {
+    "identifier": "id-6fa5a1b8c2a94c5ba045d6c27af23b3f",
+    "type": "Composition",
+    "source_id": "id-9ae8adb8254d4d5fbbb59183d4f1cd72",
+    "source_name": "4.0 Umsetzungsplanung V2",
+    "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+    "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+  },
+  {
+    "identifier": "id-6ad2925046ab45c59d8ab5ac30ce12e5",
+    "type": "Composition",
+    "source_id": "id-9ae8adb8254d4d5fbbb59183d4f1cd72",
+    "source_name": "4.0 Umsetzungsplanung V2",
+    "target_id": "id-a8842ee66e2f493a8a429a74805e4739",
+    "target_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung"
+  },
+  {
+    "identifier": "id-22760270efff46088b89a87d7e0266c1",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+    "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+  },
+  {
+    "identifier": "id-2533d6d836764258801b24ebadf65ffa",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-93c5a38c65234fbbb3bc078cff996645",
+    "target_name": "6.1 Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten"
+  },
+  {
+    "identifier": "id-f0c9d88e024c4e77ae5e63a4c95e2c72",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+    "target_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+  },
+  {
+    "identifier": "id-d66a38fa0bf1412e95198e4cba3c5c7b",
+    "type": "Composition",
+    "source_id": "id-f6e3097db62945b78b4d2d75a46ee459",
+    "source_name": "1.0 Zielplanung V2",
+    "target_id": "id-6bf3391be3124655805364053cfb1954",
+    "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+  },
+  {
+    "identifier": "id-fa0466c9edb94131b861ea55273a4c84",
+    "type": "Composition",
+    "source_id": "id-f6e3097db62945b78b4d2d75a46ee459",
+    "source_name": "1.0 Zielplanung V2",
+    "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+    "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+  },
+  {
+    "identifier": "id-b4b2a2af6cf14125ad4f8ee39a02e645",
+    "type": "Composition",
+    "source_id": "id-09ca69f54d904bce9532545a04c90f5f",
+    "source_name": "2.0 Standortauswahl V2",
+    "target_id": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+    "target_name": "2.2 Simulationsgestützte Bewertung neuer Standorte"
+  },
+  {
+    "identifier": "id-e26581520d2b43fba783788867ad039d",
+    "type": "Composition",
+    "source_id": "id-09ca69f54d904bce9532545a04c90f5f",
+    "source_name": "2.0 Standortauswahl V2",
+    "target_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+    "target_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien"
+  },
+  {
+    "identifier": "id-e86a9ac865d148d0a59da6f661025a5e",
+    "type": "Composition",
+    "source_id": "id-19568688f26140dc9a0c2d800690ab48",
+    "source_name": "3.0 Werkstruktur- & Layoutplanung V2",
+    "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+    "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+  },
+  {
+    "identifier": "id-aff43807b8fb416cbc2e2748553866ed",
+    "type": "Composition",
+    "source_id": "id-9ae8adb8254d4d5fbbb59183d4f1cd72",
+    "source_name": "4.0 Umsetzungsplanung V2",
+    "target_id": "id-96a96cfdfb564b7599c1bea52da729d5",
+    "target_name": "4.4 Virtuelle Inbetriebnahme & Risikobewertung (copy)"
+  },
+  {
+    "identifier": "id-6e9f26d591664b4e9fe0781682f625f9",
+    "type": "Composition",
+    "source_id": "id-82d3fcdce7bf4c49b8eba1b5556b6722",
+    "source_name": "5.0 Wirtschaftlichkeitsberechnung V2",
+    "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+    "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+  },
+  {
+    "identifier": "id-9838dc827d184345b0e391c23e86d90b",
+    "type": "Composition",
+    "source_id": "id-82d3fcdce7bf4c49b8eba1b5556b6722",
+    "source_name": "5.0 Wirtschaftlichkeitsberechnung V2",
+    "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+    "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+  },
+  {
+    "identifier": "id-28ff60536ea7480992a7cf67cbe705b5",
+    "type": "Composition",
+    "source_id": "id-8123e2fdb0864515816b42d246afde8d",
+    "source_name": "6.0 Arbeitsvorbereitung V2",
+    "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+    "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+  },
+  {
+    "identifier": "id-1a56ef82b3404772825ffe8733e56e5b",
+    "type": "Composition",
+    "source_id": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+    "source_name": "7.0 Prozessplanung V2",
+    "target_id": "id-d01904f82417470db57860fa8ea89a66",
+    "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+  },
+  {
+    "identifier": "id-069cc82d3aeb411b9efd9d122377abfb",
+    "type": "Composition",
+    "source_id": "id-6cb5649b327c40b5b5256a24e72b5492",
+    "source_name": "8.0 Personal- & Organisationsplanung V2",
+    "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+    "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+  },
+  {
+    "identifier": "id-d6d231581c6846b68e48e87fa985b6aa",
+    "type": "Composition",
+    "source_id": "id-6cb5649b327c40b5b5256a24e72b5492",
+    "source_name": "8.0 Personal- & Organisationsplanung V2",
+    "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+    "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+  },
+  {
+    "identifier": "id-f48ebaa442cb4fc8b0d457a4c13eddfe",
+    "type": "Composition",
+    "source_id": "id-d028fc187b5d43acbfd79327910b5d54",
+    "source_name": "9.0 IT-Ausstattungsplanung V2",
+    "target_id": "id-0e16c33821f240d2a9ba2ea1dbdd6cf4",
+    "target_name": "9.2 Simulationsbasierte IT-Infrastrukturplanung für Arbeitsplätze"
+  },
+  {
+    "identifier": "id-45ddf0dc0bad403e929da55c059425a4",
+    "type": "Composition",
+    "source_id": "id-d028fc187b5d43acbfd79327910b5d54",
+    "source_name": "9.0 IT-Ausstattungsplanung V2",
+    "target_id": "id-359147a3473c4d5e9328a2af4986ab71",
+    "target_name": "9.3 Echtzeit-Diagnose von IT-Systemlasten & Cybersecurity-Potentialen"
+  },
+  {
+    "identifier": "id-8684e4c99f8c411b81eb5e54fd0197b9",
+    "type": "Composition",
+    "source_id": "id-4c056623a44e4686a436765364688275",
+    "source_name": "9.0 Produktionsstrukturplanung V2",
+    "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+    "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+  },
+  {
+    "identifier": "id-2668a9691b5f417f81aa4b23869fbe8b",
+    "type": "Composition",
+    "source_id": "id-4c056623a44e4686a436765364688275",
+    "source_name": "9.0 Produktionsstrukturplanung V2",
+    "target_id": "id-12327486d2ca4021b57891d419dd0671",
+    "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+  },
+  {
+    "identifier": "id-db55829f9c6041fda28566459ce13a3d",
+    "type": "Composition",
+    "source_id": "id-19f1a0f348b8417fb6d0b862ca025f1d",
+    "source_name": "10.0 Arbeitsplatzgestaltung V2",
+    "target_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+    "target_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit"
+  },
+  {
+    "identifier": "id-56e92001d1114582b91e52952342fe50",
+    "type": "Composition",
+    "source_id": "id-81b3478537dc41508e2d21bb5fb55174",
+    "source_name": "3.0 Produktionsbedarfsplanung V2",
+    "target_id": "id-061715d1b9124a439743f9fedf4dca6a",
+    "target_name": "3.3 Adaptive, bedarfsgesteuerte externe Kapazitätsnutzung"
+  },
+  {
+    "identifier": "id-2447ce561ee84bf5aa4f4c44f82d9886",
+    "type": "Composition",
+    "source_id": "id-13af30723d2c49f88494cad2180489a8",
+    "source_name": "5.0 Fertigung & Montage V2",
+    "target_id": "id-f900ed0ad02240dbafbef0f71981e2a7",
+    "target_name": "5.1 Datengetriebene Optimierung der Routenplanung für Flurfahrzeuge"
+  },
+  {
+    "identifier": "id-67270b6b0ffe4df9a745e94542f5f51b",
+    "type": "Composition",
+    "source_id": "id-53b176bc13954294aeeb272b03da8282",
+    "source_name": "5.0 Wartung & Instandhaltung V2",
+    "target_id": "id-c91936668f054121a3660a1fec21c12d",
+    "target_name": "5.1 Condition Monitoring für Fabrik"
+  },
+  {
+    "identifier": "id-1786d76e433b44eb871faf88c51985d5",
+    "type": "Composition",
+    "source_id": "id-102febeff4f94efbbc62d05a344ff88b",
+    "source_name": "1.0 Produktionsprogrammplanung V2",
+    "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+    "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+  },
+  {
+    "identifier": "id-f563442ad2714536931f8421f619bf00",
+    "type": "Composition",
+    "source_id": "id-08438848a0c940e5a4e432c30b247b80",
+    "source_name": "2.0 Auftragsmanagement V2",
+    "target_id": "id-cb971fc92fd145b2a82e2b74ba4c537c",
+    "target_name": "2.4 Dynamisches Management von Auftragsrestriktionen & Rerouting (copy)"
+  },
+  {
+    "identifier": "id-ae51e5e8d4de49dd87b719be1af6c5ed",
+    "type": "Composition",
+    "source_id": "id-81b3478537dc41508e2d21bb5fb55174",
+    "source_name": "3.0 Produktionsbedarfsplanung V2",
+    "target_id": "id-5d7832c0d89147bba68557f207f973cb",
+    "target_name": "3.2 Automatisierte, intelligente Personal- & Kapazitätsallokation"
+  },
+  {
+    "identifier": "id-cd637c8e42994e1f85b479b7c82d3c58",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+    "target_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge"
+  },
+  {
+    "identifier": "id-bfd2c1729f3b4bb7a88a7031dafbebd9",
+    "type": "Composition",
+    "source_id": "id-102febeff4f94efbbc62d05a344ff88b",
+    "source_name": "1.0 Produktionsprogrammplanung V2",
+    "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+    "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+  },
+  {
+    "identifier": "id-347c184ad9c141678cc8969a06a3a179",
+    "type": "Composition",
+    "source_id": "id-53b176bc13954294aeeb272b03da8282",
+    "source_name": "5.0 Wartung & Instandhaltung V2",
+    "target_id": "id-73bbcef0f8b84cebac2c0ff9d05edbd8",
+    "target_name": "5.2 Vorausschauende Instandhaltung Fabrikteilsysteme / Predictive Maintenance (copy)"
+  },
+  {
+    "identifier": "id-b82924dafe41436f8969e37f85c8c221",
+    "type": "Composition",
+    "source_id": "id-13af30723d2c49f88494cad2180489a8",
+    "source_name": "5.0 Fertigung & Montage V2",
+    "target_id": "id-c9b58956df24400b854663b154fd6507",
+    "target_name": "4.7 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+  },
+  {
+    "identifier": "id-44c28b16557d425d979104800094a998",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-1fd39b26737d46379c217240d2730aca",
+    "target_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+  },
+  {
+    "identifier": "id-d00454016e94462ebe671e4ac93fd52e",
+    "type": "Composition",
+    "source_id": "id-08438848a0c940e5a4e432c30b247b80",
+    "source_name": "2.0 Auftragsmanagement V2",
+    "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+    "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+  },
+  {
+    "identifier": "id-0a6eefb5fec74332ad035a81b927fb31",
+    "type": "Composition",
+    "source_id": "id-08438848a0c940e5a4e432c30b247b80",
+    "source_name": "2.0 Auftragsmanagement V2",
+    "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+    "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+  },
+  {
+    "identifier": "id-cc14bbbd69244b93922a080bcddd4ef5",
+    "type": "Composition",
+    "source_id": "id-0fb2baf2fb6a49858d1d813bae47ea78",
+    "source_name": "5.0 Qualitätsmanagement V2",
+    "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+    "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+  },
+  {
+    "identifier": "id-bcb5ba28cdc344168b91d0d69124dc69",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-55aae4ba434744b6a054ae8de6dc95c8",
+    "target_name": "4.2 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+  },
+  {
+    "identifier": "id-f465181761f3408ca67896cf3e5ab985",
+    "type": "Composition",
+    "source_id": "id-8a627ff9efc649508e500f976aa154be",
+    "source_name": "3.0 Arbeitsorganisation V2",
+    "target_id": "id-c68bf20c6fad475a9fe2e7de0d79f06d",
+    "target_name": "3.2 Datengetriebenes, adaptives Echtzeitmanagement von Hilfskräften (z.B. für Produktvarianten mit hohem Produktionsaufwand)"
+  },
+  {
+    "identifier": "id-0f89658285aa4aa9b9b88d5c65580a31",
+    "type": "Composition",
+    "source_id": "id-0fb2baf2fb6a49858d1d813bae47ea78",
+    "source_name": "5.0 Qualitätsmanagement V2",
+    "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+    "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+  },
+  {
+    "identifier": "id-3f486c73ccc94cf3ab0344fb05955ff5",
+    "type": "Composition",
+    "source_id": "id-13af30723d2c49f88494cad2180489a8",
+    "source_name": "5.0 Fertigung & Montage V2",
+    "target_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "target_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+  },
+  {
+    "identifier": "id-ccc5384e2698493d9e634b8a0b1e7012",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-1f760b27efeb42598c5fef573d6af645",
+    "target_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+  },
+  {
+    "identifier": "id-fae4b6752a324c85b8552d3ec2c3c925",
+    "type": "Composition",
+    "source_id": "id-8a627ff9efc649508e500f976aa154be",
+    "source_name": "3.0 Arbeitsorganisation V2",
+    "target_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+    "target_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+  },
+  {
+    "identifier": "id-693e6f5172fb4c1d8ccff9252ce483b9",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+    "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+  },
+  {
+    "identifier": "id-c01bb59d913b440d8042612163f85178",
+    "type": "Composition",
+    "source_id": "id-8a627ff9efc649508e500f976aa154be",
+    "source_name": "3.0 Arbeitsorganisation V2",
+    "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+    "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+  },
+  {
+    "identifier": "id-a58bb08412d743d9970bbb718427f233",
+    "type": "Composition",
+    "source_id": "id-81b3478537dc41508e2d21bb5fb55174",
+    "source_name": "3.0 Produktionsbedarfsplanung V2",
+    "target_id": "id-70dd0b74597b462d9d4387d9c3708b6a",
+    "target_name": "3.1 Datengetriebene, adaptive Produktionsbedarfsplanung"
+  },
+  {
+    "identifier": "id-b28d120e03c84bef902f52a148296c76",
+    "type": "Composition",
+    "source_id": "id-08438848a0c940e5a4e432c30b247b80",
+    "source_name": "2.0 Auftragsmanagement V2",
+    "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+    "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+  },
+  {
+    "identifier": "id-90229095ab934c75aa026bdbfdbaa6ea",
+    "type": "Composition",
+    "source_id": "id-102febeff4f94efbbc62d05a344ff88b",
+    "source_name": "1.0 Produktionsprogrammplanung V2",
+    "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+    "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+  },
+  {
+    "identifier": "id-da89637b6240443eb8e8d02ac20db974",
+    "type": "Composition",
+    "source_id": "id-08438848a0c940e5a4e432c30b247b80",
+    "source_name": "2.0 Auftragsmanagement V2",
+    "target_id": "id-1cf2f8c7c192476fbb3d0bd0b0bd7f2d",
+    "target_name": "2.3 Auftragsspezifisches Echtzeit-Tracking & Abweichungsmanagement"
+  },
+  {
+    "identifier": "id-460b7ecbbfcf4345ba82373b377d1fa9",
+    "type": "Composition",
+    "source_id": "id-81b3478537dc41508e2d21bb5fb55174",
+    "source_name": "3.0 Produktionsbedarfsplanung V2",
+    "target_id": "id-8dfd3f1ac8b44586971aa72a801ddcd1",
+    "target_name": "3.4 Simulation von Materialverfügbarkeiten zur Produktionssicherheit"
+  },
+  {
+    "identifier": "id-3e4274824c7f483e97546229bf222822",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-da76928929bf4e959694250d3925e139",
+    "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+  },
+  {
+    "identifier": "id-c022d52dda034583bf280c768b3cb9c1",
+    "type": "Composition",
+    "source_id": "id-0fb2baf2fb6a49858d1d813bae47ea78",
+    "source_name": "5.0 Qualitätsmanagement V2",
+    "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+    "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+  },
+  {
+    "identifier": "id-7d21b77cf43f416aa12d140265053f7e",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-85288591060e46b2ae5b0bac7f927cdf",
+    "target_name": "1.5 Publish-Subscriber-Mechanismus (copy)"
+  },
+  {
+    "identifier": "id-51b512e79980445f92d67c66acef361a",
+    "type": "Composition",
+    "source_id": "id-069859b18c7d467f9a6624ffef9e90b2",
+    "source_name": "3.0 Intelligentes Verhalten (copy)",
+    "target_id": "id-da259c04bc264edea5810ca1d45cbd8d",
+    "target_name": "3.1 Alarm- & Benachrichtigungsmanagement (copy)"
+  },
+  {
+    "identifier": "id-1813bdcb73004933a188e0c0e75b45b5",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-16cb6b0bfdf847bdb3fc516f513f5960",
+    "target_name": "1.1 Echtzeit-Datenakquise & Speicherung"
+  },
+  {
+    "identifier": "id-e29757f12c06458799378e1c73fce6fb",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-5c7e99c604cc4673a6322303662b36c1",
+    "target_name": "1.8 DZ-Simulationsmodell Management  (copy)"
+  },
+  {
+    "identifier": "id-a51b052ae0dc4b04b99304f7ae0c8829",
+    "type": "Composition",
+    "source_id": "id-24987da97c4e438cb0dcbba3ee4aad3e",
+    "source_name": "2.0 Integration (copy)",
+    "target_id": "id-79e0ca6d8d4c47969ab7e872aecd75b2",
+    "target_name": "2.4 Integration weiterer DZs (copy)"
+  },
+  {
+    "identifier": "id-4757ebd801904c45b055931be51a3208",
+    "type": "Composition",
+    "source_id": "id-24987da97c4e438cb0dcbba3ee4aad3e",
+    "source_name": "2.0 Integration (copy)",
+    "target_id": "id-61613a04c61140378757170aa054e82b",
+    "target_name": "2.1 Enterprise-IT-Systemintegration (copy)"
+  },
+  {
+    "identifier": "id-6d9447c5fe334e42bda5d83664785f1e",
+    "type": "Composition",
+    "source_id": "id-685f0596f23d473085de6c052013c096",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-ad970cab3f4c4933a0b4923a036f13a4",
+    "target_name": "5.2 DZ-Systemmonitoring (Verfügbarkeit, etc.) (copy)"
+  },
+  {
+    "identifier": "id-8018b16deb6f4d50b0f37a414f729083",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-541d224b333d48b5b9982a01c5e402e4",
+    "target_name": "4.4 Augmented- & Virtual Reality (copy)"
+  },
+  {
+    "identifier": "id-59beb98594fd4e44aa7f001a41745f43",
+    "type": "Composition",
+    "source_id": "id-069859b18c7d467f9a6624ffef9e90b2",
+    "source_name": "3.0 Intelligentes Verhalten (copy)",
+    "target_id": "id-981d3a9b7c384703acc5cdd8cb467bae",
+    "target_name": "3.4 Automatisiertes Verhalten aufgrung von Workflows basierend auf Geschäftslogik (copy)"
+  },
+  {
+    "identifier": "id-79a1bcdb067b4da88f367d2c0b835dec",
+    "type": "Composition",
+    "source_id": "id-a100d475ae51467eb06dc6e9b787109a",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-f65521b16bc2473da64e026db96090cb",
+    "target_name": "6.2 DZ-Systemsicherheitsmanagement (copy)"
+  },
+  {
+    "identifier": "id-70a6514f4f854fc08d9fd4dfec4a1ad3",
+    "type": "Composition",
+    "source_id": "id-a100d475ae51467eb06dc6e9b787109a",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-f96a7ce54cec4902ad6040e35850c2f1",
+    "target_name": "6.1 Verschlüsselung DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-c622444efd3f40d29f13eb160dcf2c98",
+    "type": "Composition",
+    "source_id": "id-069859b18c7d467f9a6624ffef9e90b2",
+    "source_name": "3.0 Intelligentes Verhalten (copy)",
+    "target_id": "id-a004167cf1d34b428446965343c0aea6",
+    "target_name": "3.3 Integration von Data Analytics Methoden (copy)"
+  },
+  {
+    "identifier": "id-f73a1f219ba445139f6e9c84e3b6053e",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-f6dae073a05745f58d2423de8ce09485",
+    "target_name": "4.5 Ad-Hoc Datenanalysen (copy)"
+  },
+  {
+    "identifier": "id-9a6016f984a145d7bc11522a00e23bee",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-e616121bdd7442b092710dde8f5511d2",
+    "target_name": "4.2 Einbindung komplexer Dashboards / Kennzahlen (copy)"
+  },
+  {
+    "identifier": "id-161894d2acf24b72801ff345d1feb351",
+    "type": "Composition",
+    "source_id": "id-24987da97c4e438cb0dcbba3ee4aad3e",
+    "source_name": "2.0 Integration (copy)",
+    "target_id": "id-c4e821699b2f48dbbf304ac49b3cfcdf",
+    "target_name": "2.5 Bereitstellen von Schnittstellen-Services (copy)"
+  },
+  {
+    "identifier": "id-7a0bbcaaf2bc444aadcb9d1a8b72b8da",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-9fc65a79528042209b9d9060ad5a2624",
+    "target_name": "4.3 Hierarchische Darstellung der DZ-Komponenten (copy)"
+  },
+  {
+    "identifier": "id-a21befddff3846699f21aa4b8954ff09",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-b54611615dd3400fab8118843514d1f0",
+    "target_name": "1.4 Echtzeit-Verarbeitung (copy)"
+  },
+  {
+    "identifier": "id-d601f35dc2b14f3ca0e291cefe41967b",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-8d0fe5c904a6452f9008813aef16b965",
+    "target_name": "1.7 DZ-Strukturmodell Management (copy)"
+  },
+  {
+    "identifier": "id-c7b21ceff3b64c2f93190101ae0705ba",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-8ee36cf2a34f416e97ed360c323fca37",
+    "target_name": "4.6 Visualisierung Geschäftsprozesse & Workflow (copy)"
+  },
+  {
+    "identifier": "id-cc29cdd060ff472aad9d43f4003175c8",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-ce468e94895d4953b5637ab8c7e13ef1",
+    "target_name": "1.6 Ontologie-Management (copy)"
+  },
+  {
+    "identifier": "id-9654fd5fd7cb4100b15bef175c186dae",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-872e358270124d93ae60e9714642f62e",
+    "target_name": "1.2 Datenstreaming & -transformation V2"
+  },
+  {
+    "identifier": "id-eeecd80988a7465a8fe8dd9a51909ad8",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-b4c6bfa469ca40c2ba98979ca9cc2d35",
+    "target_name": "1.9 DZ-KI-Modell Management (copy)"
+  },
+  {
+    "identifier": "id-89cc10e7e0df4fac96155fc6ca531b61",
+    "type": "Composition",
+    "source_id": "id-069859b18c7d467f9a6624ffef9e90b2",
+    "source_name": "3.0 Intelligentes Verhalten (copy)",
+    "target_id": "id-ec7125e8a9fc4aca81df7454ef31b7bc",
+    "target_name": "3.2 Berichtsgenerierung (copy)"
+  },
+  {
+    "identifier": "id-22285c890f674b4198c1ae4d165013dc",
+    "type": "Composition",
+    "source_id": "id-5a80c7508ad94a27a88621aa148ead8e",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-68e08c7f51da4c36a6031e50b89ef97b",
+    "target_name": "1.3 Datenkontextualisierung (copy)"
+  },
+  {
+    "identifier": "id-947c1474f2b642088bfeb82f932e34ec",
+    "type": "Composition",
+    "source_id": "id-685f0596f23d473085de6c052013c096",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-0144cd7489094ef2a981796ea775507c",
+    "target_name": "5.4 Governance DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-a2af7815c0de4ce899538c9108af04e8",
+    "type": "Composition",
+    "source_id": "id-448dfcaab6944da4804107ff88679365",
+    "source_name": "4.0 Benutzerschnittstelle (copy)",
+    "target_id": "id-f1b0c2521349424c98f5fec57d6f04ec",
+    "target_name": "4.1 3D-Visualisierung (copy)"
+  },
+  {
+    "identifier": "id-3a5f8b161b564ed89178a2ddab84704a",
+    "type": "Composition",
+    "source_id": "id-24987da97c4e438cb0dcbba3ee4aad3e",
+    "source_name": "2.0 Integration (copy)",
+    "target_id": "id-79e24b6b71804b3f93dd58054e6ae7f1",
+    "target_name": "2.3 Produktions-IT-Systemintegration (copy)"
+  },
+  {
+    "identifier": "id-5b35cf72c40f4e49bcdec0411b467b70",
+    "type": "Composition",
+    "source_id": "id-a100d475ae51467eb06dc6e9b787109a",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-e709fdc1b93c42cc8c84f8f51ebc6867",
+    "target_name": "6.3 DZ-Systemrechtemanagement (copy)"
+  },
+  {
+    "identifier": "id-0a75750bb13e4c388bde85e116d362ba",
+    "type": "Composition",
+    "source_id": "id-24987da97c4e438cb0dcbba3ee4aad3e",
+    "source_name": "2.0 Integration (copy)",
+    "target_id": "id-c0956ee0da7847e0a2a946870e982938",
+    "target_name": "2.2 Engineering-IT-Systemintegration (copy)"
+  },
+  {
+    "identifier": "id-095f3054392e4204bf7a9668cacb7b34",
+    "type": "Composition",
+    "source_id": "id-685f0596f23d473085de6c052013c096",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-56487e637d7f4c7eb8107c573569e433",
+    "target_name": "5.1 Gerätemanagement (Authentifizierung, Konfiguration, etc.) (copy)"
+  },
+  {
+    "identifier": "id-e5b964e66d3940ada91032f96762f725",
+    "type": "Composition",
+    "source_id": "id-685f0596f23d473085de6c052013c096",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-d9125eadae6946cc8496654d6885ed5f",
+    "target_name": "5.3 Logging DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-8fb88b96d6224073ba17e76127d4f46a",
+    "type": "Composition",
+    "source_id": "id-f072968e18b74123896906f11e48f163",
+    "source_name": "3.0 Intelligentes Verhalten V2",
+    "target_id": "id-224d4098ce3d4ed4a94405080e9a7145",
+    "target_name": "3.4 Automatisiertes Verhalten aufgrung von Workflows basierend auf Geschäftslogik V2"
+  },
+  {
+    "identifier": "id-176ae2d3db9f461eb1a08949803bdb75",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-4d54936ce3344e068e28b33bb5e7682e",
+    "target_name": "1.6 Ontologie-Management V2"
+  },
+  {
+    "identifier": "id-ce79265dbb444f2e86ef8037ce62b50b",
+    "type": "Composition",
+    "source_id": "id-f072968e18b74123896906f11e48f163",
+    "source_name": "3.0 Intelligentes Verhalten V2",
+    "target_id": "id-a3eed8ea840443018247155697012850",
+    "target_name": "3.2 Berichtsgenerierung V2"
+  },
+  {
+    "identifier": "id-cac97702a69041078bdbdb810e8287ab",
+    "type": "Composition",
+    "source_id": "id-89273560821d41e3be14854ccb68be75",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-654547130c194b46a17a1debe43a859d",
+    "target_name": "6.1 Verschlüsselung DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-6f1fd850e83a4ed5a0e4a79a9b05b09f",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-8354640e7a03460c930ce9d30e8495a2",
+    "target_name": "1.2 Datenstreaming & -transformation V2"
+  },
+  {
+    "identifier": "id-26c803a667ac4f9fb9f707717cfb77aa",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-18ee6dff55e543608868e163f8cc8ec0",
+    "target_name": "1.7 DZ-Strukturmodell Management V2"
+  },
+  {
+    "identifier": "id-1418f82ea2a84e5b9298f60ab536b4aa",
+    "type": "Composition",
+    "source_id": "id-f072968e18b74123896906f11e48f163",
+    "source_name": "3.0 Intelligentes Verhalten V2",
+    "target_id": "id-f24594f7deed495b82439bc4cd85a7c7",
+    "target_name": "3.3 Integration von Data Analytics Methoden V2"
+  },
+  {
+    "identifier": "id-82626139847541e38e0a25121d567693",
+    "type": "Composition",
+    "source_id": "id-f072968e18b74123896906f11e48f163",
+    "source_name": "3.0 Intelligentes Verhalten V2",
+    "target_id": "id-9d98d5af5ce748e09ae4356ca7884a22",
+    "target_name": "3.1 Alarm- & Benachrichtigungsmanagement V2"
+  },
+  {
+    "identifier": "id-9116bcb5efd54775a2cc829e41d6795c",
+    "type": "Composition",
+    "source_id": "id-2fd9e4d12af344429970962572a84417",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-334835537c044d9b8d80022853473453",
+    "target_name": "5.1 Gerätemanagement (Authentifizierung, Konfiguration, etc.) (copy)"
+  },
+  {
+    "identifier": "id-dc542d10596e469080e7aa11b41ce100",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-bb82ef84d04b4e4ba3399e967a02ca55",
+    "target_name": "4.3 Hierarchische Darstellung der DZ-Komponenten V2"
+  },
+  {
+    "identifier": "id-56afeb5eaa5f48d99afd03e96692be1d",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-e111a9d58da54e328800f3f695f8026b",
+    "target_name": "1.9 DZ-KI-Modell Management V2"
+  },
+  {
+    "identifier": "id-da5b3c984f63412cbb6dbeacd63c2318",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-df3a0ddd59904abf9512ee2463bee682",
+    "target_name": "4.4 Augmented- & Virtual Reality V2"
+  },
+  {
+    "identifier": "id-527be59c8c1b4ce0b2aa977232dcd7c8",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-21b2d005ff1d4ee7b107dbde89b513d6",
+    "target_name": "1.4 Echtzeit-Verarbeitung V2"
+  },
+  {
+    "identifier": "id-a2983c99cc724cc1bcc9b8181a7fb5ee",
+    "type": "Composition",
+    "source_id": "id-a4fb2c409a5a4a7580509760514e5746",
+    "source_name": "2.0 Integration V2",
+    "target_id": "id-7f2fbc8bb584483584609fc7b6121a12",
+    "target_name": "2.2 Engineering-IT-Systemintegration V2"
+  },
+  {
+    "identifier": "id-424e596d0b864bc4b21914de3c7ae72d",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-665d19d03c5d43938b3ebb0d8f585d34",
+    "target_name": "4.6 Visualisierung Geschäftsprozesse & Workflow V2"
+  },
+  {
+    "identifier": "id-df53ee54318243fdbc40cb717eef6cc2",
+    "type": "Composition",
+    "source_id": "id-a4fb2c409a5a4a7580509760514e5746",
+    "source_name": "2.0 Integration V2",
+    "target_id": "id-12cc12a0f94a450284babab91b6395fb",
+    "target_name": "2.4 Bereitstellen von Schnittstellen-Services"
+  },
+  {
+    "identifier": "id-2c8cf69a27174a159bbe30cc56af1171",
+    "type": "Composition",
+    "source_id": "id-a4fb2c409a5a4a7580509760514e5746",
+    "source_name": "2.0 Integration V2",
+    "target_id": "id-4a804be30b304733b4ad96700e923c79",
+    "target_name": "2.3 Produktions-IT-Systemintegration V2"
+  },
+  {
+    "identifier": "id-5a4c2f9068de4f65ac9eade652988cc0",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-e210c44ef23b4e63ac4ad03dda469ba9",
+    "target_name": "1.1 Datenakquise & Speicherung V2"
+  },
+  {
+    "identifier": "id-9e081aa801254c2aa1d046d2734f007d",
+    "type": "Composition",
+    "source_id": "id-2fd9e4d12af344429970962572a84417",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-5d4bc53cc1714108a2dc02c88496f203",
+    "target_name": "5.2 DZ-Systemmonitoring (Verfügbarkeit, etc.) (copy)"
+  },
+  {
+    "identifier": "id-1bffbe498cc3474ab71f39fd37810f2a",
+    "type": "Composition",
+    "source_id": "id-89273560821d41e3be14854ccb68be75",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-78e247e1a89049fdbe5a525a701cf3b3",
+    "target_name": "6.3 DZ-Systemrechtemanagement (copy)"
+  },
+  {
+    "identifier": "id-f813bc972dff498daccc85f2f9d7f4fb",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-2f74e960d42c4c22892e42e8c91eab6b",
+    "target_name": "1.8 DZ-Simulationsmodell Management  V2"
+  },
+  {
+    "identifier": "id-46f83a2f38b843d388ce126700e8bd47",
+    "type": "Composition",
+    "source_id": "id-2fd9e4d12af344429970962572a84417",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-d6dbd07bcc5943cf8d02d25d58affd53",
+    "target_name": "5.3 Logging DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-1608102600094b1e858c712d4b9d8cfa",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-11eacdf4a3c04239817b4cb530c6ae38",
+    "target_name": "4.2 Einbindung komplexer Dashboards / Kennzahlen V2"
+  },
+  {
+    "identifier": "id-494b2e34f02c45d380757798e69d64a0",
+    "type": "Composition",
+    "source_id": "id-2fd9e4d12af344429970962572a84417",
+    "source_name": "5.0 Systemsoftware (copy)",
+    "target_id": "id-42a8e433b2f0446183ead73b2950427f",
+    "target_name": "5.4 Governance DZ-Daten (copy)"
+  },
+  {
+    "identifier": "id-5d2592273d204c4bada1fadd3e69b855",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-49059cd1f0104f87882e1382f3fda4e9",
+    "target_name": "4.5 Ad-Hoc Datenanalysen V2"
+  },
+  {
+    "identifier": "id-4346380eb4774d50bdd70c42b30230fa",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-2e522c0e26284d87a40a389d1ad79552",
+    "target_name": "1.3 Datenkontextualisierung V2"
+  },
+  {
+    "identifier": "id-eda4abcc2d13450398f36a30e5a71241",
+    "type": "Composition",
+    "source_id": "id-89273560821d41e3be14854ccb68be75",
+    "source_name": "6.0 Vertrauenswürdigkeit (copy)",
+    "target_id": "id-0b5dc64d67624b9aacd8f7709ebaaf3d",
+    "target_name": "6.2 DZ-Systemsicherheitsmanagement (copy)"
+  },
+  {
+    "identifier": "id-4b9aa3cdc4644c4c9956d0c9016bfbe3",
+    "type": "Composition",
+    "source_id": "id-a4f14b9a69164eeb995656f0bf98da39",
+    "source_name": "1.0 Datenintegration V2",
+    "target_id": "id-6f7e9409bec1489ba25deafc14da8ca5",
+    "target_name": "1.5 Publish-Subscriber-Mechanismus V2"
+  },
+  {
+    "identifier": "id-d282bcbdc17e46569483de69fb6df0b8",
+    "type": "Composition",
+    "source_id": "id-a4fb2c409a5a4a7580509760514e5746",
+    "source_name": "2.0 Integration V2",
+    "target_id": "id-fce1aef3a7be4c37b8a437fcad7b1054",
+    "target_name": "2.4 Integration weiterer DZs (copy)"
+  },
+  {
+    "identifier": "id-3c893849713c413f907302541f406afd",
+    "type": "Composition",
+    "source_id": "id-a4fb2c409a5a4a7580509760514e5746",
+    "source_name": "2.0 Integration V2",
+    "target_id": "id-b4db3152c03f4a6cbfa93ff29539c746",
+    "target_name": "2.1 Enterprise-IT-Systemintegration V2"
+  },
+  {
+    "identifier": "id-ecbf3f75ea39421080a6979272998414",
+    "type": "Composition",
+    "source_id": "id-943f26a8a2054e77b83f2ddfd56ba57b",
+    "source_name": "4.0 Benutzerschnittstelle V2",
+    "target_id": "id-f37feb0e6abd47fc9163abb83319da18",
+    "target_name": "4.1 3D-Visualisierung V2"
+  },
+  {
+    "identifier": "id-5658f02d1e5b4828a0c55e999c394755",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-c9b58956df24400b854663b154fd6507",
+    "target_name": "4.7 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+  },
+  {
+    "identifier": "id-a6a6d7e3c58c498f850c28729b93cbd6",
+    "type": "Composition",
+    "source_id": "id-57f7e92e824148cf9c3beeedc7b17c81",
+    "source_name": "4.0 Shopfloor & Logistik V2",
+    "target_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+    "target_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+  }
+]

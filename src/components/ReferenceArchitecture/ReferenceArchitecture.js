@@ -2,20 +2,12 @@ import React, { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import ArchitectureDiagramSVG from './ArchitectureDiagramSVG';
-import ProductReferenceArchitecture from './ProductReferenceArchitecture';
 import { architectureElements, relationships } from './ArchitectureData';
 
 const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
-  const [activePerspective, setActivePerspective] = useState('factory');
   const [activeTab, setActiveTab] = useState('diagram');
   const [selectedElement, setSelectedElement] = useState(null);
   const [detailsView, setDetailsView] = useState('properties');
-
-  // Reset selection when changing perspective
-  const handlePerspectiveChange = (perspective) => {
-    setActivePerspective(perspective);
-    setSelectedElement(null);
-  };
 
   // Get the currently selected element's data
   const selectedElementData = selectedElement 
@@ -53,132 +45,80 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
 
         {/* Main Content Container */}
         <div className="bg-white rounded-lg shadow-sm mb-6">
-          {/* Perspective Tabs */}
+          {/* Content Tabs */}
           <div className="flex border-b border-gray-200">
             <button
               className={`px-6 py-3 text-sm font-medium ${
-                activePerspective === 'factory' 
+                activeTab === 'diagram' 
                   ? 'text-teal-600 border-b-2 border-teal-600' 
                   : 'text-gray-500 hover:text-gray-700'
               }`}
-              onClick={() => handlePerspectiveChange('factory')}
+              onClick={() => setActiveTab('diagram')}
             >
-              Perspektive Fabrik
+              Diagram
             </button>
             <button
               className={`px-6 py-3 text-sm font-medium ${
-                activePerspective === 'product' 
+                activeTab === 'elements' 
                   ? 'text-teal-600 border-b-2 border-teal-600' 
                   : 'text-gray-500 hover:text-gray-700'
               }`}
-              onClick={() => handlePerspectiveChange('product')}
+              onClick={() => setActiveTab('elements')}
             >
-              Perspektive Produkt
+              Elements
             </button>
             <button
               className={`px-6 py-3 text-sm font-medium ${
-                activePerspective === 'order' 
+                activeTab === 'details' 
                   ? 'text-teal-600 border-b-2 border-teal-600' 
                   : 'text-gray-500 hover:text-gray-700'
               }`}
-              onClick={() => handlePerspectiveChange('order')}
+              onClick={() => setActiveTab('details')}
             >
-              Perspektive Auftrag
+              Element Details
             </button>
           </div>
 
-          {/* Render the appropriate perspective content */}
-          {activePerspective === 'factory' ? (
-            <div>
-              {/* Content Tabs for Factory Perspective */}
-              <div className="flex border-b border-gray-200">
-                <button
-                  className={`px-6 py-3 text-sm font-medium ${
-                    activeTab === 'diagram' 
-                      ? 'text-teal-600 border-b-2 border-teal-600' 
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                  onClick={() => setActiveTab('diagram')}
-                >
-                  Diagram
-                </button>
-                <button
-                  className={`px-6 py-3 text-sm font-medium ${
-                    activeTab === 'elements' 
-                      ? 'text-teal-600 border-b-2 border-teal-600' 
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                  onClick={() => setActiveTab('elements')}
-                >
-                  Elements
-                </button>
-                <button
-                  className={`px-6 py-3 text-sm font-medium ${
-                    activeTab === 'details' 
-                      ? 'text-teal-600 border-b-2 border-teal-600' 
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                  onClick={() => setActiveTab('details')}
-                >
-                  Element Details
-                </button>
-              </div>
+          {/* Content Area */}
+          <div className="p-4">
+            {/* Diagram Tab Content */}
+            {activeTab === 'diagram' && (
+              <ArchitectureDiagramSVG 
+                selectedElement={selectedElement}
+                setSelectedElement={setSelectedElement}
+              />
+            )}
 
-              {/* Content Area for Factory Perspective */}
-              <div className="p-4">
-                {/* Diagram Tab Content */}
-                {activeTab === 'diagram' && (
+            {/* Elements Tab Content */}
+            {activeTab === 'elements' && (
+              <ElementsTable 
+                elements={architectureElements}
+                onElementSelect={setSelectedElement}
+                selectedElement={selectedElement}
+              />
+            )}
+
+            {/* Details Tab Content */}
+            {activeTab === 'details' && (
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-2">
                   <ArchitectureDiagramSVG 
                     selectedElement={selectedElement}
                     setSelectedElement={setSelectedElement}
                   />
-                )}
-
-                {/* Elements Tab Content */}
-                {activeTab === 'elements' && (
-                  <ElementsTable 
-                    elements={architectureElements}
-                    onElementSelect={setSelectedElement}
-                    selectedElement={selectedElement}
+                </div>
+                <div>
+                  <ElementDetails
+                    element={selectedElementData}
+                    incomingRelationships={incomingRelationships}
+                    outgoingRelationships={outgoingRelationships}
+                    detailsView={detailsView}
+                    setDetailsView={setDetailsView}
                   />
-                )}
-
-                {/* Details Tab Content */}
-                {activeTab === 'details' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-2">
-                      <ArchitectureDiagramSVG 
-                        selectedElement={selectedElement}
-                        setSelectedElement={setSelectedElement}
-                      />
-                    </div>
-                    <div>
-                      <ElementDetails
-                        element={selectedElementData}
-                        incomingRelationships={incomingRelationships}
-                        outgoingRelationships={outgoingRelationships}
-                        detailsView={detailsView}
-                        setDetailsView={setDetailsView}
-                      />
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
-            </div>
-          ) : activePerspective === 'product' ? (
-            /* Product Perspective */
-            <ProductReferenceArchitecture departmentId={departmentId} />
-          ) : (
-            /* Order Perspective - Placeholder for now */
-            <div className="p-6 text-center">
-              <div className="p-12 bg-gray-100 rounded-lg">
-                <h3 className="text-xl font-medium text-gray-700 mb-2">Perspektive Auftrag</h3>
-                <p className="text-gray-600">
-                  Diese Perspektive befindet sich noch in der Entwicklung.
-                </p>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Legend */}
@@ -514,6 +454,29 @@ const LegendSection = () => {
           <span className="text-sm text-gray-600">Composition</span>
         </div>
       </div>
+      
+      <div className="mt-4 border-t border-gray-200 pt-4">
+        <h4 className="text-md font-medium text-gray-700 mb-2">Perspectives</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <h5 className="font-medium text-sm">Perspektive: Fabrik</h5>
+            <p className="text-xs text-gray-600">Factory lifecycle processes from planning to dismantling</p>
+          </div>
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <h5 className="font-medium text-sm">Perspektive: Produkt</h5>
+            <p className="text-xs text-gray-600">Product-focused processes from development to recycling</p>
+          </div>
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <h5 className="font-medium text-sm">Perspektive: Auftrag</h5>
+            <p className="text-xs text-gray-600">Order-focused processes from configuration to delivery</p>
+          </div>
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <h5 className="font-medium text-sm">Perspektive: Fertigungstechnologie</h5>
+            <p className="text-xs text-gray-600">Manufacturing technology processes from planning to modernization</p>
+          </div>
+        </div>
+      </div>
+      
       <div className="mt-4 p-2 bg-blue-50 text-blue-800 rounded">
         <p className="text-sm">
           <span className="font-medium">Tip:</span> Click on any element in the diagram to highlight its related elements and connections.

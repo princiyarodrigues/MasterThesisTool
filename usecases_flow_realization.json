@@ -1,0 +1,2593 @@
+{
+  "usecases": [
+    {
+      "identifier": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "type": "BusinessService",
+      "name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik"
+    },
+    {
+      "identifier": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "type": "BusinessService",
+      "name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen"
+    },
+    {
+      "identifier": "id-dff2c24369864eff872232894774d439",
+      "type": "BusinessService",
+      "name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien"
+    },
+    {
+      "identifier": "id-b20c6042d612471a9d172ba9548262d8",
+      "type": "BusinessService",
+      "name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik"
+    },
+    {
+      "identifier": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "type": "BusinessService",
+      "name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen"
+    },
+    {
+      "identifier": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "type": "BusinessService",
+      "name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen"
+    },
+    {
+      "identifier": "id-e5c744d51fdf49d796ddf4288416f5e3",
+      "type": "BusinessService",
+      "name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik"
+    },
+    {
+      "identifier": "id-d20704229641474ca8064c102d063188",
+      "type": "BusinessService",
+      "name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase"
+    },
+    {
+      "identifier": "id-a0b2f126f11248008f3752903b1df69b",
+      "type": "BusinessService",
+      "name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-e55c67171a6243dcb5419408c929f25e",
+      "type": "BusinessService",
+      "name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)"
+    },
+    {
+      "identifier": "id-db2b857c6faa45208622ffdbe11c910e",
+      "type": "BusinessService",
+      "name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen"
+    },
+    {
+      "identifier": "id-c39abed483f04fee8b287c11ad168e43",
+      "type": "BusinessService",
+      "name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+    },
+    {
+      "identifier": "id-82cc53b09d5c414090a3ef919f1e4c29",
+      "type": "BusinessService",
+      "name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)"
+    },
+    {
+      "identifier": "id-212108aa2efa4b14aab0b679a430c5be",
+      "type": "BusinessService",
+      "name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)"
+    },
+    {
+      "identifier": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "type": "BusinessService",
+      "name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen"
+    },
+    {
+      "identifier": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "type": "BusinessService",
+      "name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik"
+    },
+    {
+      "identifier": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "type": "BusinessService",
+      "name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik"
+    },
+    {
+      "identifier": "id-779f33f6f118456bbf3f271f47590ed1",
+      "type": "BusinessService",
+      "name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen"
+    },
+    {
+      "identifier": "id-7301522542884a0fb29808ea30e22ae4",
+      "type": "BusinessService",
+      "name": "Use Case 19: Fernzugriff und -steuerung für Produktionslinien, Fertigungssegmente und die Fabrik"
+    },
+    {
+      "identifier": "id-71e69599643e43c898b89757eb11a41b",
+      "type": "BusinessService",
+      "name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik"
+    },
+    {
+      "identifier": "id-bb388013f6fd45789135910ae4334a98",
+      "type": "BusinessService",
+      "name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+    },
+    {
+      "identifier": "id-4f1f942ea48147e587f696d59248cae9",
+      "type": "BusinessService",
+      "name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion"
+    },
+    {
+      "identifier": "id-2606131d5c6142128493c482f4c611f9",
+      "type": "BusinessService",
+      "name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots"
+    },
+    {
+      "identifier": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "type": "BusinessService",
+      "name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage"
+    },
+    {
+      "identifier": "id-18e8ae79d33c4930b64eeb147f712964",
+      "type": "BusinessService",
+      "name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen"
+    },
+    {
+      "identifier": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "type": "BusinessService",
+      "name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess"
+    },
+    {
+      "identifier": "id-22841ee156624cb099bf554754fa9357",
+      "type": "BusinessService",
+      "name": "Use Case 27: Automatisiertes Wertstrommanagement"
+    },
+    {
+      "identifier": "id-49a6d434cd0546589e7a94279d6454bd",
+      "type": "BusinessService",
+      "name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung"
+    },
+    {
+      "identifier": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "type": "BusinessService",
+      "name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik"
+    },
+    {
+      "identifier": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "type": "BusinessService",
+      "name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen"
+    },
+    {
+      "identifier": "id-ba3f288075df4ce6bcec82241a99da46",
+      "type": "BusinessService",
+      "name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik"
+    },
+    {
+      "identifier": "id-8e34428c69ae449d94a767725f973cd5",
+      "type": "BusinessService",
+      "name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte"
+    },
+    {
+      "identifier": "id-27c52826d8f64976b536dad78ae569e1",
+      "type": "BusinessService",
+      "name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten"
+    },
+    {
+      "identifier": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "type": "BusinessService",
+      "name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken"
+    }
+  ],
+  "flow_relations": [],
+  "realization_relations": [
+    {
+      "identifier": "id-4c85afaa8978479e88c2508cb471cd47",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+      "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-20d5298c975d4c5b836d357fedf251ba",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+      "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-f6a090f582f741f3ba71ddf4839560fa",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+      "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-f036ed8449ad49789b1339aa29e86eb3",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+      "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-0842c8df67b34ff48f36dcfcbfd80a64",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-47daa35eb3b14e85b54885c322943a6d",
+      "target_name": "1.1 Datengetriebene Zielszenariensimulation"
+    },
+    {
+      "identifier": "id-910549ec2469419492ab82526464dc39",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+      "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+    },
+    {
+      "identifier": "id-2b756be361c0426b8b528aeb35a711f6",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+      "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+    },
+    {
+      "identifier": "id-219b5233a5bb4674bdb798b18ae1a8d7",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+      "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+    },
+    {
+      "identifier": "id-9a87dcec90134c8991d6b1ec6d9ce667",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+      "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+    },
+    {
+      "identifier": "id-68e1c9d5c4294080abae3ac1bb34184e",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+      "target_name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+    },
+    {
+      "identifier": "id-02a1f12683584665ac61f7033513068c",
+      "type": "Realization",
+      "source_id": "id-ba3f288075df4ce6bcec82241a99da46",
+      "source_name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-3c84cc95d2ca4b5990c6100266d2f03d",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-ae5f2021bdbb4086afa5470ad52cbfb6",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-6cd2632c8e2247fe8b54f9debf80c1af",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-8c61706230d94587a2a5f88f6e5ee630",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-002f123d38a84bd3b22ba5de7c061a93",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-ffa624ae069445a6acbfc6fca14f17fa",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+      "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+    },
+    {
+      "identifier": "id-8ce197bb634a4cc9826332dd1682c886",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+      "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+    },
+    {
+      "identifier": "id-94f7df74a0e847afb97f38fa484e279b",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+      "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+    },
+    {
+      "identifier": "id-9acf5a7362434b72a4fdfd39d16febba",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+      "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+    },
+    {
+      "identifier": "id-e543ad692ea34e69abf2bf9150f807c9",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-bff4fe965c2546ada2315c866ee86e21",
+      "target_name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+    },
+    {
+      "identifier": "id-2ebb3da52d954d1cb37f8b3cb71a0319",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-d8544c0da1e1410a923127142c9273b8",
+      "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+    },
+    {
+      "identifier": "id-e00aa25ee6354d87b01a1f8f879b423d",
+      "type": "Realization",
+      "source_id": "id-a0b2f126f11248008f3752903b1df69b",
+      "source_name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+      "target_id": "id-6bf3391be3124655805364053cfb1954",
+      "target_name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+    },
+    {
+      "identifier": "id-cdf206c9b09649d7b413cb7715af0f65",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-d8544c0da1e1410a923127142c9273b8",
+      "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+    },
+    {
+      "identifier": "id-4419818b42254c5080b21b06d3fb76e5",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-d8544c0da1e1410a923127142c9273b8",
+      "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+    },
+    {
+      "identifier": "id-423b95451bde462a981b54d022dc438c",
+      "type": "Realization",
+      "source_id": "id-8e34428c69ae449d94a767725f973cd5",
+      "source_name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte",
+      "target_id": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+      "target_name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien"
+    },
+    {
+      "identifier": "id-48a937576fab413cbee5b79a8a1d5a0b",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-056c40d7db3b48e2aabb27a7761fa863",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-854e38b1cbdf41fb814738e6a598fcd1",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-f91d8b9ab856474cbd075986d0b475c4",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-19a4eba743c74bfeb782c4c9a3f51242",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-88f7858030ff4e7d9a7bb58cdcb2f567",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-7eea24b2b67b452897d2d3da6efa6ede",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+      "target_name": "3.2 Echtzeit-Überwachung von Materialströmen"
+    },
+    {
+      "identifier": "id-1ced069d9bd14a95b3972e642cbdae98",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+      "target_name": "3.2 Echtzeit-Überwachung von Materialströmen"
+    },
+    {
+      "identifier": "id-61b790c49dd1475d9d6bc60ff3253a37",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+      "target_name": "3.2 Echtzeit-Überwachung von Materialströmen"
+    },
+    {
+      "identifier": "id-b59de4cf6030429e88c7bc4a9818ace5",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-ca4a67e2d35340a88702c26b088c8fcb",
+      "target_name": "3.2 Echtzeit-Überwachung von Materialströmen"
+    },
+    {
+      "identifier": "id-429a1cd66ac74dc9a0071d186d78dac5",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-c235df4880bc42cb973847f7008ce25b",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-76164c8d58d74b41b230ee8f19677128",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-2eaac920cf32488b9d3bf2882e057f20",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-b382bdf249024258a99e3b012ef7570e",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-1a5e39313be64b62b3c2ab483ab994ef",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-53123c9f67904c7289dcf7a05cf38f47",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-3935987abd534613970835fcccf6481d",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-788cafa56efc414e95b8bb7452954708",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-6f27a1b0267b47ee8c629b7ffff62bb1",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-30ace272876c4453970402e6e5b2205c",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-c6b0835a04534c33abd294ad1461057e",
+      "target_name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+    },
+    {
+      "identifier": "id-58bf3ec7ea104ad6ba9c04e2705830a7",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+      "target_name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+    },
+    {
+      "identifier": "id-10605d1f33654cce91e4d2a696063862",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-f42345c1079f404f9704704b0d9fd03c",
+      "target_name": "3.1 Dynamische Materialflussplanung & -optimierung"
+    },
+    {
+      "identifier": "id-1961d4b17ba54117bf5caf568aa1a4ea",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-a71af6c529924e758eecc8b4f74ff42d",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-f7a37d6520d54e1eb3e70eeb6b4128fc",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-072c95309e594deabb55ce726f7eb025",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-9b44cf647e9147af8ec9eb2fb37e8363",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-664555102dc5454fa36ca55157db3902",
+      "type": "Realization",
+      "source_id": "id-71e69599643e43c898b89757eb11a41b",
+      "source_name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik",
+      "target_id": "id-163194248ea7440ca783abcbd810ba61",
+      "target_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme"
+    },
+    {
+      "identifier": "id-6ca24d77355b4d81a02517dd5aa15467",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-163194248ea7440ca783abcbd810ba61",
+      "target_name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme"
+    },
+    {
+      "identifier": "id-7e58de27f9f6465f95e66fcaf7f65e25",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-a8842ee66e2f493a8a429a74805e4739",
+      "target_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung"
+    },
+    {
+      "identifier": "id-d9c6f49f76d449f3978b2ae0d7550cf0",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-a8842ee66e2f493a8a429a74805e4739",
+      "target_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung"
+    },
+    {
+      "identifier": "id-2ec96537586c4008b710f58017537d47",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-ffd1d9ad2c2c4a319c9379ba3115bd01",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-748816fab230441fa0020e466f0fca66",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-aa6fa7dd70b5411c87746e80ada38b34",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-1fc070f898d54c44b92fd344f540cd20",
+      "type": "Realization",
+      "source_id": "id-a0b2f126f11248008f3752903b1df69b",
+      "source_name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-fb9211ad5ce44ad59502b2400468bbd3",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-97cdf77dca144f3bb9190523e56a4fcb",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-4b930a494ad14b18931f8190cf9df7d8",
+      "type": "Realization",
+      "source_id": "id-71e69599643e43c898b89757eb11a41b",
+      "source_name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-142f745307e54880ae1b3cf43604dde4",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-96f2292c38b248b8a54a361647f79eab",
+      "target_name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+    },
+    {
+      "identifier": "id-8ba545d5fc57468c86f0484e4ccddfa6",
+      "type": "Realization",
+      "source_id": "id-ba3f288075df4ce6bcec82241a99da46",
+      "source_name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-79a74cd89b044bc4b9619d05178752b6",
+      "type": "Realization",
+      "source_id": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "source_name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-df369f402e7943afa21540f238dae370",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-de29b7e251a849a0b2b6b99f348d7b1b",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-baef3fc481e54f4baf7f75e26ae743aa",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-eb3472642fb24447ab1a3949aa338257",
+      "type": "Realization",
+      "source_id": "id-a0b2f126f11248008f3752903b1df69b",
+      "source_name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+      "target_id": "id-7d20a9a697ad456eb274f4669d1a6c15",
+      "target_name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+    },
+    {
+      "identifier": "id-bf0feeb7a9ca4e65b4b8a97862122b70",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-d54efb09b9db48fc9ad64fe607c4e585",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-3bb378813ed6421aa1f80c6ccdc09edb",
+      "type": "Realization",
+      "source_id": "id-e5c744d51fdf49d796ddf4288416f5e3",
+      "source_name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-644e0d675da54c77b0457b2e3abe1f26",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-5a46092e4f5d4536921cf560c7137623",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-7e019e74203447649d3d27e22d561f0c",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-eed6e920751a4a988f852b06c303ba0a",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-3a4f370ac1a34a008161f389409b6f92",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-b3a50f83614943298b8cd2317c4cfed8",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-6b2c964e128b4b5ab277a32333ef0089",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-a625620c439d43158091a245bf2c9149",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-61ad696b45ce4cd49508b9be62e8d5f6",
+      "type": "Realization",
+      "source_id": "id-8e34428c69ae449d94a767725f973cd5",
+      "source_name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte",
+      "target_id": "id-4e72841d0b5b44139c76426f4405a30b",
+      "target_name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+    },
+    {
+      "identifier": "id-50a06dcd15b6499da6a3a17a727dae93",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+      "target_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+    },
+    {
+      "identifier": "id-2e343817b88c409fbb8eabcb4d2a9757",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-d8544c0da1e1410a923127142c9273b8",
+      "target_name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+    },
+    {
+      "identifier": "id-f9102bdc65904e5c918cef6a2e221d54",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+      "target_name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+    },
+    {
+      "identifier": "id-fc5c2d68696843178f6e29c4dcfe7b4e",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-a8842ee66e2f493a8a429a74805e4739",
+      "target_name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung"
+    },
+    {
+      "identifier": "id-0babb500f9564ef1b6040b6fe445acd4",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+      "target_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+    },
+    {
+      "identifier": "id-071c620042bd44a8a371270aa9fd6146",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+      "target_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+    },
+    {
+      "identifier": "id-cab8bb03224d44f6a0fc63cd048f595d",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+      "target_name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+    },
+    {
+      "identifier": "id-67395c91d175471984e065036a5cb731",
+      "type": "Realization",
+      "source_id": "id-27c52826d8f64976b536dad78ae569e1",
+      "source_name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten",
+      "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+      "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+    },
+    {
+      "identifier": "id-9c24505263dc420fa1d5dc92cfd1f304",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+      "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+    },
+    {
+      "identifier": "id-d89d38b3360345158d57fab243253750",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+      "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+    },
+    {
+      "identifier": "id-6ee4ad2c760c49bebf184b1c78bbb61f",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+      "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+    },
+    {
+      "identifier": "id-0f9788f8b145479fb9919da06611d65e",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+      "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+    },
+    {
+      "identifier": "id-8257105bbe0943d89c26d8c30f42480e",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+      "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+    },
+    {
+      "identifier": "id-f659f0cc28a1411aa7f0c9d787dbb09e",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+      "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+    },
+    {
+      "identifier": "id-0ff269784a2649fea529d36bdd763131",
+      "type": "Realization",
+      "source_id": "id-27c52826d8f64976b536dad78ae569e1",
+      "source_name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten",
+      "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+      "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+    },
+    {
+      "identifier": "id-12dbab3a83ff459ba5c45826047ea817",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-e94f6abadb254d47b94ddaf3d12684cf",
+      "target_name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+    },
+    {
+      "identifier": "id-b252acf078fa43cb9aa3ee871b6d9656",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+      "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+    },
+    {
+      "identifier": "id-f13b337209394105910d8f7bc978757d",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+      "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+    },
+    {
+      "identifier": "id-1da58d3393364a9f8cd9d2f3b683b8df",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+      "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+    },
+    {
+      "identifier": "id-fcdd79f72c2b48bf848be43b7e818cc0",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+      "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+    },
+    {
+      "identifier": "id-64048873e1d441cc9251164e31772d4e",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-02199872e1a04e87b2e438589b21c014",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-df41fc41c83c4b50b857335c738a9584",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-3252e47f894547c49e5614cea7460741",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-5a37257561e648ce815dacad32841c31",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-231cc261c23a4cb3bd6f92d735b36f71",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-db7c6e228f1848c1b63124c2058b78c0",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-bbfed90320a94bb7898046acc6059b0f",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-6641dc84bc9a4bd9a5b64afe40a6d9db",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-0829ea20c35c4eecbe6b21803cea63a9",
+      "type": "Realization",
+      "source_id": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "source_name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-db91d460f0db452187758d4079da42c4",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-7083abec753a40fcad39cc0c1e3c44a3",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-df41897a3f5a4073bb0414fca394b048",
+      "target_name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+    },
+    {
+      "identifier": "id-e9e6c218a0ad4188a7f21710bab1cbf4",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-ce28091c23eb429f9558ad4b2e417475",
+      "type": "Realization",
+      "source_id": "id-82cc53b09d5c414090a3ef919f1e4c29",
+      "source_name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)",
+      "target_id": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+      "target_name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+    },
+    {
+      "identifier": "id-b1affce8d573479a892269f7ca1c9e57",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-96fa4cd3f42b47668a55d3bd07370618",
+      "target_name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+    },
+    {
+      "identifier": "id-b487fe73b4eb46ec8a24f13b297c7146",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-a4933ea298f64cd798b94675330b5ea8",
+      "target_name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+    },
+    {
+      "identifier": "id-7b9f6f3ff1c242a7a8b515e23d6a9bb0",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-b9fc5a5173f3461eaa4b686933210b3c",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-22319d927d964fe991e6708833c6047f",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-544fa985208f4462b4e545c5186a4e78",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-c7593833871e4b7791db1c58fa4a8d50",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-c70e31b4e5514eb3864e939980ef82c9",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-14c56f3c9bcb4121bdd665796ef4018a",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-59f519225556404daec7eb5e25078cd1",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-b17cdce55641490084ecb5c4d3a7a00d",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+      "target_name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+    },
+    {
+      "identifier": "id-1696bb69806949d9a89cadcca3dc39ac",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-21f796c662b94b9682a066f7c7aecec6",
+      "target_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)"
+    },
+    {
+      "identifier": "id-bc7ead831be64671b964f16c86dd6950",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-21f796c662b94b9682a066f7c7aecec6",
+      "target_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)"
+    },
+    {
+      "identifier": "id-d0a324c938444e04926ecbecc651390f",
+      "type": "Realization",
+      "source_id": "id-82cc53b09d5c414090a3ef919f1e4c29",
+      "source_name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)",
+      "target_id": "id-21f796c662b94b9682a066f7c7aecec6",
+      "target_name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)"
+    },
+    {
+      "identifier": "id-a581f867bf5c4791bb4fb491bada89d2",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+      "target_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+    },
+    {
+      "identifier": "id-c0d2e51dbb42421e89755beaae823032",
+      "type": "Realization",
+      "source_id": "id-d20704229641474ca8064c102d063188",
+      "source_name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+      "target_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+      "target_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+    },
+    {
+      "identifier": "id-f773744c6f074ca0834c5175be28965d",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+      "target_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+    },
+    {
+      "identifier": "id-70451f99c33f4793971f9b5f0e14ee6b",
+      "type": "Realization",
+      "source_id": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "source_name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+      "target_id": "id-67ac161e67734150bc73dc69f2aa5f4c",
+      "target_name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+    },
+    {
+      "identifier": "id-a874dec668a74a77a99d2327688cd5f3",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-c879af7143cc415d83b050082ed69d77",
+      "type": "Realization",
+      "source_id": "id-e5c744d51fdf49d796ddf4288416f5e3",
+      "source_name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-e6b46090777b47f1a902151ec52a0e50",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-5e9d40b12d7d43c194ca72c9eeb07aac",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-0fe6cff7c40948b4be262a6e036a1f17",
+      "type": "Realization",
+      "source_id": "id-82cc53b09d5c414090a3ef919f1e4c29",
+      "source_name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-29d4bd09cba2473195b37a6f065771f9",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-2e28dbdae8dc4954878bdc5b26c96257",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-0a35afdaf9204e16bd0947be9132b8e7",
+      "type": "Realization",
+      "source_id": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "source_name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+      "target_id": "id-d01904f82417470db57860fa8ea89a66",
+      "target_name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+    },
+    {
+      "identifier": "id-14e971449c7448a4a417ab87e19034f6",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-abb4a057963240cb8e29153b77f375e4",
+      "target_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung"
+    },
+    {
+      "identifier": "id-a717498e426347ab9e1157476dbc50f4",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-abb4a057963240cb8e29153b77f375e4",
+      "target_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung"
+    },
+    {
+      "identifier": "id-4e489eeda9c245e0bc1abac1575d9bfb",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-abb4a057963240cb8e29153b77f375e4",
+      "target_name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung"
+    },
+    {
+      "identifier": "id-77dc161adb9b4e9c9b8f48870c9d5a76",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-d1e8e72a72524511b94a16d73f4f8fd4",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-8e7407f513234fa989121f9acdafbf82",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-ece30e5d415c4313a67e97417268ef62",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-516a373c4286474fad8b6929018e491b",
+      "type": "Realization",
+      "source_id": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "source_name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-b98b9621af1a481084d1c851981aee79",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-39c051f4e2e0427b9ec132b8b2ef7506",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-5bf2dcab33a440afbe2f33aa47747943",
+      "target_name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+    },
+    {
+      "identifier": "id-d6a49014ca6d4da0a4e7d4e2db3976c6",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-84ab9905314c404cbd44d1644c035272",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-084d5b0933cb4d42b9bc821472c799ab",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-418afbff787c481682e35445d6e01be5",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-c2af1f1865134afa8587e84ace47e6cf",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-01a9fa8d7ec84eddab56367321d0d6e4",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-dc62a83de8ae46fe825df043313fe446",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-8e11bd440adb4e74851541d5be2f6e7f",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-ed58b3b05a084acd8d806c6e9b378d94",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-008208cf8e48471584b5b15d2a493e9c",
+      "target_name": "8.3 Dynamische Umplanung von Personalressourcen"
+    },
+    {
+      "identifier": "id-1cf4db402daf414a896ad881844af9c0",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-c04778df95c2452a898a9688ae01f4b8",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-e26d48debbfe4eb3addf53a1eca64977",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-60d6d0d6e72945fe9adaa920020a21c1",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-2ff738bd739b40ff9bd35c9ef312041d",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-40df5832f50347cbac802e2055dc3df3",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-3da3ff02f44140b0908845d4931dc270",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-0867690cf90d408fb4d8edf875514af1",
+      "target_name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+    },
+    {
+      "identifier": "id-5ab6672f774445688906903b08b34a24",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-b939ded8a5524cc79d7b72007faca9ee",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-1da7227009984fd8937c3f92f9f26ea7",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-5f763e91be4f4b4a80e232f946ce02e8",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-8f4eb4c02e2043638bd4bdcc67832561",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-c833c6df00c84265b84a31d1e87795a0",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-5fcba315486c4c8b83100d52a4c7342a",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-3835700e61ee4586a580d5f399806d5d",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-8bd62d843de543b88b06def5981a4f4f",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-7e79c1bfa1de4d8eb4d6ea8a3d97c6ab",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-c09a6964f9b440db9e008229e4c26a23",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-ec8435635d104c0db3f1b26563530e7d",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-fbfab0c7a116408180bdac082c07c1dc",
+      "target_name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+    },
+    {
+      "identifier": "id-6a026897ba0746cf8f32230bb0838289",
+      "type": "Realization",
+      "source_id": "id-dff2c24369864eff872232894774d439",
+      "source_name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-c57abfff7bf94a0590f2f9d427d412d6",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-dc440f8289b141adba1a1a241f6c01f1",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-db22ae6080054ed897bdeb10ca233fef",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-4443a1784cdf41f4a8e326187e15c351",
+      "type": "Realization",
+      "source_id": "id-a213eaea6a484c66b8e3fc60232d8c28",
+      "source_name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-c4ea00f145f44a5c92f24c122af71030",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-c6b610f38c744f8ca2afc70ec4d6dc8f",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-fad6b71bad354edaba65516fa4ebd89d",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-ef955d3896b74fd7a7cc707a5cf1e930",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-cbf3612a05d0453c983f948f6735cb95",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-63178ab441bc4ebea2693f3b033f34bb",
+      "type": "Realization",
+      "source_id": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "source_name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+      "target_id": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+      "target_name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+    },
+    {
+      "identifier": "id-29a4635202994cf3badbe838b64aa312",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-19a507f3517f4ec8bb4bf1efffba4e87",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-26dbf7a3e9e04c39a7ca1501f149e3ef",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-bab64c8e354b4823b2083f4925c0a8d9",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-9709f02c489c4c65951bb43b2b3cd7f5",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-92751c71f3994996bd5665cb6534fb83",
+      "type": "Realization",
+      "source_id": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "source_name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-ceb9cb604cfd4a308dbefcce82c0a1ae",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-d9049a9bae0047c881f75b35cbbfaf40",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-bd6ad461f4934ff6bbe3e622f32483af",
+      "target_name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+    },
+    {
+      "identifier": "id-18e96cdd29b645cbb6648142c6790b73",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+      "target_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit"
+    },
+    {
+      "identifier": "id-31d34df3700e43fcb5e3353c93b27d1a",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+      "target_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit"
+    },
+    {
+      "identifier": "id-6f226f1e3e0344df8eca8118842e1938",
+      "type": "Realization",
+      "source_id": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+      "source_name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+      "target_id": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+      "target_name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit"
+    },
+    {
+      "identifier": "id-d4a670d1b3a8456290534feaf5ad9b9e",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-12327486d2ca4021b57891d419dd0671",
+      "target_name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+    },
+    {
+      "identifier": "id-6b0bc81be2d24a39a84699657c6559cf",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-10f779584221463790ed038997290d5b",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-dc0feaa6bc3c442bb674ee38b5d87035",
+      "type": "Realization",
+      "source_id": "id-a0b2f126f11248008f3752903b1df69b",
+      "source_name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-863cbe57f5804879855ab576eda80302",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-d66284207363437a84671a172adcdbb8",
+      "type": "Realization",
+      "source_id": "id-7301522542884a0fb29808ea30e22ae4",
+      "source_name": "Use Case 19: Fernzugriff und -steuerung für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-62e98fd8498a4e1299ba3475b4043ceb",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-f8f63e63e3f943e8922b94eea889b9de",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-5afb7b32237b45cd89fade387f067088",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-dd69c4992be942938515c3067bcef265",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-a3aaaf7db1094f5a8a3205384db14a65",
+      "type": "Realization",
+      "source_id": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "source_name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+      "target_id": "id-d0b0afe7fcd445a9b00a72339eb12279",
+      "target_name": "1.1 Dynamische Produktionsauslastungssteuerung"
+    },
+    {
+      "identifier": "id-80fb155dd02a4be4b63df4ef36b9af3d",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-9d8dbdbd7d4a4b7a8afe57d9327c8155",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-ff2f486da3224591b94c275b2c20cd18",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-296b0dbff54e427bad04ca5555d292fe",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-9f86e0fc23e7484ca3fb46b0d0f05f8b",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-6cfc3f9dcbb04e45a8c88a7ee21330e5",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-4509f7705cc949a5a0acdb6069a7d5e9",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-b6c7f8fe7faf4e9daf2aafe2e32fcb7e",
+      "target_name": "1.2 Automatisierte, adaptive Kapazitätsplanung"
+    },
+    {
+      "identifier": "id-48770d5be14c4b7eb35e906dbc591131",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+      "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+    },
+    {
+      "identifier": "id-52046dd209aa425db7cf3d73e79f4efc",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+      "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+    },
+    {
+      "identifier": "id-32dce295b2a842678a4444a58e616f9b",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+      "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+    },
+    {
+      "identifier": "id-d2cbf85f2c3945e6869f9854ba4cd2d3",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+      "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+    },
+    {
+      "identifier": "id-4edf02ae822248b6a1ef79cec7491526",
+      "type": "Realization",
+      "source_id": "id-49a6d434cd0546589e7a94279d6454bd",
+      "source_name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+      "target_id": "id-852bcc807ba2482e8ad06275194b448b",
+      "target_name": "1.3 Simulationgestützte Absicherung von Produktionsauslastungsszenarien"
+    },
+    {
+      "identifier": "id-23c532cc875943dab30e174afa646945",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-c38c1bdbe4a64d9c9024a678a660110c",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-42892d2d627a413e9538a57acaa112f7",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-1ffd8e3f0d7d4c36b0a2511976afdab8",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-37bf32a47e79415798c3d7e2172bc63d",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-fc63f5ebcc494f6b83d4f0c33dce0a3c",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-1245f310b8424bfca5c15503a6fb26cf",
+      "target_name": "2.1 Automatisiertes Materialtracking & -buchung"
+    },
+    {
+      "identifier": "id-84046ef667644047b810e0ce3137e004",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-b3181b59ec3a4aa4890069d94460c2cf",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-1d7ea8ba136044e2aa9cb4c49072d7e1",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-0a8ad9ce6d494b61a4a6006db875fc31",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-49f6ffd4f04d47d5a8b5da18c2d39c82",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-ee8d51bc82ac4ef8a072b8b6fd7d279e",
+      "type": "Realization",
+      "source_id": "id-9a61f9b07c01434582c79a81d848ff5f",
+      "source_name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-4848328aec7a499593e088534eaf6a10",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-f3b0ae51898247b6bce5601a80127ebc",
+      "target_name": "2.2 Intelligentes Rerouting & Auftragsrestriktionsmanagement"
+    },
+    {
+      "identifier": "id-e7a0251609cc4e0ca4760355f4013d2d",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+      "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+    },
+    {
+      "identifier": "id-f5ebacebc76641e1a22258eb8eff45c4",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+      "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+    },
+    {
+      "identifier": "id-c46477424bb5454da8305d0425b72d41",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+      "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+    },
+    {
+      "identifier": "id-f4e146c2cd0f4dad8dfeb2760fd3a7a4",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+      "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+    },
+    {
+      "identifier": "id-8f8c6a100c6b4da29e7569d440691888",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+      "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+    },
+    {
+      "identifier": "id-b83c2fc6cb254351a6c706d06611c91e",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+      "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+    },
+    {
+      "identifier": "id-034f2f944d0f4789b3d8fa6ea2924365",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+      "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+    },
+    {
+      "identifier": "id-b167b75662d04829a7ab182fd7b2cb83",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+      "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+    },
+    {
+      "identifier": "id-5e318895f2894b28b13a88694e05bc93",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-28c55d69759c4419a49a2c99c46f101c",
+      "target_name": "3.1 Virtuelle Echtzeit-Werkerunsterstützung (Werkerassistenzsystem)"
+    },
+    {
+      "identifier": "id-39e7e2a5ab004e23ae41f6433549fb5f",
+      "type": "Realization",
+      "source_id": "id-9e0e0cb530b34ca584e0d915c9228aec",
+      "source_name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+      "target_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+      "target_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+    },
+    {
+      "identifier": "id-7313814b48024a7481b3fae2227b7676",
+      "type": "Realization",
+      "source_id": "id-a0b2f126f11248008f3752903b1df69b",
+      "source_name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+      "target_id": "id-a9f0915c5afb4cf58725a2599f11aeb3",
+      "target_name": "2.3 Automatisierte Simulation der Auftragsdurchführung zur Prozessoptimierung"
+    },
+    {
+      "identifier": "id-8b81fafddb2b4d959f0d17d6b8ea8ca1",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+      "target_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+    },
+    {
+      "identifier": "id-7ed86d0dff8e45f695e178796da30994",
+      "type": "Realization",
+      "source_id": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+      "source_name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+      "target_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+      "target_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+    },
+    {
+      "identifier": "id-999f679a96df4723bba4e73a5358181f",
+      "type": "Realization",
+      "source_id": "id-ba3f288075df4ce6bcec82241a99da46",
+      "source_name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik",
+      "target_id": "id-e762992ff1f4433dbb4f6ac04bc7045e",
+      "target_name": "3.2 Datengetriebenes Management der Arbeitsplatzbelegung basierend auf dem Energieverbrauch"
+    },
+    {
+      "identifier": "id-14520e0a24964dd18ff0336f336bf77d",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+      "target_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge"
+    },
+    {
+      "identifier": "id-ac470a3feca847aebd9da19c42c101f2",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+      "target_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge"
+    },
+    {
+      "identifier": "id-838e53034c62493aadd9ed80deab9ece",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-e9bd3609b2674d3482fde8be63edaad1",
+      "target_name": "4.1 Datengetriebene Optimierung von Routen für Flurfahrzeuge"
+    },
+    {
+      "identifier": "id-a2a7b909d04042919b6cf447d7b56880",
+      "type": "Realization",
+      "source_id": "id-7bceb84032b34f64b8236b3d05b288c6",
+      "source_name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-55aae4ba434744b6a054ae8de6dc95c8",
+      "target_name": "4.2 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+    },
+    {
+      "identifier": "id-517d999c5ac0419fb69f25dd3b74cd41",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-55aae4ba434744b6a054ae8de6dc95c8",
+      "target_name": "4.2 Vorausschauende, simulationsbasierte Materialbedarfsermittlung"
+    },
+    {
+      "identifier": "id-532cb73b768c417b970c3100d32c2b73",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-1f760b27efeb42598c5fef573d6af645",
+      "target_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+    },
+    {
+      "identifier": "id-ae95a73b6a5b4c0c9bf0222326bb3a6b",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-1f760b27efeb42598c5fef573d6af645",
+      "target_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+    },
+    {
+      "identifier": "id-dd8d2bb1fbf841a29e74d46c437d44ab",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-1f760b27efeb42598c5fef573d6af645",
+      "target_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+    },
+    {
+      "identifier": "id-6d6b6172e67e48a6a7a3c1dde367e4fa",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-1f760b27efeb42598c5fef573d6af645",
+      "target_name": "4.3 Automatisierte, adaptive Lieferabwicklung (Wareneingang, Warenausgang)"
+    },
+    {
+      "identifier": "id-409399d6c9234ee190a25e6479660433",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-0a1428c4ce11467793b6d277f7f1eb20",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-cee4f0fb70fe48d1be31c547ac25817e",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-6089ee5cb54a4c26b6ef54b0dee21f8d",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-a1dee1810cb24c7887c0182bbe610224",
+      "type": "Realization",
+      "source_id": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+      "source_name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-fd039f96c504479789425080332897b7",
+      "type": "Realization",
+      "source_id": "id-212108aa2efa4b14aab0b679a430c5be",
+      "source_name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-f2610a61dc5748a086ecde71e984d968",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-da76928929bf4e959694250d3925e139",
+      "target_name": "4.4 Automatisierte, adaptive Lieferabwicklung (Intralogistik)"
+    },
+    {
+      "identifier": "id-618323dacc574edfbd2fc341c7b942a5",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+      "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+    },
+    {
+      "identifier": "id-82740f6cc8144f01b9df1c327921d624",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+      "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+    },
+    {
+      "identifier": "id-97a7ba3486a8450a8380b47f08f13f8f",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+      "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+    },
+    {
+      "identifier": "id-976322d8971a41f2a7c56e13cfc91689",
+      "type": "Realization",
+      "source_id": "id-645dd756994a4cf4bc7f8b98246a880a",
+      "source_name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+      "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+      "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+    },
+    {
+      "identifier": "id-1b85c4467d8d4c96aca5acd9cfbb30b6",
+      "type": "Realization",
+      "source_id": "id-22841ee156624cb099bf554754fa9357",
+      "source_name": "Use Case 27: Automatisiertes Wertstrommanagement",
+      "target_id": "id-5736cc8d314345a8a5d0b1236c46805d",
+      "target_name": "4.5 Datengetriebene, simulationsbasierte Entscheidungsfindung für Anstellstrategien (Zwischenlager, Direktanlieferung an die Linie, etc.)"
+    },
+    {
+      "identifier": "id-46ec9b5f0dfb4c0d9c8f4579e2112d87",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-1fd39b26737d46379c217240d2730aca",
+      "target_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+    },
+    {
+      "identifier": "id-2b0a7d844b324680b32c24365cc86573",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-1fd39b26737d46379c217240d2730aca",
+      "target_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+    },
+    {
+      "identifier": "id-03ea4bc03286425b8519dbf89c32e991",
+      "type": "Realization",
+      "source_id": "id-c39abed483f04fee8b287c11ad168e43",
+      "source_name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-1fd39b26737d46379c217240d2730aca",
+      "target_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+    },
+    {
+      "identifier": "id-3af93311a35c4383aa34967633283268",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-1fd39b26737d46379c217240d2730aca",
+      "target_name": "4.6 Intelligente, simulationsbasierte Lager- & Bestandsverwaltung"
+    },
+    {
+      "identifier": "id-9bdbbd97f74d4f6e9ac926779ebf2b87",
+      "type": "Realization",
+      "source_id": "id-2606131d5c6142128493c482f4c611f9",
+      "source_name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+      "target_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+      "target_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+    },
+    {
+      "identifier": "id-1fd93b8788d54b6092541beeaaed2738",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+      "target_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+    },
+    {
+      "identifier": "id-5696b27e863147828a3864d780155c25",
+      "type": "Realization",
+      "source_id": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+      "source_name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+      "target_id": "id-9c245d6fdbaf4334828d1454391e44ba",
+      "target_name": "4.7 Datengetriebene, simulationsbasierte Analyse & Optimierung von Mensch-Maschine Interaktionen (z.B. Cobots)"
+    },
+    {
+      "identifier": "id-1398ccf6bd6943ed9217e9e5cb0c2f4a",
+      "type": "Realization",
+      "source_id": "id-db2b857c6faa45208622ffdbe11c910e",
+      "source_name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-2707f505556e4df6a37dd91cf04ee4bc",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-45f432b226224613b3ebf61e98d2b481",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-1b7375951b814fc6989470c03ec0c170",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-cef22087f6a047f9b04e501eef097558",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-339459ebcf5a45f0a18c3726c1c2cf90",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+      "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+    },
+    {
+      "identifier": "id-4cc6a4894cbe4b46a453b68aa8fc605c",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+      "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+    },
+    {
+      "identifier": "id-150e0c31c3d0476e82ca5a6f892c0254",
+      "type": "Realization",
+      "source_id": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+      "source_name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+      "target_id": "id-3f8c8825ede84da89df4e8b88665bfe2",
+      "target_name": "5.1 Echtzeit-Überwachung von Qualitätsabweichungen"
+    },
+    {
+      "identifier": "id-f5edbb1820344af7ac40331b3d415fac",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+      "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+    },
+    {
+      "identifier": "id-fab9069731b94e59a7b18b66d89e9319",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+      "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+    },
+    {
+      "identifier": "id-f0acfef4c17940a09a322021b2c8e7a9",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-d29a81f039e24acdb6658a09e0e09d40",
+      "target_name": "5.2 Automatisierte Echtzeit-Qualitätsabweichungsmanagement mit Hilfe von automatisierten Qualitygates"
+    },
+    {
+      "identifier": "id-0b8b86a06be8417681b925f2dcfdabbf",
+      "type": "Realization",
+      "source_id": "id-e55c67171a6243dcb5419408c929f25e",
+      "source_name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-f3916cd21313409b828e476dee0aad36",
+      "type": "Realization",
+      "source_id": "id-b20c6042d612471a9d172ba9548262d8",
+      "source_name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-bd82766575364e36a85859cc5960a5ce",
+      "type": "Realization",
+      "source_id": "id-a48e67f16e3b485198dad7c897baf0aa",
+      "source_name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-5313b07c262b4187850e1ef04dda2884",
+      "type": "Realization",
+      "source_id": "id-18e8ae79d33c4930b64eeb147f712964",
+      "source_name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-ed111401868e4fe7a7a5f9f5a99d1c08",
+      "type": "Realization",
+      "source_id": "id-4f1f942ea48147e587f696d59248cae9",
+      "source_name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-72ff1c243b364b938ed52ec2cbae2d36",
+      "type": "Realization",
+      "source_id": "id-bb388013f6fd45789135910ae4334a98",
+      "source_name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-ea76f9b1a284423b9e16162c77386dd7",
+      "type": "Realization",
+      "source_id": "id-779f33f6f118456bbf3f271f47590ed1",
+      "source_name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    },
+    {
+      "identifier": "id-ad3cac7f1a104044b7b756e15d074498",
+      "type": "Realization",
+      "source_id": "id-3d8e14d49ed049a6b1e34d36648d50be",
+      "source_name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+      "target_id": "id-192c3ba9092d4731bb5a40171893f0cd",
+      "target_name": "5.3 Dynamische, adaptive Nacharbeitssteuerung"
+    }
+  ]
+}

@@ -1,10 +1,12 @@
-
 'use client';
 import { X } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export default function UseCaseDetailModal({ useCase, onClose }) {
   if (!useCase) return null;
+  
+  // Extract number from id (e.g., 'uc-001' -> '001')
+  const ucNumber = useCase.id ? useCase.id.split('-')[1] : '';
 
   return (
     <div className="fixed inset-0 z-50">
@@ -15,10 +17,10 @@ export default function UseCaseDetailModal({ useCase, onClose }) {
       <div className="absolute inset-4 md:inset-10 bg-white rounded-xl shadow-xl overflow-auto">
         {/* Header */}
         <div className="bg-[#009374] border-b border-white sticky top-0 z-50">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start p-6">
             <div>
-              <div className=" text-white text-sm mb-2">UC {useCase.number}</div>
-              <h2 className=" text-white text-2xl font-bold">{useCase.title}</h2>
+              <div className="text-white text-sm mb-2">UC {ucNumber}</div>
+              <h2 className="text-white text-2xl font-bold">{useCase.title}</h2>
             </div>
             <button onClick={onClose} className="text-gray-300 hover:text-white">
               <X size={24} />

@@ -1,13 +1,14 @@
 import connectDB from '@/lib/mongodb';
 import { Capability, Influence } from '@/models';
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
     // Connect to MongoDB
     await connectDB();
     
-    // In Next.js 15, params must be awaited
-    const goalId = params.goalId;
+    // In Next.js 15, we need to access params after ensuring async context
+    const { params } = context;
+    const goalId = params.goalID;
     
     if (!goalId) {
       return new Response(JSON.stringify({ error: 'Goal ID is required' }), {
@@ -42,15 +43,59 @@ export async function GET(request, { params }) {
       
       console.log(`API: Successfully found ${capabilities.length} capabilities for goal ${goalId}`);
       
-      // 4. Map to a client-friendly format
-      const formattedCapabilities = capabilities.map(cap => ({
-        id: cap._id,
-        name: cap.name,
-        type: cap.type,
-        category: cap.category
+      // 4. Group capabilities by parent-child relationships
+      const parentCapabilities = capabilities.filter(cap => cap.isParent);
+      const childCapabilities = capabilities.filter(cap => cap.parentId);
+      
+      // Get unique parent IDs from child capabilities
+      const parentIdsFromChildren = [...new Set(
+        childCapabilities
+          .map(child => child.parentId)
+          .filter(id => !capabilityIds.includes(id)) // Filter out parents already in our list
+      )];
+      
+      // Fetch any parent capabilities that weren't directly part of the influence relationship
+      let additionalParents = [];
+      if (parentIdsFromChildren.length > 0) {
+        additionalParents = await Capability.find({ _id: { $in: parentIdsFromChildren } });
+      }
+      
+      // Combine all parent capabilities
+      const allParentCapabilities = [...parentCapabilities, ...additionalParents];
+      
+      // Create a map of parent capabilities with their children
+      const capabilitiesMap = allParentCapabilities.map(parent => {
+        const children = childCapabilities.filter(child => 
+          child.parentId === parent._id
+        ).map(child => ({
+          id: child._id,
+          name: child.name,
+          type: child.type || 'Capability',
+          category: child.category,
+          parentId: child.parentId
+        }));
+        
+        return {
+          id: parent._id,
+          name: parent.name,
+          type: parent.type || 'Capability',
+          category: parent.category,
+          isParent: true,
+          children: children
+        };
+      });
+      
+      // Also include any capabilities that don't fit the parent-child model
+      const standaloneCapabilities = capabilities.filter(cap => 
+        !cap.isParent && !cap.parentId
+      ).map(capability => ({
+        id: capability._id,
+        name: capability.name,
+        type: capability.type || 'Capability',
+        category: capability.category
       }));
       
-      return new Response(JSON.stringify(formattedCapabilities), {
+      return new Response(JSON.stringify([...capabilitiesMap, ...standaloneCapabilities]), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       });

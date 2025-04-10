@@ -2,10 +2,12 @@
 import { connectDB } from '@/lib/mongodb';
 import { Capability } from '@/models';
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
     await connectDB();
     
+    // In Next.js 15, access params via context parameter
+    const { params } = context;
     const { capabilityId } = params;
     
     if (!capabilityId) {
@@ -28,11 +30,38 @@ export async function GET(request, { params }) {
         });
       }
       
-      // Format capability for response
+      // Check if this is a parent capability
+      if (capability.isParent) {
+        // Fetch its children
+        const children = await Capability.find({ parentId: capabilityId });
+        
+        // Format parent with children
+        const formattedCapability = {
+          id: capability._id,
+          name: capability.name,
+          type: capability.type || 'Capability',
+          category: capability.category,
+          isParent: true,
+          children: children.map(child => ({
+            id: child._id,
+            name: child.name,
+            type: child.type || 'Capability',
+            category: child.category,
+            parentId: child.parentId
+          }))
+        };
+        
+        return new Response(JSON.stringify(formattedCapability), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      
+      // Format standalone capability
       const formattedCapability = {
         id: capability._id,
         name: capability.name,
-        type: capability.type,
+        type: capability.type || 'Capability',
         category: capability.category
       };
       
@@ -40,10 +69,10 @@ export async function GET(request, { params }) {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       });
-    } catch (queryError) {
-      console.error(`API: Database query error for capability ${capabilityId}:`, queryError);
       
-      return new Response(JSON.stringify({ error: queryError.message }), {
+    } catch (dbError) {
+      console.error(`API: Database error for capability ${capabilityId}:`, dbError);
+      return new Response(JSON.stringify({ error: 'Database error' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -51,8 +80,7 @@ export async function GET(request, { params }) {
     
   } catch (error) {
     console.error('API Error:', error);
-    
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

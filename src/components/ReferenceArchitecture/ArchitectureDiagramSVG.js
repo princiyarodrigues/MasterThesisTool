@@ -33,9 +33,8 @@ const calculatePath = (rel) => {
   return `M ${sourceX} ${sourceY} L ${targetX} ${targetY}`;
 };
 
-const ArchitectureDiagramSVG = () => {
-  // State management
-  const [selectedElement, setSelectedElement] = useState(null);
+const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
+  // Local state for UI interactions
   const [relatedElements, setRelatedElements] = useState([]);
   const [relatedRelationships, setRelatedRelationships] = useState([]);
   const [hoveredElement, setHoveredElement] = useState(null);
@@ -133,8 +132,8 @@ const ArchitectureDiagramSVG = () => {
     <div className="relative">
       <svg
         width="100%"
-        height="750"
-        viewBox="0 0 1300 750"
+        height="850"
+        viewBox="0 0 1300 850"
         xmlns="http://www.w3.org/2000/svg"
         className="bg-white rounded-lg shadow-sm border border-gray-100"
         onClick={handleBackgroundClick}

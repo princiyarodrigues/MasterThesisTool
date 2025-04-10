@@ -40,10 +40,20 @@ const BusinessCapabilities = () => {
 
   // Function to convert capability data to the format expected by UI
   const formatCapabilityForUI = (capability) => {
+    // For capabilities with children (isParent=true)
+    if (capability.children && capability.children.length > 0) {
+      return {
+        number: capability.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung")
+        title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
+        subCapabilities: capability.children.map(child => child.name)
+      };
+    }
+    
+    // For standalone capabilities
     return {
-      number: capability.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung")
+      number: capability.name.split(' ')[0], 
       title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
-      subCapabilities: capability.subCapabilities.map(sub => sub.name)
+      subCapabilities: [] // No subCapabilities for standalone capabilities
     };
   };
   
@@ -115,6 +125,25 @@ const BusinessCapabilities = () => {
 
   // Function to organize capabilities into hierarchy
   const organizeCapabilitiesHierarchy = (capabilities, compositions) => {
+    // If capabilities already have the parent-child structure (through children array),
+    // we can use them directly
+    const haveParentChildStructure = capabilities.some(cap => cap.children && Array.isArray(cap.children));
+    
+    if (haveParentChildStructure) {
+      // Just flatten the nested children structure to match our expected UI format
+      return capabilities.map(cap => {
+        // Get all children if they exist
+        const allSubCapabilities = cap.children || [];
+        
+        // Return the capability with subCapabilities field
+        return {
+          ...cap,
+          subCapabilities: allSubCapabilities
+        };
+      });
+    }
+    
+    // If we have the old format, use the old hierarchy building logic
     // Map to store capabilities by ID
     const capabilitiesMap = capabilities.reduce((map, cap) => {
       map[cap.id] = { ...cap, subCapabilities: [] };
@@ -174,52 +203,45 @@ const BusinessCapabilities = () => {
         throw new Error(`Failed direct query: ${response.status}`);
       }
       
+      // Get the capabilities directly - with the new API, we get the full capability objects
+      // including their parent-child relationships
       const capabilities = await response.json();
+      console.log('Direct query returned capabilities:', capabilities);
       
-      // If direct query returns empty but we have goals, we'll try individual queries
       if (capabilities.length === 0 && goalIds.length > 0) {
         console.log('Direct query returned no results, trying individual goal queries');
         
-        // Create a set for unique capability IDs
-        const capabilityIdsSet = new Set();
+        // For each goal, try to get capabilities
+        const allCapabilities = [];
         
-        // Try for each goal individually
         for (const goalId of goalIds) {
           const goalResponse = await fetch(`/api/capabilities/by-goal/${goalId}`);
           if (goalResponse.ok) {
             const goalCapabilities = await goalResponse.json();
-            goalCapabilities.forEach(cap => {
-              if (cap && cap.id) {
-                capabilityIdsSet.add(cap.id);
-              }
-            });
+            allCapabilities.push(...goalCapabilities);
           }
         }
         
-        return Array.from(capabilityIdsSet);
+        return allCapabilities;
       }
       
-      return capabilities.map(cap => cap.id);
+      return capabilities;
     } catch (error) {
       console.error('Error fetching capabilities for goals:', error);
       
       // Fallback to individual goal queries
       try {
-        const capabilityIdsSet = new Set();
+        const allCapabilities = [];
         
         for (const goalId of goalIds) {
           const response = await fetch(`/api/capabilities/by-goal/${goalId}`);
           if (response.ok) {
             const goalCapabilities = await response.json();
-            goalCapabilities.forEach(cap => {
-              if (cap && cap.id) {
-                capabilityIdsSet.add(cap.id);
-              }
-            });
+            allCapabilities.push(...goalCapabilities);
           }
         }
         
-        return Array.from(capabilityIdsSet);
+        return allCapabilities;
       } catch (fallbackError) {
         console.error('Error in fallback approach:', fallbackError);
         return [];
@@ -228,14 +250,34 @@ const BusinessCapabilities = () => {
   };
 
   // Filter capabilities based on goal influence
-  const filterCapabilitiesByGoalInfluence = (capabilities, relevantCapabilityIds) => {
-    if (!relevantCapabilityIds || relevantCapabilityIds.length === 0) {
-      // Return empty array if no relevant capability IDs to ensure we don't show all capabilities
-      console.log('No relevant capability IDs provided, returning empty array');
+  const filterCapabilitiesByGoalInfluence = (capabilities, relevantCapabilities) => {
+    if (!relevantCapabilities || relevantCapabilities.length === 0) {
+      // Return empty array if no relevant capabilities to ensure we don't show all capabilities
+      console.log('No relevant capabilities provided, returning empty array');
       return [];
     }
     
-    const relevantCapabilityIdsSet = new Set(relevantCapabilityIds);
+    // With the new API format, relevantCapabilities will be the actual capability objects
+    // rather than just IDs. We can just return them directly if they're already in the format we need.
+    if (relevantCapabilities[0] && typeof relevantCapabilities[0] === 'object') {
+      const filteredByCategory = capabilities[0]?.category ?
+        // If capabilities have category info, filter by the same category
+        relevantCapabilities.filter(cap => 
+          capabilities.some(c => c.category === cap.category)
+        ) :
+        relevantCapabilities;
+        
+      console.log(`Returning ${filteredByCategory.length} relevant capabilities`);
+      return filteredByCategory;
+    }
+    
+    // If we have just IDs, use the old filtering logic
+    const relevantCapabilityIdsSet = new Set(
+      typeof relevantCapabilities[0] === 'string' 
+        ? relevantCapabilities 
+        : relevantCapabilities.map(cap => cap.id)
+    );
+    
     console.log(`Filtering capabilities with ${relevantCapabilityIdsSet.size} relevant IDs`);
     
     // Helper function to check if a capability or any of its descendants is relevant
@@ -274,46 +316,33 @@ const BusinessCapabilities = () => {
         return;
       }
       
-      // 2. Fetch all capabilities and compositions
-      const [factoryCaps, productionCaps, allCompositions] = await Promise.all([
-        fetchCapabilitiesByCategory('Factory Planning'),
-        fetchCapabilitiesByCategory('Production Planning'),
-        fetchCompositions()
-      ]);
+      // 2. Get capabilities that influence these goals
+      const relevantCapabilities = await fetchCapabilitiesForGoals(selectedGoalIds);
+      console.log('Relevant capabilities:', relevantCapabilities);
       
-      console.log(`Fetched capabilities: ${factoryCaps.length} factory, ${productionCaps.length} production`);
-      
-      // 3. Organize capabilities into hierarchies
-      const factoryHierarchy = organizeCapabilitiesHierarchy(factoryCaps, allCompositions);
-      const productionHierarchy = organizeCapabilitiesHierarchy(productionCaps, allCompositions);
-      
-      // 4. Get capabilities that influence these goals
-      const relevantCapabilityIds = await fetchCapabilitiesForGoals(selectedGoalIds);
-      console.log('Relevant capability IDs:', relevantCapabilityIds);
-      
-      if (relevantCapabilityIds && relevantCapabilityIds.length > 0) {
-        // Filter hierarchies to show only capabilities related to selected goals
-        const filteredFactoryHierarchy = filterCapabilitiesByGoalInfluence(
-          factoryHierarchy, 
-          relevantCapabilityIds
-        );
-        
-        const filteredProductionHierarchy = filterCapabilitiesByGoalInfluence(
-          productionHierarchy, 
-          relevantCapabilityIds
-        );
-        
-        console.log(`Filtered factory hierarchy: ${filteredFactoryHierarchy.length} capabilities`);
-        console.log(`Filtered production hierarchy: ${filteredProductionHierarchy.length} capabilities`);
-        
-        setFactoryCapabilities(filteredFactoryHierarchy);
-        setProductionCapabilities(filteredProductionHierarchy);
-      } else {
-        // If no relevant capabilities found, set empty arrays
+      if (!relevantCapabilities || relevantCapabilities.length === 0) {
         console.warn('No relevant capabilities found for selected goals. Showing no capabilities.');
         setFactoryCapabilities([]);
         setProductionCapabilities([]);
+        setLoading(false);
+        setInitialized(true);
+        return;
       }
+      
+      // 3. Separate capabilities by category
+      const factoryCapabilities = relevantCapabilities.filter(
+        cap => cap.category === 'Factory Planning'
+      );
+      
+      const productionCapabilities = relevantCapabilities.filter(
+        cap => cap.category === 'Production Planning'
+      );
+      
+      console.log(`Split capabilities: ${factoryCapabilities.length} factory, ${productionCapabilities.length} production`);
+      
+      // 4. Set the state with the filtered capabilities
+      setFactoryCapabilities(factoryCapabilities);
+      setProductionCapabilities(productionCapabilities);
       
       setError(null);
     } catch (err) {
@@ -345,21 +374,27 @@ const BusinessCapabilities = () => {
           </h3>
 
           <div className="space-y-2 flex-grow">
-            {formattedCap.subCapabilities.map((sub, index) => (
-              <button
-                key={index}
-                onClick={() => handleSubCapabilityClick({ 
-                  number: `${formattedCap.number}.${index + 1}`, 
-                  title: sub 
-                })}
-                className="w-full flex items-center space-x-3 p-3 rounded-lg bg-[#009374]/10 hover:bg-[#009374]/15 transition-colors group cursor-pointer text-left"
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#009374]/60 group-hover:bg-[#009374] transition-colors" />
-                <span className="text-sm text-gray-700 group-hover:text-gray-900">
-                  {sub}
-                </span>
-              </button>
-            ))}
+            {formattedCap.subCapabilities.length > 0 ? (
+              formattedCap.subCapabilities.map((sub, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleSubCapabilityClick({ 
+                    number: `${formattedCap.number}.${index + 1}`, 
+                    title: typeof sub === 'string' ? sub : sub.name 
+                  })}
+                  className="w-full flex items-center space-x-3 p-3 rounded-lg bg-[#009374]/10 hover:bg-[#009374]/15 transition-colors group cursor-pointer text-left"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#009374]/60 group-hover:bg-[#009374] transition-colors" />
+                  <span className="text-sm text-gray-700 group-hover:text-gray-900">
+                    {typeof sub === 'string' ? sub : sub.name}
+                  </span>
+                </button>
+              ))
+            ) : (
+              <div className="p-3 text-sm text-gray-500">
+                No sub-capabilities available
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -443,7 +478,7 @@ const BusinessCapabilities = () => {
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#009374] mb-2">Technical Capabilities</h1>
+            <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
             <p className="text-gray-600">
               {userGoals.length > 0 
                 ? "Showing capabilities filtered by your selected strategic goals"

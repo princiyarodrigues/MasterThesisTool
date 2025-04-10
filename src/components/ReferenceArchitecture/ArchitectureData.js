@@ -1,6 +1,6 @@
 // Define the architecture elements data with positions for rendering
 export const architectureElements = [
-    // Value Streams (Top row)
+    // Value Streams (Top row - Main lifecycle elements)
     { 
       id: 'vs-1', 
       name: '1. Spezifikation & Planung', 
@@ -30,7 +30,7 @@ export const architectureElements = [
       x: 850, y: 50, width: 200, height: 70
     },
     
-    // Additional Value Streams (Second row)
+    // Additional Value Streams (Second row - sub-elements of 3.0)
     { 
       id: 'vs-3.1', 
       name: '3.1 Service & Wartung', 
@@ -46,138 +46,217 @@ export const architectureElements = [
       x: 750, y: 150, width: 170, height: 70
     },
     
-    // Business Processes (Middle row)
+    // PERSPECTIVE LABELS - Side by Side
+    {
+      id: 'perspective-factory',
+      name: 'Perspektive: Fabrik',
+      type: 'Model Layer',
+      description: 'Factory perspective view',
+      x: 50, y: 250, width: 275, height: 30
+    },
+    {
+      id: 'perspective-product',
+      name: 'Perspektive: Produkt',
+      type: 'Model Layer',
+      description: 'Product perspective view',
+      x: 350, y: 250, width: 275, height: 30
+    },
+    {
+      id: 'perspective-order',
+      name: 'Perspektive: Auftrag',
+      type: 'Model Layer',
+      description: 'Order perspective view',
+      x: 650, y: 250, width: 275, height: 30
+    },
+    {
+      id: 'perspective-manufacturing',
+      name: 'Perspektive: Fertigungstechnologie',
+      type: 'Model Layer',
+      description: 'Manufacturing technology perspective view',
+      x: 950, y: 250, width: 275, height: 30
+    },
+    
+    // PERSPECTIVE 1: FABRIK (Factory Perspective) - First column
     { 
-      id: 'bp-1.1', 
-      name: '1.1 Investitionsplanung', 
+      id: 'factory-1.1', 
+      name: 'Digitaler Fabrikzwilling: Prozessicht', 
       type: 'Business Process', 
       description: 'Investment planning for factory development',
-      x: 50, y: 250, width: 150, height: 70
+      x: 100, y: 300, width: 175, height: 50
     },
     { 
-      id: 'bp-1.2', 
+      id: 'factory-1.2', 
       name: '1.2 Engineering', 
       type: 'Business Process', 
       description: 'Technical engineering of factory systems',
-      x: 225, y: 250, width: 150, height: 70
+      x: 100, y: 370, width: 175, height: 50
     },
     { 
-      id: 'bp-2.1', 
+      id: 'factory-2.1', 
       name: '2.1 Aufbau & Anlauf', 
       type: 'Business Process', 
       description: 'Construction and initial setup activities',
-      x: 400, y: 250, width: 150, height: 70
+      x: 100, y: 440, width: 175, height: 50
     },
     { 
-      id: 'bp-3.1', 
+      id: 'factory-3.1', 
       name: '3.1 Produktion', 
       type: 'Business Process', 
       description: 'Production operations',
-      x: 575, y: 250, width: 150, height: 70
+      x: 100, y: 510, width: 175, height: 50
     },
     { 
-      id: 'bp-3.2', 
+      id: 'factory-3.2', 
       name: '3.2 Instandhaltung & Optimierung', 
       type: 'Business Process', 
       description: 'Maintenance and optimization of factory systems',
-      x: 750, y: 250, width: 150, height: 70
+      x: 100, y: 580, width: 175, height: 50
     },
     { 
-      id: 'bp-3.3', 
+      id: 'factory-3.3', 
       name: '3.3 Modernisierung', 
       type: 'Business Process', 
       description: 'Modernization of factory systems',
-      x: 925, y: 250, width: 150, height: 70
+      x: 100, y: 650, width: 175, height: 50
     },
     { 
-      id: 'bp-4.1', 
+      id: 'factory-4.1', 
       name: '4.1 Demontage, Rückbau', 
       type: 'Business Process', 
       description: 'Disassembly and recycling activities',
-      x: 1100, y: 250, width: 150, height: 70
+      x: 100, y: 720, width: 175, height: 50
     },
     
-    // Data Objects (Data layer 1)
+    // PERSPECTIVE 2: PRODUKT (Product Perspective) - Second column
     { 
-      id: 'do-1', 
-      name: 'Arbeitsablaufschema', 
-      type: 'Data Object', 
-      description: 'Work process schema',
-      x: 125, y: 400, width: 150, height: 60
+      id: 'product-1.1', 
+      name: '1.1 Planung, Entwicklung', 
+      type: 'Business Process', 
+      description: 'Product planning and development',
+      x: 400, y: 300, width: 175, height: 50
     },
     { 
-      id: 'do-2', 
-      name: 'Funktionsschema', 
-      type: 'Data Object', 
-      description: 'Functional schema',
-      x: 300, y: 400, width: 150, height: 60
+      id: 'product-1.2', 
+      name: '1.2 Konstruktion', 
+      type: 'Business Process', 
+      description: 'Product design and construction',
+      x: 400, y: 370, width: 175, height: 50
     },
     { 
-      id: 'do-3', 
-      name: 'Materialfluss', 
-      type: 'Data Object', 
-      description: 'Material flow information',
-      x: 470, y: 400, width: 600, height: 60
-    },
-    
-    // Data Objects (Data layer 2)
-    { 
-      id: 'do-4', 
-      name: 'Groblayout (2D)', 
-      type: 'Data Object', 
-      description: 'High-level 2D layout',
-      x: 230, y: 500, width: 150, height: 60
+      id: 'product-2.1', 
+      name: '2.1 Rapid Prototyping', 
+      type: 'Business Process', 
+      description: 'Rapid prototyping of products',
+      x: 400, y: 440, width: 175, height: 50
     },
     { 
-      id: 'do-5', 
-      name: 'Ideallayout (3D)', 
-      type: 'Data Object', 
-      description: 'Ideal 3D layout',
-      x: 400, y: 500, width: 180, height: 60
+      id: 'product-3.1', 
+      name: '3.1 Produktion', 
+      type: 'Business Process', 
+      description: 'Production of products',
+      x: 400, y: 510, width: 175, height: 50
     },
     { 
-      id: 'do-6', 
-      name: 'Reallayout (3D)', 
-      type: 'Data Object', 
-      description: 'Actual 3D layout',
-      x: 600, y: 500, width: 470, height: 60
+      id: 'product-4.1', 
+      name: '4.1 Gebrauch & Service', 
+      type: 'Business Process', 
+      description: 'Product use and service',
+      x: 400, y: 580, width: 175, height: 50
+    },
+    { 
+      id: 'product-4.2', 
+      name: '4.2 Recycling, Verschrottung', 
+      type: 'Business Process', 
+      description: 'Product recycling and disposal',
+      x: 400, y: 650, width: 175, height: 50
     },
     
-    // Data Models (Bottom section)
+    // PERSPECTIVE 3: AUFTRAG (Order Perspective) - Third column
     { 
-      id: 'dm-1', 
-      name: 'Grafisches Modell', 
-      type: 'Data Model', 
-      description: 'Graphical model',
-      x: 230, y: 640, width: 120, height: 60
+      id: 'order-3.1', 
+      name: '3.1 Konfiguration, Bestellung', 
+      type: 'Business Process', 
+      description: 'Order configuration and placement',
+      x: 700, y: 300, width: 175, height: 50
     },
     { 
-      id: 'dm-2', 
-      name: 'Strukturmodell', 
-      type: 'Data Model', 
-      description: 'Structure model',
-      x: 370, y: 640, width: 120, height: 60
+      id: 'order-3.2', 
+      name: '3.2 Auftragsbearbeitung', 
+      type: 'Business Process', 
+      description: 'Order processing',
+      x: 700, y: 370, width: 175, height: 50
     },
     { 
-      id: 'dm-3', 
-      name: 'Materialfluss', 
-      type: 'Data Model', 
-      description: 'Material flow data model',
-      x: 510, y: 640, width: 120, height: 60
+      id: 'order-3.3', 
+      name: '3.3 Fertigungsauftragsplanung', 
+      type: 'Business Process', 
+      description: 'Production order planning',
+      x: 700, y: 440, width: 175, height: 50
     },
     { 
-      id: 'dm-4', 
-      name: 'Fähigkeitenmodell', 
-      type: 'Data Model', 
-      description: 'Capabilities model',
-      x: 650, y: 640, width: 120, height: 60
+      id: 'order-3.4', 
+      name: '3.4 Produktion', 
+      type: 'Business Process', 
+      description: 'Production based on orders',
+      x: 700, y: 510, width: 175, height: 50
     },
     { 
-      id: 'dm-5', 
-      name: 'Kennzahlenmodell', 
-      type: 'Data Model', 
-      description: 'KPI model',
-      x: 790, y: 640, width: 120, height: 60
+      id: 'order-3.5', 
+      name: '3.5 Kommissionierung & Versand', 
+      type: 'Business Process', 
+      description: 'Order picking and shipping',
+      x: 700, y: 580, width: 175, height: 50
+    },
+    { 
+      id: 'order-3.6', 
+      name: '3.6 Auslieferung', 
+      type: 'Business Process', 
+      description: 'Order delivery',
+      x: 700, y: 650, width: 175, height: 50
+    },
+    
+    // PERSPECTIVE 4: FERTIGUNGSTECHNOLOGIE (Manufacturing Technology Perspective) - Fourth column
+    { 
+      id: 'manufacturing-1.1', 
+      name: '1.1 Planung, Entwicklung', 
+      type: 'Business Process', 
+      description: 'Planning and development of manufacturing technology',
+      x: 1000, y: 300, width: 175, height: 50
+    },
+    { 
+      id: 'manufacturing-1.2', 
+      name: '1.2 Konstruktion', 
+      type: 'Business Process', 
+      description: 'Design of manufacturing technology',
+      x: 1000, y: 370, width: 175, height: 50
+    },
+    { 
+      id: 'manufacturing-2.1', 
+      name: '2.1 Virtuelle Inbetriebnahme', 
+      type: 'Business Process', 
+      description: 'Virtual commissioning of manufacturing technology',
+      x: 1000, y: 440, width: 175, height: 50
+    },
+    { 
+      id: 'manufacturing-3.1', 
+      name: '3.1 Produktion', 
+      type: 'Business Process', 
+      description: 'Production using manufacturing technology',
+      x: 1000, y: 510, width: 175, height: 50
+    },
+    { 
+      id: 'manufacturing-3.2', 
+      name: '3.2 Instandhaltung & Optimierung', 
+      type: 'Business Process', 
+      description: 'Maintenance and optimization of manufacturing technology',
+      x: 1000, y: 580, width: 175, height: 50
+    },
+    { 
+      id: 'manufacturing-4.1', 
+      name: '4.1 Modernisierung, Recycling', 
+      type: 'Business Process', 
+      description: 'Modernization and recycling of manufacturing technology',
+      x: 1000, y: 650, width: 175, height: 50
     }
   ];
   
@@ -232,377 +311,307 @@ export const architectureElements = [
       targetX: 835, targetY: 150
     },
     
-    // Business Process flow lines (horizontal flow in middle row)
+    // PERSPECTIVE 1: FABRIK - Vertical flow between factory processes
     { 
-      id: 'rel-4', 
+      id: 'factory-rel-1', 
       type: 'Triggering', 
-      source: 'bp-1.1', 
-      target: 'bp-1.2',
-      description: 'Investment planning triggers engineering',
-      sourceX: 200, sourceY: 285, 
-      targetX: 225, targetY: 285
+      source: 'factory-1.1', 
+      target: 'factory-1.2',
+      description: 'Investment planning triggers engineering'
     },
     { 
-      id: 'rel-5', 
+      id: 'factory-rel-2', 
       type: 'Triggering', 
-      source: 'bp-1.2', 
-      target: 'bp-2.1',
-      description: 'Engineering triggers construction',
-      sourceX: 375, sourceY: 285, 
-      targetX: 400, targetY: 285
+      source: 'factory-1.2', 
+      target: 'factory-2.1',
+      description: 'Engineering triggers construction'
     },
     { 
-      id: 'rel-6', 
+      id: 'factory-rel-3', 
       type: 'Triggering', 
-      source: 'bp-2.1', 
-      target: 'bp-3.1',
-      description: 'Construction triggers production',
-      sourceX: 550, sourceY: 285, 
-      targetX: 575, targetY: 285
+      source: 'factory-2.1', 
+      target: 'factory-3.1',
+      description: 'Construction triggers production'
     },
     { 
-      id: 'rel-7', 
+      id: 'factory-rel-4', 
       type: 'Triggering', 
-      source: 'bp-3.1', 
-      target: 'bp-3.2',
-      description: 'Production triggers maintenance',
-      sourceX: 725, sourceY: 285, 
-      targetX: 750, targetY: 285
+      source: 'factory-3.1', 
+      target: 'factory-3.2',
+      description: 'Production triggers maintenance'
     },
     { 
-      id: 'rel-8', 
+      id: 'factory-rel-5', 
       type: 'Triggering', 
-      source: 'bp-3.2', 
-      target: 'bp-3.3',
-      description: 'Maintenance triggers modernization',
-      sourceX: 900, sourceY: 285, 
-      targetX: 925, targetY: 285
+      source: 'factory-3.2', 
+      target: 'factory-3.3',
+      description: 'Maintenance triggers modernization'
     },
     { 
-      id: 'rel-9', 
+      id: 'factory-rel-6', 
       type: 'Triggering', 
-      source: 'bp-3.3', 
-      target: 'bp-4.1',
-      description: 'Modernization triggers disassembly',
-      sourceX: 1075, sourceY: 285, 
-      targetX: 1100, targetY: 285
+      source: 'factory-3.3', 
+      target: 'factory-4.1',
+      description: 'Modernization triggers disassembly'
     },
     
-    // Realization connections (Business Process to Value Stream vertical)
+    // PERSPECTIVE 2: PRODUKT - Vertical flow between product processes
     { 
-      id: 'rel-10', 
-      type: 'Realization', 
-      source: 'bp-1.2', 
+      id: 'product-rel-1', 
+      type: 'Triggering', 
+      source: 'product-1.1', 
+      target: 'product-1.2',
+      description: 'Planning triggers construction'
+    },
+    { 
+      id: 'product-rel-2', 
+      type: 'Triggering', 
+      source: 'product-1.2', 
+      target: 'product-2.1',
+      description: 'Construction triggers prototyping'
+    },
+    { 
+      id: 'product-rel-3', 
+      type: 'Triggering', 
+      source: 'product-2.1', 
+      target: 'product-3.1',
+      description: 'Prototyping triggers production'
+    },
+    { 
+      id: 'product-rel-4', 
+      type: 'Triggering', 
+      source: 'product-3.1', 
+      target: 'product-4.1',
+      description: 'Production triggers use and service'
+    },
+    { 
+      id: 'product-rel-5', 
+      type: 'Triggering', 
+      source: 'product-4.1', 
+      target: 'product-4.2',
+      description: 'Use triggers recycling'
+    },
+    
+    // PERSPECTIVE 3: AUFTRAG - Vertical flow between order processes
+    { 
+      id: 'order-rel-1', 
+      type: 'Triggering', 
+      source: 'order-3.1', 
+      target: 'order-3.2',
+      description: 'Configuration triggers processing'
+    },
+    { 
+      id: 'order-rel-2', 
+      type: 'Triggering', 
+      source: 'order-3.2', 
+      target: 'order-3.3',
+      description: 'Processing triggers planning'
+    },
+    { 
+      id: 'order-rel-3', 
+      type: 'Triggering', 
+      source: 'order-3.3', 
+      target: 'order-3.4',
+      description: 'Planning triggers production'
+    },
+    { 
+      id: 'order-rel-4', 
+      type: 'Triggering', 
+      source: 'order-3.4', 
+      target: 'order-3.5',
+      description: 'Production triggers picking'
+    },
+    { 
+      id: 'order-rel-5', 
+      type: 'Triggering', 
+      source: 'order-3.5', 
+      target: 'order-3.6',
+      description: 'Picking triggers delivery'
+    },
+    
+    // PERSPECTIVE 4: FERTIGUNGSTECHNOLOGIE - Vertical flow between manufacturing processes
+    { 
+      id: 'manufacturing-rel-1', 
+      type: 'Triggering', 
+      source: 'manufacturing-1.1', 
+      target: 'manufacturing-1.2',
+      description: 'Planning triggers construction'
+    },
+    { 
+      id: 'manufacturing-rel-2', 
+      type: 'Triggering', 
+      source: 'manufacturing-1.2', 
+      target: 'manufacturing-2.1',
+      description: 'Construction triggers virtual commissioning'
+    },
+    { 
+      id: 'manufacturing-rel-3', 
+      type: 'Triggering', 
+      source: 'manufacturing-2.1', 
+      target: 'manufacturing-3.1',
+      description: 'Virtual commissioning triggers production'
+    },
+    { 
+      id: 'manufacturing-rel-4', 
+      type: 'Triggering', 
+      source: 'manufacturing-3.1', 
+      target: 'manufacturing-3.2',
+      description: 'Production triggers maintenance'
+    },
+    { 
+      id: 'manufacturing-rel-5', 
+      type: 'Triggering', 
+      source: 'manufacturing-3.2', 
+      target: 'manufacturing-4.1',
+      description: 'Maintenance triggers modernization'
+    },
+    
+    // VERTICAL CONNECTIONS: Top-level elements to perspective elements
+    // Factory perspective
+    {
+      id: 'vs1-factory',
+      type: 'Realization',
+      source: 'factory-1.1',
       target: 'vs-1',
-      description: 'Engineering realizes planning',
-      sourceX: 300, sourceY: 250, 
-      targetX: 200, targetY: 120
+      description: 'Factory planning realizes specification phase'
     },
-    { 
-      id: 'rel-11', 
-      type: 'Realization', 
-      source: 'bp-2.1', 
+    {
+      id: 'vs2-factory',
+      type: 'Realization',
+      source: 'factory-2.1',
       target: 'vs-2',
-      description: 'Construction realizes commissioning',
-      sourceX: 475, sourceY: 250, 
-      targetX: 450, targetY: 120
+      description: 'Factory setup realizes construction phase'
     },
-    { 
-      id: 'rel-12', 
-      type: 'Realization', 
-      source: 'bp-3.1', 
+    {
+      id: 'vs3-factory',
+      type: 'Realization',
+      source: 'factory-3.1',
       target: 'vs-3',
-      description: 'Production realizes operation',
-      sourceX: 650, sourceY: 250, 
-      targetX: 700, targetY: 120
+      description: 'Factory production realizes operation phase'
     },
-    { 
-      id: 'rel-13', 
-      type: 'Realization', 
-      source: 'bp-3.2', 
-      target: 'vs-3.1',
-      description: 'Maintenance realizes service',
-      sourceX: 825, sourceY: 250, 
-      targetX: 585, targetY: 220
-    },
-    { 
-      id: 'rel-14', 
-      type: 'Realization', 
-      source: 'bp-3.3', 
-      target: 'vs-3.2',
-      description: 'Modernization realizes reconfiguration',
-      sourceX: 1000, sourceY: 250, 
-      targetX: 835, targetY: 220
-    },
-    { 
-      id: 'rel-15', 
-      type: 'Realization', 
-      source: 'bp-4.1', 
+    {
+      id: 'vs4-factory',
+      type: 'Realization',
+      source: 'factory-4.1',
       target: 'vs-4',
-      description: 'Disassembly realizes recycling',
-      sourceX: 1120, sourceY: 250, 
-      targetX: 950, targetY: 120
+      description: 'Factory dismantling realizes end-of-life phase'
     },
     
-    // Access relationships from Business Processes to Data Objects (first data layer)
-    { 
-      id: 'rel-16', 
-      type: 'Access', 
-      source: 'bp-1.2', 
-      target: 'do-1',
-      description: 'Engineering accesses work schema',
-      sourceX: 250, sourceY: 320, 
-      targetX: 170, targetY: 400
+    // Product perspective
+    {
+      id: 'vs1-product',
+      type: 'Realization',
+      source: 'product-1.1',
+      target: 'vs-1',
+      description: 'Product planning realizes specification phase'
     },
-    { 
-      id: 'rel-17', 
-      type: 'Access', 
-      source: 'bp-1.2', 
-      target: 'do-2',
-      description: 'Engineering accesses function schema',
-      sourceX: 300, sourceY: 320, 
-      targetX: 330, targetY: 400
+    {
+      id: 'vs2-product',
+      type: 'Realization',
+      source: 'product-2.1',
+      target: 'vs-2',
+      description: 'Product prototyping realizes construction phase'
     },
-    { 
-      id: 'rel-18', 
-      type: 'Access', 
-      source: 'bp-1.2', 
-      target: 'do-3',
-      description: 'Engineering accesses material flow',
-      sourceX: 325, sourceY: 320, 
-      targetX: 550, targetY: 400
+    {
+      id: 'vs3-product',
+      type: 'Realization',
+      source: 'product-3.1',
+      target: 'vs-3',
+      description: 'Product production realizes operation phase'
+    },
+    {
+      id: 'vs4-product',
+      type: 'Realization',
+      source: 'product-4.1',
+      target: 'vs-4',
+      description: 'Product usage realizes end-of-life phase'
     },
     
-    // Access relationships from other Business Processes to Material Flow
+    // Order perspective (all connected to Betrieb since orders are operational)
     {
-      id: 'rel-19',
-      type: 'Access',
-      source: 'bp-2.1',
-      target: 'do-3',
-      description: 'Construction accesses material flow',
-      sourceX: 475, sourceY: 320,
-      targetX: 600, targetY: 400
+      id: 'vs3-order1',
+      type: 'Realization',
+      source: 'order-3.1',
+      target: 'vs-3',
+      description: 'Order processes realize operation phase'
     },
     {
-      id: 'rel-20',
-      type: 'Access',
-      source: 'bp-3.1',
-      target: 'do-3',
-      description: 'Production accesses material flow',
-      sourceX: 650, sourceY: 320,
-      targetX: 650, targetY: 400
+      id: 'vs3-order2',
+      type: 'Realization',
+      source: 'order-3.3',
+      target: 'vs-3',
+      description: 'Order processes realize operation phase'
     },
     {
-      id: 'rel-21',
-      type: 'Access',
-      source: 'bp-3.2',
-      target: 'do-3',
-      description: 'Maintenance accesses material flow',
-      sourceX: 825, sourceY: 320,
-      targetX: 700, targetY: 400
-    },
-    {
-      id: 'rel-22',
-      type: 'Access',
-      source: 'bp-3.3',
-      target: 'do-3',
-      description: 'Modernization accesses material flow',
-      sourceX: 1000, sourceY: 320,
-      targetX: 750, targetY: 400
-    },
-    {
-      id: 'rel-23',
-      type: 'Access',
-      source: 'bp-4.1',
-      target: 'do-3',
-      description: 'Disassembly accesses material flow',
-      sourceX: 1150, sourceY: 320,
-      targetX: 800, targetY: 400
+      id: 'vs3-order3',
+      type: 'Realization',
+      source: 'order-3.4',
+      target: 'vs-3.1',
+      description: 'Order production realizes service and maintenance'
     },
     
-    // Access from Business Processes to Layout Objects (second data layer)
+    // Manufacturing perspective
     {
-      id: 'rel-24',
-      type: 'Access',
-      source: 'bp-1.2',
-      target: 'do-4',
-      description: 'Engineering accesses 2D layout',
-      sourceX: 275, sourceY: 320,
-      targetX: 275, targetY: 500
+      id: 'vs1-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-1.1',
+      target: 'vs-1',
+      description: 'Manufacturing planning realizes specification phase'
     },
     {
-      id: 'rel-25',
-      type: 'Access',
-      source: 'bp-1.2',
-      target: 'do-5',
-      description: 'Engineering accesses 3D ideal layout',
-      sourceX: 325, sourceY: 320,
-      targetX: 450, targetY: 500
+      id: 'vs2-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-2.1',
+      target: 'vs-2',
+      description: 'Virtual commissioning realizes construction phase'
     },
     {
-      id: 'rel-26',
-      type: 'Access',
-      source: 'bp-2.1',
-      target: 'do-5',
-      description: 'Construction accesses 3D ideal layout',
-      sourceX: 450, sourceY: 320,
-      targetX: 480, targetY: 500
+      id: 'vs3-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-3.1',
+      target: 'vs-3',
+      description: 'Manufacturing production realizes operation phase'
     },
     {
-      id: 'rel-27',
-      type: 'Access',
-      source: 'bp-2.1',
-      target: 'do-6',
-      description: 'Construction accesses 3D real layout',
-      sourceX: 500, sourceY: 320,
-      targetX: 650, targetY: 500
+      id: 'vs31-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-3.2',
+      target: 'vs-3.1',
+      description: 'Manufacturing maintenance realizes service phase'
     },
     {
-      id: 'rel-28',
-      type: 'Access',
-      source: 'bp-3.1',
-      target: 'do-6',
-      description: 'Production accesses 3D real layout',
-      sourceX: 650, sourceY: 320,
-      targetX: 700, targetY: 500
+      id: 'vs32-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-3.2',
+      target: 'vs-3.2',
+      description: 'Manufacturing optimization realizes reconfiguration'
     },
     {
-      id: 'rel-29',
-      type: 'Access',
-      source: 'bp-3.2',
-      target: 'do-6',
-      description: 'Maintenance accesses 3D real layout',
-      sourceX: 825, sourceY: 320,
-      targetX: 750, targetY: 500
-    },
-    {
-      id: 'rel-30',
-      type: 'Access',
-      source: 'bp-3.3',
-      target: 'do-6',
-      description: 'Modernization accesses 3D real layout',
-      sourceX: 1000, sourceY: 320,
-      targetX: 800, targetY: 500
-    },
-    {
-      id: 'rel-31',
-      type: 'Access',
-      source: 'bp-4.1',
-      target: 'do-6',
-      description: 'Disassembly accesses 3D real layout',
-      sourceX: 1150, sourceY: 320,
-      targetX: 850, targetY: 500
-    },
-    
-    // Composition relationships for Data Models to Objects
-    {
-      id: 'rel-32',
-      type: 'Composition',
-      source: 'dm-1',
-      target: 'do-4',
-      description: 'Graphical model composes 2D layout',
-      sourceX: 290, sourceY: 640,
-      targetX: 280, targetY: 560
-    },
-    {
-      id: 'rel-33',
-      type: 'Composition',
-      source: 'dm-1',
-      target: 'do-5',
-      description: 'Graphical model composes 3D ideal layout',
-      sourceX: 300, sourceY: 640,
-      targetX: 450, targetY: 560
-    },
-    {
-      id: 'rel-34',
-      type: 'Composition',
-      source: 'dm-2',
-      target: 'do-4',
-      description: 'Structure model composes 2D layout',
-      sourceX: 390, sourceY: 640,
-      targetX: 300, targetY: 560
-    },
-    {
-      id: 'rel-35',
-      type: 'Composition',
-      source: 'dm-2',
-      target: 'do-5',
-      description: 'Structure model composes 3D ideal layout',
-      sourceX: 410, sourceY: 640,
-      targetX: 480, targetY: 560
-    },
-    {
-      id: 'rel-36',
-      type: 'Composition',
-      source: 'dm-2',
-      target: 'do-6',
-      description: 'Structure model composes 3D real layout',
-      sourceX: 430, sourceY: 640,
-      targetX: 650, targetY: 560
-    },
-    {
-      id: 'rel-37',
-      type: 'Composition',
-      source: 'dm-3',
-      target: 'do-3',
-      description: 'Material flow model composes material flow object',
-      sourceX: 570, sourceY: 640,
-      targetX: 650, targetY: 460
-    },
-    {
-      id: 'rel-38',
-      type: 'Composition',
-      source: 'dm-3',
-      target: 'do-1',
-      description: 'Material flow model composes work schema',
-      sourceX: 540, sourceY: 640,
-      targetX: 170, targetY: 460
-    },
-    {
-      id: 'rel-39',
-      type: 'Composition',
-      source: 'dm-4',
-      target: 'do-2',
-      description: 'Capabilities model composes functional schema',
-      sourceX: 675, sourceY: 640,
-      targetX: 350, targetY: 460
-    },
-    
-    // Additional data connections based on Image 3
-    {
-      id: 'rel-40',
-      type: 'Access',
-      source: 'do-1',
-      target: 'do-4',
-      description: 'Work schema impacts 2D layout',
-      sourceX: 170, sourceY: 460,
-      targetX: 250, targetY: 500
-    },
-    {
-      id: 'rel-41',
-      type: 'Access',
-      source: 'do-2',
-      target: 'do-5',
-      description: 'Function schema impacts 3D ideal layout',
-      sourceX: 350, sourceY: 460,
-      targetX: 450, targetY: 500
+      id: 'vs4-manufacturing',
+      type: 'Realization',
+      source: 'manufacturing-4.1',
+      target: 'vs-4',
+      description: 'Manufacturing modernization realizes end-of-life phase'
     }
   ];
   
-  // Export a function that can find all related elements for a given element
+  // Helper function to find elements related to a specific element
   export const findRelatedElements = (elementId) => {
     if (!elementId) return [];
     
-    // Find all relationships where this element is either source or target
-    const relevantRelationships = relationships.filter(rel => 
-      rel.source === elementId || rel.target === elementId
+    // Find all relationships where the element is involved
+    const relatedRelationships = relationships.filter(
+      rel => rel.source === elementId || rel.target === elementId
     );
     
-    // Get all elements that are directly connected to this element
-    const connectedElements = relevantRelationships.flatMap(rel => {
-      return [rel.source, rel.target];
+    // Extract the related element IDs
+    const relatedElementIds = relatedRelationships.flatMap(rel => {
+      const ids = [];
+      if (rel.source !== elementId) ids.push(rel.source);
+      if (rel.target !== elementId) ids.push(rel.target);
+      return ids;
     });
     
-    // Create a unique list of related elements
-    return [...new Set(connectedElements)];
+    // Return unique related elements
+    return [...new Set(relatedElementIds)];
   };

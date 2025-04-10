@@ -1,0 +1,262 @@
+[
+    {
+      "map": {
+        "identifier": "id-f6e3097db62945b78b4d2d75a46ee459",
+        "name": "1.0 Zielplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-47daa35eb3b14e85b54885c322943a6d",
+          "type": "Capability",
+          "name": "1.1 Datengetriebene Zielszenariensimulation"
+        },
+        {
+          "identifier": "id-3faac79b3b7d41a3be205f4a5c0d8412",
+          "type": "Capability",
+          "name": "1.2 Automatisierte Zielszenarienbewertung & -absicherung"
+        },
+        {
+          "identifier": "id-6bf3391be3124655805364053cfb1954",
+          "type": "Capability",
+          "name": "1.3 Datengetriebene Nachhaltigkeits- & CO₂-Simulation in der Zielplanung"
+        },
+        {
+          "identifier": "id-bff4fe965c2546ada2315c866ee86e21",
+          "type": "Capability",
+          "name": "1.4 Szenarioanalyse zur Flexibilitätsbewertung der Fabrik"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-09ca69f54d904bce9532545a04c90f5f",
+        "name": "2.0 Standortauswahl V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-d8544c0da1e1410a923127142c9273b8",
+          "type": "Capability",
+          "name": "2.1 Standortübertrag (bestehende Werksbestandteile) V2"
+        },
+        {
+          "identifier": "id-ca697ef1500d4c2f8df1bc01c2e73b62",
+          "type": "Capability",
+          "name": "2.2 Simulationsgestützte Bewertung neuer Standorte"
+        },
+        {
+          "identifier": "id-2f7ce4cec58c4e10893923f0797e2bf0",
+          "type": "Capability",
+          "name": "2.3 Automatisierte Standortauswahl basierend auf definierten Zielkriterien"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-19568688f26140dc9a0c2d800690ab48",
+        "name": "3.0 Werkstruktur- & Layoutplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-f42345c1079f404f9704704b0d9fd03c",
+          "type": "Capability",
+          "name": "3.1 Dynamische Materialflussplanung & -optimierung"
+        },
+        {
+          "identifier": "id-ca4a67e2d35340a88702c26b088c8fcb",
+          "type": "Capability",
+          "name": "3.2 Echtzeit-Überwachung von Materialströmen"
+        },
+        {
+          "identifier": "id-19b54b87c56b43e4a5141e7bd3a8484c",
+          "type": "Capability",
+          "name": "3.3 Automatisierte Generierung & Bewertung von Layoutvarianten"
+        },
+        {
+          "identifier": "id-c6b0835a04534c33abd294ad1461057e",
+          "type": "Capability",
+          "name": "3.4 Datengetriebene Simulation von Layoutänderungen & Auswirkungen"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-9ae8adb8254d4d5fbbb59183d4f1cd72",
+        "name": "4.0 Umsetzungsplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-8f0dd9f0d1a74754b6c36a122d187f44",
+          "type": "Capability",
+          "name": "4.1 Agile Erweiterungsplanung mit Simulationen"
+        },
+        {
+          "identifier": "id-163194248ea7440ca783abcbd810ba61",
+          "type": "Capability",
+          "name": "4.2 Echtzeit-Überwachung des Umsetzungsfortschritts bei Anlauf & Inbetriebnahme"
+        },
+        {
+          "identifier": "id-a8842ee66e2f493a8a429a74805e4739",
+          "type": "Capability",
+          "name": "4.3 Virtuelle Inbetriebnahme & Risikobewertung"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-82d3fcdce7bf4c49b8eba1b5556b6722",
+        "name": "5.0 Wirtschaftlichkeitsberechnung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-96f2292c38b248b8a54a361647f79eab",
+          "type": "Capability",
+          "name": "5.1 Automatisiertes Kennzahlentracking mit Echtzeit-Daten"
+        },
+        {
+          "identifier": "id-4e72841d0b5b44139c76426f4405a30b",
+          "type": "Capability",
+          "name": "5.2 Datengetriebene Kosten- & Effizienzanalysen"
+        },
+        {
+          "identifier": "id-7d20a9a697ad456eb274f4669d1a6c15",
+          "type": "Capability",
+          "name": "5.3 Nachhaltigkeits- und Ressourceneffizienzbewertung"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-8123e2fdb0864515816b42d246afde8d",
+        "name": "6.0 Arbeitsvorbereitung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-372c96b4ab6c4c1ca0a666fbb700b7be",
+          "type": "Capability",
+          "name": "6.1 Virtualisierung & Analyse bestehender Fabrikbestandteile"
+        },
+        {
+          "identifier": "id-96fa4cd3f42b47668a55d3bd07370618",
+          "type": "Capability",
+          "name": "6.2 Datengetriebene Entwicklung von Arbeitsabläufen durch Simulation"
+        },
+        {
+          "identifier": "id-e94f6abadb254d47b94ddaf3d12684cf",
+          "type": "Capability",
+          "name": "6.3 Datengetriebene Dimensionierung von Produktionsressourcen (Betriebs- & Logistikmittel)"
+        },
+        {
+          "identifier": "id-a4933ea298f64cd798b94675330b5ea8",
+          "type": "Capability",
+          "name": "6.4 Automatisierte Identifikation von Engpässen in Arbeitsabläufen"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-5cd7f56acaca48629a81cb10ba2cfa12",
+        "name": "7.0 Prozessplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-ae00d31fd9c04e2aab40d3a714196f5a",
+          "type": "Capability",
+          "name": "7.1 Virtuelle (CAx-basierte) Produktionsprozessgestaltung"
+        },
+        {
+          "identifier": "id-df41897a3f5a4073bb0414fca394b048",
+          "type": "Capability",
+          "name": "7.2 Selbstlernende, adaptive Prozessgestaltung"
+        },
+        {
+          "identifier": "id-aecc8db3c1cc4eb686d7b8e12102c391",
+          "type": "Capability",
+          "name": "7.3 Automatisierte Ermittlung & datengetriebene Optimierung von Produktionsprozessen"
+        },
+        {
+          "identifier": "id-21f796c662b94b9682a066f7c7aecec6",
+          "type": "Capability",
+          "name": "7.4 Datengetriebene Echtzeit-Fehleranalyse für Prozesse (Root-Cause-Detection)"
+        },
+        {
+          "identifier": "id-67ac161e67734150bc73dc69f2aa5f4c",
+          "type": "Capability",
+          "name": "7.5 Datengetriebene Rückkopplung zu Erkenntnissen aus der Produktnutzung"
+        },
+        {
+          "identifier": "id-d01904f82417470db57860fa8ea89a66",
+          "type": "Capability",
+          "name": "7.6 Datengetriebene Prognose von Prozessabweichungen"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-6cb5649b327c40b5b5256a24e72b5492",
+        "name": "8.0 Personal- & Organisationsplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-abb4a057963240cb8e29153b77f375e4",
+          "type": "Capability",
+          "name": "8.1 Datengetriebene Personalbedarfsplanung & Dimensionierung"
+        },
+        {
+          "identifier": "id-5bf2dcab33a440afbe2f33aa47747943",
+          "type": "Capability",
+          "name": "8.2 Simulation der Werkerkapazitäten in Engpasssituationen"
+        },
+        {
+          "identifier": "id-008208cf8e48471584b5b15d2a493e9c",
+          "type": "Capability",
+          "name": "8.3 Dynamische Umplanung von Personalressourcen"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-4c056623a44e4686a436765364688275",
+        "name": "9.0 Produktionsstrukturplanung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-0867690cf90d408fb4d8edf875514af1",
+          "type": "Capability",
+          "name": "9.1 Automatisierte Ableitung von Funktionsschemata für Fertigungsprozesse"
+        },
+        {
+          "identifier": "id-fbfab0c7a116408180bdac082c07c1dc",
+          "type": "Capability",
+          "name": "9.2 Datengetriebene Werksstrukturplanung (Dimensionierung Lager, etc.)"
+        },
+        {
+          "identifier": "id-12327486d2ca4021b57891d419dd0671",
+          "type": "Capability",
+          "name": "9.3 Echtzeit-Visualisierung & Analyse von Produktionsstrukturen"
+        }
+      ]
+    },
+    {
+      "map": {
+        "identifier": "id-19f1a0f348b8417fb6d0b862ca025f1d",
+        "name": "10.0 Arbeitsplatzgestaltung V2"
+      },
+      "children_capabilities": [
+        {
+          "identifier": "id-6c005f3bc7aa454ab3f2c7e1f1ece212",
+          "type": "Capability",
+          "name": "10.1 Virtuelle Arbeitsplatzgestaltung & Ergonomie-Simulation"
+        },
+        {
+          "identifier": "id-bd6ad461f4934ff6bbe3e622f32483af",
+          "type": "Capability",
+          "name": "10.2 Echtzeit-Erfassung & Analyse ergonomischer Arbeitsbedingungen"
+        },
+        {
+          "identifier": "id-814b37cf95aa4ee59c9dca9250cd08a3",
+          "type": "Capability",
+          "name": "10.3 Datengetriebene Bewertung der Arbeitsplatzsicherheit"
+        }
+      ]
+    }
+]   

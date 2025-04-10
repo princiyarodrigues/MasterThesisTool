@@ -15,6 +15,8 @@ export function DepartmentGrid({ departments }) {
       router.push(`/departments/${departmentId}/use-cases`);
     } else if (category.id === 'reference-architecture') {
       router.push(`/departments/${departmentId}/reference-architecture`);
+    } else if (category.id === 'technical-capabilities') {
+      router.push(`/departments/${departmentId}/technical-capabilities`);
     }
   };
 

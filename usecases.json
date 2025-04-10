@@ -1,0 +1,172 @@
+[
+  {
+    "identifier": "id-ae21081a1af449d784890c86f29cbb89",
+    "type": "BusinessService",
+    "name": "Use Case 1: Echtzeitverfolgung ausgewählter Mitarbeiterdaten"
+  },
+  {
+    "identifier": "id-a56a8367b6d44a24b498e17719b8a26c",
+    "type": "BusinessService",
+    "name": "Use Case 2: Condition Monitoring für Fertigungssegment oder ganze Fabrik"
+  },
+  {
+    "identifier": "id-dff2c24369864eff872232894774d439",
+    "type": "BusinessService",
+    "name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien"
+  },
+  {
+    "identifier": "id-b20c6042d612471a9d172ba9548262d8",
+    "type": "BusinessService",
+    "name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-b6f217ec5e5b44819062ffbc0ad4102d",
+    "type": "BusinessService",
+    "name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen"
+  },
+  {
+    "identifier": "id-f4c3d60b04fe4f2f8422d82eb57003a9",
+    "type": "BusinessService",
+    "name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen"
+  },
+  {
+    "identifier": "id-e5c744d51fdf49d796ddf4288416f5e3",
+    "type": "BusinessService",
+    "name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-d20704229641474ca8064c102d063188",
+    "type": "BusinessService",
+    "name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase"
+  },
+  {
+    "identifier": "id-a0b2f126f11248008f3752903b1df69b",
+    "type": "BusinessService",
+    "name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse"
+  },
+  {
+    "identifier": "id-e55c67171a6243dcb5419408c929f25e",
+    "type": "BusinessService",
+    "name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)"
+  },
+  {
+    "identifier": "id-db2b857c6faa45208622ffdbe11c910e",
+    "type": "BusinessService",
+    "name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen"
+  },
+  {
+    "identifier": "id-c39abed483f04fee8b287c11ad168e43",
+    "type": "BusinessService",
+    "name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+  },
+  {
+    "identifier": "id-82cc53b09d5c414090a3ef919f1e4c29",
+    "type": "BusinessService",
+    "name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)"
+  },
+  {
+    "identifier": "id-212108aa2efa4b14aab0b679a430c5be",
+    "type": "BusinessService",
+    "name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)"
+  },
+  {
+    "identifier": "id-9a61f9b07c01434582c79a81d848ff5f",
+    "type": "BusinessService",
+    "name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen"
+  },
+  {
+    "identifier": "id-dc9b5a67ef7a4d3189c82d135028b21f",
+    "type": "BusinessService",
+    "name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik"
+  },
+  {
+    "identifier": "id-7bceb84032b34f64b8236b3d05b288c6",
+    "type": "BusinessService",
+    "name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-779f33f6f118456bbf3f271f47590ed1",
+    "type": "BusinessService",
+    "name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen"
+  },
+  {
+    "identifier": "id-7301522542884a0fb29808ea30e22ae4",
+    "type": "BusinessService",
+    "name": "Use Case 19: Fernzugriff und -steuerung für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-71e69599643e43c898b89757eb11a41b",
+    "type": "BusinessService",
+    "name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik"
+  },
+  {
+    "identifier": "id-bb388013f6fd45789135910ae4334a98",
+    "type": "BusinessService",
+    "name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+  },
+  {
+    "identifier": "id-4f1f942ea48147e587f696d59248cae9",
+    "type": "BusinessService",
+    "name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion"
+  },
+  {
+    "identifier": "id-2606131d5c6142128493c482f4c611f9",
+    "type": "BusinessService",
+    "name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots"
+  },
+  {
+    "identifier": "id-9f83f5ec0fe04fbd99e8224b4b84ac86",
+    "type": "BusinessService",
+    "name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage"
+  },
+  {
+    "identifier": "id-18e8ae79d33c4930b64eeb147f712964",
+    "type": "BusinessService",
+    "name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen"
+  },
+  {
+    "identifier": "id-645dd756994a4cf4bc7f8b98246a880a",
+    "type": "BusinessService",
+    "name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess"
+  },
+  {
+    "identifier": "id-22841ee156624cb099bf554754fa9357",
+    "type": "BusinessService",
+    "name": "Use Case 27: Automatisiertes Wertstrommanagement"
+  },
+  {
+    "identifier": "id-49a6d434cd0546589e7a94279d6454bd",
+    "type": "BusinessService",
+    "name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung"
+  },
+  {
+    "identifier": "id-b8b0d8303b324e97a1a5b2d4bca22760",
+    "type": "BusinessService",
+    "name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik"
+  },
+  {
+    "identifier": "id-3d8e14d49ed049a6b1e34d36648d50be",
+    "type": "BusinessService",
+    "name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen"
+  },
+  {
+    "identifier": "id-ba3f288075df4ce6bcec82241a99da46",
+    "type": "BusinessService",
+    "name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik"
+  },
+  {
+    "identifier": "id-8e34428c69ae449d94a767725f973cd5",
+    "type": "BusinessService",
+    "name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte"
+  },
+  {
+    "identifier": "id-27c52826d8f64976b536dad78ae569e1",
+    "type": "BusinessService",
+    "name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten"
+  },
+  {
+    "identifier": "id-a213eaea6a484c66b8e3fc60232d8c28",
+    "type": "BusinessService",
+    "name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken"
+  }
+]

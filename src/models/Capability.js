@@ -16,6 +16,16 @@ const capabilitySchema = new mongoose.Schema({
   category: {
     type: String,
     enum: ['Factory Planning', 'Production Planning', 'Technical']
+  },
+  // New fields for parent-child relationships
+  parentId: {
+    type: String,
+    ref: 'Capability',
+    required: false
+  },
+  isParent: {
+    type: Boolean,
+    default: false
   }
 }, { strict: false });
 
