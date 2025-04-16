@@ -10,7 +10,7 @@ export default function ReferenceArchitecturePage() {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-white">
-        <main className="mx-auto px-6 py-8">
+        <main className="mx-auto px-2 py-2">
           <ReferenceArchitecture departmentId={slug} />
         </main>
       </div>

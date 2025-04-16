@@ -1,10 +1,17 @@
 'use client';
-import React, { useState, useEffect} from 'react';
-import { ChevronDown, ChevronRight, Plus, Search, Filter } from 'lucide-react';
+import React, { useState, useEffect, use } from 'react';
+import { ChevronDown, ChevronRight, Plus, Search, Filter, FileText } from 'lucide-react';
 import BusinessCapabilityModal from '@/components/BusinessCapabilities/BusinessCapabilityModal';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import Link from 'next/link';
+import BackButton from '@/components/ui/BackButton';
+import { useParams } from 'next/navigation';
 
-const BusinessCapabilities = () => {
+const BusinessCapabilitiesPage = () => {
+  // Get the department slug from the URL
+  const params = useParams();
+  const { slug } = params;
+  
   const [expandedSections, setExpandedSections] = useState({
     'factory-planning': true,
     'production-management': true
@@ -18,6 +25,8 @@ const BusinessCapabilities = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [initialized, setInitialized] = useState(false);
+  const [relatedUseCases, setRelatedUseCases] = useState({});
+  const [loadingUseCases, setLoadingUseCases] = useState(false);
 
   useEffect(() => {
     // Load data when component mounts
@@ -299,6 +308,28 @@ const BusinessCapabilities = () => {
     return filteredCapabilities;
   };
 
+  // Function to fetch use cases related to a capability
+  const fetchUseCasesForCapability = async (capabilityId) => {
+    try {
+      setLoadingUseCases(true);
+      const response = await fetch(`/api/use-cases?capabilityId=${capabilityId}`);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch use cases: ${response.status}`);
+      }
+      
+      const useCases = await response.json();
+      console.log(`Fetched ${useCases.length} use cases for capability ${capabilityId}`);
+      
+      return useCases;
+    } catch (error) {
+      console.error(`Error fetching use cases for capability ${capabilityId}:`, error);
+      return [];
+    } finally {
+      setLoadingUseCases(false);
+    }
+  };
+
   const loadAllData = async () => {
     setLoading(true);
     try {
@@ -344,6 +375,19 @@ const BusinessCapabilities = () => {
       setFactoryCapabilities(factoryCapabilities);
       setProductionCapabilities(productionCapabilities);
       
+      // 5. Fetch related use cases for all capabilities
+      const useCasesMap = {};
+      const allCapabilities = [...factoryCapabilities, ...productionCapabilities];
+      
+      // Create batch of capability IDs for fetching use cases
+      for (const capability of allCapabilities) {
+        const useCases = await fetchUseCasesForCapability(capability.id);
+        if (useCases.length > 0) {
+          useCasesMap[capability.id] = useCases;
+        }
+      }
+      
+      setRelatedUseCases(useCasesMap);
       setError(null);
     } catch (err) {
       console.error('Error loading capability data:', err);
@@ -356,6 +400,7 @@ const BusinessCapabilities = () => {
 
   const CapabilityCard = ({ capability }) => {
     const formattedCap = formatCapabilityForUI(capability);
+    const capabilityUseCases = relatedUseCases[capability.id] || [];
     
     return (
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
@@ -396,6 +441,35 @@ const BusinessCapabilities = () => {
               </div>
             )}
           </div>
+          
+          {/* Display related use cases if any */}
+          {capabilityUseCases.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <h4 className="text-sm font-medium text-gray-700 mb-2">Related Use Cases:</h4>
+              <div className="space-y-2">
+                {capabilityUseCases.slice(0, 3).map(useCase => (
+                  <Link 
+                    href={`/departments/operations/use-cases?capabilityId=${capability.id}`} 
+                    key={useCase.id}
+                    className="flex items-center space-x-2 p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <FileText className="w-4 h-4 text-[#009374]" />
+                    <span className="text-sm text-gray-700 truncate">
+                      {useCase.title}
+                    </span>
+                  </Link>
+                ))}
+                {capabilityUseCases.length > 3 && (
+                  <Link 
+                    href={`/departments/operations/use-cases?capabilityId=${capability.id}`}
+                    className="text-xs text-[#009374] hover:underline"
+                  >
+                    View all {capabilityUseCases.length} use cases
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -476,6 +550,9 @@ const BusinessCapabilities = () => {
     <div className="max-w-[1600px] mx-auto p-8">
       {/* Header */}
       <div className="mb-12">
+        <div className="mb-4">
+          <BackButton />
+        </div>
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
@@ -536,4 +613,4 @@ const BusinessCapabilities = () => {
   );
 };
 
-export default BusinessCapabilities;
+export default BusinessCapabilitiesPage;

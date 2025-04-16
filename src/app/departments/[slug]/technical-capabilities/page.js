@@ -2,14 +2,19 @@
 import React, { useState } from 'react';
 import TechnicalCapabilitiesMap from '@/components/TechnicalCapabilities/TechnicalCapabilitiesMap';
 import { Filter, Plus } from 'lucide-react';
+import BackButton from '@/components/ui/BackButton';
+import { useParams } from 'next/navigation';
 
-export default function TechnicalCapabilitiesPage({ params }) {
-  // In Next.js 15.0.2, we need to use React.use to unwrap params
-  const unwrappedParams = React.use(Promise.resolve(params));
-  const slug = unwrappedParams?.slug || '';
+export default function TechnicalCapabilitiesPage() {
+  const params = useParams();
+  const { slug } = params;
   
   return (
     <div className="container mx-auto px-6 py-8">
+      <div className="mb-4">
+        <BackButton />
+      </div>
+      
       <div className="mb-4">
         <h1 className="text-4xl font-bold text-[#009374]">Technical Factory Twin Capabilities</h1>
         <p className="text-gray-600 mt-2">

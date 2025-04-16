@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '../ui/card';
-import { FileText, Target, Activity, ChevronRight, ChevronLeft, Filter } from 'lucide-react';
+import { FileText, Target, Activity, ChevronRight, ChevronLeft, Filter, ChevronDown } from 'lucide-react';
 import UseCaseDetailModal from '../../components/UseCases/UseCaseDetailModal';
 // Import from static data as fallback
 import { useCasesData as staticUseCasesData } from '@/lib/use-cases-data';
@@ -22,6 +22,9 @@ export default function UseCases() {
   const [selectedUseCase, setSelectedUseCase] = useState(null);
   const [selectedCapabilityId, setSelectedCapabilityId] = useState(null);
   const [relatedCapabilities, setRelatedCapabilities] = useState([]);
+  const [filterSource, setFilterSource] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedCapabilityName, setSelectedCapabilityName] = useState('All Capabilities');
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,6 +38,11 @@ export default function UseCases() {
       const urlCapabilityId = params.get('capabilityId');
       const capabilityId = urlCapabilityId || selectedCapabilityId;
       
+      if (urlCapabilityId && urlCapabilityId !== selectedCapabilityId) {
+        setSelectedCapabilityId(urlCapabilityId);
+        setFilterSource('url');
+      }
+      
       console.log('Filtering by capability ID:', capabilityId);
       
       // Build API URL with optional capability filter
@@ -46,6 +54,7 @@ export default function UseCases() {
         const response = await fetch(apiUrl);
         if (response.ok) {
           const data = await response.json();
+          console.log(`Fetched ${data.length} use cases from API`);
           setUseCases(data);
         } else {
           console.error('Failed to fetch use cases from API, falling back to static data');
@@ -88,7 +97,7 @@ export default function UseCases() {
         
         console.log('Selected goal IDs:', selectedGoalIds);
         
-        // Get capabilities related to these goals
+        // Get capabilities related to these goals using the same API as business capabilities page
         const capabilitiesResponse = await fetch('/api/direct-query/influences-by-goals', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -106,6 +115,7 @@ export default function UseCases() {
         // Separate parent and child capabilities
         const parentCapabilities = [];
         const childCapabilities = [];
+        const childToParentMap = {};
         
         capabilities.forEach(capability => {
           if (capability.isParent) {
@@ -118,8 +128,20 @@ export default function UseCases() {
                 child.parentName = capability.name;
                 child.parentId = capability.id;
                 childCapabilities.push(child);
+                
+                // Track parent relationship for filtering
+                childToParentMap[child.id] = capability.id;
               });
             }
+          } else if (capability.parentId) {
+            // This is a child capability with a known parent
+            childCapabilities.push({
+              ...capability,
+              parentId: capability.parentId
+            });
+            
+            // Track parent relationship for filtering
+            childToParentMap[capability.id] = capability.parentId;
           } else {
             // This is a standalone capability (not a parent or child)
             childCapabilities.push(capability);
@@ -139,17 +161,22 @@ export default function UseCases() {
         
         return { 
           parentCapabilities: uniqueParentCapabilities, 
-          childCapabilities: uniqueChildCapabilities 
+          childCapabilities: uniqueChildCapabilities,
+          childToParentMap
         };
       } catch (error) {
         console.error('Error fetching capabilities:', error);
-        return { parentCapabilities: [], childCapabilities: [] };
+        return { parentCapabilities: [], childCapabilities: [], childToParentMap: {} };
       }
     };
 
     const loadData = async () => {
-      const { parentCapabilities, childCapabilities } = await fetchCapabilities();
-      setRelatedCapabilities({ parents: parentCapabilities, children: childCapabilities });
+      const { parentCapabilities, childCapabilities, childToParentMap } = await fetchCapabilities();
+      setRelatedCapabilities({ 
+        parents: parentCapabilities, 
+        children: childCapabilities,
+        childToParentMap
+      });
       
       // After setting capabilities, fetch use cases
       fetchUseCases();
@@ -159,10 +186,13 @@ export default function UseCases() {
   }, [selectedCapabilityId]);
   
   // Function to change the capability filter
-  const changeCapabilityFilter = async (capabilityId) => {
+  const changeCapabilityFilter = async (capabilityId, capabilityName = 'All Capabilities') => {
     try {
       setLoading(true);
       setSelectedCapabilityId(capabilityId);
+      setSelectedCapabilityName(capabilityName);
+      setFilterSource('manual');
+      setIsDropdownOpen(false);
       
       // Reset to first page
       setCurrentPage(1);
@@ -186,6 +216,12 @@ export default function UseCases() {
       
       // Update the use cases
       setUseCases(data);
+      
+      // Update URL without full page reload
+      const newUrl = capabilityId 
+        ? `${window.location.pathname}?capabilityId=${capabilityId}` 
+        : window.location.pathname;
+      window.history.pushState({}, '', newUrl);
       
       setError(null);
     } catch (err) {
@@ -211,6 +247,32 @@ export default function UseCases() {
   const goToNextPage = () => setCurrentPage(prev => Math.min(prev + 1, totalPages));
   const goToPrevPage = () => setCurrentPage(prev => Math.max(prev - 1, 1));
   
+  // Get filter status text
+  const getFilterStatusText = () => {
+    if (!selectedCapabilityId) return 'Showing all use cases';
+    
+    // Check if it's a parent or child capability
+    if (relatedCapabilities.parents) {
+      const parentCap = relatedCapabilities.parents.find(p => p.id === selectedCapabilityId);
+      if (parentCap) {
+        return `Showing use cases for parent capability: ${parentCap.name}`;
+      }
+    }
+    
+    if (relatedCapabilities.children) {
+      const childCap = relatedCapabilities.children.find(c => c.id === selectedCapabilityId);
+      if (childCap) {
+        if (childCap.parentName) {
+          return `Showing use cases for ${childCap.name} (${childCap.parentName})`;
+        } else {
+          return `Showing use cases for ${childCap.name}`;
+        }
+      }
+    }
+    
+    return `Showing filtered use cases`;
+  };
+  
   return (
     <>
       <h1 className="text-4xl font-bold text-gray-800 mb-8">Use Cases Catalogue</h1>
@@ -219,84 +281,122 @@ export default function UseCases() {
       
       {error && <p className="text-amber-600 mb-4">{error}</p>}
       
-      {/* Filter by Business Capability */}
+      {/* Filter by Business Capability Dropdown */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <Filter className="h-4 w-4 text-green-600" />
           <h3 className="text-md font-medium">Filter by Business Capability:</h3>
-          <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
-            Factory Planning & Production Management
-          </span>
         </div>
         
-        <div className="flex flex-wrap gap-2 mt-2">
-          <button
-            onClick={() => changeCapabilityFilter(null)}
-            className={`px-3 py-1 rounded-full text-sm ${
-              !selectedCapabilityId 
-                ? 'bg-green-600 text-white' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-            }`}
+        <div className="relative">
+          <div
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="w-full flex items-center justify-between px-4 py-2 text-left bg-white border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
           >
-            Show All
-          </button>
-          
-          {relatedCapabilities.parents && relatedCapabilities.parents.length > 0 ? (
-            <div className="w-full">
-              {/* Parent Capabilities */}
-              <div className="mt-3 mb-2">
-                <h4 className="text-sm font-medium text-gray-700">Parent Capabilities:</h4>
-                <div className="flex flex-wrap gap-2 mt-1">
-                  {relatedCapabilities.parents.map(capability => (
-                    <button
-                      key={capability.id}
-                      onClick={() => changeCapabilityFilter(capability.id)}
-                      className={`px-3 py-1 rounded-full text-sm ${
-                        selectedCapabilityId === capability.id
-                          ? 'bg-green-600 text-white' 
-                          : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                      }`}
-                    >
-                      {capability.name}
-                    </button>
-                  ))}
+            <span className="flex items-center gap-2">
+              <span className="text-sm font-medium text-gray-900">{selectedCapabilityName}</span>
+              {selectedCapabilityId && (
+                <span 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    changeCapabilityFilter(null);
+                  }}
+                  className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full hover:bg-green-200 cursor-pointer"
+                >
+                  Clear
+                </span>
+              )}
+            </span>
+            <ChevronDown className="h-4 w-4 text-gray-900" />
+          </div>
+
+          {isDropdownOpen && (
+            <div className="absolute z-10 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-96 overflow-y-auto">
+              <div className="p-2">
+                <div
+                  onClick={() => changeCapabilityFilter(null)}
+                  className="w-full text-left px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md cursor-pointer font-medium"
+                >
+                  All Capabilities
                 </div>
-              </div>
-              
-              {/* Child Capabilities */}
-              {relatedCapabilities.children && relatedCapabilities.children.length > 0 && (
-                <div className="mt-3">
-                  <h4 className="text-sm font-medium text-gray-700">Child Capabilities:</h4>
-                  <div className="flex flex-wrap gap-2 mt-1">
-                    {relatedCapabilities.children.map(capability => (
-                      <button
-                        key={capability.id}
-                        onClick={() => changeCapabilityFilter(capability.id)}
-                        className={`px-3 py-1 rounded-full text-sm ${
-                          selectedCapabilityId === capability.id
-                            ? 'bg-green-600 text-white' 
-                            : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                        }`}
-                      >
-                        {capability.name}
-                        {capability.parentName && (
-                          <span className="ml-1 text-xs opacity-70">
-                            ({capability.parentName})
-                          </span>
-                        )}
-                      </button>
+
+                {/* Factory Planning Section */}
+                {relatedCapabilities.parents && relatedCapabilities.parents.filter(cap => cap.category === 'Factory Planning').length > 0 && (
+                  <div className="mt-2">
+                    <div className="px-3 py-1 text-xs font-semibold text-gray-900 bg-gray-50">
+                      Factory Planning
+                    </div>
+                    {relatedCapabilities.parents
+                      .filter(cap => cap.category === 'Factory Planning')
+                      .map(capability => (
+                        <div
+                          key={capability.id}
+                          onClick={() => changeCapabilityFilter(capability.id, capability.name)}
+                          className="w-full text-left px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md cursor-pointer font-medium"
+                        >
+                          {capability.name}
+                        </div>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
+
+                {/* Production Management Section */}
+                {relatedCapabilities.parents && relatedCapabilities.parents.filter(cap => cap.category === 'Production Planning').length > 0 && (
+                  <div className="mt-2">
+                    <div className="px-3 py-1 text-xs font-semibold text-gray-900 bg-gray-50">
+                      Production Management
+                    </div>
+                    {relatedCapabilities.parents
+                      .filter(cap => cap.category === 'Production Planning')
+                      .map(capability => (
+                        <div
+                          key={capability.id}
+                          onClick={() => changeCapabilityFilter(capability.id, capability.name)}
+                          className="w-full text-left px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md cursor-pointer font-medium"
+                        >
+                          {capability.name}
+                        </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Child Capabilities Section */}
+                {relatedCapabilities.children && relatedCapabilities.children.length > 0 && (
+                  <div className="mt-2">
+                    <div className="px-3 py-1 text-xs font-semibold text-gray-900 bg-gray-50">
+                      Sub-capabilities
+                    </div>
+                    {relatedCapabilities.children.map(capability => (
+                      <div
+                        key={capability.id}
+                        onClick={() => changeCapabilityFilter(capability.id, `${capability.name}${capability.parentName ? ` (${capability.parentName})` : ''}`)}
+                        className="w-full text-left px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md cursor-pointer flex items-center justify-between font-medium"
+                      >
+                        <span>{capability.name}</span>
+                        {capability.parentName && (
+                          <span className="text-xs text-gray-900">
+                            {capability.parentName}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          ) : (
-            <p className="text-sm text-gray-500 italic">
-              Select strategic goals to see related capabilities for filtering
-            </p>
           )}
         </div>
       </div>
+
+      {/* Filter status text */}
+      {selectedCapabilityId && !loading && (
+        <div className="mb-4 bg-green-50 text-green-800 p-3 rounded-lg">
+          <p className="flex items-center gap-2">
+            <Filter className="h-4 w-4" />
+            Showing use cases for: {selectedCapabilityName}
+          </p>
+        </div>
+      )}
       
       <div className="mb-6">
         <p className="text-gray-600">

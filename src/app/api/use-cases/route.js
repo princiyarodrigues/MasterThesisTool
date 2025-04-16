@@ -67,20 +67,55 @@ export async function GET(request) {
           
           // Extract source_id (use case IDs) from matching relations
           const useCaseIds = matchingRelations.map(relation => relation.source_id);
-          console.log(`Extracted use case IDs: ${useCaseIds.join(', ')}`);
+          console.log(`Extracted use case IDs from flow relationships: ${useCaseIds.join(', ')}`);
           
-          // Query by these specific use case IDs
-          query = { _id: { $in: useCaseIds } };
-        } else {
-          console.log(`No relations found for capabilities ${capabilityIds.join(', ')}`);
-          // If no relations found, check if we have any use cases directly tagged with these capabilities
-          query = { 'relatedCapabilities.capabilityId': { $in: capabilityIds } };
+          // Find use cases that match these IDs
+          const flowRelatedUseCases = await UseCase.find({ 
+            identifier: { $in: useCaseIds } 
+          });
+          
+          if (flowRelatedUseCases.length > 0) {
+            console.log(`Found ${flowRelatedUseCases.length} use cases from flow relationships`);
+            
+            // Get IDs of use cases from the flow relationships
+            const flowUseCaseIds = flowRelatedUseCases.map(uc => uc._id.toString());
+            
+            // Also find any use cases directly tagged with these capabilities
+            const directlyTaggedUseCases = await UseCase.find({ 
+              'relatedCapabilities.capabilityId': { $in: capabilityIds },
+              _id: { $nin: flowUseCaseIds } // Exclude the ones we already found
+            });
+            
+            console.log(`Found ${directlyTaggedUseCases.length} additional directly tagged use cases`);
+            
+            // Combine both sets of use cases
+            const combinedUseCases = [...flowRelatedUseCases, ...directlyTaggedUseCases];
+            
+            // Transform the data to match the format expected by the frontend
+            const formattedUseCases = combinedUseCases.map(useCase => ({
+              id: useCase._id,
+              title: useCase.title || useCase.name.replace(/^Use Case \d+: /, ''),
+              description: useCase.description || `Digital Twin Factory Use Case related to ${useCase.name}`,
+              category: useCase.category || 'Factory Planning',
+              type: useCase.type === 'BusinessService' ? 'production' : useCase.type,
+              // Pass through any capabilities information
+              relatedCapabilities: useCase.relatedCapabilities || []
+            }));
+            
+            return NextResponse.json(formattedUseCases);
+          }
         }
+        
+        console.log(`No flow relations found for capabilities ${capabilityIds.join(', ')} or no matching use cases`);
+        // Fall through to check for directly tagged use cases
+        
       } catch (error) {
         console.error('Error processing usecases_flow_realization.json:', error);
         // Fallback to direct capability matching if file processing fails
-        query = { 'relatedCapabilities.capabilityId': { $in: capabilityIds } };
       }
+      
+      // Query by directly related capabilities 
+      query = { 'relatedCapabilities.capabilityId': { $in: capabilityIds } };
     }
     
     // Fetch use cases from the database

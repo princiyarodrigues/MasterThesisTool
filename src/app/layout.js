@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased min-h-screen bg-white">
         <Providers>
           <Navbar />
-          <main className="m-8 px-8 py-8">
+          <main className="m-1 px-1 py-1">
             {children}
           </main>
         </Providers>
