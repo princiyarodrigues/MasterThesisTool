@@ -12,6 +12,7 @@ import OrderReferenceArchitecture from './OrderReferenceArchitecture';
 import ManufacturingReferenceArchitecture from './ManufacturingReferenceArchitecture';
 import FinalViewReferenceArchitecture from './FinalViewReferenceArchitecture';
 import DigitalFactoryArchitecture from './DigitalFactoryArchitecture';
+import FactoryReferenceArchitecture from './FactoryReferenceArchitecture';
 
 const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
   const [activeTab, setActiveTab] = useState('diagram');
@@ -278,9 +279,10 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div className="lg:col-span-2 h-[calc(100vh-240px)]">
                       {activePerspective === 'factory' && (
-                        <ArchitectureDiagramSVG 
+                        <FactoryReferenceArchitecture 
                           selectedElement={selectedElement}
                           setSelectedElement={setSelectedElement}
+                          departmentId={departmentId}
                         />
                       )}
                       {activePerspective === 'product' && (
