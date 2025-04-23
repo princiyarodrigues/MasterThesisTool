@@ -51,42 +51,42 @@ const architectureElements = [
   // Business Processes (Middle row - Manufacturing Technology Perspective)
   { 
     id: 'bp-1.1', 
-    name: '1.1 Planung, Entwicklung (copy)', 
+    name: '1.1 Planung, Entwicklung', 
     type: 'Business Process', 
     description: 'Planning and development of manufacturing technology',
     x: 50, y: 250, width: 150, height: 70
   },
   { 
     id: 'bp-1.2', 
-    name: '1.2 Konstruktion (copy)', 
+    name: '1.2 Konstruktion', 
     type: 'Business Process', 
     description: 'Construction of manufacturing technology',
     x: 225, y: 250, width: 150, height: 70
   },
   { 
     id: 'bp-2.1', 
-    name: '2.1 Virtuelle Inbetriebnahme (copy)', 
+    name: '2.1 Virtuelle Inbetriebnahme', 
     type: 'Business Process', 
     description: 'Virtual commissioning of manufacturing technology',
     x: 400, y: 250, width: 150, height: 70
   },
   { 
     id: 'bp-3.1', 
-    name: '3.1 Produktion (copy)', 
+    name: '3.1 Produktion', 
     type: 'Business Process', 
     description: 'Production using manufacturing technology',
     x: 575, y: 250, width: 150, height: 70
   },
   { 
     id: 'bp-3.2', 
-    name: '3.2 Instandhaltung & Optimierung (copy)', 
+    name: '3.2 Instandhaltung & Optimierung', 
     type: 'Business Process', 
     description: 'Maintenance and optimization of manufacturing technology',
     x: 750, y: 250, width: 210, height: 70
   },
   { 
     id: 'bp-4.1', 
-    name: '4.1 Modernisierung, Recycling (copy)', 
+    name: '4.1 Modernisierung, Recycling', 
     type: 'Business Process', 
     description: 'Modernization and recycling of manufacturing technology',
     x: 985, y: 250, width: 210, height: 70
@@ -95,63 +95,63 @@ const architectureElements = [
   // Data Objects (Lower section - based on screenshots)
   { 
     id: 'do-1', 
-    name: 'Lasten- & Pflichtenheft (copy)', 
+    name: 'Lasten- & Pflichtenheft', 
     type: 'Data Object', 
     description: 'Requirement specifications',
     x: 125, y: 350, width: 150, height: 60
   },
   { 
     id: 'do-2', 
-    name: 'Maschinen- o. Anlagenmodell (3D) (copy)', 
+    name: 'Maschinen- o. Anlagenmodell (3D)', 
     type: 'Data Object', 
     description: '3D model of machine or facility',
     x: 300, y: 350, width: 210, height: 60
   },
   { 
     id: 'do-3', 
-    name: 'BOR (copy)', 
+    name: 'BOR', 
     type: 'Data Object', 
     description: 'Bill of Resources',
     x: 525, y: 350, width: 150, height: 60
   },
   { 
     id: 'do-4', 
-    name: 'BOM Maschine o. Anlage (copy)', 
+    name: 'BOM Maschine o. Anlage', 
     type: 'Data Object', 
     description: 'Bill of Materials for machine or facility',
     x: 700, y: 350, width: 200, height: 60
   },
   { 
     id: 'do-5', 
-    name: 'Simulationsmodelle & -daten (copy)', 
+    name: 'Simulationsmodelle & -daten', 
     type: 'Data Object', 
     description: 'Simulation models and data',
     x: 500, y: 430, width: 200, height: 60
   },
   { 
     id: 'do-6', 
-    name: 'Testspezifikation & Toleranzangaben (copy)', 
+    name: 'Testspezifikation & Toleranzangaben', 
     type: 'Data Object', 
     description: 'Test specifications and tolerance information',
     x: 500, y: 510, width: 250, height: 60
   },
   { 
     id: 'do-7', 
-    name: 'Maschinen- & Betriebsdaten (copy)', 
+    name: 'Maschinen- & Betriebsdaten', 
     type: 'Data Object', 
     description: 'Machine and operational data',
     x: 800, y: 510, width: 200, height: 60
   },
   { 
     id: 'do-8', 
-    name: 'Fehlerberichte (copy)', 
+    name: 'Fehlerberichte', 
     type: 'Data Object', 
     description: 'Error reports',
     x: 500, y: 590, width: 150, height: 60
   },
   { 
     id: 'do-9', 
-    name: 'Wartungspläne (copy)', 
+    name: 'Wartungspläne', 
     type: 'Data Object', 
     description: 'Maintenance plans',
     x: 700, y: 590, width: 150, height: 60
@@ -160,35 +160,35 @@ const architectureElements = [
   // Data Models (Bottom row)
   { 
     id: 'dm-1', 
-    name: 'Grafisches Modell (copy)', 
+    name: 'Grafisches Modell', 
     type: 'Data Model', 
     description: 'Graphical model',
     x: 130, y: 680, width: 120, height: 60
   },
   { 
     id: 'dm-2', 
-    name: 'Strukturmodell (copy)', 
+    name: 'Strukturmodell', 
     type: 'Data Model', 
     description: 'Structure model',
     x: 270, y: 680, width: 120, height: 60
   },
   { 
     id: 'dm-3', 
-    name: 'Materialfluss (copy)', 
+    name: 'Materialfluss', 
     type: 'Data Model', 
     description: 'Material flow data model',
     x: 410, y: 680, width: 120, height: 60
   },
   { 
     id: 'dm-4', 
-    name: 'Fähigkeitenmodell (copy)', 
+    name: 'Fähigkeitenmodell', 
     type: 'Data Model', 
     description: 'Capabilities model',
     x: 550, y: 680, width: 120, height: 60
   },
   { 
     id: 'dm-5', 
-    name: 'Kennzahlenmodell (copy)', 
+    name: 'Kennzahlenmodell', 
     type: 'Data Model', 
     description: 'KPI model',
     x: 690, y: 680, width: 120, height: 60
@@ -663,70 +663,70 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
 
   // Get appropriate styling for elements based on their selection state
   const getElementStyle = (elementId) => {
-    const isSelected = selectedElement === elementId;
-    const element = architectureElements.find(el => el.id === elementId);
-    const baseStyles = getElementTypeColors(element.type);
+    if (elementId === selectedElement) {
+      return 'stroke-blue-500 stroke-[2px]';
+    }
     
-    return {
-      fill: isSelected ? baseStyles.selectedFill : baseStyles.fill,
-      stroke: isSelected ? baseStyles.selectedStroke : baseStyles.stroke,
-      strokeWidth: isSelected ? 2 : 1,
-      cursor: 'pointer',
-      filter: isSelected ? 'drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3))' : ''
-    };
+    if (selectedElement) {
+      // Highlight elements connected to the selected element
+      const isConnected = relationships.some(rel => 
+        (rel.source === selectedElement && rel.target === elementId) ||
+        (rel.target === selectedElement && rel.source === elementId)
+      );
+      
+      return isConnected ? 'stroke-[1.5px]' : 'opacity-50';
+    }
+    
+    return 'stroke-[1px]';
   };
 
   // Style for relationship lines
   const getRelationshipStyle = (relationship) => {
-    const isSelected = selectedElement === relationship.source || selectedElement === relationship.target;
-    const styles = getRelationshipTypeStyles(relationship.type);
+    if (!selectedElement) return '';
     
-    return {
-      stroke: isSelected ? styles.selectedStroke : styles.stroke,
-      strokeWidth: isSelected ? 3 : 2,
-      strokeDasharray: styles.strokeDasharray,
-      markerEnd: `url(#${relationship.type}Arrow)`,
-      markerEndSelectedId: `${relationship.type}ArrowSelected`
-    };
+    const isHighlighted = relationship.source === selectedElement || 
+                        relationship.target === selectedElement;
+    
+    return isHighlighted ? 'stroke-[2px]' : 'opacity-30';
   };
 
   // Define colors for different element types
   const getElementTypeColors = (type) => {
     switch(type) {
       case 'Value Stream':
-        return {
-          fill: '#f9e79f',
-          stroke: '#d4ac0d',
-          selectedFill: '#f7dc6f',
-          selectedStroke: '#b7950b'
+        return { 
+          fill: 'fill-amber-50', 
+          stroke: 'stroke-amber-300',
+          text: 'text-amber-900',
+          markerFill: '#F59E0B'
         };
       case 'Business Process':
-        return {
-          fill: '#aed6f1',
-          stroke: '#3498db',
-          selectedFill: '#85c1e9',
-          selectedStroke: '#2874a6'
+        return { 
+          fill: 'fill-green-50', 
+          stroke: 'stroke-green-300',
+          text: 'text-green-900',
+          markerFill: '#10B981'
         };
       case 'Data Object':
-        return {
-          fill: '#a3e4d7',
-          stroke: '#1abc9c',
-          selectedFill: '#76d7c4',
-          selectedStroke: '#148f77'
+        return { 
+          fill: 'fill-cyan-50', 
+          stroke: 'stroke-cyan-300',
+          text: 'text-cyan-900',
+          markerFill: '#06B6D4'
         };
       case 'Data Model':
-        return {
-          fill: '#d5f5e3',
-          stroke: '#27ae60',
-          selectedFill: '#abebc6',
-          selectedStroke: '#186a3b'
+        return { 
+          fill: 'fill-blue-50', 
+          stroke: 'stroke-blue-300',
+          text: 'text-blue-900',
+          markerFill: '#3B82F6'
         };
       default:
-        return {
-          fill: '#ecf0f1',
-          stroke: '#95a5a6',
-          selectedFill: '#d0d3d4',
-          selectedStroke: '#7f8c8d'
+        return { 
+          fill: 'fill-gray-50', 
+          stroke: 'stroke-gray-300',
+          text: 'text-gray-900',
+          markerFill: '#6B7280'
         };
     }
   };
@@ -735,40 +735,34 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
   const getRelationshipTypeStyles = (type) => {
     switch(type) {
       case 'Triggering':
-        return {
-          stroke: '#3498db',
-          selectedStroke: '#2874a6',
-          strokeDasharray: ''
+        return { 
+          stroke: 'stroke-amber-500', 
+          marker: 'url(#arrow-triggering)'
         };
       case 'Access':
-        return {
-          stroke: '#e74c3c',
-          selectedStroke: '#c0392b',
-          strokeDasharray: ''
+        return { 
+          stroke: 'stroke-cyan-500 stroke-dotted', 
+          marker: 'url(#arrow-access)'
         };
       case 'Realization':
-        return {
-          stroke: '#2ecc71',
-          selectedStroke: '#27ae60',
-          strokeDasharray: '5,2'
+        return { 
+          stroke: 'stroke-green-500 stroke-dashed', 
+          marker: 'url(#arrow-realization)'
         };
       case 'Composition':
-        return {
-          stroke: '#9b59b6',
-          selectedStroke: '#8e44ad',
-          strokeDasharray: '2,2'
+        return { 
+          stroke: 'stroke-blue-500', 
+          marker: 'url(#arrow-composition)'
         };
       case 'Association':
-        return {
-          stroke: '#f1c40f',
-          selectedStroke: '#f39c12',
-          strokeDasharray: '10,2'
+        return { 
+          stroke: 'stroke-purple-500', 
+          marker: 'url(#arrow-association)'
         };
       default:
-        return {
-          stroke: '#95a5a6',
-          selectedStroke: '#7f8c8d',
-          strokeDasharray: ''
+        return { 
+          stroke: 'stroke-gray-500', 
+          marker: 'url(#arrow-triggering)'
         };
     }
   };
@@ -777,180 +771,183 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
   const getTypeStyles = (type) => {
     switch(type) {
       case 'Value Stream':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        return 'bg-amber-50 text-amber-800 border-amber-300';
       case 'Business Process':
-        return 'bg-blue-100 text-blue-800 border-blue-300';
+        return 'bg-green-50 text-green-800 border-green-300';
       case 'Data Object':
-        return 'bg-green-100 text-green-800 border-green-300';
+        return 'bg-cyan-50 text-cyan-800 border-cyan-300';
       case 'Data Model':
-        return 'bg-lime-100 text-lime-800 border-lime-300';
+        return 'bg-blue-50 text-blue-800 border-blue-300';
       case 'Business Event':
-        return 'bg-red-100 text-red-800 border-red-300';
+        return 'bg-red-50 text-red-800 border-red-300';
       case 'Grouping':
-        return 'bg-purple-100 text-purple-800 border-purple-300';
+        return 'bg-purple-50 text-purple-800 border-purple-300';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-300';
+        return 'bg-gray-50 text-gray-800 border-gray-300';
     }
   };
 
   return (
-    <div className="relative h-full" onClick={handleBackgroundClick}>
-      <svg width="100%" height="100%" style={{ minWidth: '1200px', minHeight: '800px' }}>
-        {/* Define arrow markers for relationships */}
-        <defs>
-          <marker
-            id="TriggeringArrow"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#3498db" />
-          </marker>
-          <marker
-            id="TriggeringArrowSelected"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2874a6" />
-          </marker>
-          <marker
-            id="AccessArrow"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#e74c3c" />
-          </marker>
-          <marker
-            id="AccessArrowSelected"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b" />
-          </marker>
-          <marker
-            id="RealizationArrow"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2ecc71" />
-          </marker>
-          <marker
-            id="RealizationArrowSelected"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#27ae60" />
-          </marker>
-          <marker
-            id="CompositionArrow"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#9b59b6" />
-          </marker>
-          <marker
-            id="CompositionArrowSelected"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8e44ad" />
-          </marker>
-          <marker
-            id="AssociationArrow"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#f1c40f" />
-          </marker>
-          <marker
-            id="AssociationArrowSelected"
-            viewBox="0 0 10 10"
-            refX="5"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#f39c12" />
-          </marker>
-        </defs>
+    <div className="h-full relative">
+      {/* Display the diagram */}
+      <div className="h-[calc(100vh-190px)] overflow-auto" onClick={handleBackgroundClick}>
+        <svg 
+          width="100%" 
+          height="1200" 
+          viewBox="0 0 1500 1200"
+          className="border-0"
+        >
+          {/* Define arrow markers for relationships */}
+          <defs>
+            <marker
+              id="arrow-triggering"
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#F59E0B" />
+            </marker>
+            <marker
+              id="arrow-access"
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#06B6D4" />
+            </marker>
+            <marker
+              id="arrow-realization"
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#10B981" />
+            </marker>
+            <marker
+              id="arrow-composition"
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B82F6" />
+            </marker>
+            <marker
+              id="arrow-association"
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8B5CF6" />
+            </marker>
+          </defs>
 
-        {/* Draw relationship lines first (so they appear under the elements) */}
-        {relationships.map(relationship => {
-          const style = getRelationshipStyle(relationship);
-          return (
-            <path
-              key={relationship.id}
-              d={calculatePath(relationship)}
-              style={{
-                stroke: style.stroke,
-                strokeWidth: style.strokeWidth,
-                strokeDasharray: style.strokeDasharray,
-                fill: 'none',
-              }}
-              markerEnd={selectedElement === relationship.source || selectedElement === relationship.target 
-                ? `url(#${style.markerEndSelectedId})` 
-                : style.markerEnd}
-            />
-          );
-        })}
-
-        {/* Draw the architectural elements */}
-        {architectureElements.map(element => {
-          const style = getElementStyle(element.id);
-          return (
-            <g key={element.id} onClick={(e) => handleElementClick(element.id, e)}>
-              <rect
-                x={element.x}
-                y={element.y}
-                width={element.width}
-                height={element.height}
-                rx={4}
-                style={style}
+          {/* Render relationships */}
+          {relationships.map((rel) => {
+            const typeStyles = getRelationshipTypeStyles(rel.type);
+            return (
+              <path
+                key={rel.id}
+                d={calculatePath(rel)}
+                className={`${typeStyles.stroke} ${getRelationshipStyle(rel)} transition-all duration-300`}
+                markerEnd={typeStyles.marker}
+                fill="none"
+                strokeWidth="1.5"
               />
-              <text
-                x={element.x + (element.width / 2)}
-                y={element.y + (element.height / 2)}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                style={{
-                  fontSize: '12px',
-                  fontWeight: selectedElement === element.id ? 'bold' : 'normal',
-                  fill: '#333',
-                  pointerEvents: 'none'
-                }}
+            );
+          })}
+
+          {/* Render architecture elements */}
+          {architectureElements.map((element) => {
+            const colors = getElementTypeColors(element.type);
+            return (
+              <g 
+                key={element.id}
+                onClick={(e) => handleElementClick(element.id, e)}
+                className="cursor-pointer"
               >
-                {element.name.length > 20 ? `${element.name.substring(0, 20)}...` : element.name}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+                <rect
+                  x={element.x}
+                  y={element.y}
+                  width={element.width}
+                  height={element.height}
+                  rx="5"
+                  className={`${colors.fill} ${colors.stroke} ${getElementStyle(element.id)} transition-all duration-300`}
+                />
+                
+                <text
+                  x={element.x + element.width / 2}
+                  y={element.y + (element.height / 2) - 5}
+                  textAnchor="middle"
+                  className={`text-sm font-medium ${colors.text} transition-all duration-300 ${
+                    selectedElement && element.id !== selectedElement && 
+                    !relationships.some(rel => 
+                      (rel.source === selectedElement && rel.target === element.id) ||
+                      (rel.target === selectedElement && rel.source === element.id)
+                    ) 
+                      ? 'opacity-50' 
+                      : ''
+                  }`}
+                >
+                  {element.name}
+                </text>
+                
+                <text
+                  x={element.x + element.width / 2}
+                  y={element.y + (element.height / 2) + 15}
+                  textAnchor="middle"
+                  className={`text-xs ${colors.text} transition-all duration-300 ${
+                    selectedElement && element.id !== selectedElement && 
+                    !relationships.some(rel => 
+                      (rel.source === selectedElement && rel.target === element.id) ||
+                      (rel.target === selectedElement && rel.source === element.id)
+                    ) 
+                      ? 'opacity-50' 
+                      : ''
+                  }`}
+                >
+                  {element.type}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+      
+      {/* Selected element details panel */}
+      {selectedElement && (
+        <div className="absolute top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-10">
+          <h3 className="text-lg font-semibold text-gray-800">
+            {architectureElements.find(el => el.id === selectedElement)?.name}
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">
+            {architectureElements.find(el => el.id === selectedElement)?.type}
+          </p>
+          <p className="mt-2 text-sm text-gray-600">
+            {architectureElements.find(el => el.id === selectedElement)?.description}
+          </p>
+          <button 
+            className="mt-4 text-xs text-blue-600 hover:text-blue-800"
+            onClick={handleBackgroundClick}
+          >
+            Close Details
+          </button>
+        </div>
+      )}
     </div>
   );
 };
