@@ -1,0 +1,138 @@
+[
+  {
+    "identifier": "id-a8799c66d86d4214ac0cc00244830389",
+    "name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik"
+  },
+  {
+    "identifier": "id-f24e26cf514949ee83cc5c13e5fc45ac",
+    "name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen"
+  },
+  {
+    "identifier": "id-2fb0baee8b7947dda90f822f06814d99",
+    "name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien"
+  },
+  {
+    "identifier": "id-e962e46dd6b74e6b8f27089126bcad92",
+    "name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-867000f402f841c89f9be64b3e19c2fd",
+    "name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen"
+  },
+  {
+    "identifier": "id-6038f18d00404b9795fd34827521f166",
+    "name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen"
+  },
+  {
+    "identifier": "id-296914bf8e7049e1a856be3db18e29fb",
+    "name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-06dcb3c92bf0450d8f3e21c6d24b217e",
+    "name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase"
+  },
+  {
+    "identifier": "id-c721687397614ff2abaafaa53d7446fa",
+    "name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse"
+  },
+  {
+    "identifier": "id-4be4101dd1e84dfabbfa3dc16999c1f6",
+    "name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)"
+  },
+  {
+    "identifier": "id-deaa0c535a56436bbae93ce7192bcd4b",
+    "name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen"
+  },
+  {
+    "identifier": "id-866f5565e44943228414774c0a25b912",
+    "name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+  },
+  {
+    "identifier": "id-4da01778e14940fbb8e8d7213d1d9405",
+    "name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)"
+  },
+  {
+    "identifier": "id-4911996c9d6742ceb7d626840d850c2d",
+    "name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)"
+  },
+  {
+    "identifier": "id-15a0aa03af834f15bbd1382492092ca6",
+    "name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen"
+  },
+  {
+    "identifier": "id-78b86e9db7eb4457808383826eb255d0",
+    "name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik"
+  },
+  {
+    "identifier": "id-82ae499e89e04458aacdc8940485abb8",
+    "name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-e0e32574a4a64ffea0126b311d2c65be",
+    "name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen"
+  },
+  {
+    "identifier": "id-549deffc00974058adaac7d43d85181a",
+    "name": "Use Case 19: Fernzugriff und -steuerung für Produktionslinien, Fertigungssegmente und die Fabrik"
+  },
+  {
+    "identifier": "id-fba49bebb32c47eeb9569d389545f346",
+    "name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik"
+  },
+  {
+    "identifier": "id-1274db15dc2f41a680b42bed2cee456d",
+    "name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen"
+  },
+  {
+    "identifier": "id-5ba01d9e4a434ecfb57adb961cf9f214",
+    "name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion"
+  },
+  {
+    "identifier": "id-fc1d1d9938454e9e86003421b43cea78",
+    "name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots"
+  },
+  {
+    "identifier": "id-8cea1cd5bb11402ab74946f36d521b24",
+    "name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage"
+  },
+  {
+    "identifier": "id-ec05ecabf3804f528213457ed3360db0",
+    "name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen"
+  },
+  {
+    "identifier": "id-b247ea56f0e7499f81c4a0669220f652",
+    "name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess"
+  },
+  {
+    "identifier": "id-47cfe3e912e2491cbc51cdf018f6707b",
+    "name": "Use Case 27: Automatisiertes Wertstrommanagement"
+  },
+  {
+    "identifier": "id-da0505b929ac495581eede64f2d264ba",
+    "name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung"
+  },
+  {
+    "identifier": "id-39a45fc6752f4c85935d883d98d73d00",
+    "name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik"
+  },
+  {
+    "identifier": "id-1cbcbd08d9754882a9fceeb150644010",
+    "name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen"
+  },
+  {
+    "identifier": "id-1b46772e6cad40609b8faa2f3687b218",
+    "name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik"
+  },
+  {
+    "identifier": "id-606570e007c34d5cbe34fef5b275c114",
+    "name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte"
+  },
+  {
+    "identifier": "id-9b3d069aee744f89bbf2af9ec52d32da",
+    "name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten"
+  },
+  {
+    "identifier": "id-f16047374ad54723a853f7dd006321a3",
+    "name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken"
+  }
+]

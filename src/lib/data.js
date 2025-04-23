@@ -79,7 +79,7 @@ const data = [
     categories: [
       {
         id: 'it-vendors',
-        name: 'IT Vendors',
+        name: 'IT Principles',
         description: 'Current Analysis of the IT Strategy',
         tags: ['policy', 'compliance'],
         items: [

@@ -70,56 +70,62 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
   
   // Define drop target for the SVG
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: 'UC_BLOCK',
+    accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
     drop: (item, monitor) => {
-      if (item.name === 'Production Data Visualization') {
-        // Get drop coordinates relative to the SVG
-        const dropCoordinates = monitor.getClientOffset();
-        
-        // Find closest element to the drop point
-        let targetElement = 'graphic-model'; // Default
-        
-        // Check if drop is closer to structure-model
-        if (elementPositions['graphic-model'] && elementPositions['structure-model']) {
-          const graphicModelCenter = {
-            x: elementPositions['graphic-model'].x,
-            y: elementPositions['graphic-model'].y
-          };
-          
-          const structureModelCenter = {
-            x: elementPositions['structure-model'].x,
-            y: elementPositions['structure-model'].y
-          };
-          
-          // If drop is closer to structure-model horizontally
-          if (Math.abs(dropCoordinates.x - structureModelCenter.x) < 
-              Math.abs(dropCoordinates.x - graphicModelCenter.x)) {
-            targetElement = 'structure-model';
-          }
-        }
-        
-        // Add a custom connection from the UC block to the target Model
-        const newConnection = {
-          id: `uc-connection-${customConnections.length + 1}`,
-          from: item.id,
-          to: targetElement,
-          type: 'custom',
-          fromLabel: item.name
+      // Get drop coordinates relative to the SVG
+      const dropCoordinates = monitor.getClientOffset();
+      
+      // Find closest element to the drop point
+      let targetElement = 'graphic-model'; // Default
+      
+      if (elementPositions['graphic-model'] && elementPositions['structure-model']) {
+        const graphicModelCenter = {
+          x: elementPositions['graphic-model'].x,
+          y: elementPositions['graphic-model'].y
         };
         
-        setCustomConnections([...customConnections, newConnection]);
+        const structureModelCenter = {
+          x: elementPositions['structure-model'].x,
+          y: elementPositions['structure-model'].y
+        };
         
-        // Show notification
-        setConnectionNotification({
-          message: `Connected to ${targetElement === 'graphic-model' ? 'Grafisches Modell' : 'Strukturmodell'}`,
-          timestamp: Date.now()
-        });
-        
-        // Clear notification after 2 seconds
-        setTimeout(() => {
-          setConnectionNotification(null);
-        }, 2000);
+        // If drop is closer to structure-model horizontally
+        if (Math.abs(dropCoordinates.x - structureModelCenter.x) < 
+            Math.abs(dropCoordinates.x - graphicModelCenter.x)) {
+          targetElement = 'structure-model';
+        }
       }
+      
+      // Determine connection color and style based on element type
+      let connectionColor = '#818cf8'; // Default blue color
+      
+      if (item.type === 'Equipment') {
+        connectionColor = '#10b981'; // Green color for equipment
+      }
+      
+      // Add a custom connection from the element block to the target
+      const newConnection = {
+        id: `element-connection-${customConnections.length + 1}`,
+        from: item.id,
+        to: targetElement,
+        type: 'custom',
+        fromLabel: item.name,
+        elementType: item.type,
+        color: connectionColor
+      };
+      
+      setCustomConnections([...customConnections, newConnection]);
+      
+      // Show notification
+      setConnectionNotification({
+        message: `Connected ${item.name} to ${targetElement === 'graphic-model' ? 'Grafisches Modell' : 'Strukturmodell'}`,
+        timestamp: Date.now()
+      });
+      
+      // Clear notification after 2 seconds
+      setTimeout(() => {
+        setConnectionNotification(null);
+      }, 2000);
       
       // Return a result to let the source know the drop was successful
       return { dropped: true };
@@ -320,6 +326,27 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
       >
         <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.custom} />
       </marker>
+      {/* New arrow markers for element types */}
+      <marker
+        id="arrowhead-equipment"
+        markerWidth="10"
+        markerHeight="7"
+        refX="9"
+        refY="3.5"
+        orient="auto"
+      >
+        <polygon points="0 0, 8 3.5, 0 7" fill="#10b981" />
+      </marker>
+      <marker
+        id="arrowhead-software"
+        markerWidth="10"
+        markerHeight="7"
+        refX="9"
+        refY="3.5"
+        orient="auto"
+      >
+        <polygon points="0 0, 8 3.5, 0 7" fill="#818cf8" />
+      </marker>
     </>
   );
 
@@ -462,14 +489,14 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
   };
 
   // Render a custom connection from a UC block to an element
-  const CustomConnection = ({ from, fromLabel, to, type = 'custom' }) => {
+  const CustomConnection = ({ from, fromLabel, to, type = 'custom', elementType, color }) => {
     const [isHovered, setIsHovered] = useState(false);
     
     if (!elementPositions[to]) return null;
     
     const target = elementPositions[to];
     
-    // Position the UC block label directly below the target element
+    // Position the element block label directly below the target element
     const labelX = target.x;
     const labelY = target.bottom + 35; // Position below the target with some spacing
     
@@ -479,9 +506,22 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
     const endX = target.x;
     const endY = target.bottom;
     
-    const color = COLORS.connections[type] || COLORS.connections.custom;
+    // Use the color passed from the drop handler, or fallback to default colors
+    const connectionColor = color || COLORS.connections[type] || COLORS.connections.custom;
     
-    // Function to handle click on the UC block to extend connection
+    // Determine background and text colors based on element type
+    let bgColor = isHovered ? "#EBF5FF" : "#F3F9FF"; // Default blue colors
+    let borderColor = isHovered ? "#3B82F6" : "#60A5FA";
+    let textColor = isHovered ? "#1E40AF" : "#2563EB";
+    
+    // If element is Equipment type, use green styling
+    if (elementType === 'Equipment') {
+      bgColor = isHovered ? "#ECFDF5" : "#F0FDF9";
+      borderColor = isHovered ? "#059669" : "#10B981";
+      textColor = isHovered ? "#065F46" : "#047857";
+    }
+    
+    // Function to handle click on the element block to extend connection
     const handleUCBlockClick = (event) => {
       event.stopPropagation();
       
@@ -490,14 +530,17 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
         conn => conn.from === from && conn.to === 'structure-model'
       );
       
-      if (!hasStructureModelConnection) {
+      // Only allow extending if not already connected
+      if (to !== 'structure-model' && !hasStructureModelConnection) {
         // Create a new connection to the structure-model element
         const newConnection = {
-          id: `uc-connection-extended-${customConnections.length + 1}`,
+          id: `element-connection-extended-${customConnections.length + 1}`,
           from,
           to: 'structure-model',
           type: 'custom',
-          fromLabel
+          fromLabel,
+          elementType,
+          color: connectionColor
         };
         
         setCustomConnections([...customConnections, newConnection]);
@@ -512,7 +555,7 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
         setTimeout(() => {
           setConnectionNotification(null);
         }, 2000);
-      } else {
+      } else if (hasStructureModelConnection) {
         // Show already connected notification
         setConnectionNotification({
           message: 'Already connected to Strukturmodell',
@@ -528,15 +571,15 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
     
     return (
       <g>
-        {/* UC Block label - make it interactive */}
+        {/* Element Block label - make it interactive */}
         <rect
-          x={labelX - 75}
+          x={labelX - 80}
           y={labelY - 15}
-          width={150}
+          width={160}
           height={30}
           rx="4"
-          fill={isHovered ? "#EBEAFE" : "#F3F4FF"}
-          stroke={isHovered ? "#4F46E5" : "#6366F1"}
+          fill={bgColor}
+          stroke={borderColor}
           strokeWidth={isHovered ? "2" : "1.5"}
           className="cursor-pointer"
           onClick={handleUCBlockClick}
@@ -550,17 +593,17 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
           dominantBaseline="middle"
           fontSize={10}
           fontWeight={isHovered ? "600" : "500"}
-          fill={isHovered ? "#4338CA" : "#4F46E5"}
+          fill={textColor}
           className="cursor-pointer select-none"
           onClick={handleUCBlockClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {fromLabel}
+          {fromLabel} {elementType && `(${elementType})`}
         </text>
         
         {/* Tooltip/hint - only show when hovered */}
-        {isHovered && (
+        {isHovered && to !== 'structure-model' && (
           <g>
             {/* Tooltip background */}
             <rect
@@ -569,7 +612,7 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
               width={170}
               height={22}
               rx="3"
-              fill="#4F46E5"
+              fill={elementType === 'Equipment' ? "#059669" : "#4F46E5"}
               opacity="0.9"
             />
             {/* Tooltip text */}
@@ -594,9 +637,9 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
           y1={startY}
           x2={endX}
           y2={endY}
-          stroke={isHovered ? COLORS.connections.composition : color}
+          stroke={isHovered ? (elementType === 'Equipment' ? "#059669" : "#4F46E5") : connectionColor}
           strokeWidth={isHovered ? "2" : "1.5"}
-          markerEnd={`url(#arrowhead-${type})`}
+          markerEnd={`url(#arrowhead-${elementType === 'Equipment' ? 'equipment' : elementType === 'Software' ? 'software' : 'custom'})`}
         />
       </g>
     );
@@ -1081,6 +1124,8 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
           fromLabel={conn.fromLabel}
           to={conn.to}
           type={conn.type}
+          elementType={conn.elementType}
+          color={conn.color}
         />
       ))}
     </svg>

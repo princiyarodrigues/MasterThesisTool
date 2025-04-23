@@ -19,6 +19,7 @@
     "next": "15.0.2",
     "next-auth": "^4.24.10",
     "python": "^0.0.4",
+    "python3": "^0.0.1",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dnd": "^16.0.1",

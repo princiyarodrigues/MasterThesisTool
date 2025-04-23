@@ -1,11 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDrag } from 'react-dnd';
+import { useCasesData } from '../../lib/use-cases-data';
+import { useCaseElementsData } from '../../lib/use-case-elements-data';
 
-// UC Block component that can be dragged
-const UCBlock = ({ id, name, description, onDragEnd }) => {
+// Element Block component that can be dragged
+const ElementBlock = ({ id, name, type, onDragEnd }) => {
+  // Determine block color based on type
+  const isEquipment = type === 'Equipment';
+  const baseClasses = `p-1.5 mb-2 border rounded-md cursor-move transition-all shadow-sm hover:shadow-md`;
+  const colorClasses = isEquipment 
+    ? `bg-green-50 border-green-200 hover:border-green-500`
+    : `bg-blue-50 border-blue-200 hover:border-blue-500`;
+  
+  const textColorClasses = isEquipment 
+    ? `text-green-700`
+    : `text-blue-700`;
+  
   const [{ isDragging }, drag] = useDrag(() => ({
-    type: 'UC_BLOCK',
-    item: { id, name, description },
+    type: 'ELEMENT_BLOCK',
+    item: { id, name, type },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
@@ -20,60 +33,57 @@ const UCBlock = ({ id, name, description, onDragEnd }) => {
   return (
     <div
       ref={drag}
-      className={`p-1.5 mb-2 bg-indigo-50 border ${isDragging ? 'border-indigo-500' : 'border-indigo-200'} rounded-md cursor-move transition-all shadow-sm hover:shadow-md ${
-        isDragging ? 'opacity-50 scale-105' : 'opacity-100'
-      }`}
+      className={`${baseClasses} ${colorClasses} ${isDragging ? 'opacity-50 scale-105' : 'opacity-100'}`}
     >
-      <div className="font-medium text-indigo-700 flex items-center justify-between text-xs">
+      <div className={`font-medium flex items-center justify-between text-xs ${textColorClasses}`}>
         {name}
-        <span className="text-xs bg-indigo-100 text-indigo-700 px-1 py-0.5 rounded-md">Drag</span>
+        <span className={`text-xs ${isEquipment ? 'bg-green-100' : 'bg-blue-100'} ${textColorClasses} px-1 py-0.5 rounded-md`}>
+          {type}
+        </span>
       </div>
-      {description && <div className="text-xs text-indigo-500 mt-0.5">{description}</div>}
     </div>
   );
 };
 
 // Container component for UC Blocks
 const UCBlocks = () => {
-  // Track which blocks have been used
-  const [usedBlocks, setUsedBlocks] = useState([]);
+  // State
+  const [selectedUseCase, setSelectedUseCase] = useState(null);
+  const [usedElements, setUsedElements] = useState([]);
   
-  // Sample UC blocks data
-  const allBlocks = [
-    {
-      id: 'uc-block-1',
-      name: 'Production Data Visualization',
-      description: 'Visualizes production data in real-time',
-    },
-    {
-      id: 'uc-block-2',
-      name: 'Quality Control Metrics',
-      description: 'Monitors quality metrics for manufacturing',
-    },
-  ];
+  // Handle use case selection
+  const handleUseCaseSelect = (useCaseId) => {
+    setSelectedUseCase(useCaseId === selectedUseCase ? null : useCaseId);
+  };
   
-  // Filter out blocks that have been used
-  const availableBlocks = allBlocks.filter(block => !usedBlocks.includes(block.id));
-  
-  // Handle when a block is successfully dragged
-  const handleBlockUsed = (blockId) => {
-    setUsedBlocks([...usedBlocks, blockId]);
+  // Handle when an element is successfully dragged
+  const handleElementUsed = (elementId) => {
+    setUsedElements([...usedElements, elementId]);
   };
   
   // Reset all blocks
   const handleReset = () => {
-    setUsedBlocks([]);
+    setUsedElements([]);
     // We also need to trigger a reset in the parent component
     if (window.dispatchEvent) {
       window.dispatchEvent(new CustomEvent('resetArchitectureDiagram'));
     }
   };
 
+  // Get elements for the selected use case
+  const getAvailableElements = () => {
+    if (!selectedUseCase) return [];
+    const elements = useCaseElementsData[selectedUseCase] || [];
+    return elements.filter(element => !usedElements.includes(element.id));
+  };
+
+  const availableElements = getAvailableElements();
+
   return (
     <div className="bg-white">
       <div className="flex justify-between items-center mb-1.5">
         <h3 className="text-sm font-medium text-gray-800">Use Case Blocks</h3>
-        {usedBlocks.length > 0 && (
+        {usedElements.length > 0 && (
           <button
             onClick={handleReset}
             className="text-xs bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2 py-1 rounded-md transition-colors"
@@ -92,21 +102,59 @@ const UCBlocks = () => {
         </ol>
       </div>
       
-      {availableBlocks.length > 0 ? (
-        <div className="space-y-1.5">
-          {availableBlocks.map((block) => (
-            <UCBlock key={block.id} {...block} onDragEnd={handleBlockUsed} />
-          ))}
+      {selectedUseCase ? (
+        <div>
+          <div className="flex justify-between items-center mb-2">
+            <h4 className="text-xs font-medium text-gray-700">
+              Elements for {useCasesData.find(uc => uc.id === selectedUseCase)?.title}
+            </h4>
+            <button
+              onClick={() => setSelectedUseCase(null)}
+              className="text-xs text-blue-600 hover:text-blue-800"
+            >
+              Back to Use Cases
+            </button>
+          </div>
+          
+          {availableElements.length > 0 ? (
+            <div className="space-y-1.5 max-h-[calc(100vh-300px)] overflow-y-auto pr-1.5">
+              {availableElements.map((element) => (
+                <ElementBlock 
+                  key={element.id} 
+                  id={element.id} 
+                  name={element.name} 
+                  type={element.type} 
+                  onDragEnd={handleElementUsed} 
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center p-4 border border-dashed border-gray-200 rounded-md">
+              <p className="text-xs text-gray-500">All elements have been used</p>
+              <button
+                onClick={handleReset}
+                className="mt-2 text-xs bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2 py-1 rounded-md transition-colors"
+              >
+                Reset All Elements
+              </button>
+            </div>
+          )}
         </div>
       ) : (
-        <div className="text-center p-4 border border-dashed border-indigo-200 rounded-md">
-          <p className="text-xs text-indigo-500">All blocks have been used</p>
-          <button
-            onClick={handleReset}
-            className="mt-2 text-xs bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2 py-1 rounded-md transition-colors"
-          >
-            Reset All Blocks
-          </button>
+        <div className="max-h-[calc(100vh-220px)] overflow-y-auto pr-1.5">
+          <h4 className="text-xs font-medium text-gray-700 mb-2">Select a Use Case</h4>
+          <div className="space-y-1">
+            {useCasesData.map((useCase) => (
+              <button
+                key={useCase.id}
+                onClick={() => handleUseCaseSelect(useCase.id)}
+                className="w-full text-left text-xs p-2 bg-indigo-50 hover:bg-indigo-100 rounded-md border border-indigo-100 hover:border-indigo-300 text-indigo-700"
+              >
+                <span className="font-medium">{useCase.title}</span>
+                <div className="text-indigo-600 text-xs mt-0.5">{useCase.category}</div>
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

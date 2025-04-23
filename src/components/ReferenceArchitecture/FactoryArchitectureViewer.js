@@ -52,11 +52,28 @@ const FactoryArchitectureViewer = () => {
     }
   };
 
+  // Get the perspective description
+  const getPerspectiveDescription = () => {
+    switch(activePerspective) {
+      case 'product':
+        return 'Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Produkt';
+      case 'order':
+        return 'Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Auftrag';
+      case 'manufacturing':
+        return 'Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Fertigungstechnologie';
+      case 'finalView':
+        return 'Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Final View';
+      case 'factory':
+      default:
+        return 'Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Fabrik';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-800">Reference Architecture</h1>
-        <p className="text-gray-600">Referenzarchitektur Digitaler Fabrikzwilling: Prozesssicht - Perspektive Fabrik</p>
+        <p className="text-gray-600">{getPerspectiveDescription()}</p>
       </div>
       
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6">

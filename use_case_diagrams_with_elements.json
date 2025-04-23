@@ -1,0 +1,1770 @@
+[
+  {
+    "identifier": "id-4be4101dd1e84dfabbfa3dc16999c1f6",
+    "name": "Use Case 10: Monitoring der Fertigungsprozesse für das Qualitätsmanagement (z.B. Anpassung von Maschinenparametern)",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Qualitätsanalyse-modul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Qualitätsreport und Handlungs-empfehlungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Qualitätsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "CAQ-System",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-deaa0c535a56436bbae93ce7192bcd4b",
+    "name": "Use Case 11: Fehler- und Ursachenanalyse mit Fabriksimulationsmodellen",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Fehler- / Stördaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "CAQ-System",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulationsdaten (Taktzeiten, Materialflussdaten, Machinenbelegung, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fehleranalysemodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Feheleranalysebericht inkl. Handlungsempfehlungen für Gegenmaßnahmen",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-866f5565e44943228414774c0a25b912",
+    "name": "Use Case 12: Schulung neuer Mitarbeiter in den Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Hilfsprozesse (Wareneingang, Lager, Warenausgang, ...)",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Simulationsdaten Fabrik (Taktzeiten, Materialflussdaten, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten Fertigungsprozess(Rüstzeiten, Stückzahlen, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten Hilfsprozesse(Materialbuchungen, Lagerorte, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Anlagensimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulationsdaten Anlage (Bewegungspfade, Programmierung, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "AR/VR Visualisierungs-komponente",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Visualisiertes 3D-AR-/VR-Fabrikmodell",
+        "type": "DataObject"
+      },
+      {
+        "name": "AR-/VR-Endgerät (z.B. VR-Brille)",
+        "type": "Equipment"
+      }
+    ]
+  },
+  {
+    "identifier": "id-4da01778e14940fbb8e8d7213d1d9405",
+    "name": "Use Case 13: Unterstützung der Instandhaltung bei der Suche nach defekten Teilen (z.B. für eine Produktionslinie)",
+    "elements": [
+      {
+        "name": "Produktionslinie / Segment",
+        "type": "Equipment"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fehlerlokalisierungs-modul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet), z.B. Fehler- & Zustandsdaten, ...",
+        "type": "DataObject"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Betriebsdaten (z.B. Wartungshistorie, Ersatzteilverlauf, Wartungsintervalle, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fehlerlokalisierung",
+        "type": "DataObject"
+      },
+      {
+        "name": "AR/VR Visualisierungs-komponente",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Visualisiertes 3D-AR-/VR-Fabrikmodell",
+        "type": "DataObject"
+      },
+      {
+        "name": "AR-/VR-Endgerät (z.B. VR-Brille)",
+        "type": "Equipment"
+      },
+      {
+        "name": "Layout- & Geometriedaten",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-4911996c9d6742ceb7d626840d850c2d",
+    "name": "Use Case 14: Optimierung und dynamische Rekonfiguration des Fertigungsprozesses (z.B. Layout, Materialfluss, Maschinenparameter)",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Optimierungsengine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Materialflussvorschlag",
+        "type": "DataObject"
+      },
+      {
+        "name": "Vorschlag Layoutänderungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "KPIs Produktion",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Ist-Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Geändertes Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-15a0aa03af834f15bbd1382492092ca6",
+    "name": "Use Case 15: Automatisierte Planung und Zuweisung von Fertigungsaufträgen und sonstigen Buchungsaufträgen (z.B. Materialbuchung) zu Fabrikressourcen",
+    "elements": [
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "PPS-Planung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Planungsengine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Aktuelle Auslastung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Zuweisungs-vorschläge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Optimaler Materialfluss",
+        "type": "DataObject"
+      },
+      {
+        "name": "Ist-Materialfluss",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-78b86e9db7eb4457808383826eb255d0",
+    "name": "Use Case 16: Automatisierte Optimierungsvorschläge zur Senkung des Work-in-Progress-Bestands in der Fabrik",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Ist Work in Progress Bestand Fertigungsaufträge",
+        "type": "DataObject"
+      },
+      {
+        "name": "WIP Analysemodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Optimierungsvorschläge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulierte Optimierungsvorschläge",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-82ae499e89e04458aacdc8940485abb8",
+    "name": "Use Case 17: Automatisierte Voraussage der Durchlauf- bzw. Zykluszeit für Produktionslinien, Fertigungssegmente und die Fabrik",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Ist Durchlauf- / Zykluszeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Durchlauf- / Zykluszeiten Anlyse- und Voraussagemodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Prognostizierte Durchlauf-/ Zykluszeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Stillstandszeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Angepasste Simulationsparameter (Durchlauf- / Zykluszeit)",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-e0e32574a4a64ffea0126b311d2c65be",
+    "name": "Use Case 18: Automatisierte Optimierung der Routenplanung für die Werkslogistik mit fahrerlosen Transportsystemen",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Analyse- und Optimierungsmodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "FTS Leitsystem",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "FTS Flotte",
+        "type": "Equipment"
+      },
+      {
+        "name": "Fahrdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Materialbuchungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Neue Routenplanung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulierte Routenplanung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Neue Vorgaben Routenplanung",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-549deffc00974058adaac7d43d85181a",
+    "name": "Use Case 19: Fernzugriff und -steuerung für Produktionslinien, Fertigungssegmente und die Fabrik",
+    "elements": [
+      {
+        "name": "Produktionslinie oder Fertigungssegment",
+        "type": "Equipment"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Steuerungsdaten (Produktionsplan, NC-Programm, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Mitlaufende Echtzeit-Simulation",
+        "type": "DataObject"
+      },
+      {
+        "name": "Optimierungsengine Produktionslinie oder Fertigungssegment",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Änderungen der Steuerungsdaten (andere Auftragsreihenfolge, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Produktionslinie oder Fertigungssegment",
+        "type": "Equipment"
+      },
+      {
+        "name": "Bestätigung der Änderungen der Steuerungsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Benutzeroberfläche",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-a8799c66d86d4214ac0cc00244830389",
+    "name": "Use Case 1: Monitoring der Leistung und Betriebsbedingungen bestimmter Assets in der Fabrik",
+    "elements": [
+      {
+        "name": "Produktionsmaschine oder -anlage",
+        "type": "Equipment"
+      },
+      {
+        "name": "Sensorik zur digitalen Datengenerierung",
+        "type": "Equipment"
+      },
+      {
+        "name": "Asset Monitoring Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Monitoring Benutzeroberfläche",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinendaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Alarme & Berichte",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-fba49bebb32c47eeb9569d389545f346",
+    "name": "Use Case 20: Automatisiertes Monitoring und Fortschrittsmanagement für Gebäudearbeiten in der Fabrik",
+    "elements": [
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Projektplanung Baumaßnahmen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Office-Programme",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Bauplan (Soll)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Live-Scan Plattform der Baustelle",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Bauliche Veränderungen (Ist)",
+        "type": "Equipment"
+      },
+      {
+        "name": "Baufortschritt (3D Modell)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-1274db15dc2f41a680b42bed2cee456d",
+    "name": "Use Case 21: Automatisierte Werkerassistenz für Fertigungsprozessen und den damit verbundenen Hilfsprozessen",
+    "elements": [
+      {
+        "name": "PLM",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Werkstück, Arbeitsschritt, Produktvariante",
+        "type": "DataObject"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinenstatus",
+        "type": "DataObject"
+      },
+      {
+        "name": "Ortungssensorik",
+        "type": "Equipment"
+      },
+      {
+        "name": "Aktuelle Position (z.B. in der Produktionslinie)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Werkerassistenz-system",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Individuelle Arbeitsanweisung für den aktuellen Arbeitsschritt / Takt",
+        "type": "DataObject"
+      },
+      {
+        "name": "Besonderheiten Produktvariante",
+        "type": "DataObject"
+      },
+      {
+        "name": "HMI Werker",
+        "type": "Equipment"
+      },
+      {
+        "name": "Audio (zB Headset)",
+        "type": "Equipment"
+      },
+      {
+        "name": "Visuell (AR/VR, Monitor)",
+        "type": "Equipment"
+      }
+    ]
+  },
+  {
+    "identifier": "id-5ba01d9e4a434ecfb57adb961cf9f214",
+    "name": "Use Case 22: Automatisierte Generierung und Analyse des Digital Threads für die Produktion",
+    "elements": [
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Prozessdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinen-daten",
+        "type": "DataObject"
+      },
+      {
+        "name": "PLM",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Produkt-struktur",
+        "type": "DataObject"
+      },
+      {
+        "name": "Änderungs-historie",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Auftrags-daten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Material",
+        "type": "DataObject"
+      },
+      {
+        "name": "Lieferungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Digital Thread Builder",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "CAQ",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Qualitätsberichte",
+        "type": "DataObject"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Sensor-daten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinen-status",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Material-fluss",
+        "type": "DataObject"
+      },
+      {
+        "name": "3D Digital Thread in Simulationsmodell",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Graph-Datenbank",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-fc1d1d9938454e9e86003421b43cea78",
+    "name": "Use Case 23: Monitoring und automatisierte Bewertung von Mensch-Maschinenkollaboration, z. B. für Cobots",
+    "elements": [
+      {
+        "name": "Cobots",
+        "type": "Equipment"
+      },
+      {
+        "name": "Robotersteuerung",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Schichtplan",
+        "type": "DataObject"
+      },
+      {
+        "name": "Sensordaten, Status",
+        "type": "DataObject"
+      },
+      {
+        "name": "Edgenahes Analysemodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Kamera / Sensorik",
+        "type": "Equipment"
+      },
+      {
+        "name": "Interaktionsereignis",
+        "type": "DataObject"
+      },
+      {
+        "name": "Bewertungsmetriken (z.B. Reaktionszeit Cobot)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Risikobewertung & Empfehlung",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-8cea1cd5bb11402ab74946f36d521b24",
+    "name": "Use Case 24: Unterstützung von automatisiertem rekonfigurierbarem Tooling für die Montage",
+    "elements": [
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Tool-Applikation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Prozessschritt",
+        "type": "DataObject"
+      },
+      {
+        "name": "PLM",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Vorgaben Produktvarianten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Barcode, RFID",
+        "type": "Equipment"
+      },
+      {
+        "name": "Tool-Parameter (Drehmoment, Hub, Greiferposition, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Tooling-Konfigurations-modul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Aktuelle Produktvariante",
+        "type": "DataObject"
+      },
+      {
+        "name": "Rekonfiguration Tool",
+        "type": "DataObject"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Ist- / Sensordaten Tool",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-ec05ecabf3804f528213457ed3360db0",
+    "name": "Use Case 25: Automatisierte Planung und Zuweisung von Mitarbeitern zu Fertigungs- und Montagearbeitsplätzen",
+    "elements": [
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Qualifikation",
+        "type": "DataObject"
+      },
+      {
+        "name": "Verfügbarkeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Arbeitsplatzbedarf",
+        "type": "DataObject"
+      },
+      {
+        "name": "Taktzeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Schichtziele",
+        "type": "DataObject"
+      },
+      {
+        "name": "Ist-KPIs (Gutteile, Ausschuss, Ist-Taktzeit, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Zuweisungsmodul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Matching / Zuweisung pro Schicht & Arbeitsplatz",
+        "type": "DataObject"
+      },
+      {
+        "name": "Werkerterminal",
+        "type": "Equipment"
+      },
+      {
+        "name": "Zuweisung des Mitarbeiters",
+        "type": "DataObject"
+      },
+      {
+        "name": "HMI",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Feedback des Mitarbeiters",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-b247ea56f0e7499f81c4a0669220f652",
+    "name": "Use Case 26: Automatisierte Unterstützung zur Reduzierung von nicht-wertschöpfender Variabilität im Fertigungsprozess",
+    "elements": [
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Taktzeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Wartezeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Nacharbeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinenstatus",
+        "type": "DataObject"
+      },
+      {
+        "name": "Bewegungen (Laufwege, Materialbuchungen)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Historische Daten Fertigungsprozess",
+        "type": "DataObject"
+      },
+      {
+        "name": "Analysemodul Variabilität",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Klassifikation nicht-wertschöpfender Aktivitäten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Optimierungs-vorschläge",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-47cfe3e912e2491cbc51cdf018f6707b",
+    "name": "Use Case 27: Automatisiertes Wertstrommanagement",
+    "elements": [
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IIoT",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Prozesszeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Materialfluss",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriklayout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Auftragsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Lagerbestände",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinendaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Wertstromanalyse-Engine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "3D Wertstrommodell",
+        "type": "DataObject"
+      },
+      {
+        "name": "Verbesserungs-vorschläge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Graph-Datenbank",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-da0505b929ac495581eede64f2d264ba",
+    "name": "Use Case 28: Automatisierte Strategie- und Szenario-Entwicklung für multikriterielle Produktionsplanung und -steuerung",
+    "elements": [
+      {
+        "name": "ERP / APS",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Aufträge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Extern aktivierbare Kapazitäten Lieferkette",
+        "type": "DataObject"
+      },
+      {
+        "name": "Lagerbestände",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Produktionsstatus",
+        "type": "DataObject"
+      },
+      {
+        "name": "Auslastung",
+        "type": "DataObject"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinen-verfügbarkeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Störungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Szenario-Engine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Bewertungskriterien (Kosten, CO2, Termintreue, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Mögliche Varianten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Optimierung & Auswahl beste Variante",
+        "type": "DataObject"
+      },
+      {
+        "name": "Freigabe & Rückmeldung für Umsetzung",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-39a45fc6752f4c85935d883d98d73d00",
+    "name": "Use Case 29: Dynamisches und flexibles Energiemanagement in der Fabrik",
+    "elements": [
+      {
+        "name": "Smart Meter",
+        "type": "Equipment"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Energiepreis-verlauf",
+        "type": "DataObject"
+      },
+      {
+        "name": "Taktung / Auslastung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Prozesszeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Vereinbarte Liefertermine",
+        "type": "DataObject"
+      },
+      {
+        "name": "Energieverbrauch Ist",
+        "type": "DataObject"
+      },
+      {
+        "name": "Lastprofil Optimierungs-engine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Energiepreis Ist",
+        "type": "DataObject"
+      },
+      {
+        "name": "Vorschlag Lastmanagement",
+        "type": "DataObject"
+      },
+      {
+        "name": "Zielkriterien (Kosten, CO2, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Energiemonitor / -dashboard",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-f24e26cf514949ee83cc5c13e5fc45ac",
+    "name": "Use Case 2: Monitoring des gesamten Fertigungsprozesses zur Ermittlung von Engpässen",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Prozess- und Auslastungsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Engpassanalyse-modul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Identifizierte Engpässe und Handlungsempfehlungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-1cbcbd08d9754882a9fceeb150644010",
+    "name": "Use Case 30: Automatisierte Erzeugung und Aktualisierung von Fabriksimulationsmodellen",
+    "elements": [
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Aufträge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fertigungsprozess-schritte",
+        "type": "DataObject"
+      },
+      {
+        "name": "Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "PLM",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "CAD Modelle",
+        "type": "DataObject"
+      },
+      {
+        "name": "Livezeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Bewegungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Simulationsmodell-generator",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulations-modell",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-1b46772e6cad40609b8faa2f3687b218",
+    "name": "Use Case 31: Automatisierte Ableitung des Product Carbon Footprints durch Scope 1-Emissionen in der Fabrik",
+    "elements": [
+      {
+        "name": "Smart Meter",
+        "type": "Equipment"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "PLM",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Emissionsfaktoren",
+        "type": "DataObject"
+      },
+      {
+        "name": "Produktstruktur",
+        "type": "DataObject"
+      },
+      {
+        "name": "Losgröße",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinenzeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Prozessfolge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Gas, Luft Verbrauch je Arbeitsschritt",
+        "type": "DataObject"
+      },
+      {
+        "name": "Stromverbrauch je Arbeitsschritt",
+        "type": "DataObject"
+      },
+      {
+        "name": "PCF Generator",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Verbrauchsprofil Produkt",
+        "type": "DataObject"
+      },
+      {
+        "name": "CO2-Berechnung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Aggregierter PCF",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-606570e007c34d5cbe34fef5b275c114",
+    "name": "Use Case 32: Automatisierte datengetriebene Bewertung möglicher Fabrikstandorte",
+    "elements": [
+      {
+        "name": "Externe Standortdaten (Löhne, logistische Anbindung, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Interne Vorgaben (Produktionsart, Volumen, bestendes Netzwerk, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Standortbewerter",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Ranking & Bewertung möglicher Standorte",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-9b3d069aee744f89bbf2af9ec52d32da",
+    "name": "Use Case 33: Automatisierte Vorgabezeitermittlung basierend auf Prozessdaten",
+    "elements": [
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IIoT Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Zykluszeit",
+        "type": "DataObject"
+      },
+      {
+        "name": "Arbeitspläne",
+        "type": "DataObject"
+      },
+      {
+        "name": "Ist-Zeiten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Vorgabezeit-berechner",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Vorgabezeit",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-f16047374ad54723a853f7dd006321a3",
+    "name": "Use Case 34: Automatisierte Objekterkennung und Modellgenerierung auf Basis von Scans / Punktwolken",
+    "elements": [
+      {
+        "name": "Scan Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Modellgenerator",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "3D-Scan / Punktwolke",
+        "type": "DataObject"
+      },
+      {
+        "name": "Objekterkennung",
+        "type": "DataObject"
+      },
+      {
+        "name": "Geometrieextrahierung (Position, Maße, Orientierung)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Generiertes 3D-Modell",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-2fb0baee8b7947dda90f822f06814d99",
+    "name": "Use Case 3: Virtuelle Integrationstests vor Inbetriebnahme von Produktionslinien",
+    "elements": [
+      {
+        "name": "Simulationstool",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Digitales Modell (Teilbestandteil) Produktionslinie",
+        "type": "DataObject"
+      },
+      {
+        "name": "Machbares Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Bestehendes Layout",
+        "type": "DataObject"
+      },
+      {
+        "name": "Kollisionsprüfung",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-e962e46dd6b74e6b8f27089126bcad92",
+    "name": "Use Case 4: Verbesserung der OEE für Produktionslinien, Fertigungssegmente und die Fabrik",
+    "elements": [
+      {
+        "name": "Produktionslinie oder -segment",
+        "type": "Equipment"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IoT Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Data Analytics Plattform",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "OEE  KPI Report",
+        "type": "DataObject"
+      },
+      {
+        "name": "OEE KPI Dashboard",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Fabriksimulations-daten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-867000f402f841c89f9be64b3e19c2fd",
+    "name": "Use Case 5: Monitoring der Ergonomie und Sicherheit von Fertigungs- u. Montagearbeitsplätzen",
+    "elements": [
+      {
+        "name": "Mobile Sensorik am Werker",
+        "type": "Equipment"
+      },
+      {
+        "name": "Ortungstechnologie",
+        "type": "Equipment"
+      },
+      {
+        "name": "Ergonomiedaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Bewegungsdaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Plattform Mitarbeiterdaten",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Arbeitsplatz mit manueller Tätigkeit (Montage, Lagerung, ...)",
+        "type": "Equipment"
+      },
+      {
+        "name": "Ergonomiedaten (verarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Ergonomiedaten (verarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-6038f18d00404b9795fd34827521f166",
+    "name": "Use Case 6: Unterstützung der Produktzertifizierung durch virtuelle Analyse des Fertigungsprozesses zur Einhaltung der Produktspezifikationen",
+    "elements": [
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Simulationsdaten (Taktzeiten, Materialflussdaten, Maschinenbelegung, alternative Ablaufpfade, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Betriebsdaten (Laufzeit, Stillstand, Rüstzeiten, Stückzahlen, Ausschussraten, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Überprüfer für Produktzertifizierung",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Konformanzdaten Produkt (Montagereihenfolge, Geometrie, Chargennummer, ...)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Überprüfungsbericht",
+        "type": "DataObject"
+      }
+    ]
+  },
+  {
+    "identifier": "id-296914bf8e7049e1a856be3db18e29fb",
+    "name": "Use Case 7: Predictive Maintenance für Produktionslinien, Fertigungssegmente und die Fabrik",
+    "elements": [
+      {
+        "name": "Produktionslinie oder -segment",
+        "type": "Equipment"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "IoT Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Predictive Maintenance Engine",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Wartungsregeln bzw. -strategien",
+        "type": "DataObject"
+      },
+      {
+        "name": "Wartungsvorhersage",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-06dcb3c92bf0450d8f3e21c6d24b217e",
+    "name": "Use Case 8: Optimierung von Fabriksimulationsmodellen durch Erkenntnisse aus Daten der Produktnutzungsphase",
+    "elements": [
+      {
+        "name": "Produkt im Feld",
+        "type": "Equipment"
+      },
+      {
+        "name": "IoT-Komponente",
+        "type": "Equipment"
+      },
+      {
+        "name": "Nutzungsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "Plattform Digitaler Produktzwilling",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Lösung Verhaltensmuster-analyse",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Optimierungsvorschläge",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulations-modell",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  },
+  {
+    "identifier": "id-c721687397614ff2abaafaa53d7446fa",
+    "name": "Use Case 9: Monitoring des Energieverbrauchs aufgrund der Fertigungsprozesse",
+    "elements": [
+      {
+        "name": "Fertigungsprozess",
+        "type": "BusinessProcess"
+      },
+      {
+        "name": "IoT-Gateway",
+        "type": "Equipment"
+      },
+      {
+        "name": "Maschinendaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Betriebsdaten",
+        "type": "DataObject"
+      },
+      {
+        "name": "MES",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "SCADA",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "ERP",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Maschinendaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Energiezähler",
+        "type": "Equipment"
+      },
+      {
+        "name": "Energiedaten (unverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Energiedaten (vorverarbeitet)",
+        "type": "DataObject"
+      },
+      {
+        "name": "Qualitätsanalyse-modul",
+        "type": "ApplicationComponent"
+      },
+      {
+        "name": "Qualitätsreport und Handlungs-empfehlungen",
+        "type": "DataObject"
+      },
+      {
+        "name": "Fabriksimulation",
+        "type": "ApplicationComponent"
+      }
+    ]
+  }
+]
