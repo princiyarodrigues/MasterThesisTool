@@ -344,7 +344,7 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Ready for the next step?</h3>
                 <p className="text-gray-600 text-sm mb-3">
-                  Now that you've explored the architecture goals, continue to Business Capabilities to understand implementation options.
+                  Now that you&apos;ve explored the architecture goals, continue to Business Capabilities to understand implementation options.
                 </p>
                 <Link 
                   href={`/departments/${departmentId}/business-capabilities`}
@@ -469,7 +469,7 @@ const ElementsTable = ({ elements, onElementSelect, selectedElement }) => {
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="text-sm text-gray-500">{element.description || 'No description available'}</div>
+                  <div className="text-sm text-gray-500">{element.description || "No description available"}</div>
                 </td>
               </tr>
             ))}
@@ -556,7 +556,7 @@ const ElementDetails = ({ element, incomingRelationships, outgoingRelationships,
           <div className="space-y-4">
             <div>
               <h4 className="text-sm font-medium text-gray-500">Description</h4>
-              <p className="mt-1 text-sm text-gray-900">{element.description || 'No description available'}</p>
+              <p className="mt-1 text-sm text-gray-900">{element.description || "No description available"}</p>
             </div>
             
             {element.attributes && Object.keys(element.attributes).length > 0 && (

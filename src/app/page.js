@@ -104,7 +104,7 @@ export default function Home() {
             For the best experience, follow these steps:
           </p>
           <ol className="list-decimal pl-5 mt-2 space-y-1 text-teal-700">
-            <li>Start with <strong>Architecture Goals</strong> to define your factory's strategic direction</li>
+            <li>Start with <strong>Architecture Goals</strong> to define your factory&apos;s strategic direction</li>
             <li>Explore <strong>Business Capabilities</strong> to understand implementation options</li>
             <li>Review <strong>Use Cases</strong> to see concrete applications</li>
           </ol>
