@@ -1,63 +1,267 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDrop } from 'react-dnd';
+import { useSession } from 'next-auth/react';
 
-const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
-  // Constants for layout - adjusted to match the image
-  const DIAGRAM_WIDTH = 1450;
-  const DIAGRAM_HEIGHT = 800;
-  const TOP_MARGIN = 40;
-  const BOX_WIDTH = 150;
-  const BOX_HEIGHT = 45;
-  const MATERIAL_FLOW_HEIGHT = 40;
-  const ROW_SPACING = 120;
-
-  // Colors - matched to the reference image
-  const COLORS = {
-    topLevel: '#FFF8E0',      // Light yellow for top level boxes
-    midLevel: '#E8FFE8',      // Light green for middle level
-    bottomLevel: '#E0FFFF',   // Light cyan for bottom level
-    selected: '#0091D5',      // Blue for selected elements
-    gray: 'rgba(0, 0, 0, 0.2)', // Gray for non-highlighted elements
-    border: {
-      topLevel: '#FFA500',    // Orange border for top level
-      midLevel: '#008800',    // Green border for mid level
-      bottomLevel: '#00A0A0', // Teal border for bottom level
-    },
-    connections: {
-      triggering: '#FF6600',  // Orange for triggering
-      composition: '#9370DB', // Purple for composition
-      access: '#00A0A0',      // Teal for access
-      realization: '#008800',  // Green for realization
-      custom: '#FF3366'       // Pink for custom connections
-    },
-    text: '#333333'           // Dark gray for text
-  };
-
-  // Track highlighted elements and connections
+const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElementUsageChange }) => {
   const [highlightedElement, setHighlightedElement] = useState(null);
   const [highlightedConnections, setHighlightedConnections] = useState([]);
+  const [containerSelections, setContainerSelections] = useState({
+    'datenquellen-grafisches-modell': [],
+    'datenquellen-grafisches-datenmodell': [],
+    'datenquellen-datenmodell': []
+  });
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveStatus, setSaveStatus] = useState(null);
+  // New state for use case block connections
+  const [selectedUseCaseBlock, setSelectedUseCaseBlock] = useState(null);
+  const [highlightedLayers, setHighlightedLayers] = useState([]);
+  const [useCaseConnections, setUseCaseConnections] = useState([]);
   
-  // Track custom connections from UC blocks
-  const [customConnections, setCustomConnections] = useState([]);
-  // Add state for connection notification
-  const [connectionNotification, setConnectionNotification] = useState(null);
-  
-  // Reset function to clear all custom connections
+  const { data: session } = useSession();
+  const saveTimeoutRef = useRef(null);
+  const lastUsedElementsRef = useRef([]);
+
+  // Constants for diagram dimensions and layout
+  const DIAGRAM_WIDTH = 1400;
+  const DIAGRAM_HEIGHT = 850;
+  const BOX_WIDTH = 160;
+  const BOX_HEIGHT = 50;
+  const TOP_MARGIN = 60;
+
+  // Color scheme
+  const COLORS = {
+    valueStream: "#FEF3C7", // Light amber
+    businessProcess: "#FFFFE0", // Light yellow
+    dataObject: "#CFFAFE", // Light cyan
+    dataModel: "#DBEAFE", // Light blue
+    grouping: "#F3F4F6", // Light gray
+    border: {
+      valueStream: "#F59E0B", // Amber
+      businessProcess: "#FACC15", // Yellow
+      dataObject: "#06B6D4", // Cyan
+      dataModel: "#3B82F6", // Blue
+      grouping: "#6B7280" // Gray
+    },
+    selected: "#EF4444" // Red for selection
+  };
+
+  // Get colors for dropped blocks based on their type
+  const getBlockColors = (type) => {
+    const isEquipment = type === 'Equipment';
+    const isSoftware = type === 'Software';
+    
+    if (isEquipment) {
+      return {
+        fill: "#ECFDF5", // Light green background
+        stroke: "#10B981", // Green border
+        text: "#065F46" // Dark green text
+      };
+    } else if (isSoftware) {
+      return {
+        fill: "#CFFAFE", // Light cyan background
+        stroke: "#06B6D4", // Cyan border
+        text: "#0E7490" // Dark cyan text
+      };
+    } else {
+      return {
+        fill: "#DBEAFE", // Light blue background
+        stroke: "#3B82F6", // Blue border
+        text: "#1E40AF" // Dark blue text
+      };
+    }
+  };
+
   const resetDiagram = () => {
-    setCustomConnections([]);
     setHighlightedElement(null);
     setHighlightedConnections([]);
     setSelectedElement(null);
-    setConnectionNotification({
-      message: 'Diagram reset successfully',
-      timestamp: Date.now()
+    setContainerSelections({
+      'datenquellen-grafisches-modell': [],
+      'datenquellen-grafisches-datenmodell': [],
+      'datenquellen-datenmodell': []
     });
+    setHasUnsavedChanges(false);
+    // Reset use case connections
+    setSelectedUseCaseBlock(null);
+    setHighlightedLayers([]);
+    setUseCaseConnections([]);
     
-    setTimeout(() => {
-      setConnectionNotification(null);
-    }, 2000);
+    // Notify parent about usage changes
+    if (onElementUsageChange) {
+      onElementUsageChange([]);
+    }
   };
-  
+
+  // Load user's saved selections
+  const loadUserSelections = async () => {
+    if (!session?.user?.email) return;
+    
+    console.log('=== LOADING USER SELECTIONS ===');
+    try {
+      const response = await fetch('/api/diagram-selections?diagramType=reference-architecture');
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Loaded data:', data);
+        console.log('Container selections:', data.selections);
+        console.log('Use case connections:', data.useCaseConnections);
+        console.log('Use case connections count:', data.useCaseConnections?.length || 0);
+        
+        setContainerSelections(data.selections);
+        // Load use case connections if they exist
+        if (data.useCaseConnections) {
+          setUseCaseConnections(data.useCaseConnections);
+          console.log('Set use case connections to state:', data.useCaseConnections.length);
+        } else {
+          console.log('No use case connections found in loaded data');
+        }
+        
+        // Notify parent about loaded element usage immediately (bypass debounce for initial load)
+        if (onElementUsageChange) {
+          const usedElementIds = getAllUsedElementIds(data.selections);
+          lastUsedElementsRef.current = usedElementIds;
+          onElementUsageChange(usedElementIds);
+        }
+      } else {
+        console.error('Failed to load user selections:', response.status);
+      }
+    } catch (error) {
+      console.error('Error loading user selections:', error);
+    }
+  };
+
+  // Save user's selections
+  const saveUserSelections = async () => {
+    if (!session?.user?.email || isSaving) return; // Prevent multiple simultaneous saves
+    
+    setIsSaving(true);
+    console.log('=== SAVING USER SELECTIONS ===');
+    console.log('Container selections:', containerSelections);
+    console.log('Use case connections:', useCaseConnections);
+    console.log('Use case connections count:', useCaseConnections.length);
+    
+    try {
+      const payload = {
+        selections: containerSelections,
+        useCaseConnections: useCaseConnections,
+        diagramType: 'reference-architecture'
+      };
+      console.log('Payload being sent:', payload);
+      
+      const response = await fetch('/api/diagram-selections', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Save response:', responseData);
+        setHasUnsavedChanges(false);
+        setSaveStatus('success');
+        setTimeout(() => setSaveStatus(null), 3000);
+      } else {
+        // Handle error response safely
+        let errorMessage = `HTTP ${response.status}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+          console.error('Save error:', errorData);
+        } catch (jsonError) {
+          // If response is not JSON, use status text
+          errorMessage = response.statusText || errorMessage;
+          console.error('Save error (non-JSON response):', response.status, response.statusText);
+        }
+        
+        setSaveStatus('error');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }
+    } catch (error) {
+      console.error('Error saving selections:', error);
+      setSaveStatus('error');
+      setTimeout(() => setSaveStatus(null), 3000);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  // Handle adding a block to a container
+  const addBlockToContainer = (containerId, blockData) => {
+    setContainerSelections(prev => {
+      // Remove the block from all containers first
+      const newSelections = { ...prev };
+      Object.keys(newSelections).forEach(key => {
+        newSelections[key] = newSelections[key].filter(block => block.id !== blockData.id);
+      });
+      
+      // Add to the target container
+      newSelections[containerId] = [...newSelections[containerId], blockData];
+      
+      return newSelections;
+    });
+    setHasUnsavedChanges(true);
+  };
+
+  // Remove a block from a container
+  const removeBlockFromContainer = (containerId, blockId) => {
+    setContainerSelections(prev => ({
+      ...prev,
+      [containerId]: prev[containerId].filter(block => block.id !== blockId)
+    }));
+    setHasUnsavedChanges(true);
+  };
+
+  // Define drop target for the SVG containers
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
+    drop: (item, monitor) => {
+      const dropCoordinates = monitor.getClientOffset();
+      if (!dropCoordinates) return;
+
+      // Convert screen coordinates to SVG coordinates
+      const svgElement = document.querySelector('#architecture-diagram-svg');
+      if (!svgElement) return;
+
+      const rect = svgElement.getBoundingClientRect();
+      const svgX = ((dropCoordinates.x - rect.left) / rect.width) * DIAGRAM_WIDTH;
+      const svgY = ((dropCoordinates.y - rect.top) / rect.height) * DIAGRAM_HEIGHT;
+
+      // Check which container the drop is in
+      let targetContainer = null;
+      
+      elements.forEach(element => {
+        if (element.type === 'Container') {
+          const { x, y, width, height } = element;
+          if (svgX >= x && svgX <= x + width && svgY >= y && svgY <= y + height) {
+            targetContainer = element.id;
+          }
+        }
+      });
+
+      if (targetContainer) {
+        addBlockToContainer(targetContainer, {
+          id: item.id,
+          name: item.name,
+          type: item.type
+        });
+      }
+
+      return { dropped: true };
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
+
+  // Load selections on component mount and session change
+  useEffect(() => {
+    if (session?.user?.email) {
+      loadUserSelections();
+    }
+  }, [session?.user?.email]); // Only depend on email to prevent unnecessary re-runs
+
   // Listen for reset events from UCBlocks component
   useEffect(() => {
     const handleReset = () => resetDiagram();
@@ -65,128 +269,116 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
     
     return () => {
       window.removeEventListener('resetArchitectureDiagram', handleReset);
+      // Clean up any pending timeouts
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
     };
   }, []);
-  
-  // Define drop target for the SVG
-  const [{ isOver }, drop] = useDrop(() => ({
-    accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
-    drop: (item, monitor) => {
-      // Get drop coordinates relative to the SVG
-      const dropCoordinates = monitor.getClientOffset();
-      
-      // Find closest element to the drop point
-      let targetElement = 'graphic-model'; // Default
-      
-      if (elementPositions['graphic-model'] && elementPositions['structure-model']) {
-        const graphicModelCenter = {
-          x: elementPositions['graphic-model'].x,
-          y: elementPositions['graphic-model'].y
-        };
-        
-        const structureModelCenter = {
-          x: elementPositions['structure-model'].x,
-          y: elementPositions['structure-model'].y
-        };
-        
-        // If drop is closer to structure-model horizontally
-        if (Math.abs(dropCoordinates.x - structureModelCenter.x) < 
-            Math.abs(dropCoordinates.x - graphicModelCenter.x)) {
-          targetElement = 'structure-model';
-        }
-      }
-      
-      // Determine connection color and style based on element type
-      let connectionColor = '#818cf8'; // Default blue color
-      
-      if (item.type === 'Equipment') {
-        connectionColor = '#10b981'; // Green color for equipment
-      }
-      
-      // Add a custom connection from the element block to the target
-      const newConnection = {
-        id: `element-connection-${customConnections.length + 1}`,
-        from: item.id,
-        to: targetElement,
-        type: 'custom',
-        fromLabel: item.name,
-        elementType: item.type,
-        color: connectionColor
-      };
-      
-      setCustomConnections([...customConnections, newConnection]);
-      
-      // Show notification
-      setConnectionNotification({
-        message: `Connected ${item.name} to ${targetElement === 'graphic-model' ? 'Grafisches Modell' : 'Strukturmodell'}`,
-        timestamp: Date.now()
-      });
-      
-      // Clear notification after 2 seconds
-      setTimeout(() => {
-        setConnectionNotification(null);
-      }, 2000);
-      
-      // Return a result to let the source know the drop was successful
-      return { dropped: true };
-    },
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  }));
-  
-  // Define exact positions for the top level boxes - adjusted to reduce gaps
-  const positions = {
-    topRow: {
-      y: TOP_MARGIN,
-      xStart: 135,
-      xSpacing: 220 // Reduced from 240 to 220
-    },
-    secondRow: {
-      y: TOP_MARGIN + 100,
-      xValues: [460, 670] // Adjusted to match the reduced spacing
-    },
-    processRow: {
-      y: TOP_MARGIN + 210,
-      xStart: 80,
-      xSpacing: 180 // Increased from 155 to 180 to add more spacing between boxes
-    },
-    dataObjectRow: {
-      y: TOP_MARGIN + 330,
-      xValues: [180, 350, 540]
-    },
-    layoutRow: {
-      y: TOP_MARGIN + 450,
-      xValues: [330, 550, 720]
-    },
-    modelRow: {
-      y: TOP_MARGIN + 570,
-      xValues: [250, 450, 620, 790, 960]
-    }
-  };
+
+  // Exact elements and positions as specified in the provided data
+  const elements = [
+    // Value Stream Level
+    { id: 'spezifikation-planung', name: '1. Spezifikation & Planung', type: 'Value Stream', x: 70, y: TOP_MARGIN },
+    { id: 'aufbau-inbetriebnahme', name: '2. Aufbau & Inbetriebnahme', type: 'Value Stream', x: 270, y: TOP_MARGIN },
+    { id: 'betrieb-copy', name: '3.0 Betrieb (copy)', type: 'Value Stream', x: 520, y: TOP_MARGIN },
+    { id: 'demontage-recycling', name: '4. Demontage & Recycling', type: 'Value Stream', x: 750, y: TOP_MARGIN },
+    
+    // Value Stream Sub Level
+    { id: 'service-wartung', name: '3.1 Service & Wartung', type: 'Value Stream', x: 420, y: TOP_MARGIN + 100 },
+    { id: 'umplanung', name: '3.2 Umplanung', type: 'Value Stream', x: 600, y: TOP_MARGIN + 100 },
+    
+    // Business Process Level
+    { id: 'engineering', name: '1.2 Engineering', type: 'Business Process', x: 90, y: TOP_MARGIN + 200 },
+    { id: 'aufbau-anlauf', name: '2.1 Aufbau & Anlauf', type: 'Business Process', x: 270, y: TOP_MARGIN + 200 },
+    { id: 'produktion', name: '3.1 Produktion', type: 'Business Process', x: 450, y: TOP_MARGIN + 200 },
+    { id: 'instandhaltung-optimierung', name: '3.2 Instandhaltung & Optimierung', type: 'Business Process', x: 630, y: TOP_MARGIN + 200 },
+    { id: 'modernisierung', name: '3.3 Modernisierung', type: 'Business Process', x: 830, y: TOP_MARGIN + 200 },
+    { id: 'demontage-rueckbau', name: '4.1 Demontage, Rückbau', type: 'Business Process', x: 1030, y: TOP_MARGIN + 200 },
+    
+    // Data Object Level 1
+    { id: 'arbeitsablaufschema', name: 'Arbeitsablaufschema', type: 'Data Object', x: 90, y: TOP_MARGIN + 320, width: 140 },
+    { id: 'funktionsschema', name: 'Funktionsschema', type: 'Data Object', x: 270, y: TOP_MARGIN + 320, width: 140 },
+    { id: 'materialfluss', name: 'Materialfluss', type: 'Data Object', x: 470, y: TOP_MARGIN + 320, width: 500 },
+    
+    // Data Object Level 2
+    { id: 'groblayout-2d', name: 'Groblayout (2D)', type: 'Data Object', x: 160, y: TOP_MARGIN + 420, width: 140 },
+    { id: 'ideallayout-3d', name: 'Ideallayout (3D)', type: 'Data Object', x: 360, y: TOP_MARGIN + 420, width: 140 },
+    { id: 'reallayout-3d', name: 'Reallayout (3D)', type: 'Data Object', x: 570, y: TOP_MARGIN + 420, width: 400 },
+    
+    // Data Model Level - arranged horizontally in a single row with proper spacing
+    { id: 'grafisches-modell', name: 'Grafisches Modell', type: 'Data Object', x: 160, y: TOP_MARGIN + 550 },
+    { id: 'strukturmodell', name: 'Strukturmodell', type: 'Data Object', x: 350, y: TOP_MARGIN + 550 },
+    { id: 'materialfluss-model', name: 'Materialfluss', type: 'Data Object', x: 540, y: TOP_MARGIN + 550 },
+    { id: 'faehigkeitenmodell-model', name: 'Fähigkeitenmodell', type: 'Data Object', x: 730, y: TOP_MARGIN + 550 },
+    { id: 'kennzahlenmodell-model', name: 'Kennzahlenmodell', type: 'Data Object', x: 920, y: TOP_MARGIN + 550 },
+    
+    // Grouping Containers - below the Data Model layer
+    { id: 'datenquellen-grafisches-modell', name: 'Datenquellen: Grafisches Modell', type: 'Container', x: 80, y: TOP_MARGIN + 630, width: 400, height: 150 },
+    { id: 'datenquellen-grafisches-datenmodell', name: 'Datenquellen: Grafisches &\nDatenmodell', type: 'Container', x: 520, y: TOP_MARGIN + 630, width: 400, height: 150 },
+    { id: 'datenquellen-datenmodell', name: 'Datenquellen: Datenmodell', type: 'Container', x: 960, y: TOP_MARGIN + 630, width: 350, height: 150 }
+  ];
+
+  // Exact relationships as specified in the provided data
+  const relationships = [
+    // Triggering relationships
+    { type: 'Triggering', source: 'engineering', target: 'aufbau-anlauf' },
+    { type: 'Triggering', source: 'aufbau-anlauf', target: 'produktion' },
+    { type: 'Triggering', source: 'produktion', target: 'instandhaltung-optimierung' },
+    { type: 'Triggering', source: 'instandhaltung-optimierung', target: 'modernisierung' },
+    { type: 'Triggering', source: 'modernisierung', target: 'demontage-rueckbau' },
+    { type: 'Triggering', source: 'spezifikation-planung', target: 'aufbau-inbetriebnahme' },
+    { type: 'Triggering', source: 'aufbau-inbetriebnahme', target: 'service-wartung' },
+    { type: 'Triggering', source: 'aufbau-inbetriebnahme', target: 'betrieb-copy' },
+    { type: 'Triggering', source: 'betrieb-copy', target: 'demontage-recycling' },
+    { type: 'Triggering', source: 'service-wartung', target: 'umplanung' },
+    { type: 'Triggering', source: 'umplanung', target: 'demontage-recycling' },
+    
+    // Access relationships
+    { type: 'Access', source: 'engineering', target: 'arbeitsablaufschema' },
+    { type: 'Access', source: 'engineering', target: 'funktionsschema' },
+    { type: 'Access', source: 'engineering', target: 'materialfluss' },
+    { type: 'Access', source: 'engineering', target: 'groblayout-2d' },
+    { type: 'Access', source: 'engineering', target: 'ideallayout-3d' },
+    { type: 'Access', source: 'aufbau-anlauf', target: 'materialfluss' },
+    { type: 'Access', source: 'aufbau-anlauf', target: 'ideallayout-3d' },
+    { type: 'Access', source: 'aufbau-anlauf', target: 'reallayout-3d' },
+    { type: 'Access', source: 'produktion', target: 'materialfluss' },
+    { type: 'Access', source: 'produktion', target: 'reallayout-3d' },
+    { type: 'Access', source: 'instandhaltung-optimierung', target: 'materialfluss' },
+    { type: 'Access', source: 'instandhaltung-optimierung', target: 'reallayout-3d' },
+    { type: 'Access', source: 'modernisierung', target: 'materialfluss' },
+    { type: 'Access', source: 'modernisierung', target: 'reallayout-3d' },
+    { type: 'Access', source: 'demontage-rueckbau', target: 'materialfluss' },
+    { type: 'Access', source: 'demontage-rueckbau', target: 'reallayout-3d' },
+    
+    // Realization relationships
+    { type: 'Realization', source: 'engineering', target: 'spezifikation-planung' },
+    { type: 'Realization', source: 'aufbau-anlauf', target: 'aufbau-inbetriebnahme' },
+    { type: 'Realization', source: 'produktion', target: 'service-wartung' },
+    { type: 'Realization', source: 'instandhaltung-optimierung', target: 'umplanung' },
+    { type: 'Realization', source: 'modernisierung', target: 'umplanung' },
+    { type: 'Realization', source: 'demontage-rueckbau', target: 'demontage-recycling' }
+  ];
 
   const handleElementClick = (element, event) => {
     event.stopPropagation();
     
-    // If clicking the same element again, clear highlighting
+    // Check if we're in use case block connection mode
+    if (selectedUseCaseBlock && highlightedLayers.includes(element)) {
+      handleDiagramElementClick(element);
+      return;
+    }
+    
+    // Original element selection logic
     if (highlightedElement === element) {
       setHighlightedElement(null);
       setHighlightedConnections([]);
       setSelectedElement(null);
     } else {
-      // Find all connections related to this element
-      const relatedConnections = allConnections.filter(conn => 
-        conn.from === element || conn.to === element
+      const relatedConnections = relationships.filter(rel => 
+        rel.source === element || rel.target === element
       );
-      
-      // Find all elements connected to this element
-      const connectedElements = new Set();
-      connectedElements.add(element);
-      
-      relatedConnections.forEach(conn => {
-        connectedElements.add(conn.from);
-        connectedElements.add(conn.to);
-      });
       
       setHighlightedElement(element);
       setHighlightedConnections(relatedConnections);
@@ -198,937 +390,565 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement }) => {
     setHighlightedElement(null);
     setHighlightedConnections([]);
     setSelectedElement(null);
+    // Clear use case block selection when clicking background
+    setSelectedUseCaseBlock(null);
+    setHighlightedLayers([]);
   };
 
   // Store element positions
   const elementPositions = {};
 
-  // List of all connections to reference for highlighting
-  const allConnections = [];
-
-  // Helper function to create box with text and subtitle
-  const Box = ({ x, y, width, height, text, subtitle, id, color, borderColor, fontSize = 12, type = null }) => {
-    // Store the box center position for connections
+  // Box component
+  const Box = ({ element }) => {
+    const { id, name, type, x, y, width = BOX_WIDTH, height = BOX_HEIGHT } = element;
+    
     elementPositions[id] = {
       x: x + width / 2,
       y: y + height / 2,
       top: y,
       right: x + width,
-      bottom: y + (subtitle ? height + 20 : height),
+      bottom: y + height,
       left: x,
       width: width,
-      height: height + (subtitle ? 20 : 0)
+      height: height
     };
 
-    // If there's a highlighted element but this element is not connected, gray it out
-    const isHighlighted = !highlightedElement || 
+    // Check if element should be highlighted
+    const isInUseCaseMode = selectedUseCaseBlock && highlightedLayers.includes(id);
+    const isRegularHighlight = !highlightedElement || 
       id === highlightedElement || 
-      highlightedConnections.some(conn => conn.from === id || conn.to === id);
+      highlightedConnections.some(conn => conn.source === id || conn.target === id);
+    
+    const isHighlighted = isInUseCaseMode || isRegularHighlight;
+
+    // Get colors based on type
+    let color, borderColor, strokeDasharray = '';
+    switch (type) {
+      case 'Value Stream':
+        color = COLORS.valueStream;
+        borderColor = COLORS.border.valueStream;
+        break;
+      case 'Business Process':
+        color = COLORS.businessProcess;
+        borderColor = COLORS.border.businessProcess;
+        break;
+      case 'Data Object':
+        color = COLORS.dataObject;
+        borderColor = COLORS.border.dataObject;
+        break;
+      case 'Container':
+        color = 'transparent';
+        borderColor = COLORS.border.grouping;
+        strokeDasharray = '5,5';
+        break;
+      case 'Grouping':
+        color = COLORS.grouping;
+        borderColor = COLORS.border.grouping;
+        break;
+      default:
+        color = COLORS.dataModel;
+        borderColor = COLORS.border.dataModel;
+    }
+
+    // Special highlighting for use case connection mode
+    if (isInUseCaseMode) {
+      borderColor = '#FF3366'; // Pink/red border for connectable elements
+    }
 
     return (
       <g 
         transform={`translate(${x}, ${y})`}
         onClick={(e) => handleElementClick(id, e)}
-        className="cursor-pointer"
+        className={`cursor-pointer ${isInUseCaseMode ? 'cursor-crosshair' : ''}`}
         id={id}
-        opacity={isHighlighted ? 1 : 0.4}
+        opacity={isHighlighted ? 1 : (selectedUseCaseBlock ? 0.3 : 0.4)}
       >
         <rect
           x="0"
           y="0"
           width={width}
-          height={height + (subtitle ? 20 : 0)}
+          height={height}
           rx="6"
           ry="6"
           fill={color}
           stroke={highlightedElement === id ? COLORS.selected : borderColor}
-          strokeWidth={highlightedElement === id ? "2" : "1.5"}
+          strokeWidth={highlightedElement === id ? "2" : (isInUseCaseMode ? "2" : "1")}
+          strokeDasharray={strokeDasharray}
         />
         <text 
           x={width/2} 
-          y={subtitle ? height/2 - 3 : height/2} 
+          y={type === 'Container' ? 20 : (type && type !== 'Grouping' ? height/2 - 8 : height/2)} 
           textAnchor="middle" 
           dominantBaseline="middle"
-          fontSize={fontSize}
-          fontWeight="500"
+          fontSize={type === 'Grouping' ? "10" : type === 'Container' ? "12" : "11"}
+          fontWeight={type === 'Container' ? "600" : "500"}
           fill="#000"
           className="select-none"
         >
-          {text}
+          {name.split('\n').map((line, i) => (
+            <tspan key={i} x={width/2} dy={i === 0 ? 0 : 12}>{line}</tspan>
+          ))}
         </text>
-        {subtitle && (
+        {type && type !== 'Grouping' && type !== 'Container' && (
           <text 
             x={width/2} 
-            y={height/2 + 15} 
+            y={height - 8} 
             textAnchor="middle" 
-            dominantBaseline="middle"
-            fontSize={fontSize - 2}
-            fill={COLORS.text}
-            className="font-normal select-none"
+            fontSize="9"
+            fill="#666"
+            className="select-none"
           >
-            {subtitle}
+            {type}
           </text>
         )}
-      </g>
-    );
-  };
-
-  // Add arrow marker definitions for each relationship type
-  const ArrowMarkers = () => (
-    <>
-      <marker
-        id="arrowhead-triggering"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.triggering} />
-      </marker>
-      <marker
-        id="arrowhead-composition"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9" 
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.composition} />
-      </marker>
-      <marker
-        id="arrowhead-access"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.access} />
-      </marker>
-      <marker
-        id="arrowhead-realization"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.realization} />
-      </marker>
-      <marker
-        id="arrowhead-custom"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill={COLORS.connections.custom} />
-      </marker>
-      {/* New arrow markers for element types */}
-      <marker
-        id="arrowhead-equipment"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill="#10b981" />
-      </marker>
-      <marker
-        id="arrowhead-software"
-        markerWidth="10"
-        markerHeight="7"
-        refX="9"
-        refY="3.5"
-        orient="auto"
-      >
-        <polygon points="0 0, 8 3.5, 0 7" fill="#818cf8" />
-      </marker>
-    </>
-  );
-
-  // Updated Connection component with better path calculation matching the image
-  const Connection = ({ from, to, type = 'triggering', controlPoint = null }) => {
-    // Add to all connections for highlighting
-    const connectionId = `${from}-${to}-${type}`;
-    const connectionExists = allConnections.some(c => 
-      c.from === from && c.to === to && c.type === type
-    );
-    
-    if (!connectionExists) {
-      allConnections.push({ from, to, type, id: connectionId });
-    }
-    
-    if (!elementPositions[from] || !elementPositions[to]) return null;
-    
-    const source = elementPositions[from];
-    const target = elementPositions[to];
-    
-    let startX, startY, endX, endY;
-    
-    // Determine start and end points based on the positions in the reference image
-    if (source.y === target.y) {
-      // Horizontal connection (same row)
-      startX = source.right;
-      startY = source.y;
-      endX = target.left;
-      endY = target.y;
-    } else if (Math.abs(source.x - target.x) < 30) {
-      // Vertical connection (nearly aligned)
-      startX = source.x;
-      startY = source.bottom;
-      endX = target.x;
-      endY = target.top;
-    } else if (source.y < target.y) {
-      // Downward diagonal
-      if (source.x < target.x) {
-        // Down-right diagonal
-        startX = source.right - 30;
-        startY = source.bottom;
-        endX = target.left + 30;
-        endY = target.top;
-      } else {
-        // Down-left diagonal
-        startX = source.left + 30;
-        startY = source.bottom;
-        endX = target.right - 30;
-        endY = target.top;
-      }
-    } else {
-      // Upward diagonal
-      if (source.x < target.x) {
-        // Up-right diagonal
-        startX = source.right - 20;
-        startY = source.y;
-        endX = target.left + 20;
-        endY = target.bottom;
-      } else {
-        // Up-left diagonal
-        startX = source.left + 20;
-        startY = source.y;
-        endX = target.right - 20;
-        endY = target.bottom;
-      }
-    }
-    
-    // Special connection adjustments to match the image
-    if ((from === "operation" && to === "service") || 
-        (from === "operation" && to === "replanning")) {
-      startX = source.x + (to === "service" ? -40 : 40);
-      startY = source.bottom;
-      endX = target.x;
-      endY = target.top;
-    }
-    
-    if (from === "service" && to === "replanning") {
-      startX = source.right;
-      startY = source.y;
-      endX = target.left;
-      endY = target.y;
-    }
-    
-    // Map relationship type to styling and color
-    const color = COLORS.connections[type] || COLORS.connections.triggering;
-    
-    // Check if this connection is highlighted
-    const isHighlighted = !highlightedElement || 
-      highlightedConnections.some(conn => 
-        conn.from === from && conn.to === to && conn.type === type
-      );
-    
-    const lineProps = {
-      stroke: color,
-      strokeWidth: isHighlighted ? 1.5 : 0.9,
-      markerEnd: `url(#arrowhead-${type})`,
-      strokeDasharray: "none",
-      opacity: isHighlighted ? 1 : 0.3,
-      fill: "none"
-    };
-
-    // For horizontal connections - straight line
-    if (Math.abs(source.y - target.y) < BOX_HEIGHT) {
-      return <line x1={startX} y1={startY} x2={endX} y2={endY} {...lineProps} />;
-    }
-
-    // For vertical connections based on relationship type
-    if (type === 'realization') {
-      // Green vertical straight lines for realization - exactly as in image
-      return <line x1={startX} y1={startY} x2={endX} y2={endY} {...lineProps} />;
-    } else if (type === 'access') {
-      // Teal lines for access - direct lines as in image
-      return <line x1={startX} y1={startY} x2={endX} y2={endY} {...lineProps} />;
-    } else {
-      // Orange lines for triggering and composition
-      const dx = endX - startX;
-      const dy = endY - startY;
-      
-      // For specific connections that need curves to match the image
-      if (controlPoint) {
-        return (
-          <path
-            d={`M ${startX} ${startY} C ${controlPoint.x1} ${controlPoint.y1}, ${controlPoint.x2} ${controlPoint.y2}, ${endX} ${endY}`}
-            {...lineProps}
-          />
-        );
-      } else if (Math.abs(dx) > BOX_WIDTH * 2 || Math.abs(dy) > BOX_HEIGHT * 2) {
-        // Smooth curve for long distances
-        return (
-          <path
-            d={`M ${startX} ${startY} Q ${startX + dx/2} ${startY + dy/3} ${endX} ${endY}`}
-            {...lineProps}
-          />
-        );
-      } else {
-        // Direct line for shorter connections
-        return <line x1={startX} y1={startY} x2={endX} y2={endY} {...lineProps} />;
-      }
-    }
-  };
-
-  // Render a custom connection from a UC block to an element
-  const CustomConnection = ({ from, fromLabel, to, type = 'custom', elementType, color }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    
-    if (!elementPositions[to]) return null;
-    
-    const target = elementPositions[to];
-    
-    // Position the element block label directly below the target element
-    const labelX = target.x;
-    const labelY = target.bottom + 35; // Position below the target with some spacing
-    
-    // Draw a vertical line from the label to the target
-    const startX = labelX;
-    const startY = labelY - 15;
-    const endX = target.x;
-    const endY = target.bottom;
-    
-    // Use the color passed from the drop handler, or fallback to default colors
-    const connectionColor = color || COLORS.connections[type] || COLORS.connections.custom;
-    
-    // Determine background and text colors based on element type
-    let bgColor = isHovered ? "#EBF5FF" : "#F3F9FF"; // Default blue colors
-    let borderColor = isHovered ? "#3B82F6" : "#60A5FA";
-    let textColor = isHovered ? "#1E40AF" : "#2563EB";
-    
-    // If element is Equipment type, use green styling
-    if (elementType === 'Equipment') {
-      bgColor = isHovered ? "#ECFDF5" : "#F0FDF9";
-      borderColor = isHovered ? "#059669" : "#10B981";
-      textColor = isHovered ? "#065F46" : "#047857";
-    }
-    
-    // Function to handle click on the element block to extend connection
-    const handleUCBlockClick = (event) => {
-      event.stopPropagation();
-      
-      // Check if we already have a connection to structure-model from this block
-      const hasStructureModelConnection = customConnections.some(
-        conn => conn.from === from && conn.to === 'structure-model'
-      );
-      
-      // Only allow extending if not already connected
-      if (to !== 'structure-model' && !hasStructureModelConnection) {
-        // Create a new connection to the structure-model element
-        const newConnection = {
-          id: `element-connection-extended-${customConnections.length + 1}`,
-          from,
-          to: 'structure-model',
-          type: 'custom',
-          fromLabel,
-          elementType,
-          color: connectionColor
-        };
         
-        setCustomConnections([...customConnections, newConnection]);
-        
-        // Show notification
-        setConnectionNotification({
-          message: 'Connected to Strukturmodell',
-          timestamp: Date.now()
-        });
-        
-        // Clear notification after 2 seconds
-        setTimeout(() => {
-          setConnectionNotification(null);
-        }, 2000);
-      } else if (hasStructureModelConnection) {
-        // Show already connected notification
-        setConnectionNotification({
-          message: 'Already connected to Strukturmodell',
-          timestamp: Date.now()
-        });
-        
-        // Clear notification after 2 seconds
-        setTimeout(() => {
-          setConnectionNotification(null);
-        }, 2000);
-      }
-    };
-    
-    return (
-      <g>
-        {/* Element Block label - make it interactive */}
-        <rect
-          x={labelX - 80}
-          y={labelY - 15}
-          width={160}
-          height={30}
-          rx="4"
-          fill={bgColor}
-          stroke={borderColor}
-          strokeWidth={isHovered ? "2" : "1.5"}
-          className="cursor-pointer"
-          onClick={handleUCBlockClick}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        />
-        <text
-          x={labelX}
-          y={labelY}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize={10}
-          fontWeight={isHovered ? "600" : "500"}
-          fill={textColor}
-          className="cursor-pointer select-none"
-          onClick={handleUCBlockClick}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {fromLabel} {elementType && `(${elementType})`}
-        </text>
-        
-        {/* Tooltip/hint - only show when hovered */}
-        {isHovered && to !== 'structure-model' && (
+        {/* Render dropped blocks in containers */}
+        {type === 'Container' && containerSelections[id] && containerSelections[id].length > 0 && (
           <g>
-            {/* Tooltip background */}
-            <rect
-              x={labelX - 85}
-              y={labelY + 20}
-              width={170}
-              height={22}
-              rx="3"
-              fill={elementType === 'Equipment' ? "#059669" : "#4F46E5"}
-              opacity="0.9"
-            />
-            {/* Tooltip text */}
-            <text
-              x={labelX}
-              y={labelY + 31}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fontSize={9}
-              fontWeight="500"
-              fill="white"
-              className="select-none"
-            >
-              Click to connect to Strukturmodell
-            </text>
+            {containerSelections[id].map((block, index) => {
+              // Calculate multi-column layout
+              const blockHeight = 20;
+              const blockSpacing = 5;
+              const totalBlockHeight = blockHeight + blockSpacing;
+              const startY = 40;
+              const availableHeight = height - startY - 10; // Leave 10px margin at bottom
+              const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
+              
+              const columnIndex = Math.floor(index / blocksPerColumn);
+              const rowIndex = index % blocksPerColumn;
+              
+              const blockWidth = 120;
+              const columnSpacing = 10;
+              const totalColumnWidth = blockWidth + columnSpacing;
+              
+              const x = 10 + (columnIndex * totalColumnWidth);
+              const y = startY + (rowIndex * totalBlockHeight);
+              
+              // Check if this block is selected
+              const isBlockSelected = selectedUseCaseBlock?.id === block.id && 
+                                     selectedUseCaseBlock?.containerId === id;
+              
+              return (
+                <g key={block.id} transform={`translate(${x}, ${y})`}>
+                  <rect
+                    x="0"
+                    y="0"
+                    width={blockWidth}
+                    height={blockHeight}
+                    rx="3"
+                    fill={getBlockColors(block.type).fill}
+                    stroke={isBlockSelected ? '#FF3366' : getBlockColors(block.type).stroke}
+                    strokeWidth={isBlockSelected ? "2" : "1"}
+                    className="cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleUseCaseBlockClick(block, id);
+                    }}
+                  />
+                  <text
+                    x={blockWidth/2}
+                    y={blockHeight/2}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="9"
+                    fill={getBlockColors(block.type).text}
+                    className="select-none cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleUseCaseBlockClick(block, id);
+                    }}
+                  >
+                    {block.name.length > 15 ? `${block.name.substring(0, 15)}...` : block.name}
+                  </text>
+                  <circle
+                    cx={blockWidth - 10}
+                    cy={blockHeight/2}
+                    r="6"
+                    fill="#EF4444"
+                    className="cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      removeBlockFromContainer(id, block.id);
+                    }}
+                  />
+                  <text
+                    x={blockWidth - 10}
+                    y={blockHeight/2}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="8"
+                    fill="white"
+                    className="select-none cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      removeBlockFromContainer(id, block.id);
+                    }}
+                  >
+                    ×
+                  </text>
+                </g>
+              );
+            })}
           </g>
         )}
-        
-        {/* Connection line - straight vertical line */}
-        <line
-          x1={startX}
-          y1={startY}
-          x2={endX}
-          y2={endY}
-          stroke={isHovered ? (elementType === 'Equipment' ? "#059669" : "#4F46E5") : connectionColor}
-          strokeWidth={isHovered ? "2" : "1.5"}
-          markerEnd={`url(#arrowhead-${elementType === 'Equipment' ? 'equipment' : elementType === 'Software' ? 'software' : 'custom'})`}
-        />
       </g>
     );
   };
 
-  // Add a reset button component
-  const ResetButton = () => {
-    const [isHovered, setIsHovered] = useState(false);
+  // Use Case Connection component
+  const UseCaseConnection = ({ connection }) => {
+    const { blockId, containerId, elementId } = connection;
     
-    if (customConnections.length === 0) return null;
+    // Find the container and block position
+    const containerElement = elements.find(el => el.id === containerId);
+    if (!containerElement) return null;
+    
+    const containerBlocks = containerSelections[containerId] || [];
+    const blockIndex = containerBlocks.findIndex(block => block.id === blockId);
+    if (blockIndex === -1) return null;
+    
+    // Calculate block position within container
+    const blockHeight = 20;
+    const blockSpacing = 5;
+    const totalBlockHeight = blockHeight + blockSpacing;
+    const startY = 40;
+    const availableHeight = containerElement.height - startY - 10;
+    const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
+    
+    const columnIndex = Math.floor(blockIndex / blocksPerColumn);
+    const rowIndex = blockIndex % blocksPerColumn;
+    
+    const blockWidth = 120;
+    const columnSpacing = 10;
+    const totalColumnWidth = blockWidth + columnSpacing;
+    
+    const blockX = containerElement.x + 10 + (columnIndex * totalColumnWidth) + blockWidth/2;
+    const blockY = containerElement.y + startY + (rowIndex * totalBlockHeight) + blockHeight/2;
+    
+    // Get target element position
+    const targetPos = elementPositions[elementId];
+    if (!targetPos) return null;
+    
+    const pathData = `M ${blockX} ${blockY} L ${targetPos.x} ${targetPos.y}`;
     
     return (
-      <g
-        className="cursor-pointer"
-        onClick={(e) => {
-          e.stopPropagation();
-          resetDiagram();
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <rect
-          x={DIAGRAM_WIDTH - 120}
-          y={10}
-          width={100}
-          height={30}
-          rx="4"
-          fill={isHovered ? "#EF4444" : "#F87171"}
-          opacity={isHovered ? "1" : "0.9"}
-        />
-        <text
-          x={DIAGRAM_WIDTH - 70}
-          y={27}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize={12}
-          fontWeight="500"
-          fill="white"
-          className="select-none"
-        >
-          Reset Diagram
-        </text>
-      </g>
+      <path
+        d={pathData}
+        stroke="#FF3366"
+        strokeWidth="2"
+        strokeDasharray="3,3"
+        fill="none"
+        markerEnd="url(#arrow-usecase)"
+        opacity="0.8"
+      />
     );
+  };
+
+  // Arrow markers for connections
+  const ArrowMarkers = () => (
+    <defs>
+      <marker
+        id="arrow-triggering"
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="3"
+        markerWidth="6"
+        markerHeight="6"
+        orient="auto"
+      >
+        <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B" />
+      </marker>
+      <marker
+        id="arrow-realization"
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="3"
+        markerWidth="6"
+        markerHeight="6"
+        orient="auto"
+      >
+        <path d="M0,0 L0,6 L9,3 z" fill="#10B981" />
+      </marker>
+      <marker
+        id="arrow-access"
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="3"
+        markerWidth="6"
+        markerHeight="6"
+        orient="auto"
+      >
+        <path d="M0,0 L0,6 L9,3 z" fill="#06B6D4" />
+      </marker>
+      <marker
+        id="arrow-usecase"
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="3"
+        markerWidth="6"
+        markerHeight="6"
+        orient="auto"
+      >
+        <path d="M0,0 L0,6 L9,3 z" fill="#FF3366" />
+      </marker>
+    </defs>
+  );
+
+  // Connection component
+  const Connection = ({ relationship }) => {
+    const { type, source, target } = relationship;
+    const fromPos = elementPositions[source];
+    const toPos = elementPositions[target];
+    
+    if (!fromPos || !toPos) return null;
+
+    let strokeColor, strokeDasharray, markerEnd;
+    
+    switch (type) {
+      case 'Triggering':
+        strokeColor = '#F59E0B';
+        strokeDasharray = '';
+        markerEnd = 'url(#arrow-triggering)';
+        break;
+      case 'Realization':
+        strokeColor = '#10B981';
+        strokeDasharray = '5,5';
+        markerEnd = 'url(#arrow-realization)';
+        break;
+      case 'Access':
+        strokeColor = '#06B6D4';
+        strokeDasharray = '2,2';
+        markerEnd = 'url(#arrow-access)';
+        break;
+      default:
+        strokeColor = '#666';
+        strokeDasharray = '';
+        markerEnd = '';
+    }
+
+    const isHighlighted = !highlightedElement || 
+      highlightedConnections.some(conn => 
+        (conn.source === source && conn.target === target)
+      );
+
+    let startX, startY, endX, endY;
+
+    // Determine connection points based on relative positions
+    if (fromPos.y < toPos.y) {
+      // From above to below
+      startX = fromPos.x;
+      startY = fromPos.bottom;
+      endX = toPos.x;
+      endY = toPos.top;
+    } else if (fromPos.y > toPos.y) {
+      // From below to above
+      startX = fromPos.x;
+      startY = fromPos.top;
+      endX = toPos.x;
+      endY = toPos.bottom;
+    } else {
+      // Same level - horizontal connection
+      if (fromPos.x < toPos.x) {
+        startX = fromPos.right;
+        startY = fromPos.y;
+        endX = toPos.left;
+        endY = toPos.y;
+      } else {
+        startX = fromPos.left;
+        startY = fromPos.y;
+        endX = toPos.right;
+        endY = toPos.y;
+      }
+    }
+
+    const pathData = `M ${startX} ${startY} L ${endX} ${endY}`;
+
+    return (
+      <path
+        d={pathData}
+        stroke={strokeColor}
+        strokeWidth="1.5"
+        strokeDasharray={strokeDasharray}
+        fill="none"
+        markerEnd={markerEnd}
+        opacity={isHighlighted ? 1 : 0.3}
+      />
+    );
+  };
+
+  // Save Button Component
+  const SaveButton = () => {
+    if (!session?.user?.email || !hasUnsavedChanges) return null;
+
+    return (
+      <div className="fixed top-4 right-4 z-50">
+        <button
+          onClick={saveUserSelections}
+          disabled={isSaving}
+          className={`px-4 py-2 rounded-lg font-medium text-white transition-all duration-200 ${
+            isSaving 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl'
+          }`}
+        >
+          {isSaving ? 'Saving...' : 'Save Selections'}
+        </button>
+        
+        {saveStatus && (
+          <div className={`mt-2 px-3 py-1 rounded text-sm ${
+            saveStatus === 'success' 
+              ? 'bg-green-100 text-green-800 border border-green-200' 
+              : 'bg-red-100 text-red-800 border border-red-200'
+          }`}>
+            {saveStatus === 'success' ? 'Saved successfully!' : 'Save failed. Please try again.'}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Helper function to get all used element IDs
+  const getAllUsedElementIds = useCallback((selections) => {
+    const allUsed = [];
+    Object.values(selections).forEach(containerBlocks => {
+      containerBlocks.forEach(block => allUsed.push(block.id));
+    });
+    return allUsed;
+  }, []);
+
+  // Debounced function to notify parent about element usage changes
+  const notifyElementUsageChange = useCallback((selections) => {
+    if (onElementUsageChange) {
+      const usedElementIds = getAllUsedElementIds(selections);
+      const currentUsedElementsStr = JSON.stringify(usedElementIds.sort());
+      const lastUsedElementsStr = JSON.stringify(lastUsedElementsRef.current.sort());
+      
+      // Only notify if the list has actually changed
+      if (currentUsedElementsStr !== lastUsedElementsStr) {
+        lastUsedElementsRef.current = usedElementIds;
+        onElementUsageChange(usedElementIds);
+      }
+    }
+  }, [onElementUsageChange, getAllUsedElementIds]);
+
+  // Notify parent component about element usage changes (debounced)
+  useEffect(() => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+    
+    saveTimeoutRef.current = setTimeout(() => {
+      notifyElementUsageChange(containerSelections);
+    }, 100); // 100ms debounce
+
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [containerSelections, notifyElementUsageChange]);
+
+  // Auto-save when use case connections change
+  useEffect(() => {
+    if (session?.user?.email && hasUnsavedChanges) {
+      // Auto-save connections after a short delay when there are unsaved changes
+      const saveTimeout = setTimeout(() => {
+        console.log('Auto-saving due to changes in use case connections:', useCaseConnections.length);
+        saveUserSelections();
+      }, 1000); // 1 second delay for auto-save
+
+      return () => clearTimeout(saveTimeout);
+    }
+  }, [useCaseConnections, session?.user?.email, hasUnsavedChanges]);
+
+  // Define elements by layers for highlighting
+  const layerElements = {
+    layer3: ['arbeitsablaufschema', 'funktionsschema', 'materialfluss'],
+    layer4: ['groblayout-2d', 'ideallayout-3d', 'reallayout-3d']
+  };
+
+  // Handle clicking on a use case block in container
+  const handleUseCaseBlockClick = (blockData, containerId) => {
+    if (selectedUseCaseBlock?.id === blockData.id && selectedUseCaseBlock?.containerId === containerId) {
+      // Deselect if clicking the same block
+      setSelectedUseCaseBlock(null);
+      setHighlightedLayers([]);
+    } else {
+      // Select new block and highlight 3rd and 4th layers
+      setSelectedUseCaseBlock({ ...blockData, containerId });
+      setHighlightedLayers([...layerElements.layer3, ...layerElements.layer4]);
+    }
+  };
+
+  // Handle clicking on diagram elements when a use case block is selected
+  const handleDiagramElementClick = (elementId) => {
+    if (selectedUseCaseBlock && highlightedLayers.includes(elementId)) {
+      // Create or remove connection
+      const connectionKey = `${selectedUseCaseBlock.containerId}-${selectedUseCaseBlock.id}-${elementId}`;
+      const existingConnectionIndex = useCaseConnections.findIndex(conn => 
+        conn.blockId === selectedUseCaseBlock.id && 
+        conn.containerId === selectedUseCaseBlock.containerId && 
+        conn.elementId === elementId
+      );
+
+      if (existingConnectionIndex >= 0) {
+        // Remove existing connection
+        console.log('Removing connection:', {
+          blockId: selectedUseCaseBlock.id,
+          elementId: elementId,
+          totalConnections: useCaseConnections.length - 1
+        });
+        setUseCaseConnections(prev => prev.filter((_, index) => index !== existingConnectionIndex));
+      } else {
+        // Add new connection
+        const newConnection = {
+          blockId: selectedUseCaseBlock.id,
+          blockName: selectedUseCaseBlock.name,
+          containerId: selectedUseCaseBlock.containerId,
+          elementId: elementId
+        };
+        console.log('Adding connection:', newConnection);
+        console.log('Total connections will be:', useCaseConnections.length + 1);
+        setUseCaseConnections(prev => [...prev, newConnection]);
+      }
+      setHasUnsavedChanges(true);
+      console.log('HasUnsavedChanges set to true');
+    }
   };
 
   return (
-    <svg
-      width="100%"
-      height="100%"
-      viewBox={`0 0 ${DIAGRAM_WIDTH} ${DIAGRAM_HEIGHT + 100}`}
-      preserveAspectRatio="xMidYMid meet"
-      style={{ height: "100%" }}
-      onClick={handleBackgroundClick}
-      className="w-full overflow-hidden bg-white shadow-sm rounded-lg p-2"
-      ref={drop}
-    >
-      <defs>
-        <ArrowMarkers />
-      </defs>
+    <>
+      <SaveButton />
+      <div className="w-full h-full overflow-auto">
+        <svg
+          id="architecture-diagram-svg"
+          width="100%"
+          height={DIAGRAM_HEIGHT}
+          viewBox={`0 0 ${DIAGRAM_WIDTH} ${DIAGRAM_HEIGHT}`}
+          preserveAspectRatio="xMidYMid meet"
+          onClick={handleBackgroundClick}
+          className="w-full bg-white shadow-sm rounded-lg p-2"
+          ref={drop}
+        >
+          <ArrowMarkers />
 
-      {/* Connection Notification */}
-      {connectionNotification && (
-        <g>
-          <rect
-            x={(DIAGRAM_WIDTH / 2) - 150}
-            y={10}
-            width={300}
-            height={36}
-            rx="6"
-            fill="#4F46E5"
-            opacity="0.9"
-          />
-          <text
-            x={DIAGRAM_WIDTH / 2}
-            y={32}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize={14}
-            fontWeight="500"
-            fill="white"
-            className="select-none"
-          >
-            {connectionNotification.message}
-          </text>
-        </g>
-      )}
+          {/* Render all elements */}
+          {elements.map((element) => (
+            <Box key={element.id} element={element} />
+          ))}
 
-      {/* Reset button */}
-      <ResetButton />
+          {/* Render all relationships */}
+          {relationships.map((relationship, index) => (
+            <Connection key={`${relationship.source}-${relationship.target}-${index}`} relationship={relationship} />
+          ))}
 
-      {/* Top Level Boxes - Value Stream */}
-      <g>
-        <Box
-          x={positions.topRow.xStart}
-          y={positions.topRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="1. Spezifikation & Planung"
-          subtitle="Value Stream"
-          id="specification"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.topRow.xStart + positions.topRow.xSpacing}
-          y={positions.topRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="2. Aufbau & Inbetriebnahme"
-          subtitle="Value Stream"
-          id="setup"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.topRow.xStart + positions.topRow.xSpacing * 2}
-          y={positions.topRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.0 Betrieb"
-          subtitle="Value Stream"
-          id="operation"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.topRow.xStart + positions.topRow.xSpacing * 3}
-          y={positions.topRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="4. Demontage & Recycling"
-          subtitle="Value Stream"
-          id="dismantling"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.secondRow.xValues[0]}
-          y={positions.secondRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.1 Service & Wartung"
-          subtitle="Value Stream"
-          id="service"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.secondRow.xValues[1]}
-          y={positions.secondRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.2 Umplanung"
-          subtitle="Value Stream"
-          id="replanning"
-          color={COLORS.topLevel}
-          borderColor={COLORS.border.topLevel}
-          fontSize={12}
-        />
-      </g>
-
-      {/* Middle Level Boxes - Business Process level */}
-      <g>
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="1.2 Engineering"
-          subtitle="Business Process"
-          id="engineering"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing * 2}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="2.1 Aufbau & Anlauf"
-          subtitle="Business Process"
-          id="setup-start"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing * 3}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.1 Produktion"
-          subtitle="Business Process"
-          id="production"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing * 4}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.2 Instandhaltung & Optimierung"
-          subtitle="Business Process"
-          id="maintenance"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing * 5}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="3.3 Modernisierung"
-          subtitle="Business Process"
-          id="modernization"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.processRow.xStart + positions.processRow.xSpacing * 6}
-          y={positions.processRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="4.1 Demontage, Rückbau"
-          subtitle="Business Process"
-          id="dismantling-process"
-          color={COLORS.midLevel}
-          borderColor={COLORS.border.midLevel}
-          fontSize={12}
-        />
-      </g>
-
-      {/* Bottom Level - Data Objects */}
-      <g>
-        <Box
-          x={positions.dataObjectRow.xValues[0]}
-          y={positions.dataObjectRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Arbeitsablaufschema"
-          subtitle="Data Object"
-          id="workflow"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.dataObjectRow.xValues[1]}
-          y={positions.dataObjectRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Funktionsschema"
-          subtitle="Data Object"
-          id="function-schema"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-
-        {/* Material Flow - wide box */}
-        <Box
-          x={positions.dataObjectRow.xValues[2]}
-          y={positions.dataObjectRow.y}
-          width={BOX_WIDTH * 5.2}
-          height={MATERIAL_FLOW_HEIGHT}
-          text="Materialfluss"
-          subtitle="Data Object"
-          id="material-flow"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-
-        {/* Layout Boxes */}
-        <Box
-          x={positions.layoutRow.xValues[0]}
-          y={positions.layoutRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Groblayout (2D)"
-          subtitle="Data Object"
-          id="rough-layout"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.layoutRow.xValues[1]}
-          y={positions.layoutRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Ideallayout (3D)"
-          subtitle="Data Object"
-          id="ideal-layout"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-        
-        <Box
-          x={positions.layoutRow.xValues[2]}
-          y={positions.layoutRow.y}
-          width={BOX_WIDTH * 3.5}
-          height={BOX_HEIGHT}
-          text="Reallayout (3D)"
-          subtitle="Data Object"
-          id="real-layout"
-          color={COLORS.bottomLevel}
-          borderColor={COLORS.border.bottomLevel}
-          fontSize={12}
-        />
-
-        {/* Model Boxes */}
-        <Box
-          x={positions.modelRow.xValues[0]}
-          y={positions.modelRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Grafisches Modell"
-          subtitle="Data Model"
-          id="graphic-model"
-          color={"#E8F0FF"}
-          borderColor={"#6080C0"}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.modelRow.xValues[1]}
-          y={positions.modelRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Strukturmodell"
-          subtitle="Data Model"
-          id="structure-model"
-          color={"#E8F0FF"}
-          borderColor={"#6080C0"}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.modelRow.xValues[2]}
-          y={positions.modelRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Materialfluss"
-          subtitle="Data Model"
-          id="material-flow-model"
-          color={"#E8F0FF"}
-          borderColor={"#6080C0"}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.modelRow.xValues[3]}
-          y={positions.modelRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Fähigkeitenmodell"
-          subtitle="Data Model"
-          id="capability-model"
-          color={"#E8F0FF"}
-          borderColor={"#6080C0"}
-          fontSize={12}
-        />
-
-        <Box
-          x={positions.modelRow.xValues[4]}
-          y={positions.modelRow.y}
-          width={BOX_WIDTH}
-          height={BOX_HEIGHT}
-          text="Kennzahlenmodell"
-          subtitle="Data Model"
-          id="kpi-model"
-          color={"#E8F0FF"}
-          borderColor={"#6080C0"}
-          fontSize={12}
-        />
-      </g>
-
-      {/* Draw connections in specific order for proper layering */}
-      
-      {/* Value Stream Triggering connections */}
-      <Connection from="specification" to="setup" type="triggering" />
-      <Connection from="setup" to="operation" type="triggering" />
-      <Connection from="setup" to="service" type="triggering" />
-      <Connection from="operation" to="dismantling" type="triggering" />
-      <Connection from="service" to="replanning" type="triggering" />
-      <Connection from="service" to="dismantling" type="triggering" />
-      <Connection from="replanning" to="dismantling" type="triggering" />
-      
-      {/* Value Stream Composition connections */}
-      <Connection from="operation" to="service" type="composition" />
-      <Connection from="operation" to="replanning" type="composition" />
-      
-      {/* Business Process Triggering connections */}
-      <Connection from="investment" to="engineering" type="triggering" />
-      <Connection from="engineering" to="setup-start" type="triggering" />
-      <Connection from="setup-start" to="production" type="triggering" />
-      <Connection from="production" to="maintenance" type="triggering" />
-      <Connection from="maintenance" to="modernization" type="triggering" />
-      <Connection from="modernization" to="dismantling-process" type="triggering" />
-      
-      {/* Realization connections - business processes to value streams */}
-      <Connection from="investment" to="specification" type="realization" />
-      <Connection from="engineering" to="specification" type="realization" />
-      <Connection from="setup-start" to="setup" type="realization" />
-      <Connection from="production" to="operation" type="realization" />
-      <Connection from="maintenance" to="service" type="realization" />
-      <Connection from="modernization" to="replanning" type="realization" />
-      <Connection from="dismantling-process" to="dismantling" type="realization" />
-      
-      {/* Access connections from Engineering */}
-      <Connection from="engineering" to="workflow" type="access" />
-      <Connection from="engineering" to="function-schema" type="access" />
-      <Connection from="engineering" to="material-flow" type="access" />
-      <Connection from="engineering" to="rough-layout" type="access" />
-      <Connection from="engineering" to="ideal-layout" type="access" />
-      
-      {/* Access connections from Setup & Anlauf */}
-      <Connection from="setup-start" to="material-flow" type="access" />
-      <Connection from="setup-start" to="ideal-layout" type="access" />
-      <Connection from="setup-start" to="real-layout" type="access" />
-      
-      {/* Access connections from Produktion */}
-      <Connection from="production" to="material-flow" type="access" />
-      <Connection from="production" to="real-layout" type="access" />
-      
-      {/* Access connections from Instandhaltung */}
-      <Connection from="maintenance" to="material-flow" type="access" />
-      <Connection from="maintenance" to="real-layout" type="access" />
-      
-      {/* Access connections from Modernisierung */}
-      <Connection from="modernization" to="material-flow" type="access" />
-      <Connection from="modernization" to="real-layout" type="access" />
-      
-      {/* Access connections from Demontage */}
-      <Connection from="dismantling-process" to="material-flow" type="access" />
-      <Connection from="dismantling-process" to="real-layout" type="access" />
-      
-      {/* Data Object Access connections */}
-      <Connection from="workflow" to="rough-layout" type="access" />
-      <Connection from="function-schema" to="ideal-layout" type="access" />
-      <Connection from="material-flow" to="real-layout" type="access" />
-      
-      {/* Model connections */}
-      <Connection from="rough-layout" to="graphic-model" type="access" />
-      <Connection from="rough-layout" to="structure-model" type="access" />
-      <Connection from="ideal-layout" to="structure-model" type="access" />
-      <Connection from="material-flow" to="material-flow-model" type="access" />
-      <Connection from="real-layout" to="capability-model" type="access" />
-      <Connection from="real-layout" to="kpi-model" type="access" />
-      
-      {/* Custom connections from UC blocks */}
-      {customConnections.map((conn) => (
-        <CustomConnection 
-          key={conn.id}
-          from={conn.from}
-          fromLabel={conn.fromLabel}
-          to={conn.to}
-          type={conn.type}
-          elementType={conn.elementType}
-          color={conn.color}
-        />
-      ))}
-    </svg>
+          {/* Render use case connections */}
+          {useCaseConnections.map((connection, index) => (
+            <UseCaseConnection key={`${connection.blockId}-${connection.containerId}-${connection.elementId}-${index}`} connection={connection} />
+          ))}
+        </svg>
+      </div>
+    </>
   );
 };
 
