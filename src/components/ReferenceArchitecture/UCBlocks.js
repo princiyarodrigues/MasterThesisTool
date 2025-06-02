@@ -7,14 +7,26 @@ import { useCaseElementsData } from '../../lib/use-case-elements-data';
 const ElementBlock = ({ id, name, type, onDragEnd }) => {
   // Determine block color based on type
   const isEquipment = type === 'Equipment';
+  const isSoftware = type === 'Software';
   const baseClasses = `p-1.5 mb-2 border rounded-md cursor-move transition-all shadow-sm hover:shadow-md`;
-  const colorClasses = isEquipment 
-    ? `bg-green-50 border-green-200 hover:border-green-500`
-    : `bg-blue-50 border-blue-200 hover:border-blue-500`;
   
-  const textColorClasses = isEquipment 
-    ? `text-green-700`
-    : `text-blue-700`;
+  let colorClasses, textColorClasses, badgeClasses;
+  
+  if (isEquipment) {
+    colorClasses = `bg-green-50 border-green-200 hover:border-green-500`;
+    textColorClasses = `text-green-700`;
+    badgeClasses = `bg-green-100`;
+  } else if (isSoftware) {
+    // Use cyan colors to match data objects in the diagram
+    colorClasses = `bg-cyan-50 border-cyan-200 hover:border-cyan-500`;
+    textColorClasses = `text-cyan-700`;
+    badgeClasses = `bg-cyan-100`;
+  } else {
+    // Default blue for other types
+    colorClasses = `bg-blue-50 border-blue-200 hover:border-blue-500`;
+    textColorClasses = `text-blue-700`;
+    badgeClasses = `bg-blue-100`;
+  }
   
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'ELEMENT_BLOCK',
@@ -33,11 +45,11 @@ const ElementBlock = ({ id, name, type, onDragEnd }) => {
   return (
     <div
       ref={drag}
-      className={`${baseClasses} ${colorClasses} ${isDragging ? 'opacity-50 scale-105' : 'opacity-100'}`}
+      className={`${baseClasses} ${colorClasses}`}
     >
       <div className={`font-medium flex items-center justify-between text-xs ${textColorClasses}`}>
         {name}
-        <span className={`text-xs ${isEquipment ? 'bg-green-100' : 'bg-blue-100'} ${textColorClasses} px-1 py-0.5 rounded-md`}>
+        <span className={`text-xs ${badgeClasses} ${textColorClasses} px-1 py-0.5 rounded-md`}>
           {type}
         </span>
       </div>
@@ -46,10 +58,9 @@ const ElementBlock = ({ id, name, type, onDragEnd }) => {
 };
 
 // Container component for UC Blocks
-const UCBlocks = () => {
+const UCBlocks = ({ usedElements = [], setUsedElements }) => {
   // State
   const [selectedUseCase, setSelectedUseCase] = useState(null);
-  const [usedElements, setUsedElements] = useState([]);
   
   // Handle use case selection
   const handleUseCaseSelect = (useCaseId) => {
@@ -58,15 +69,21 @@ const UCBlocks = () => {
   
   // Handle when an element is successfully dragged
   const handleElementUsed = (elementId) => {
-    setUsedElements([...usedElements, elementId]);
+    if (setUsedElements && !usedElements.includes(elementId)) {
+      setUsedElements([...usedElements, elementId]);
+    }
   };
   
   // Reset all blocks
   const handleReset = () => {
-    setUsedElements([]);
-    // We also need to trigger a reset in the parent component
+    if (setUsedElements) {
+      setUsedElements([]);
+    }
+    // Trigger reset in all architecture components
     if (window.dispatchEvent) {
       window.dispatchEvent(new CustomEvent('resetArchitectureDiagram'));
+      window.dispatchEvent(new CustomEvent('resetProductArchitectureDiagram'));
+      window.dispatchEvent(new CustomEvent('resetOrderArchitectureDiagram'));
     }
   };
 

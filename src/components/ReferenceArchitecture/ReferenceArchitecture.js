@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight, ChevronRight, Info } from 'lucide-react';
 import Link from 'next/link';
 import { DndProvider } from 'react-dnd';
@@ -20,6 +20,18 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
   const [detailsView, setDetailsView] = useState('properties');
   const [showNextStepPrompt, setShowNextStepPrompt] = useState(false);
   const [activePerspective, setActivePerspective] = useState('factory');
+  const [usedElements, setUsedElements] = useState([]);
+
+  // Handle element usage changes from the diagram - memoized to prevent re-creation
+  const handleElementUsageChange = useCallback((usedElementIds) => {
+    setUsedElements(prev => {
+      // Only update if the arrays are actually different
+      if (JSON.stringify(prev) !== JSON.stringify(usedElementIds)) {
+        return usedElementIds;
+      }
+      return prev;
+    });
+  }, []);
 
   // Function to get the correct elements based on perspective
   const getElements = () => {
@@ -159,7 +171,7 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* UC Blocks Panel - Takes up one column */}
             <div className="lg:col-span-2 border-r border-gray-200 p-3 h-[calc(100vh-110px)] overflow-hidden" style={{ maxWidth: "250px" }}>
-              <UCBlocks />
+              <UCBlocks usedElements={usedElements} setUsedElements={setUsedElements} />
             </div>
             
             {/* Architecture Diagram - Takes up eleven columns */}
@@ -194,144 +206,144 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
                 </button>
                 <button
                   className={`px-6 py-3 text-sm font-medium ${
-                    activeTab === 'details' 
+                    activeTab === 'element-details' 
                       ? 'text-teal-600 border-b-2 border-teal-600' 
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
-                  onClick={() => setActiveTab('details')}
+                  onClick={() => setActiveTab('element-details')}
                 >
                   Element Details
                 </button>
               </div>
 
-              {/* Content Area */}
-              {/* Diagram Tab Content */}
-              {activeTab === 'diagram' && (
-                <div className="h-[calc(100vh-150px)] overflow-auto">
-                  {activePerspective === 'factory' && (
-                    <ArchitectureDiagramSVG 
+              {/* Tab Content */}
+              <div className="h-[calc(100%-100px)] overflow-auto">
+                {activeTab === 'diagram' && (
+                  activePerspective === 'factory' ? (
+                    <ArchitectureDiagramSVG
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
+                      onElementUsageChange={handleElementUsageChange}
                     />
-                  )}
-                  {activePerspective === 'product' && (
+                  ) : activePerspective === 'product' ? (
                     <ProductReferenceArchitecture 
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
+                      onElementUsageChange={handleElementUsageChange}
                       departmentId={departmentId}
                     />
-                  )}
-                  {activePerspective === 'order' && (
+                  ) : activePerspective === 'order' ? (
                     <OrderReferenceArchitecture 
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
+                      onElementUsageChange={handleElementUsageChange}
                       departmentId={departmentId}
                     />
-                  )}
-                  {activePerspective === 'manufacturing' && (
+                  ) : activePerspective === 'manufacturing' ? (
                     <ManufacturingReferenceArchitecture 
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
                       departmentId={departmentId}
                     />
-                  )}
-                  {activePerspective === 'finalView' && (
-                    <DigitalFactoryArchitecture 
+                  ) : activePerspective === 'finalView' ? (
+                    <FinalViewReferenceArchitecture 
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
                       departmentId={departmentId}
                     />
-                  )}
-                  
-                  {/* Legend Section - Moved inside the scrollable area */}
-                  <LegendSection />
-                </div>
-              )}
+                  ) : null
+                )}
 
-              {/* Elements Tab Content */}
-              {activeTab === 'elements' && (
-                <div className="p-4 overflow-auto h-[calc(100vh-150px)]">
-                  {(activePerspective === 'factory' || activePerspective === 'product' || activePerspective === 'manufacturing' || activePerspective === 'finalView') && (
-                    <ElementsTable 
-                      elements={getElements()}
-                      onElementSelect={setSelectedElement}
-                      selectedElement={selectedElement}
-                    />
-                  )}
-                  {activePerspective === 'order' && (
-                    <ElementsTable 
-                      elements={getElements()}
-                      onElementSelect={setSelectedElement}
-                      selectedElement={selectedElement}
-                    />
-                  )}
-                  
-                  {/* Legend Section for Elements tab */}
-                  <div className="mt-6">
-                    <LegendSection />
-                  </div>
-                </div>
-              )}
-
-              {/* Details Tab Content */}
-              {activeTab === 'details' && (
-                <div className="p-4 overflow-auto h-[calc(100vh-150px)]">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-2 h-[calc(100vh-240px)]">
-                      {activePerspective === 'factory' && (
-                        <FactoryReferenceArchitecture 
-                          selectedElement={selectedElement}
-                          setSelectedElement={setSelectedElement}
-                          departmentId={departmentId}
-                        />
-                      )}
-                      {activePerspective === 'product' && (
-                        <ProductReferenceArchitecture 
-                          selectedElement={selectedElement}
-                          setSelectedElement={setSelectedElement}
-                          departmentId={departmentId}
-                        />
-                      )}
-                      {activePerspective === 'order' && (
-                        <OrderReferenceArchitecture 
-                          selectedElement={selectedElement}
-                          setSelectedElement={setSelectedElement}
-                          departmentId={departmentId}
-                        />
-                      )}
-                      {activePerspective === 'manufacturing' && (
-                        <ManufacturingReferenceArchitecture 
-                          selectedElement={selectedElement}
-                          setSelectedElement={setSelectedElement}
-                          departmentId={departmentId}
-                        />
-                      )}
-                      {activePerspective === 'finalView' && (
-                        <DigitalFactoryArchitecture 
-                          selectedElement={selectedElement}
-                          setSelectedElement={setSelectedElement}
-                          departmentId={departmentId}
-                        />
-                      )}
-                    </div>
-                    <div>
-                      <ElementDetails
-                        element={selectedElementData}
-                        incomingRelationships={incomingRelationships}
-                        outgoingRelationships={outgoingRelationships}
-                        detailsView={detailsView}
-                        setDetailsView={setDetailsView}
-                        architectureElements={getElements()}
+                {/* Elements Tab Content */}
+                {activeTab === 'elements' && (
+                  <div className="p-4 overflow-auto h-[calc(100vh-150px)]">
+                    {(activePerspective === 'factory' || activePerspective === 'product' || activePerspective === 'manufacturing' || activePerspective === 'finalView') && (
+                      <ElementsTable 
+                        elements={getElements()}
+                        onElementSelect={setSelectedElement}
+                        selectedElement={selectedElement}
                       />
+                    )}
+                    {activePerspective === 'order' && (
+                      <ElementsTable 
+                        elements={getElements()}
+                        onElementSelect={setSelectedElement}
+                        selectedElement={selectedElement}
+                      />
+                    )}
+                    
+                    {/* Legend Section for Elements tab */}
+                    <div className="mt-6">
+                      <LegendSection />
                     </div>
                   </div>
-                  
-                  {/* Legend Section for Details tab */}
-                  <div className="mt-6">
-                    <LegendSection />
+                )}
+
+                {/* Details Tab Content */}
+                {activeTab === 'element-details' && (
+                  <div className="p-4 overflow-auto h-[calc(100vh-150px)]">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <div className="lg:col-span-2 h-[calc(100vh-240px)]">
+                        {activePerspective === 'factory' && (
+                          <FactoryReferenceArchitecture 
+                          key={activePerspective}
+                            selectedElement={selectedElement}
+                            setSelectedElement={setSelectedElement}
+                            departmentId={departmentId}
+                          />
+                        )}
+                        {activePerspective === 'product' && (
+                          <ProductReferenceArchitecture 
+                          key={activePerspective}
+                            selectedElement={selectedElement}
+                            setSelectedElement={setSelectedElement}
+                            departmentId={departmentId}
+                          />
+                        )}
+                        {activePerspective === 'order' && (
+                          <OrderReferenceArchitecture   
+                          key={activePerspective}
+                            selectedElement={selectedElement}
+                            setSelectedElement={setSelectedElement}
+                            departmentId={departmentId}
+                          />
+                        )}
+                        {activePerspective === 'manufacturing' && (
+                          <ManufacturingReferenceArchitecture 
+                          key={activePerspective}
+                            selectedElement={selectedElement}
+                            setSelectedElement={setSelectedElement}
+                            departmentId={departmentId}
+                          />
+                        )}
+                        {activePerspective === 'finalView' && (
+                          <DigitalFactoryArchitecture 
+                          key={activePerspective}
+                            selectedElement={selectedElement}
+                            setSelectedElement={setSelectedElement}
+                            departmentId={departmentId}
+                          />
+                        )}
+                      </div>
+                      <div>
+                        <ElementDetails
+                          element={selectedElementData}
+                          incomingRelationships={incomingRelationships}
+                          outgoingRelationships={outgoingRelationships}
+                          detailsView={detailsView}
+                          setDetailsView={setDetailsView}
+                          architectureElements={getElements()}
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Legend Section for Details tab */}
+                    <div className="mt-6">
+                      <LegendSection />
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
