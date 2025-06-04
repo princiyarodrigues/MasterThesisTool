@@ -179,7 +179,7 @@ const DigitalFactoryArchitecture = ({ selectedElement, setSelectedElement }) => 
               alignmentBaseline="middle"
               className="text-sm font-medium fill-gray-700"
             >
-              Datenmodell Digitaler Fabrikzwilling ("Digital Thread")
+              Datenmodell Digitaler Fabrikzwilling (&quot;Digital Thread&quot;)
             </text>
             
             {/* Data Models Section */}

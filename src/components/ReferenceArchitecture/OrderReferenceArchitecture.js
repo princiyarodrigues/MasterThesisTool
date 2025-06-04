@@ -1209,7 +1209,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
       borderColor = '#FF3366'; // Pink/red border for connectable elements
     }
 
-    return (
+  return (
       <g 
         transform={`translate(${x}, ${y})`}
         onClick={(e) => handleElementClick(id, e)}
@@ -1400,47 +1400,47 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
 
   // Arrow markers for connections
   const ArrowMarkers = () => (
-    <defs>
-      <marker
-        id="arrow-triggering"
-        viewBox="0 0 10 10"
+          <defs>
+            <marker
+              id="arrow-triggering"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B" />
-      </marker>
-      <marker
+            </marker>
+            <marker
         id="arrow-realization"
-        viewBox="0 0 10 10"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#10B981" />
-      </marker>
-      <marker
+            </marker>
+            <marker
         id="arrow-access"
-        viewBox="0 0 10 10"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#06B6D4" />
-      </marker>
-      <marker
-        id="arrow-composition"
-        viewBox="0 0 10 10"
+            </marker>
+            <marker
+              id="arrow-composition"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
       >
         <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6" />
@@ -1455,8 +1455,8 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
         orient="auto"
       >
         <path d="M0,0 L0,6 L9,3 z" fill="#FF3366" />
-      </marker>
-    </defs>
+            </marker>
+          </defs>
   );
 
   // Connection component
@@ -1531,11 +1531,11 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
 
     const pathData = `M ${startX} ${startY} L ${endX} ${endY}`;
 
-    return (
-      <path
+            return (
+              <path
         d={pathData}
         stroke={strokeColor}
-        strokeWidth="1.5"
+                strokeWidth="1.5"
         strokeDasharray={strokeDasharray}
         fill="none"
         markerEnd={markerEnd}
@@ -1827,7 +1827,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
               : 'bg-red-100 text-red-800 border border-red-200'
           }`}>
             {saveStatus === 'success' ? 'Saved successfully!' : 'Save failed. Please try again.'}
-          </div>
+      </div>
         )}
       </div>
     );
@@ -1863,7 +1863,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
             <UseCaseConnection key={`${connection.blockId}-${connection.containerId}-${connection.elementId}-${index}`} connection={connection} />
           ))}
         </svg>
-      </div>
+    </div>
       <SaveButton />
     </>
   );

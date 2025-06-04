@@ -20,18 +20,49 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
   const [detailsView, setDetailsView] = useState('properties');
   const [showNextStepPrompt, setShowNextStepPrompt] = useState(false);
   const [activePerspective, setActivePerspective] = useState('factory');
-  const [usedElements, setUsedElements] = useState([]);
+  const [perspectiveUsedElements, setPerspectiveUsedElements] = useState({
+    factory: [],
+    product: [],
+    order: [],
+    manufacturing: [],
+    finalView: []
+  });
+
+  // Get current perspective's used elements
+  const usedElements = perspectiveUsedElements[activePerspective] || [];
 
   // Handle element usage changes from the diagram - memoized to prevent re-creation
   const handleElementUsageChange = useCallback((usedElementIds) => {
-    setUsedElements(prev => {
+    setPerspectiveUsedElements(prev => {
+      const newState = { ...prev };
+      const currentUsed = newState[activePerspective] || [];
+      
       // Only update if the arrays are actually different
-      if (JSON.stringify(prev) !== JSON.stringify(usedElementIds)) {
-        return usedElementIds;
+      if (JSON.stringify(currentUsed) !== JSON.stringify(usedElementIds)) {
+        newState[activePerspective] = usedElementIds;
+        console.log(`=== PERSPECTIVE ${activePerspective.toUpperCase()}: Used elements updated ===`, usedElementIds);
+        return newState;
       }
       return prev;
     });
-  }, []);
+  }, [activePerspective]);
+
+  // Function to update used elements for current perspective (for UCBlocks component)
+  const setUsedElements = useCallback((updater) => {
+    setPerspectiveUsedElements(prev => {
+      const newState = { ...prev };
+      const currentUsed = newState[activePerspective] || [];
+      
+      if (typeof updater === 'function') {
+        newState[activePerspective] = updater(currentUsed);
+      } else {
+        newState[activePerspective] = updater;
+      }
+      
+      console.log(`=== PERSPECTIVE ${activePerspective.toUpperCase()}: Used elements set ===`, newState[activePerspective]);
+      return newState;
+    });
+  }, [activePerspective]);
 
   // Function to get the correct elements based on perspective
   const getElements = () => {
@@ -80,7 +111,12 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
   useEffect(() => {
     // Reset selected element when changing perspectives
     setSelectedElement(null);
-  }, [activePerspective]);
+    
+    // Log perspective change and current used elements
+    console.log(`=== PERSPECTIVE CHANGED TO: ${activePerspective.toUpperCase()} ===`);
+    console.log(`=== CURRENT USED ELEMENTS FOR ${activePerspective.toUpperCase()}:`, perspectiveUsedElements[activePerspective] || []);
+    console.log('=== ALL PERSPECTIVE USED ELEMENTS:', perspectiveUsedElements);
+  }, [activePerspective, perspectiveUsedElements]);
 
   // Adding the second layer elements (workflow elements)
   const secondLayerElements = [
@@ -154,12 +190,8 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
             {/* Header */}
             <div className="mb-3 mt-2">
               <h1 className="text-2xl font-bold text-gray-800">Reference Architecture</h1>
-              <p className="text-gray-600">
-                {activePerspective === 'factory' && "Referenzarchitektur Digitaler Fabrikzwilling: Fabrikperspektive"}
-                {activePerspective === 'product' && "Referenzarchitektur Digitaler Fabrikzwilling: Produktperspektive"}
-                {activePerspective === 'order' && "Referenzarchitektur Digitaler Fabrikzwilling: Auftragsperspektive"}
-                {activePerspective === 'manufacturing' && "Referenzarchitektur Digitaler Fabrikzwilling: Fertigungstechnologieperspektive"}
-                {activePerspective === 'finalView' && "Referenzarchitektur Digitaler Fabrikzwilling: Final View"}
+              <p className="text-gray-600 mb-6">
+                Explore detailed architectural perspectives for your organization&apos;s digital factory implementation.
               </p>
               <p className="text-sm text-indigo-600 mt-1">
                 Drag the Use Case Blocks from the left panel onto the Reference Architecture below
@@ -243,6 +275,7 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
                     <ManufacturingReferenceArchitecture 
                       selectedElement={selectedElement}
                       setSelectedElement={setSelectedElement}
+                      onElementUsageChange={handleElementUsageChange}
                       departmentId={departmentId}
                     />
                   ) : activePerspective === 'finalView' ? (
@@ -313,6 +346,7 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
                           key={activePerspective}
                             selectedElement={selectedElement}
                             setSelectedElement={setSelectedElement}
+                            onElementUsageChange={handleElementUsageChange}
                             departmentId={departmentId}
                           />
                         )}

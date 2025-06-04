@@ -414,6 +414,27 @@ const relationships = [
   }
 ];
 
+// Helper function to detect manufacturing data by checking container IDs
+const isManufacturingData = (data) => {
+  if (!data || !data.selections) return false;
+  
+  const manufacturingContainerIds = [
+    'datenquellen-grafisches-modell',
+    'datenquellen-grafisches-datenmodell', 
+    'datenquellen-datenmodell'
+  ];
+  
+  const hasManufacturingContainers = manufacturingContainerIds.some(containerId => 
+    data.selections.hasOwnProperty(containerId)
+  );
+  
+  console.log('=== MANUFACTURING: Checking if data is manufacturing ===');
+  console.log('Data selections keys:', Object.keys(data.selections || {}));
+  console.log('Has manufacturing containers:', hasManufacturingContainers);
+  
+  return hasManufacturingContainers;
+};
+
 const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElement, onElementUsageChange = () => {}, departmentId = 'operations' }) => {
   const [highlightedElement, setHighlightedElement] = useState(null);
   const [highlightedConnections, setHighlightedConnections] = useState([]);
@@ -510,25 +531,318 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     layer4: ['grafisches-modell-mfg', 'strukturmodell-mfg', 'materialfluss-mfg', 'faehigkeitenmodell-mfg', 'kennzahlenmodell-mfg']
   };
 
+  // Load user's selections from database on component mount
+  useEffect(() => {
+    loadUserSelections();
+  }, [session?.user?.email]);
+
+  // Handle perspective activation - load saved selections when this perspective becomes active
+  useEffect(() => {
+    loadUserSelections();
+  }, []); // Only run on mount when this component is rendered
+
+  // Additional effect to ensure loading happens when component is fully rendered
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      loadUserSelections();
+    }, 500); // Small delay to ensure component is ready
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Reset selections when UCBlocks component triggers reset
+  useEffect(() => {
+    const handleReset = () => {
+      setContainerSelections({
+        'datenquellen-grafisches-modell': [],
+        'datenquellen-grafisches-datenmodell': [],
+        'datenquellen-datenmodell': []
+      });
+      setUseCaseConnections([]);
+      setSelectedUseCaseBlock(null);
+      setHighlightedLayers([]);
+      setHasUnsavedChanges(true);
+    };
+
+    window.addEventListener('ucblocks-reset', handleReset);
+    return () => window.removeEventListener('ucblocks-reset', handleReset);
+  }, []);
+
+  // Auto-save when changes are made (debounced)
+  useEffect(() => {
+    if (hasUnsavedChanges) {
+      if (session?.user?.email) {
+        if (saveTimeoutRef.current) {
+          clearTimeout(saveTimeoutRef.current);
+        }
+        
+        saveTimeoutRef.current = setTimeout(() => {
+          saveUserSelections();
+        }, 1000); // Save after 1 second of inactivity
+      }
+    }
+    
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [hasUnsavedChanges, containerSelections, useCaseConnections, session?.user?.email]);
+
+  // Track element usage and notify parent component
+  useEffect(() => {
+    const currentUsedElements = [
+      ...Object.values(containerSelections).flat().map(block => block.id),
+      ...useCaseConnections.map(conn => conn.elementId)
+    ];
+    
+    // Only update if the arrays are actually different
+    const currentUsedSet = new Set(currentUsedElements);
+    const lastUsedSet = new Set(lastUsedElementsRef.current);
+    
+    if (currentUsedSet.size !== lastUsedSet.size || 
+        [...currentUsedSet].some(id => !lastUsedSet.has(id))) {
+      lastUsedElementsRef.current = currentUsedElements;
+      onElementUsageChange(currentUsedElements);
+    }
+  }, [containerSelections, useCaseConnections, onElementUsageChange]);
+
+  // Debug container selections changes
+  useEffect(() => {
+    console.log('=== MANUFACTURING: Container selections changed ===', containerSelections);
+    Object.keys(containerSelections).forEach(containerId => {
+      const blocks = containerSelections[containerId];
+      console.log(`Container ${containerId}: ${blocks.length} blocks`, blocks);
+    });
+    
+    // Auto-cleanup invalid connections when containers change
+    if (useCaseConnections.length > 0) {
+      console.log('=== AUTO-CLEANUP: Container changed, checking connections ===');
+      const existingBlockIds = Object.values(containerSelections)
+        .flat()
+        .map(block => block.id);
+      
+      const validConnections = useCaseConnections.filter(connection => {
+        const isValid = existingBlockIds.includes(connection.blockId);
+        if (!isValid) {
+          console.log(`Auto-removing invalid connection: ${connection.blockId} -> ${connection.elementId}`);
+        }
+        return isValid;
+      });
+      
+      if (validConnections.length !== useCaseConnections.length) {
+        console.log(`=== AUTO-CLEANUP: Removed ${useCaseConnections.length - validConnections.length} invalid connections ===`);
+        setUseCaseConnections(validConnections);
+        setHasUnsavedChanges(true);
+      }
+    }
+  }, [containerSelections]);
+
+  // Track use case connections changes
+  useEffect(() => {
+    if (useCaseConnections.length > 0) {
+      const allBlocks = Object.values(containerSelections).flat();
+      const allElements = elements.map(el => el.id);
+      
+      useCaseConnections.forEach((conn, index) => {
+        const blockExists = allBlocks.some(b => b.id === conn.blockId);
+        const elementExists = allElements.includes(conn.elementId);
+      });
+    }
+  }, [useCaseConnections]);
+
+  // Clean up invalid connections (connections to blocks that no longer exist)
+  const cleanupInvalidConnections = () => {
+    // Get all existing block IDs from all containers
+    const existingBlockIds = Object.values(containerSelections)
+      .flat()
+      .map(block => block.id);
+    
+    // Get all valid element IDs from the manufacturing perspective
+    const validElementIds = elements.map(el => el.id);
+    
+    // Filter connections to only keep those with valid block IDs AND valid element IDs
+    const validConnections = useCaseConnections.filter(connection => {
+      const hasValidBlock = existingBlockIds.includes(connection.blockId);
+      const hasValidElement = validElementIds.includes(connection.elementId);
+      return hasValidBlock && hasValidElement;
+    });
+    
+    if (validConnections.length !== useCaseConnections.length) {
+      setUseCaseConnections(validConnections);
+      setHasUnsavedChanges(true);
+    }
+  };
+
+  // Load user's selections for Manufacturing Perspective
+  const loadUserSelections = async () => {
+    if (!session?.user?.email) {
+      // Try loading from localStorage as fallback
+      try {
+        const localData = localStorage.getItem('manufacturing-perspective-selections');
+        if (localData) {
+          const parsedData = JSON.parse(localData);
+          
+          if (parsedData.selections) {
+            setContainerSelections(parsedData.selections);
+          }
+          
+          if (parsedData.useCaseConnections) {
+            setUseCaseConnections(parsedData.useCaseConnections);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading from localStorage:', error);
+      }
+      return;
+    }
+    
+    try {
+      const response = await fetch('/api/diagram-selections', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Handle different possible response structures
+        let manufacturingData = null;
+        
+        // Case 1: Response has diagramSelections array
+        if (data.diagramSelections && Array.isArray(data.diagramSelections)) {
+          manufacturingData = data.diagramSelections.find(selection => 
+            selection.diagramType === 'manufacturing-perspective' || 
+            (selection.diagramType === 'reference-architecture' && selection.perspective === 'manufacturing') ||
+            isManufacturingData(selection)
+          );
+        }
+        // Case 2: Response is the selection object directly
+        else if (data.diagramType) {
+          if (data.diagramType === 'manufacturing-perspective' || 
+              (data.diagramType === 'reference-architecture' && data.perspective === 'manufacturing') ||
+              isManufacturingData(data)) {
+            manufacturingData = data;
+          }
+        }
+        // Case 3: Response has selections property directly
+        else if (data.selections) {
+          manufacturingData = data;
+        }
+        
+        if (manufacturingData) {
+          if (manufacturingData.selections) {
+            setContainerSelections(manufacturingData.selections);
+          }
+          
+          if (manufacturingData.useCaseConnections) {
+            setUseCaseConnections(manufacturingData.useCaseConnections);
+          }
+        }
+      } else {
+        console.error('Failed to load selections:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error loading selections:', error);
+    }
+  };
+
+  // Save user's selections for Manufacturing Perspective
+  const saveUserSelections = async () => {
+    if (!session?.user?.email) {
+      // Save to localStorage as fallback
+      try {
+        const dataToSave = {
+          selections: containerSelections,
+          useCaseConnections: useCaseConnections,
+          diagramType: 'manufacturing-perspective',
+          timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('manufacturing-perspective-selections', JSON.stringify(dataToSave));
+        setHasUnsavedChanges(false);
+        setSaveStatus('saved');
+        setTimeout(() => setSaveStatus(null), 2000);
+      } catch (error) {
+        console.error('Error saving to localStorage:', error);
+        setSaveStatus('error');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }
+      return;
+    }
+    
+    if (isSaving) {
+      return;
+    }
+    
+    setIsSaving(true);
+    
+    try {
+      // Validate connections before saving
+      const allBlocks = Object.values(containerSelections).flat();
+      const allElements = elements.map(el => el.id);
+      
+      const validConnections = useCaseConnections.filter((conn, index) => {
+        const blockExists = allBlocks.some(b => b.id === conn.blockId);
+        const elementExists = allElements.includes(conn.elementId);
+        return blockExists && elementExists;
+      });
+      
+      const payload = {
+        selections: containerSelections,
+        useCaseConnections: validConnections, // Use only valid connections
+        diagramType: 'manufacturing-perspective',
+        perspective: 'manufacturing' // Add as backup identifier
+      };
+      
+      const response = await fetch('/api/diagram-selections', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (response.ok) {
+        const result = await response.json();
+        setHasUnsavedChanges(false);
+        setSaveStatus('saved');
+        setTimeout(() => setSaveStatus(null), 2000);
+      } else {
+        const errorText = await response.text();
+        console.error('Failed to save selections:', response.status, errorText);
+        setSaveStatus('error');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }
+    } catch (error) {
+      console.error('Error saving selections:', error);
+      setSaveStatus('error');
+      setTimeout(() => setSaveStatus(null), 3000);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   // Get colors for dropped blocks based on their type
   const getBlockColors = (type) => {
     const isEquipment = type === 'Equipment';
     const isSoftware = type === 'Software';
     
     if (isEquipment) {
-      return {
+        return { 
         fill: "#ECFDF5", // Light green background
         stroke: "#10B981", // Green border
         text: "#065F46" // Dark green text
       };
     } else if (isSoftware) {
-      return {
+        return { 
         fill: "#CFFAFE", // Light cyan background
         stroke: "#06B6D4", // Cyan border
         text: "#0E7490" // Dark cyan text
       };
     } else {
-      return {
+        return { 
         fill: "#DBEAFE", // Light blue background
         stroke: "#3B82F6", // Blue border
         text: "#1E40AF" // Dark blue text
@@ -565,6 +879,7 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
           containerId: selectedUseCaseBlock.containerId,
           elementId: elementId
         };
+        
         setUseCaseConnections(prev => [...prev, newConnection]);
       }
       setHasUnsavedChanges(true);
@@ -602,7 +917,7 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     if (element) {
       const width = element.width || BOX_WIDTH;
       const height = element.height || BOX_HEIGHT;
-      return {
+        return { 
         x: element.x + width / 2,
         y: element.y + height / 2,
         left: element.x,
@@ -787,7 +1102,7 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       borderColor = '#FF3366';
     }
 
-    return (
+  return (
       <g 
         transform={`translate(${x}, ${y})`}
         onClick={(e) => handleElementClick(id, e)}
@@ -835,90 +1150,92 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         )}
         
         {/* Render dropped blocks in containers */}
-        {type === 'Container' && containerSelections[id] && containerSelections[id].length > 0 && (
+        {type === 'Container' && (
           <g>
-            {containerSelections[id].map((block, index) => {
-              const blockHeight = 20;
-              const blockSpacing = 5;
-              const totalBlockHeight = blockHeight + blockSpacing;
-              const startY = 40;
-              const availableHeight = height - startY - 10;
-              const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
-              
-              const columnIndex = Math.floor(index / blocksPerColumn);
-              const rowIndex = index % blocksPerColumn;
-              
-              const blockWidth = 120;
-              const columnSpacing = 10;
-              const totalColumnWidth = blockWidth + columnSpacing;
-              
-              const x = 10 + (columnIndex * totalColumnWidth);
-              const y = startY + (rowIndex * totalBlockHeight);
-              
-              const isBlockSelected = selectedUseCaseBlock?.id === block.id && 
-                                     selectedUseCaseBlock?.containerId === id;
-              
-              return (
-                <g key={block.id} transform={`translate(${x}, ${y})`}>
-                  <rect
-                    x="0"
-                    y="0"
-                    width={blockWidth}
-                    height={blockHeight}
-                    rx="3"
-                    fill={getBlockColors(block.type).fill}
-                    stroke={isBlockSelected ? '#FF3366' : getBlockColors(block.type).stroke}
-                    strokeWidth={isBlockSelected ? "2" : "1"}
-                    className="cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleUseCaseBlockClick(block, id);
-                    }}
-                  />
-                  <text
-                    x={blockWidth/2}
-                    y={blockHeight/2}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontSize="9"
-                    fill={getBlockColors(block.type).text}
-                    className="select-none cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleUseCaseBlockClick(block, id);
-                    }}
-                  >
-                    {block.name.length > 15 ? `${block.name.substring(0, 15)}...` : block.name}
-                  </text>
-                  <circle
-                    cx={blockWidth - 10}
-                    cy={blockHeight/2}
-                    r="6"
-                    fill="#EF4444"
-                    className="cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeBlockFromContainer(id, block.id);
-                    }}
-                  />
-                  <text
-                    x={blockWidth - 10}
-                    y={blockHeight/2}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontSize="8"
-                    fill="white"
-                    className="select-none cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeBlockFromContainer(id, block.id);
-                    }}
-                  >
-                    ×
-                  </text>
-                </g>
-              );
-            })}
+            {containerSelections[id] && containerSelections[id].length > 0 ? (
+              containerSelections[id].map((block, index) => {
+                const blockHeight = 20;
+                const blockSpacing = 5;
+                const totalBlockHeight = blockHeight + blockSpacing;
+                const startY = 40;
+                const availableHeight = height - startY - 10;
+                const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
+                
+                const columnIndex = Math.floor(index / blocksPerColumn);
+                const rowIndex = index % blocksPerColumn;
+                
+                const blockWidth = 120;
+                const columnSpacing = 10;
+                const totalColumnWidth = blockWidth + columnSpacing;
+                
+                const x = 10 + (columnIndex * totalColumnWidth);
+                const y = startY + (rowIndex * totalBlockHeight);
+                
+                const isBlockSelected = selectedUseCaseBlock?.id === block.id && 
+                                       selectedUseCaseBlock?.containerId === id;
+                
+                return (
+                  <g key={block.id} transform={`translate(${x}, ${y})`}>
+                    <rect
+                      x="0"
+                      y="0"
+                      width={blockWidth}
+                      height={blockHeight}
+                      rx="3"
+                      fill={getBlockColors(block.type).fill}
+                      stroke={isBlockSelected ? '#FF3366' : getBlockColors(block.type).stroke}
+                      strokeWidth={isBlockSelected ? "2" : "1"}
+                      className="cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleUseCaseBlockClick(block, id);
+                      }}
+                    />
+                    <text
+                      x={blockWidth/2}
+                      y={blockHeight/2}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      fontSize="9"
+                      fill={getBlockColors(block.type).text}
+                      className="select-none cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleUseCaseBlockClick(block, id);
+                      }}
+                    >
+                      {block.name.length > 15 ? `${block.name.substring(0, 15)}...` : block.name}
+                    </text>
+                    <circle
+                      cx={blockWidth - 10}
+                      cy={blockHeight/2}
+                      r="6"
+                      fill="#EF4444"
+                      className="cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeBlockFromContainer(id, block.id);
+                      }}
+                    />
+                    <text
+                      x={blockWidth - 10}
+                      y={blockHeight/2}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      fontSize="8"
+                      fill="white"
+                      className="select-none cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeBlockFromContainer(id, block.id);
+                      }}
+                    >
+                      ×
+                    </text>
+                  </g>
+                );
+              })
+            ) : null}
           </g>
         )}
       </g>
@@ -927,62 +1244,72 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
 
   // Arrow markers for connections
   const ArrowMarkers = () => (
-    <defs>
-      <marker
-        id="arrow-triggering"
-        viewBox="0 0 10 10"
+          <defs>
+            <marker
+              id="arrow-triggering"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
       >
         <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B" />
-      </marker>
-      <marker
-        id="arrow-realization"
-        viewBox="0 0 10 10"
+            </marker>
+            <marker
+              id="arrow-realization"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#10B981" />
-      </marker>
-      <marker
+            </marker>
+            <marker
         id="arrow-access"
-        viewBox="0 0 10 10"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#06B6D4" />
-      </marker>
-      <marker
+            </marker>
+            <marker
         id="arrow-usecase"
-        viewBox="0 0 10 10"
+              viewBox="0 0 10 10"
         refX="8"
         refY="3"
-        markerWidth="6"
-        markerHeight="6"
+              markerWidth="6"
+              markerHeight="6"
         orient="auto"
-      >
+            >
         <path d="M0,0 L0,6 L9,3 z" fill="#FF3366" />
-      </marker>
-    </defs>
+            </marker>
+          </defs>
   );
 
   // Drag and drop functionality (simplified for this example)
   const addBlockToContainer = (containerId, blockData) => {
     setContainerSelections(prev => {
       const newSelections = { ...prev };
+      
+      // Remove block from all containers first
       Object.keys(newSelections).forEach(key => {
-        newSelections[key] = newSelections[key].filter(block => block.id !== blockData.id);
+        newSelections[key] = newSelections[key] ? newSelections[key].filter(block => block.id !== blockData.id) : [];
       });
+      
+      // Ensure the target container exists and is an array
+      if (!newSelections[containerId]) {
+        newSelections[containerId] = [];
+      }
+      
+      // Add block to target container
       newSelections[containerId] = [...newSelections[containerId], blockData];
+      
       return newSelections;
     });
     setHasUnsavedChanges(true);
@@ -1001,10 +1328,16 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
     drop: (item, monitor) => {
       const dropCoordinates = monitor.getClientOffset();
-      if (!dropCoordinates) return;
+      
+      if (!dropCoordinates) {
+        return;
+      }
 
       const svgElement = document.querySelector('#manufacturing-architecture-diagram-svg');
-      if (!svgElement) return;
+      
+      if (!svgElement) {
+        return;
+      }
 
       const rect = svgElement.getBoundingClientRect();
       const svgX = ((dropCoordinates.x - rect.left) / rect.width) * DIAGRAM_WIDTH;
@@ -1015,18 +1348,22 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       elements.forEach(element => {
         if (element.type === 'Container') {
           const { x, y, width, height } = element;
-          if (svgX >= x && svgX <= x + width && svgY >= y && svgY <= y + height) {
+          const inContainer = svgX >= x && svgX <= x + width && svgY >= y && svgY <= y + height;
+          
+          if (inContainer) {
             targetContainer = element.id;
           }
         }
       });
 
       if (targetContainer) {
-        addBlockToContainer(targetContainer, {
+        const blockData = {
           id: item.id,
           name: item.name,
-          type: item.type
-        });
+          type: item.type || 'Business Process'
+        };
+        
+        addBlockToContainer(targetContainer, blockData);
       }
 
       return { dropped: true };
@@ -1036,9 +1373,31 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     }),
   }));
 
-  return (
+            return (
     <>
-      <div className="w-full h-full overflow-auto">
+      {/* Save Status Indicator */}
+      {(isSaving || saveStatus) && (
+        <div className="fixed top-4 right-4 z-50">
+          <div className={`px-4 py-2 rounded-lg shadow-lg text-sm font-medium ${
+            isSaving 
+              ? 'bg-blue-100 text-blue-800 border border-blue-200' 
+              : saveStatus === 'saved'
+              ? 'bg-green-100 text-green-800 border border-green-200'
+              : 'bg-red-100 text-red-800 border border-red-200'
+          }`}>
+            {isSaving ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Error saving'}
+          </div>
+        </div>
+      )}
+
+      <div 
+        className="w-full h-full overflow-auto" 
+        ref={drop}
+        style={{
+          background: isOver ? 'rgba(34, 197, 94, 0.1)' : 'transparent',
+          transition: 'background-color 0.2s ease'
+        }}
+      >
         <svg
           id="manufacturing-architecture-diagram-svg"
           width="100%"
@@ -1047,7 +1406,6 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
           preserveAspectRatio="xMidYMid meet"
           onClick={handleBackgroundClick}
           className="w-full bg-white shadow-sm rounded-lg p-2"
-          ref={drop}
         >
           <ArrowMarkers />
 
@@ -1060,6 +1418,81 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
           {relationships.map((relationship, index) => (
             <Connection key={`${relationship.source}-${relationship.target}-${index}`} relationship={relationship} />
           ))}
+
+          {/* Render use case connections */}
+          {useCaseConnections.map((connection, index) => {
+            const block = Object.values(containerSelections)
+              .flat()
+              .find(b => b.id === connection.blockId);
+            
+            if (!block) {
+              return null;
+            }
+
+            const container = elements.find(el => el.id === connection.containerId);
+            const targetElement = elements.find(el => el.id === connection.elementId);
+            
+            if (!container || !targetElement) {
+              return null;
+            }
+
+            // Find the block's position within the container
+            const containerBlocks = containerSelections[connection.containerId] || [];
+            const blockIndex = containerBlocks.findIndex(b => b.id === connection.blockId);
+            
+            if (blockIndex === -1) return null;
+
+            // Calculate block position
+            const blockHeight = 20;
+            const blockSpacing = 5;
+            const totalBlockHeight = blockHeight + blockSpacing;
+            const startY = 40;
+            const availableHeight = container.height - startY - 10;
+            const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
+            
+            const columnIndex = Math.floor(blockIndex / blocksPerColumn);
+            const rowIndex = blockIndex % blocksPerColumn;
+            
+            const blockWidth = 120;
+            const columnSpacing = 10;
+            const totalColumnWidth = blockWidth + columnSpacing;
+            
+            const blockX = container.x + 10 + (columnIndex * totalColumnWidth) + (blockWidth / 2);
+            const blockY = container.y + startY + (rowIndex * totalBlockHeight) + (blockHeight / 2);
+
+            // Target element center
+            const targetWidth = targetElement.width || BOX_WIDTH;
+            const targetHeight = targetElement.height || BOX_HEIGHT;
+            const targetX = targetElement.x + (targetWidth / 2);
+            const targetY = targetElement.y + (targetHeight / 2);
+
+            return (
+              <g key={`connection-${connection.blockId}-${connection.elementId}-${index}`}>
+                <line
+                  x1={blockX}
+                  y1={blockY}
+                  x2={targetX}
+                  y2={targetY}
+                  stroke="#FF3366"
+                  strokeWidth="2"
+                  strokeDasharray="5,5"
+                  markerEnd="url(#arrow-usecase)"
+                />
+                <circle
+                  cx={blockX}
+                  cy={blockY}
+                  r="3"
+                  fill="#FF3366"
+                />
+                <circle
+                  cx={targetX}
+                  cy={targetY}
+                  r="3"
+                  fill="#FF3366"
+                />
+              </g>
+            );
+          })}
         </svg>
       </div>
     </>
