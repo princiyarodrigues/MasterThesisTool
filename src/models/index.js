@@ -1,19 +1,21 @@
-const Capability = require('./Capability');
-const Goal = require('./Goal');
-const Composition = require('./Composition');
-const Influence = require('./Influence');
-const Department = require('./Department');
 const User = require('./User');
 const UseCase = require('./UseCase');
+const Capability = require('./Capability');
 const TechnicalCapability = require('./technicalCapability');
+const Influence = require('./Influence');
+const Composition = require('./Composition');
+const Goal = require('./Goal');
+const Department = require('./Department');
+const DiagramSelection = require('./DiagramSelection');
 
 module.exports = {
-  Capability,
-  Goal,
-  Composition,
-  Influence,
-  Department,
   User,
   UseCase,
-  TechnicalCapability
+  Capability,
+  TechnicalCapability,
+  Influence,
+  Composition,
+  Goal,
+  Department,
+  DiagramSelection
 };

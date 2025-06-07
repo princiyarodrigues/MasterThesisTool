@@ -5,13 +5,25 @@ const compositionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  source: {
+  source_id: {
     type: String,
-    required: [true, 'Source capability is required']
+    required: [true, 'Source capability ID is required']
   },
-  target: {
+  source_name: {
     type: String,
-    required: [true, 'Target capability is required']
+    required: [true, 'Source capability name is required']
+  },
+  target_id: {
+    type: String,
+    required: [true, 'Target capability ID is required']
+  },
+  target_name: {
+    type: String,
+    required: [true, 'Target capability name is required']
+  },
+  type: {
+    type: String,
+    default: 'Composition'
   }
 }, { strict: false });
 

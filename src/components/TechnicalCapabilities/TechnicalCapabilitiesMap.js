@@ -1,19 +1,22 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronRight, Plus } from 'lucide-react';
+import { ChevronDown, ChevronRight, Search } from 'lucide-react';
 
 export default function TechnicalCapabilitiesMap({ slug }) {
   const [technicalCapabilities, setTechnicalCapabilities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expandedMaps, setExpandedMaps] = useState({ 'factory-twin': false });
+  const [expandedSections, setExpandedSections] = useState({ 'factory-twin': true });
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchTechnicalCapabilities = async () => {
       try {
         setLoading(true);
         console.log('Department slug:', slug);
-        const response = await fetch('/api/technical-capabilities');
+        
+        // Use the new API endpoint for technical factory twin capabilities
+        const response = await fetch('/api/technical-factory-twin-capabilities');
         
         if (!response.ok) {
           throw new Error('Failed to fetch technical capabilities');
@@ -22,9 +25,6 @@ export default function TechnicalCapabilitiesMap({ slug }) {
         const data = await response.json();
         console.log('Fetched technical capabilities:', data);
         setTechnicalCapabilities(data);
-        
-        // Initialize expanded state moved to useState initial value
-        
         setError(null);
       } catch (err) {
         console.error('Error fetching technical capabilities:', err);
@@ -36,13 +36,130 @@ export default function TechnicalCapabilitiesMap({ slug }) {
     
     fetchTechnicalCapabilities();
   }, [slug]);
-  
-  const toggleMap = (mapId) => {
-    setExpandedMaps(prev => ({
+
+  // Function to format capability data to match the business capabilities structure
+  const formatCapabilityForUI = (capability) => {
+    return {
+      number: capability.map.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Datenintegration V2")
+      title: capability.map.name.includes(' ') ? capability.map.name.split(' ').slice(1).join(' ') : capability.map.name,
+      parentId: capability.map.identifier,
+      parentName: capability.map.name,
+      subCapabilities: capability.children_capabilities || []
+    };
+  };
+
+  const toggleSection = (sectionType) => {
+    setExpandedSections(prev => ({
       ...prev,
-      [mapId]: !prev[mapId]
+      [sectionType]: !prev[sectionType]
     }));
   };
+
+  const handleSubCapabilityClick = (capability) => {
+    console.log('Sub-capability clicked:', capability);
+    // You can add modal or navigation logic here similar to business capabilities
+  };
+
+  const CapabilityCard = ({ capability }) => {
+    const formattedCap = formatCapabilityForUI(capability);
+    
+    return (
+      <div className="rounded-2xl border overflow-hidden shadow-sm" style={{ backgroundColor: '#FEF3C7', borderColor: '#F3E8A6' }}>
+        {/* Parent Capability Header */}
+        <div className="px-6 py-4 border-b" style={{ backgroundColor: '#F3E8A6', borderColor: '#E5D985' }}>
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-800">
+              {formattedCap.parentName}
+            </h3>
+          </div>
+        </div>
+
+        {/* Sub-capabilities Container */}
+        <div className="p-6 space-y-3">
+          {formattedCap.subCapabilities.length > 0 ? (
+            formattedCap.subCapabilities.map((sub, index) => (
+              <div
+                key={sub.identifier || index}
+                className="rounded-xl border p-4 transition-colors cursor-pointer hover:opacity-90"
+                style={{ backgroundColor: '#F3E8A6', borderColor: '#E5D985' }}
+                onClick={() => handleSubCapabilityClick({ 
+                  number: typeof sub === 'object' ? sub.name.split(' ')[0] : `${formattedCap.number}.${index + 1}`,
+                  title: typeof sub === 'object' ? sub.name : sub,
+                  parent: formattedCap.parentName
+                })}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-sm font-medium text-gray-700">
+                      {typeof sub === 'object' ? sub.name.split(' ')[0] : `${formattedCap.number}.${index + 1}`}
+                    </span>
+                    <span className="text-sm text-gray-800">
+                      {typeof sub === 'object' ? 
+                        sub.name.includes(' ') ? sub.name.split(' ').slice(1).join(' ') : sub.name
+                        : sub
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="p-4 text-sm text-gray-500 text-center rounded-xl border" style={{ backgroundColor: '#FEF3C7', borderColor: '#F3E8A6' }}>
+              No sub-capabilities available
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const Section = ({ title, capabilities, type }) => (
+    <div className="rounded-2xl border border-gray-200 overflow-hidden bg-white mb-8">
+      <button
+        onClick={() => toggleSection(type)}
+        className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
+      >
+        <div className="flex items-center space-x-4">
+          {expandedSections[type] ? (
+            <ChevronDown className="w-6 h-6 text-[#009374]" />
+          ) : (
+            <ChevronRight className="w-6 h-6 text-[#009374]" />
+          )}
+          <div>
+            <h2 className="text-xl font-semibold text-[#009374]">{title}</h2>
+            <p className="text-sm text-gray-500 mt-1">{capabilities.length} capabilities</p>
+          </div>
+        </div>
+      </button>
+
+      {expandedSections[type] && (
+        <div className="p-8 border-t border-gray-100">
+          {loading ? (
+            <div className="flex justify-center p-6">
+              <div className="text-center py-8">Loading technical capabilities...</div>
+            </div>
+          ) : (
+            <>
+              {capabilities.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {capabilities.map(capability => (
+                    <CapabilityCard
+                      key={capability.map?.identifier || capability.identifier}
+                      capability={capability}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8 text-gray-500">
+                  <p>No {title.toLowerCase()} capabilities found.</p>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
   
   if (loading) {
     return <div className="text-center py-8">Loading technical capabilities...</div>;
@@ -52,113 +169,26 @@ export default function TechnicalCapabilitiesMap({ slug }) {
     return <div className="text-red-500 py-4">{error}</div>;
   }
   
-  if (technicalCapabilities.length === 0) {
-    return <div className="text-center py-8">No technical capabilities found.</div>;
-  }
-  
   return (
     <div>
-      <div className="flex items-center mb-6">
+      {/* Search Bar */}
+      <div className="relative mb-8">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
         <input
           type="text"
           placeholder="Search capabilities..."
-          className="border border-gray-300 rounded-md p-2 pl-4 w-full max-w-md"
+          className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#009374] focus:ring-2 focus:ring-[#009374]/20"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      
-      {/* Factory Twin section */}
-      <div className="border border-gray-200 rounded-md bg-white mb-8">
-        <div 
-          className="flex items-center cursor-pointer p-4" 
-          onClick={() => toggleMap('factory-twin')}
-        >
-          {expandedMaps['factory-twin'] ? 
-            <ChevronDown className="w-5 h-5 text-green-600 mr-2" /> : 
-            <ChevronRight className="w-5 h-5 text-green-600 mr-2" />
-          }
-          <h3 className="text-xl font-semibold text-green-600">
-            Factory Twin
-          </h3>
-          <span className="ml-2 text-sm text-gray-500">
-            {technicalCapabilities.length} capabilities
-          </span>
-        </div>
-        
-        {expandedMaps['factory-twin'] && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-            {technicalCapabilities.map((capabilityGroup) => {
-              // Extract number from the map name (e.g., "1.0" from "1.0 Something V2")
-              const match = capabilityGroup.map.name.match(/^(\d+\.\d+)/);
-              const groupNumber = match ? match[1] : '';
-              const groupName = capabilityGroup.map.name.replace(/^(\d+\.\d+\s)/, '').replace(' V2', '');
-              
-              return (
-                <div key={capabilityGroup.map.identifier} className="relative">
-                  <div className="absolute top-3 left-3 text-green-700 font-semibold">
-                    {groupNumber}
-                  </div>
-                  <div className="p-4 bg-white border border-gray-200 rounded-md shadow-sm hover:shadow h-[100px] group cursor-pointer">
-                    <div className="ml-10">
-                      <div className="font-medium text-gray-800 group-hover:text-green-600">
-                        {groupName}
-                      </div>
-                    </div>
-                    <button className="absolute bottom-3 right-3 bg-green-100 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Plus className="w-4 h-4 text-green-700" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-      
-      {/* Display child capabilities when parent is clicked - similar to the image */}
-      {expandedMaps['factory-twin'] && technicalCapabilities.map((capabilityGroup) => {
-        const mapMatch = capabilityGroup.map.name.match(/^(\d+\.\d+)/);
-        const mapNumber = mapMatch ? mapMatch[1] : '';
-        const mapName = capabilityGroup.map.name.replace(/^(\d+\.\d+\s)/, '').replace(' V2', '');
-        
-        if (capabilityGroup.children_capabilities.length === 0) {
-          return null;
-        }
-        
-        return (
-          <div key={capabilityGroup.map.identifier} className="mb-6">
-            <div className="flex items-baseline mb-2">
-              <h3 className="text-green-700 font-semibold mr-2">{mapNumber}</h3>
-              <h3 className="text-xl font-semibold text-green-700">{mapName}</h3>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {capabilityGroup.children_capabilities.map((capability) => {
-                const match = capability.name.match(/^(\d+\.\d+)/);
-                const capabilityNumber = match ? match[1] : '';
-                const capabilityName = capability.name.replace(/^(\d+\.\d+\s)/, '').replace(' V2', '');
-                
-                return (
-                  <div key={capability.identifier} className="relative">
-                    <div className="absolute top-3 left-3 text-green-700 font-semibold">
-                      {capabilityNumber}
-                    </div>
-                    <div className="p-4 bg-[#f5f9f9] border border-[#e6eeef] rounded-md shadow-sm hover:shadow h-[100px] group cursor-pointer">
-                      <div className="ml-10 pr-3">
-                        <div className="font-medium text-gray-800 group-hover:text-green-600 line-clamp-3">
-                          {capabilityName}
-                        </div>
-                      </div>
-                      <button className="absolute bottom-3 right-3 bg-green-100 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Plus className="w-4 h-4 text-green-700" />
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+
+      {/* Factory Twin Section */}
+      <Section
+        title="Factory Twin"
+        capabilities={technicalCapabilities}
+        type="factory-twin"
+      />
     </div>
   );
 } 
