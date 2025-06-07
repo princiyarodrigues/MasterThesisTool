@@ -84,6 +84,8 @@ const UCBlocks = ({ usedElements = [], setUsedElements }) => {
       window.dispatchEvent(new CustomEvent('resetArchitectureDiagram'));
       window.dispatchEvent(new CustomEvent('resetProductArchitectureDiagram'));
       window.dispatchEvent(new CustomEvent('resetOrderArchitectureDiagram'));
+      window.dispatchEvent(new CustomEvent('resetManufacturingArchitectureDiagram'));
+      window.dispatchEvent(new CustomEvent('resetFinalViewArchitectureDiagram'));
       window.dispatchEvent(new CustomEvent('ucblocks-reset'));
     }
   };

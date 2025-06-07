@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import { useSession } from 'next-auth/react';
+import LoadingSpinner from './LoadingSpinner';
 
 const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElementUsageChange }) => {
   const [highlightedElement, setHighlightedElement] = useState(null);
@@ -17,9 +18,12 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
   const [selectedUseCaseBlock, setSelectedUseCaseBlock] = useState(null);
   const [highlightedLayers, setHighlightedLayers] = useState([]);
   const [useCaseConnections, setUseCaseConnections] = useState([]);
+  // New state for tracking drag hover
+  const [dragHoveredContainer, setDragHoveredContainer] = useState(null);
   
   const { data: session } = useSession();
   const saveTimeoutRef = useRef(null);
+  const loadingTimeoutRef = useRef(null); // Add timeout ref for loading spinner
   const lastUsedElementsRef = useRef([]);
 
   // Constants for diagram dimensions and layout
@@ -91,6 +95,13 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
     if (onElementUsageChange) {
       onElementUsageChange([]);
     }
+
+    // Save the cleared state to database to prevent old connections from reappearing
+    if (session?.user?.email) {
+      setTimeout(() => {
+        saveUserSelections();
+      }, 100); // Small delay to ensure state is updated
+    }
   };
 
   // Load user's saved selections
@@ -134,7 +145,7 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
   const saveUserSelections = async () => {
     if (!session?.user?.email || isSaving) return; // Prevent multiple simultaneous saves
     
-    setIsSaving(true);
+    setSavingWithTimeout(true); // Use protected setter
     console.log('=== SAVING USER SELECTIONS ===');
     console.log('Container selections:', containerSelections);
     console.log('Use case connections:', useCaseConnections);
@@ -161,7 +172,7 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
         console.log('Save response:', responseData);
         setHasUnsavedChanges(false);
         setSaveStatus('success');
-        setTimeout(() => setSaveStatus(null), 3000);
+        setTimeout(() => setSaveStatus(null), 5000);
       } else {
         // Handle error response safely
         let errorMessage = `HTTP ${response.status}`;
@@ -176,19 +187,21 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
         }
         
         setSaveStatus('error');
-        setTimeout(() => setSaveStatus(null), 3000);
+        setTimeout(() => setSaveStatus(null), 5000);
       }
     } catch (error) {
       console.error('Error saving selections:', error);
       setSaveStatus('error');
-      setTimeout(() => setSaveStatus(null), 3000);
+      setTimeout(() => setSaveStatus(null), 5000);
     } finally {
-      setIsSaving(false);
+      setSavingWithTimeout(false); // Use protected setter
     }
   };
 
   // Handle adding a block to a container
   const addBlockToContainer = (containerId, blockData) => {
+    // Remove immediate spinner - let auto-save handle it
+    
     setContainerSelections(prev => {
       // Remove the block from all containers first
       const newSelections = { ...prev };
@@ -210,12 +223,50 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
       ...prev,
       [containerId]: prev[containerId].filter(block => block.id !== blockId)
     }));
+    
+    // Also remove any use case connections associated with this block
+    setUseCaseConnections(prev => 
+      prev.filter(conn => !(conn.blockId === blockId && conn.containerId === containerId))
+    );
+    
     setHasUnsavedChanges(true);
   };
 
   // Define drop target for the SVG containers
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
+    hover: (item, monitor) => {
+      const hoverCoordinates = monitor.getClientOffset();
+      if (!hoverCoordinates) {
+        setDragHoveredContainer(null);
+        return;
+      }
+
+      // Convert screen coordinates to SVG coordinates
+      const svgElement = document.querySelector('#architecture-diagram-svg');
+      if (!svgElement) {
+        setDragHoveredContainer(null);
+        return;
+      }
+
+      const rect = svgElement.getBoundingClientRect();
+      const svgX = ((hoverCoordinates.x - rect.left) / rect.width) * DIAGRAM_WIDTH;
+      const svgY = ((hoverCoordinates.y - rect.top) / rect.height) * DIAGRAM_HEIGHT;
+
+      // Check which container the hover is over
+      let hoveredContainer = null;
+      
+      elements.forEach(element => {
+        if (element.type === 'Container') {
+          const { x, y, width, height } = element;
+          if (svgX >= x && svgX <= x + width && svgY >= y && svgY <= y + height) {
+            hoveredContainer = element.id;
+          }
+        }
+      });
+
+      setDragHoveredContainer(hoveredContainer);
+    },
     drop: (item, monitor) => {
       const dropCoordinates = monitor.getClientOffset();
       if (!dropCoordinates) return;
@@ -248,6 +299,8 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
         });
       }
 
+      // Clear hover state after drop
+      setDragHoveredContainer(null);
       return { dropped: true };
     },
     collect: (monitor) => ({
@@ -272,6 +325,9 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
       // Clean up any pending timeouts
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
+      }
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
       }
     };
   }, []);
@@ -455,6 +511,14 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
       borderColor = '#FF3366'; // Pink/red border for connectable elements
     }
 
+    // Container drag hover highlighting
+    const isDragHovered = type === 'Container' && dragHoveredContainer === id;
+    if (isDragHovered) {
+      color = '#F0F9FF'; // Light blue background
+      borderColor = '#3B82F6'; // Blue border
+      strokeDasharray = '8,4'; // More prominent dashed border
+    }
+
     return (
       <g 
         transform={`translate(${x}, ${y})`}
@@ -472,7 +536,7 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
           ry="6"
           fill={color}
           stroke={highlightedElement === id ? COLORS.selected : borderColor}
-          strokeWidth={highlightedElement === id ? "2" : (isInUseCaseMode ? "2" : "1")}
+          strokeWidth={highlightedElement === id ? "2" : (isInUseCaseMode ? "2" : (isDragHovered ? "3" : "1"))}
           strokeDasharray={strokeDasharray}
         />
         <text 
@@ -781,26 +845,26 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
     if (!session?.user?.email || !hasUnsavedChanges) return null;
 
     return (
-      <div className="fixed top-4 right-4 z-50">
+      <div className="absolute top-0 right-0 z-10 bg-white border border-gray-200 rounded-lg shadow-sm p-2" style={{ marginTop: '-40px', marginRight: '60px' }}>
         <button
           onClick={saveUserSelections}
           disabled={isSaving}
-          className={`px-4 py-2 rounded-lg font-medium text-white transition-all duration-200 ${
+          className={`px-3 py-1 rounded text-xs font-medium text-white transition-all duration-200 ${
             isSaving 
               ? 'bg-gray-400 cursor-not-allowed' 
-              : 'bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl'
+              : 'bg-blue-600 hover:bg-blue-700'
           }`}
         >
-          {isSaving ? 'Saving...' : 'Save Selections'}
+          {isSaving ? 'Saving...' : 'Save'}
         </button>
         
         {saveStatus && (
-          <div className={`mt-2 px-3 py-1 rounded text-sm ${
+          <div className={`mt-1 px-2 py-1 rounded text-xs ${
             saveStatus === 'success' 
               ? 'bg-green-100 text-green-800 border border-green-200' 
               : 'bg-red-100 text-red-800 border border-red-200'
           }`}>
-            {saveStatus === 'success' ? 'Saved successfully!' : 'Save failed. Please try again.'}
+            {saveStatus === 'success' ? 'Saved!' : 'Error'}
           </div>
         )}
       </div>
@@ -850,16 +914,40 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
 
   // Auto-save when use case connections change
   useEffect(() => {
-    if (session?.user?.email && hasUnsavedChanges) {
-      // Auto-save connections after a short delay when there are unsaved changes
+    if (session?.user?.email && useCaseConnections.length >= 0) {
+      // Skip auto-save on initial load (when connections are empty and we just loaded)
+      if (useCaseConnections.length === 0 && !hasUnsavedChanges) {
+        return;
+      }
+      
+      // Auto-save connections after a short delay when connections change
       const saveTimeout = setTimeout(() => {
         console.log('Auto-saving due to changes in use case connections:', useCaseConnections.length);
         saveUserSelections();
-      }, 1000); // 1 second delay for auto-save
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
 
       return () => clearTimeout(saveTimeout);
     }
-  }, [useCaseConnections, session?.user?.email, hasUnsavedChanges]);
+  }, [useCaseConnections, session?.user?.email]);
+
+  // Auto-save when container selections change
+  useEffect(() => {
+    if (session?.user?.email) {
+      // Skip auto-save on initial load
+      const hasBlocks = Object.values(containerSelections).some(blocks => blocks.length > 0);
+      if (!hasBlocks && !hasUnsavedChanges) {
+        return;
+      }
+      
+      // Auto-save container changes after a short delay
+      const saveTimeout = setTimeout(() => {
+        console.log('Auto-saving due to changes in container selections');
+        saveUserSelections();
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
+
+      return () => clearTimeout(saveTimeout);
+    }
+  }, [containerSelections, session?.user?.email]);
 
   // Define elements by layers for highlighting
   const layerElements = {
@@ -883,6 +971,8 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
   // Handle clicking on diagram elements when a use case block is selected
   const handleDiagramElementClick = (elementId) => {
     if (selectedUseCaseBlock && highlightedLayers.includes(elementId)) {
+      // Remove immediate spinner - let auto-save handle it
+      
       // Create or remove connection
       const connectionKey = `${selectedUseCaseBlock.containerId}-${selectedUseCaseBlock.id}-${elementId}`;
       const existingConnectionIndex = useCaseConnections.findIndex(conn => 
@@ -916,10 +1006,44 @@ const ArchitectureDiagramSVG = ({ selectedElement, setSelectedElement, onElement
     }
   };
 
+  // Helper function to set saving state with timeout protection
+  const setSavingWithTimeout = (saving) => {
+    setIsSaving(saving);
+    
+    if (saving) {
+      // Clear any existing timeout
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      
+      // Set a 5-second timeout to ensure spinner doesn't get stuck
+      loadingTimeoutRef.current = setTimeout(() => {
+        console.log('⚠️ FACTORY: Force stopping loading spinner after 5 seconds');
+        setIsSaving(false);
+        setSaveStatus('timeout');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }, 5000);
+    } else {
+      // Clear timeout when saving is complete
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+        loadingTimeoutRef.current = null;
+      }
+    }
+  };
+
   return (
     <>
-      <SaveButton />
-      <div className="w-full h-full overflow-auto">
+      <div className="w-full h-full overflow-auto relative">
+        {/* Loading Spinner */}
+        <LoadingSpinner 
+          isVisible={isSaving} 
+          message="Saving factory perspective changes..." 
+        />
+
+        {/* Save Status positioned near hamburger icon */}
+        <SaveButton />
+        
         <svg
           id="architecture-diagram-svg"
           width="100%"

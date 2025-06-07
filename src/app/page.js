@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 // import { SearchBar } from '@/components/Search-bar';
 import { DepartmentGrid } from '../components/DepartmentGrid'
+import { TimelineCard } from '../components/TimelineCard'
+import { Footer } from '../components/Footer'
 import { data } from '@/lib/data';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import TourGuide from '@/components/ui/TourGuide';
@@ -111,7 +113,13 @@ export default function Home() {
         </div>
         
         <DepartmentGrid departments={filterDepartments()} />
+        
+        {/* Timeline Card - positioned below departments */}
+        <div className="mt-6">
+          <TimelineCard />
+        </div>
       </main>
+      <Footer />
     </>
   );
 }

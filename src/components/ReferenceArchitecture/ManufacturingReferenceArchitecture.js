@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import { useSession } from 'next-auth/react';
+import LoadingSpinner from './LoadingSpinner';
 
 // Manufacturing Technology perspective architecture data
 const architectureElements = [
@@ -452,6 +453,7 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
   
   const { data: session } = useSession();
   const saveTimeoutRef = useRef(null);
+  const loadingTimeoutRef = useRef(null); // Add timeout ref for loading spinner
   const lastUsedElementsRef = useRef([]);
   const elementPositions = useRef({}).current;
 
@@ -531,24 +533,39 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     layer4: ['grafisches-modell-mfg', 'strukturmodell-mfg', 'materialfluss-mfg', 'faehigkeitenmodell-mfg', 'kennzahlenmodell-mfg']
   };
 
+  // Helper function to get all used element IDs
+  const getAllUsedElementIds = useCallback((selections) => {
+    const allUsed = [];
+    Object.values(selections).forEach(containerBlocks => {
+      containerBlocks.forEach(block => allUsed.push(block.id));
+    });
+    return allUsed;
+  }, []);
+
   // Load user's selections from database on component mount
   useEffect(() => {
     loadUserSelections();
   }, [session?.user?.email]);
 
-  // Handle perspective activation - load saved selections when this perspective becomes active
+  // Auto-save when changes are made (debounced) - Simplified and fixed pattern
   useEffect(() => {
-    loadUserSelections();
-  }, []); // Only run on mount when this component is rendered
-
-  // Additional effect to ensure loading happens when component is fully rendered
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      loadUserSelections();
-    }, 500); // Small delay to ensure component is ready
+    if (hasUnsavedChanges && session?.user?.email) {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+      
+      saveTimeoutRef.current = setTimeout(() => {
+        console.log('🔄 Auto-saving Manufacturing perspective changes...');
+        saveUserSelections();
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
+    }
     
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [hasUnsavedChanges, containerSelections, useCaseConnections, session?.user?.email]);
 
   // Reset selections when UCBlocks component triggers reset
   useEffect(() => {
@@ -561,33 +578,29 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       setUseCaseConnections([]);
       setSelectedUseCaseBlock(null);
       setHighlightedLayers([]);
-      setHasUnsavedChanges(true);
+      setHasUnsavedChanges(false);
+
+      // Save the cleared state to database to prevent old connections from reappearing
+      if (session?.user?.email) {
+        setTimeout(() => {
+          saveUserSelections();
+        }, 100); // Small delay to ensure state is updated
+      }
     };
 
-    window.addEventListener('ucblocks-reset', handleReset);
-    return () => window.removeEventListener('ucblocks-reset', handleReset);
-  }, []);
-
-  // Auto-save when changes are made (debounced)
-  useEffect(() => {
-    if (hasUnsavedChanges) {
-      if (session?.user?.email) {
-        if (saveTimeoutRef.current) {
-          clearTimeout(saveTimeoutRef.current);
-        }
-        
-        saveTimeoutRef.current = setTimeout(() => {
-          saveUserSelections();
-        }, 1000); // Save after 1 second of inactivity
-      }
-    }
-    
+    // Listen for the proper reset event
+    window.addEventListener('resetManufacturingArchitectureDiagram', handleReset);
     return () => {
+      window.removeEventListener('resetManufacturingArchitectureDiagram', handleReset);
+      // Clean up any pending timeouts
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
       }
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
     };
-  }, [hasUnsavedChanges, containerSelections, useCaseConnections, session?.user?.email]);
+  }, [session?.user?.email]);
 
   // Track element usage and notify parent component
   useEffect(() => {
@@ -606,73 +619,6 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       onElementUsageChange(currentUsedElements);
     }
   }, [containerSelections, useCaseConnections, onElementUsageChange]);
-
-  // Debug container selections changes
-  useEffect(() => {
-    console.log('=== MANUFACTURING: Container selections changed ===', containerSelections);
-    Object.keys(containerSelections).forEach(containerId => {
-      const blocks = containerSelections[containerId];
-      console.log(`Container ${containerId}: ${blocks.length} blocks`, blocks);
-    });
-    
-    // Auto-cleanup invalid connections when containers change
-    if (useCaseConnections.length > 0) {
-      console.log('=== AUTO-CLEANUP: Container changed, checking connections ===');
-      const existingBlockIds = Object.values(containerSelections)
-        .flat()
-        .map(block => block.id);
-      
-      const validConnections = useCaseConnections.filter(connection => {
-        const isValid = existingBlockIds.includes(connection.blockId);
-        if (!isValid) {
-          console.log(`Auto-removing invalid connection: ${connection.blockId} -> ${connection.elementId}`);
-        }
-        return isValid;
-      });
-      
-      if (validConnections.length !== useCaseConnections.length) {
-        console.log(`=== AUTO-CLEANUP: Removed ${useCaseConnections.length - validConnections.length} invalid connections ===`);
-        setUseCaseConnections(validConnections);
-        setHasUnsavedChanges(true);
-      }
-    }
-  }, [containerSelections]);
-
-  // Track use case connections changes
-  useEffect(() => {
-    if (useCaseConnections.length > 0) {
-      const allBlocks = Object.values(containerSelections).flat();
-      const allElements = elements.map(el => el.id);
-      
-      useCaseConnections.forEach((conn, index) => {
-        const blockExists = allBlocks.some(b => b.id === conn.blockId);
-        const elementExists = allElements.includes(conn.elementId);
-      });
-    }
-  }, [useCaseConnections]);
-
-  // Clean up invalid connections (connections to blocks that no longer exist)
-  const cleanupInvalidConnections = () => {
-    // Get all existing block IDs from all containers
-    const existingBlockIds = Object.values(containerSelections)
-      .flat()
-      .map(block => block.id);
-    
-    // Get all valid element IDs from the manufacturing perspective
-    const validElementIds = elements.map(el => el.id);
-    
-    // Filter connections to only keep those with valid block IDs AND valid element IDs
-    const validConnections = useCaseConnections.filter(connection => {
-      const hasValidBlock = existingBlockIds.includes(connection.blockId);
-      const hasValidElement = validElementIds.includes(connection.elementId);
-      return hasValidBlock && hasValidElement;
-    });
-    
-    if (validConnections.length !== useCaseConnections.length) {
-      setUseCaseConnections(validConnections);
-      setHasUnsavedChanges(true);
-    }
-  };
 
   // Load user's selections for Manufacturing Perspective
   const loadUserSelections = async () => {
@@ -697,55 +643,41 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       return;
     }
     
+    console.log('=== MANUFACTURING: LOADING USER SELECTIONS ===');
     try {
-      const response = await fetch('/api/diagram-selections', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
+      const response = await fetch('/api/diagram-selections?diagramType=manufacturing-perspective');
+      console.log('📡 MANUFACTURING: API response status:', response.status);
       
       if (response.ok) {
         const data = await response.json();
+        console.log('📊 MANUFACTURING: Loaded data:', data);
+        console.log('📋 Container selections:', data.selections);
+        console.log('🔗 Use case connections:', data.useCaseConnections);
+        console.log('🔗 Use case connections count:', data.useCaseConnections?.length || 0);
         
-        // Handle different possible response structures
-        let manufacturingData = null;
-        
-        // Case 1: Response has diagramSelections array
-        if (data.diagramSelections && Array.isArray(data.diagramSelections)) {
-          manufacturingData = data.diagramSelections.find(selection => 
-            selection.diagramType === 'manufacturing-perspective' || 
-            (selection.diagramType === 'reference-architecture' && selection.perspective === 'manufacturing') ||
-            isManufacturingData(selection)
-          );
-        }
-        // Case 2: Response is the selection object directly
-        else if (data.diagramType) {
-          if (data.diagramType === 'manufacturing-perspective' || 
-              (data.diagramType === 'reference-architecture' && data.perspective === 'manufacturing') ||
-              isManufacturingData(data)) {
-            manufacturingData = data;
-          }
-        }
-        // Case 3: Response has selections property directly
-        else if (data.selections) {
-          manufacturingData = data;
+        if (data.selections) {
+          setContainerSelections(data.selections);
+          console.log('✅ MANUFACTURING: Set container selections to state');
         }
         
-        if (manufacturingData) {
-          if (manufacturingData.selections) {
-            setContainerSelections(manufacturingData.selections);
-          }
-          
-          if (manufacturingData.useCaseConnections) {
-            setUseCaseConnections(manufacturingData.useCaseConnections);
-          }
+        if (data.useCaseConnections) {
+          setUseCaseConnections(data.useCaseConnections);
+          console.log('✅ MANUFACTURING: Set use case connections to state:', data.useCaseConnections.length);
+        } else {
+          console.log('⚠️ MANUFACTURING: No use case connections found in loaded data');
+        }
+        
+        // Notify parent about loaded element usage immediately (bypass debounce for initial load)
+        if (onElementUsageChange) {
+          const usedElementIds = getAllUsedElementIds(data.selections || {});
+          lastUsedElementsRef.current = usedElementIds;
+          onElementUsageChange(usedElementIds);
         }
       } else {
-        console.error('Failed to load selections:', response.statusText);
+        console.error('❌ MANUFACTURING: Failed to load user selections:', response.status);
       }
     } catch (error) {
-      console.error('Error loading selections:', error);
+      console.error('❌ MANUFACTURING: Error loading selections:', error);
     }
   };
 
@@ -763,31 +695,46 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         localStorage.setItem('manufacturing-perspective-selections', JSON.stringify(dataToSave));
         setHasUnsavedChanges(false);
         setSaveStatus('saved');
-        setTimeout(() => setSaveStatus(null), 2000);
+        setTimeout(() => setSaveStatus(null), 5000);
       } catch (error) {
         console.error('Error saving to localStorage:', error);
         setSaveStatus('error');
-        setTimeout(() => setSaveStatus(null), 3000);
+        setTimeout(() => setSaveStatus(null), 5000);
       }
       return;
     }
     
     if (isSaving) {
+      console.log('⚠️ MANUFACTURING: Save already in progress, skipping...');
       return;
     }
     
-    setIsSaving(true);
+    setSavingWithTimeout(true); // Use the protected setter
+    console.log('🔄 MANUFACTURING: Starting save process...');
+    console.log('📊 Container selections to save:', containerSelections);
+    console.log('🔗 Use case connections to save:', useCaseConnections);
     
     try {
       // Validate connections before saving
       const allBlocks = Object.values(containerSelections).flat();
       const allElements = elements.map(el => el.id);
       
+      console.log('✅ All blocks:', allBlocks.map(b => b.id));
+      console.log('✅ All elements:', allElements);
+      
       const validConnections = useCaseConnections.filter((conn, index) => {
         const blockExists = allBlocks.some(b => b.id === conn.blockId);
         const elementExists = allElements.includes(conn.elementId);
-        return blockExists && elementExists;
+        const isValid = blockExists && elementExists;
+        
+        if (!isValid) {
+          console.log(`❌ Invalid connection removed: ${conn.blockId} -> ${conn.elementId} (blockExists: ${blockExists}, elementExists: ${elementExists})`);
+        }
+        
+        return isValid;
       });
+      
+      console.log('🔗 Valid connections after filtering:', validConnections);
       
       const payload = {
         selections: containerSelections,
@@ -795,6 +742,8 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         diagramType: 'manufacturing-perspective',
         perspective: 'manufacturing' // Add as backup identifier
       };
+      
+      console.log('📤 MANUFACTURING: Sending payload to API:', payload);
       
       const response = await fetch('/api/diagram-selections', {
         method: 'POST',
@@ -804,23 +753,27 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         body: JSON.stringify(payload)
       });
       
+      console.log('📡 MANUFACTURING: API response status:', response.status);
+      
       if (response.ok) {
         const result = await response.json();
+        console.log('✅ MANUFACTURING: Save successful!', result);
         setHasUnsavedChanges(false);
         setSaveStatus('saved');
-        setTimeout(() => setSaveStatus(null), 2000);
+        setTimeout(() => setSaveStatus(null), 5000);
       } else {
         const errorText = await response.text();
-        console.error('Failed to save selections:', response.status, errorText);
+        console.error('❌ MANUFACTURING: Failed to save selections:', response.status, errorText);
         setSaveStatus('error');
-        setTimeout(() => setSaveStatus(null), 3000);
+        setTimeout(() => setSaveStatus(null), 5000);
       }
     } catch (error) {
-      console.error('Error saving selections:', error);
+      console.error('❌ MANUFACTURING: Network error:', error);
       setSaveStatus('error');
-      setTimeout(() => setSaveStatus(null), 3000);
+      setTimeout(() => setSaveStatus(null), 5000);
     } finally {
-      setIsSaving(false);
+      setSavingWithTimeout(false); // Use the protected setter
+      console.log('🏁 MANUFACTURING: Save process completed');
     }
   };
 
@@ -864,6 +817,8 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
   // Handle clicking on diagram elements when a use case block is selected
   const handleDiagramElementClick = (elementId) => {
     if (selectedUseCaseBlock && highlightedLayers.includes(elementId)) {
+      // Remove immediate spinner - let auto-save handle it
+      
       const existingConnectionIndex = useCaseConnections.findIndex(conn => 
         conn.blockId === selectedUseCaseBlock.id && 
         conn.containerId === selectedUseCaseBlock.containerId && 
@@ -1294,6 +1249,8 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
 
   // Drag and drop functionality (simplified for this example)
   const addBlockToContainer = (containerId, blockData) => {
+    // Remove immediate spinner - let auto-save handle it
+    
     setContainerSelections(prev => {
       const newSelections = { ...prev };
       
@@ -1315,11 +1272,18 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     setHasUnsavedChanges(true);
   };
 
+  // Remove a block from a container
   const removeBlockFromContainer = (containerId, blockId) => {
     setContainerSelections(prev => ({
       ...prev,
       [containerId]: prev[containerId].filter(block => block.id !== blockId)
     }));
+    
+    // Also remove any use case connections associated with this block
+    setUseCaseConnections(prev => 
+      prev.filter(conn => !(conn.blockId === blockId && conn.containerId === containerId))
+    );
+    
     setHasUnsavedChanges(true);
   };
 
@@ -1373,31 +1337,63 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     }),
   }));
 
+  // Helper function to set saving state with timeout protection
+  const setSavingWithTimeout = (saving) => {
+    setIsSaving(saving);
+    
+    if (saving) {
+      // Clear any existing timeout
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      
+      // Set a 5-second timeout to ensure spinner doesn't get stuck
+      loadingTimeoutRef.current = setTimeout(() => {
+        console.log('⚠️ MANUFACTURING: Force stopping loading spinner after 5 seconds');
+        setIsSaving(false);
+        setSaveStatus('timeout');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }, 5000);
+    } else {
+      // Clear timeout when saving is complete
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+        loadingTimeoutRef.current = null;
+      }
+    }
+  };
+
             return (
     <>
-      {/* Save Status Indicator */}
-      {(isSaving || saveStatus) && (
-        <div className="fixed top-4 right-4 z-50">
-          <div className={`px-4 py-2 rounded-lg shadow-lg text-sm font-medium ${
-            isSaving 
-              ? 'bg-blue-100 text-blue-800 border border-blue-200' 
-              : saveStatus === 'saved'
-              ? 'bg-green-100 text-green-800 border border-green-200'
-              : 'bg-red-100 text-red-800 border border-red-200'
-          }`}>
-            {isSaving ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Error saving'}
-          </div>
-        </div>
-      )}
-
       <div 
-        className="w-full h-full overflow-auto" 
+        className="w-full h-full overflow-auto relative" 
         ref={drop}
         style={{
           background: isOver ? 'rgba(34, 197, 94, 0.1)' : 'transparent',
           transition: 'background-color 0.2s ease'
         }}
       >
+        {/* Loading Spinner */}
+        <LoadingSpinner 
+          isVisible={isSaving} 
+          message="Saving manufacturing perspective changes..." 
+        />
+
+        {/* Save Status Indicator positioned near hamburger icon */}
+        {(isSaving || saveStatus) && (
+          <div className="absolute top-0 right-0 z-10 bg-white border border-gray-200 rounded-lg shadow-sm p-2" style={{ marginTop: '4px', marginRight: '20px' }}>
+            <div className={`px-3 py-1 rounded text-xs font-medium ${
+              isSaving 
+                ? 'bg-blue-100 text-blue-800 border border-blue-200' 
+                : saveStatus === 'saved'
+                ? 'bg-green-100 text-green-800 border border-green-200'
+                : 'bg-red-100 text-red-800 border border-red-200'
+            }`}>
+              {isSaving ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Error saving'}
+            </div>
+          </div>
+        )}
+        
         <svg
           id="manufacturing-architecture-diagram-svg"
           width="100%"
@@ -1494,6 +1490,31 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
             );
           })}
         </svg>
+      </div>
+
+      {/* Save Button Component */}
+      <div className="absolute top-0 right-0 z-10 bg-white border border-gray-200 rounded-lg shadow-sm p-2" style={{ marginTop: '-40px', marginRight: '60px' }}>
+        <button
+          onClick={saveUserSelections}
+          disabled={isSaving}
+          className={`px-3 py-1 rounded text-xs font-medium text-white transition-all duration-200 ${
+            isSaving 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-blue-600 hover:bg-blue-700'
+          }`}
+        >
+          {isSaving ? 'Saving...' : 'Save'}
+        </button>
+        
+        {saveStatus && (
+          <div className={`mt-1 px-2 py-1 rounded text-xs ${
+            saveStatus === 'success' 
+              ? 'bg-green-100 text-green-800 border border-green-200' 
+              : 'bg-red-100 text-red-800 border border-red-200'
+          }`}>
+            {saveStatus === 'success' ? 'Saved!' : 'Error'}
+          </div>
+        )}
       </div>
     </>
   );

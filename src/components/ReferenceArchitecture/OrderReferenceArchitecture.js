@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import { useSession } from 'next-auth/react';
+import LoadingSpinner from './LoadingSpinner';
 
 // Order perspective architecture data
 const architectureElements = [
@@ -770,9 +771,12 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
   const [selectedUseCaseBlock, setSelectedUseCaseBlock] = useState(null);
   const [highlightedLayers, setHighlightedLayers] = useState([]);
   const [useCaseConnections, setUseCaseConnections] = useState([]);
+  // New state for tracking drag hover
+  const [dragHoveredContainer, setDragHoveredContainer] = useState(null);
   
   const { data: session } = useSession();
   const saveTimeoutRef = useRef(null);
+  const loadingTimeoutRef = useRef(null); // Add timeout ref for loading spinner
   const lastUsedElementsRef = useRef([]);
 
   // Add missing elementPositions object
@@ -850,6 +854,8 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
   // Handle clicking on diagram elements when a use case block is selected
   const handleDiagramElementClick = (elementId) => {
     if (selectedUseCaseBlock && highlightedLayers.includes(elementId)) {
+      // Remove immediate spinner - let auto-save handle it
+      
       // Create or remove connection
       const existingConnectionIndex = useCaseConnections.findIndex(conn => 
         conn.blockId === selectedUseCaseBlock.id && 
@@ -900,6 +906,13 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
     // Notify parent about usage changes
     if (onElementUsageChange) {
       onElementUsageChange([]);
+    }
+
+    // Save the cleared state to database to prevent old connections from reappearing
+    if (session?.user?.email) {
+      setTimeout(() => {
+        saveUserSelections();
+      }, 100); // Small delay to ensure state is updated
     }
   };
 
@@ -1209,6 +1222,14 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
       borderColor = '#FF3366'; // Pink/red border for connectable elements
     }
 
+    // Container drag hover highlighting
+    const isDragHovered = type === 'Container' && dragHoveredContainer === id;
+    if (isDragHovered) {
+      color = '#F0F9FF'; // Light blue background
+      borderColor = '#3B82F6'; // Blue border
+      strokeDasharray = '8,4'; // More prominent dashed border
+    }
+
   return (
       <g 
         transform={`translate(${x}, ${y})`}
@@ -1226,7 +1247,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
           ry="6"
           fill={color}
           stroke={highlightedElement === id ? COLORS.selected : borderColor}
-          strokeWidth={highlightedElement === id ? "2" : (isInUseCaseMode ? "2" : "1")}
+          strokeWidth={highlightedElement === id ? "2" : (isInUseCaseMode ? "2" : (isDragHovered ? "3" : "1"))}
           strokeDasharray={strokeDasharray}
         />
         <text 
@@ -1546,6 +1567,8 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
 
   // Add missing functions for container functionality
   const addBlockToContainer = (containerId, blockData) => {
+    // Remove immediate spinner - let auto-save handle it
+    
     setContainerSelections(prev => {
       // Remove the block from all containers first
       const newSelections = { ...prev };
@@ -1573,6 +1596,38 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
   // Define drop target for the SVG containers
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ['UC_BLOCK', 'ELEMENT_BLOCK'],
+    hover: (item, monitor) => {
+      const hoverCoordinates = monitor.getClientOffset();
+      if (!hoverCoordinates) {
+        setDragHoveredContainer(null);
+        return;
+      }
+
+      // Convert screen coordinates to SVG coordinates
+      const svgElement = document.querySelector('#order-architecture-diagram-svg');
+      if (!svgElement) {
+        setDragHoveredContainer(null);
+        return;
+      }
+
+      const rect = svgElement.getBoundingClientRect();
+      const svgX = ((hoverCoordinates.x - rect.left) / rect.width) * DIAGRAM_WIDTH;
+      const svgY = ((hoverCoordinates.y - rect.top) / rect.height) * DIAGRAM_HEIGHT;
+
+      // Check which container the hover is over
+      let hoveredContainer = null;
+      
+      elements.forEach(element => {
+        if (element.type === 'Container') {
+          const { x, y, width, height } = element;
+          if (svgX >= x && svgX <= x + width && svgY >= y && svgY <= y + height) {
+            hoveredContainer = element.id;
+          }
+        }
+      });
+
+      setDragHoveredContainer(hoveredContainer);
+    },
     drop: (item, monitor) => {
       const dropCoordinates = monitor.getClientOffset();
       if (!dropCoordinates) return;
@@ -1605,6 +1660,8 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
         });
       }
 
+      // Clear hover state after drop
+      setDragHoveredContainer(null);
       return { dropped: true };
     },
     collect: (monitor) => ({
@@ -1653,7 +1710,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
   const saveUserSelections = async () => {
     if (!session?.user?.email || isSaving) return; // Prevent multiple simultaneous saves
     
-    setIsSaving(true);
+    setSavingWithTimeout(true); // Use protected setter
     console.log('=== SAVING ORDER PERSPECTIVE SELECTIONS ===');
     console.log('Container selections:', containerSelections);
     console.log('Use case connections:', useCaseConnections);
@@ -1723,7 +1780,7 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
       setSaveStatus('error');
       setTimeout(() => setSaveStatus(null), 3000);
     } finally {
-      setIsSaving(false);
+      setSavingWithTimeout(false); // Use protected setter
     }
   };
 
@@ -1769,6 +1826,9 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
       }
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -1791,16 +1851,40 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
 
   // Auto-save when use case connections change
   useEffect(() => {
-    if (session?.user?.email && hasUnsavedChanges) {
-      // Auto-save connections after a short delay when there are unsaved changes
+    if (session?.user?.email && useCaseConnections.length >= 0) {
+      // Skip auto-save on initial load (when connections are empty and we just loaded)
+      if (useCaseConnections.length === 0 && !hasUnsavedChanges) {
+        return;
+      }
+      
+      // Auto-save connections after a short delay when connections change
       const saveTimeout = setTimeout(() => {
         console.log('Auto-saving due to changes in use case connections:', useCaseConnections.length);
         saveUserSelections();
-      }, 1000); // 1 second delay for auto-save
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
 
       return () => clearTimeout(saveTimeout);
     }
-  }, [useCaseConnections, session?.user?.email, hasUnsavedChanges]);
+  }, [useCaseConnections, session?.user?.email]);
+
+  // Auto-save when container selections change
+  useEffect(() => {
+    if (session?.user?.email) {
+      // Skip auto-save on initial load
+      const hasBlocks = Object.values(containerSelections).some(blocks => blocks.length > 0);
+      if (!hasBlocks && !hasUnsavedChanges) {
+        return;
+      }
+      
+      // Auto-save container changes after a short delay
+      const saveTimeout = setTimeout(() => {
+        console.log('Auto-saving due to changes in container selections');
+        saveUserSelections();
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
+
+      return () => clearTimeout(saveTimeout);
+    }
+  }, [containerSelections, session?.user?.email]);
 
   // Save Button Component
   const SaveButton = () => {
@@ -1833,9 +1917,41 @@ const OrderReferenceArchitecture = ({ selectedElement, setSelectedElement, onEle
     );
   };
 
+  // Helper function to set saving state with timeout protection
+  const setSavingWithTimeout = (saving) => {
+    setIsSaving(saving);
+    
+    if (saving) {
+      // Clear any existing timeout
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      
+      // Set a 5-second timeout to ensure spinner doesn't get stuck
+      loadingTimeoutRef.current = setTimeout(() => {
+        console.log('⚠️ ORDER: Force stopping loading spinner after 5 seconds');
+        setIsSaving(false);
+        setSaveStatus('timeout');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }, 5000);
+    } else {
+      // Clear timeout when saving is complete
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+        loadingTimeoutRef.current = null;
+      }
+    }
+  };
+
   return (
     <>
-      <div className="w-full h-full overflow-auto">
+      <div className="w-full h-full overflow-auto relative">
+        {/* Loading Spinner */}
+        <LoadingSpinner 
+          isVisible={isSaving} 
+          message="Saving order perspective changes..." 
+        />
+
         <svg
           id="order-architecture-diagram-svg"
           width="100%"
