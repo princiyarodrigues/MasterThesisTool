@@ -1485,6 +1485,9 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
     );
   };
 
+  // Add showConnections state at the top of the component
+  const [showConnections, setShowConnections] = useState(true);
+
   // Refresh Button Component - positioned below the legend
   const RefreshButton = () => (
     <div className="absolute top-80 right-4 z-10 flex flex-col gap-2">
@@ -1501,12 +1504,9 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
         <span className="text-base">🔄</span>
         Refresh All
       </button>
-      
-      {/* Debug Clear Button */}
       <button
         onClick={() => {
           console.log('🧹 Clear All triggered - resetting Final View');
-          // Clear all data to reset state
           setContainerSelections({
             'datenquellen-grafisches-modell': [],
             'datenquellen-grafisches-datenmodell': [],
@@ -1518,17 +1518,12 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
             'datenquellen-datenmodell': []
           });
           setUseCaseConnections([]);
-          
-          // Save the cleared state
           if (session?.user?.email) {
             saveUserSelections();
           }
-          
-          // Then reload fresh data
           setTimeout(() => {
             loadAllDiagramSelections();
           }, 500);
-          
           setSaveStatus('refreshed');
           setTimeout(() => setSaveStatus(null), 3000);
         }}
@@ -1537,6 +1532,13 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
       >
         <span className="text-base">🧹</span>
         Clear & Reload
+      </button>
+      <button
+        onClick={() => setShowConnections((prev) => !prev)}
+        className="flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded-lg border-2 border-gray-700 hover:border-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl text-sm font-semibold"
+        title={showConnections ? 'Hide all connections in the final view' : 'Show all connections in the final view'}
+      >
+        {showConnections ? 'Hide Connections' : 'Show Connections'}
       </button>
     </div>
   );
@@ -1832,7 +1834,7 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
           <ArrowMarkers />
 
           {/* Render source connections first - connecting blocks to their perspective diagrams (behind other elements) */}
-          {Object.entries(allDiagramBlocks).map(([containerId, blocks]) => 
+          {showConnections && Object.entries(allDiagramBlocks).map(([containerId, blocks]) => 
             blocks.map((block, index) => 
               block.sourcesDiagram && !containerSelections[containerId]?.some(fvBlock => fvBlock.id === block.id) ? (
                 <SourceConnection 
@@ -1851,12 +1853,12 @@ const FinalViewReferenceArchitecture = ({ selectedElement, setSelectedElement, o
           ))}
 
           {/* Render all relationships */}
-          {relationships.map((relationship, index) => (
+          {showConnections && relationships.map((relationship, index) => (
             <Connection key={`${relationship.source}-${relationship.target}-${index}`} relationship={relationship} />
           ))}
 
           {/* Render use case connections */}
-          {useCaseConnections.map((connection, index) => (
+          {showConnections && useCaseConnections.map((connection, index) => (
             <UseCaseConnection key={`${connection.blockId}-${connection.containerId}-${connection.elementId}-${index}`} connection={connection} />
           ))}
         </svg>
