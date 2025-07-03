@@ -7,6 +7,7 @@ const Composition = require('./Composition');
 const Goal = require('./Goal');
 const Department = require('./Department');
 const DiagramSelection = require('./DiagramSelection');
+const Timeline = require('./Timeline');
 
 module.exports = {
   User,
@@ -17,5 +18,6 @@ module.exports = {
   Composition,
   Goal,
   Department,
-  DiagramSelection
+  DiagramSelection,
+  Timeline
 };

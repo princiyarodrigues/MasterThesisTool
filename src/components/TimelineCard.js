@@ -1,8 +1,10 @@
 'use client';
 import React from 'react';
 import { Calendar } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function TimelineCard() {
+  const router = useRouter();
   return (
     <div className="bg-gradient-to-r from-navy-50 to-blue-50 border-2 border-navy-200 rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ background: 'linear-gradient(to right, #f0f4f8, #e6f3ff)', borderColor: '#1e3a8a' }}>
       <div className="flex items-center space-x-3 mb-3">
@@ -21,7 +23,7 @@ export function TimelineCard() {
           style={{ backgroundColor: '#1e3a8a' }}
           onMouseEnter={(e) => e.target.style.backgroundColor = '#1e40af'}
           onMouseLeave={(e) => e.target.style.backgroundColor = '#1e3a8a'}
-          disabled
+          onClick={() => router.push('/timeline-configure')}
         >
           Configure Timeline
         </button>
