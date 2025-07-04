@@ -198,6 +198,8 @@ const TaskBar = React.memo(({ task, startYear, monthWidth, onMouseEvents }) => {
   );
 });
 
+TaskBar.displayName = 'TaskBar';
+
 // TaskRow component - Remove debug elements and fix positioning
 const TaskRow = React.memo(({ task, index, monthLabels, startYear, monthWidth, taskHeight }) => {
   return (
@@ -262,6 +264,8 @@ const TaskRow = React.memo(({ task, index, monthLabels, startYear, monthWidth, t
     </div>
   );
 });
+
+TaskRow.displayName = 'TaskRow';
 
 // GanttHeader component
 const GanttHeader = React.memo(({ startYear, endYear, monthLabels, monthWidth, timelineWidth }) => {
@@ -328,9 +332,10 @@ const GanttHeader = React.memo(({ startYear, endYear, monthLabels, monthWidth, t
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '10px', // Reduced from 12px
+              fontSize: '10px', // Reduced from 11px
               color: COLORS.muted,
               borderRight: `1px solid ${COLORS.gridLine}`,
+              backgroundColor: COLORS.card,
               flexShrink: 0,
             }}
           >
@@ -342,76 +347,58 @@ const GanttHeader = React.memo(({ startYear, endYear, monthLabels, monthWidth, t
   );
 });
 
+GanttHeader.displayName = 'GanttHeader';
+
 // CustomGanttChart component
 const CustomGanttChart = React.memo(({ tasks, startYear, endYear }) => {
   const monthLabels = useMonthLabels(startYear, endYear);
-  
-  // Calculate the explicit width needed for the timeline
-  const timelineWidth = monthLabels.length * CONSTANTS.MONTH_WIDTH;
-
-  if (tasks.length === 0) {
-    return (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '200px',
-        color: COLORS.muted,
-        fontSize: '14px',
-        fontStyle: 'italic',
-      }}>
-        No tasks to display
-      </div>
-    );
-  }
+  const monthWidth = 50;
+  const timelineWidth = monthLabels.length * monthWidth;
+  const taskHeight = 40;
 
   return (
-    <div style={{ 
-      width: '100%', 
-      height: '100%', 
-      overflow: 'auto',
-      position: 'relative',
+    <div style={{
+      border: `1px solid ${COLORS.border}`,
+      borderRadius: 12,
       backgroundColor: COLORS.card,
+      overflow: 'hidden',
+      marginBottom: '2rem',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
     }}>
-      <GanttHeader
-        startYear={startYear}
-        endYear={endYear}
-        monthLabels={monthLabels}
-        monthWidth={CONSTANTS.MONTH_WIDTH}
-        timelineWidth={timelineWidth}
-      />
-
-      <div style={{ 
-        position: 'relative',
-        width: `${timelineWidth + 160}px`, // Reduced from 200px for task name column
-        minWidth: '100%',
-      }}>
-        {tasks.map((task, index) => (
-          <TaskRow
-            key={task.id}
-            task={task}
-            index={index}
-            monthLabels={monthLabels}
-            startYear={startYear}
-            monthWidth={CONSTANTS.MONTH_WIDTH}
-            taskHeight={CONSTANTS.TASK_HEIGHT}
-          />
-        ))}
+      <div style={{ overflow: 'auto', maxHeight: '400px' }}>
+        <GanttHeader
+          startYear={startYear}
+          endYear={endYear}
+          monthLabels={monthLabels}
+          monthWidth={monthWidth}
+          timelineWidth={timelineWidth}
+        />
+        
+        <div style={{ 
+          minWidth: `${timelineWidth + 160}px`,
+          backgroundColor: COLORS.background,
+        }}>
+          {tasks.map((task, index) => (
+            <TaskRow
+              key={task.id}
+              task={task}
+              index={index}
+              monthLabels={monthLabels}
+              startYear={startYear}
+              monthWidth={monthWidth}
+              taskHeight={taskHeight}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 });
 
+CustomGanttChart.displayName = 'CustomGanttChart';
+
 // InputField component
-const InputField = React.memo(({ label, type = "text", value, onChange, placeholder, ...props }) => {
-  const handleFocus = useCallback((e) => {
-    e.target.style.borderColor = COLORS.primary;
-  }, []);
-
-  const handleBlur = useCallback((e) => {
-    e.target.style.borderColor = COLORS.border;
-  }, []);
-
+const InputField = React.memo(({ label, value, onChange, placeholder, type = 'text', required = false }) => {
   return (
     <div>
       <label style={{
@@ -428,96 +415,72 @@ const InputField = React.memo(({ label, type = "text", value, onChange, placehol
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        style={commonStyles.input}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        {...props}
+        required={required}
+        style={{
+          ...commonStyles.input,
+          width: "100%",
+        }}
+        onFocus={(e) => e.target.style.borderColor = COLORS.primary}
+        onBlur={(e) => e.target.style.borderColor = COLORS.border}
       />
     </div>
   );
 });
 
+InputField.displayName = 'InputField';
+
 // TaskItem component
 const TaskItem = React.memo(({ task, onRemove }) => {
-  const handleMouseOver = useCallback((e) => {
-    Object.assign(e.currentTarget.style, {
-      boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-      transform: "translateY(-1px)",
-    });
-  }, []);
-
-  const handleMouseOut = useCallback((e) => {
-    Object.assign(e.currentTarget.style, {
-      boxShadow: "none",
-      transform: "translateY(0)",
-    });
-  }, []);
-
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
     <div
       style={{
-        background: COLORS.card,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1rem',
+        padding: '1rem',
+        backgroundColor: COLORS.card,
         border: `1px solid ${COLORS.border}`,
         borderRadius: 8,
-        padding: "1rem",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        transition: "all 0.2s",
+        marginBottom: '0.5rem',
+        transition: 'all 0.2s ease',
+        boxShadow: isHovered ? '0 2px 8px rgba(0,0,0,0.1)' : '0 1px 3px rgba(0,0,0,0.1)',
       }}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div>
+      <div style={{ flex: 1 }}>
         <div style={{
-          fontWeight: 600,
+          fontWeight: 500,
+          fontSize: '1rem',
           color: COLORS.text,
-          fontSize: "0.95rem",
+          marginBottom: '0.25rem',
         }}>
           {task.text}
         </div>
         <div style={{
+          fontSize: '0.85rem',
           color: COLORS.muted,
-          fontSize: "0.85rem",
-          marginTop: "0.25rem",
         }}>
-          {formatDateForDisplay(task.start)} - {formatDateForDisplay(task.end)}
-        </div>
-        <div style={{
-          color: COLORS.primary,
-          fontSize: "0.8rem",
-          marginTop: "0.1rem",
-          fontWeight: 500,
-        }}>
-          {task.duration} days
+          {formatDateForDisplay(task.start)} → {formatDateForDisplay(task.end)}
         </div>
       </div>
+      
       <button
         onClick={() => onRemove(task.id)}
         style={{
-          background: "none",
+          background: 'none',
+          border: 'none',
           color: COLORS.error,
-          border: "none",
-          cursor: "pointer",
-          fontSize: "1.1rem",
-          padding: "0.5rem",
+          cursor: 'pointer',
+          fontSize: '1.2rem',
+          padding: '0.5rem',
           borderRadius: 4,
-          transition: "all 0.2s",
-          width: "32px",
-          height: "32px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          transition: 'all 0.2s ease',
+          backgroundColor: isHovered ? `${COLORS.error}10` : 'transparent',
         }}
         title="Remove task"
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = "#fee";
-          e.target.style.transform = "scale(1.1)";
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = "transparent";
-          e.target.style.transform = "scale(1)";
-        }}
       >
         ✕
       </button>
@@ -525,190 +488,105 @@ const TaskItem = React.memo(({ task, onRemove }) => {
   );
 });
 
-// SaveStatus component
-const SaveStatus = React.memo(({ saveStatus, lastSaved, onSaveNow, onNewTimeline, onSelectTimeline, currentTimelineTitle, timelineCount, currentTasksCount, currentYear, endYear }) => {
-  const getSaveStatusInfo = useCallback(() => {
-    switch (saveStatus) {
-      case 'saving':
-        return { text: 'Saving...', color: COLORS.warning };
-      case 'loading':
-        return { text: 'Loading...', color: COLORS.primary };
-      case 'saved':
-        return { 
-          text: lastSaved ? `Saved ${lastSaved.toLocaleTimeString()}` : 'Saved', 
-          color: COLORS.success 
-        };
-      case 'unsaved':
-        return { text: 'Unsaved changes', color: COLORS.warning };
-      case 'error':
-        return { text: 'Save failed', color: COLORS.error };
-      default:
-        return { text: '', color: COLORS.muted };
-    }
-  }, [saveStatus, lastSaved]);
+TaskItem.displayName = 'TaskItem';
 
-  const statusInfo = getSaveStatusInfo();
+// Notification component
+const Notification = React.memo(({ notification }) => {
+  const getNotificationStyles = useCallback(() => {
+    if (!notification) return {};
+    
+    const baseStyles = {
+      position: 'fixed',
+      top: '20px',
+      right: '20px',
+      padding: '1rem 1.5rem',
+      borderRadius: 8,
+      fontSize: '0.9rem',
+      fontWeight: 500,
+      zIndex: 2000,
+      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+      transition: 'all 0.3s ease',
+      border: '1px solid',
+    };
+
+    switch (notification.type) {
+      case 'success':
+        return {
+          ...baseStyles,
+          backgroundColor: COLORS.success,
+          color: 'white',
+          borderColor: COLORS.success,
+        };
+      case 'error':
+        return {
+          ...baseStyles,
+          backgroundColor: COLORS.error,
+          color: 'white',
+          borderColor: COLORS.error,
+        };
+      case 'warning':
+        return {
+          ...baseStyles,
+          backgroundColor: COLORS.warning,
+          color: 'white',
+          borderColor: COLORS.warning,
+        };
+      default:
+        return {
+          ...baseStyles,
+          backgroundColor: COLORS.primary,
+          color: 'white',
+          borderColor: COLORS.primary,
+        };
+    }
+  }, [notification]);
+
+  if (!notification) return null;
 
   return (
-    <div style={{ marginBottom: "1rem" }}>
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginBottom: "0.5rem",
-      }}>
-        <div style={{
-          color: statusInfo.color,
-          fontSize: "0.85rem",
-          fontWeight: 500,
-        }}>
-          {statusInfo.text}
-        </div>
-        <button
-          onClick={() => onSaveNow(false)}
-          disabled={saveStatus === 'saving' || saveStatus === 'loading'}
-          style={{
-            ...commonStyles.button,
-            background: saveStatus === 'saved' ? COLORS.success : COLORS.primary,
-            color: "#fff",
-            padding: "0.5rem 1rem",
-            fontSize: "0.85rem",
-            cursor: saveStatus === 'saving' || saveStatus === 'loading' ? 'not-allowed' : 'pointer',
-            opacity: saveStatus === 'saving' || saveStatus === 'loading' ? 0.7 : 1,
-          }}
-        >
-          {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'loading' ? 'Loading...' : 'Save Now'}
-        </button>
-      </div>
-      
-      {/* Timeline Management Controls */}
-      <div style={{
-        display: "flex",
-        gap: "0.5rem",
-        flexWrap: "wrap",
-      }}>
-        <button
-          onClick={onNewTimeline}
-          style={{
-            ...commonStyles.button,
-            background: COLORS.accent,
-            color: "#fff",
-            padding: "0.4rem 0.8rem",
-            fontSize: "0.8rem",
-            flex: 1,
-            minWidth: "100px",
-          }}
-        >
-          New Timeline
-        </button>
-        <button
-          onClick={onSelectTimeline}
-          style={{
-            ...commonStyles.button,
-            background: COLORS.primary,
-            color: "#fff",
-            padding: "0.4rem 0.8rem",
-            fontSize: "0.8rem",
-            flex: 1,
-            minWidth: "100px",
-          }}
-        >
-          Load Timeline
-        </button>
-      </div>
-      
-      {currentTimelineTitle && (
-        <div style={{
-          fontSize: "0.75rem",
-          color: COLORS.muted,
-          marginTop: "0.5rem",
-          fontStyle: "italic",
-        }}>
-          Current: {currentTimelineTitle}
-        </div>
-      )}
-
-      {/* Timeline Info */}
-      <div style={{
-        backgroundColor: `${COLORS.accent}10`,
-        border: `1px solid ${COLORS.accent}30`,
-        borderRadius: 8,
-        padding: "0.75rem",
-        marginTop: "1rem",
-        marginBottom: "1rem",
-      }}>
-        <h4 style={{
-          color: COLORS.accent,
-          fontSize: "0.85rem",
-          fontWeight: 600,
-          marginBottom: "0.5rem",
-        }}>
-          📊 Timeline Overview
-        </h4>
-        <div style={{
-          fontSize: "0.75rem",
-          color: COLORS.muted,
-          lineHeight: "1.4",
-        }}>
-          <div><strong>Total Timelines:</strong> {timelineCount}</div>
-          <div><strong>Current Tasks:</strong> {currentTasksCount}</div>
-          <div><strong>Time Range:</strong> {currentYear} - {endYear}</div>
-        </div>
-      </div>
-
-      {/* Keyboard Shortcuts Info */}
-      <div style={{
-        backgroundColor: `${COLORS.primary}10`,
-        border: `1px solid ${COLORS.primary}30`,
-        borderRadius: 8,
-        padding: "0.75rem",
-        marginBottom: "1rem",
-      }}>
-        <h4 style={{
-          color: COLORS.primary,
-          fontSize: "0.85rem",
-          fontWeight: 600,
-          marginBottom: "0.5rem",
-        }}>
-          💡 Keyboard Shortcuts
-        </h4>
-        <div style={{
-          fontSize: "0.75rem",
-          color: COLORS.muted,
-          lineHeight: "1.4",
-        }}>
-          <div><strong>Ctrl+S</strong> - Save timeline</div>
-          <div><strong>Ctrl+N</strong> - New timeline</div>
-          <div><strong>Ctrl+O</strong> - Load timeline</div>
-        </div>
-      </div>
+    <div style={getNotificationStyles()}>
+      {notification.message}
     </div>
   );
 });
 
-// TimelineSelector component
-const TimelineSelector = React.memo(({ 
-  timelines, 
-  isLoading, 
-  onSelect, 
-  onDelete, 
-  onDuplicate,
-  onClose, 
-  currentTimelineId,
-  onCleanup,
-  onRename
-}) => {
-  const formatDate = useCallback((date) => {
-    return new Date(date).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  }, []);
+Notification.displayName = 'Notification';
 
-  const legacyCount = timelines.filter(t => t.title === "My Timeline").length;
+// NewTimelineModal component
+const NewTimelineModal = React.memo(({ 
+  isOpen, 
+  onClose, 
+  onSubmit, 
+  title, 
+  setTitle, 
+  description, 
+  setDescription 
+}) => {
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+    if (!title.trim()) {
+      return;
+    }
+    onSubmit();
+  }, [title, onSubmit]);
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      handleSubmit(e);
+    }
+  }, [onClose, handleSubmit]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown, isOpen]);
+
+  if (!isOpen) return null;
 
   return (
     <div style={{
@@ -728,11 +606,175 @@ const TimelineSelector = React.memo(({
         borderRadius: 16,
         padding: '2rem',
         width: '90%',
-        maxWidth: '600px',
-        maxHeight: '80vh',
-        overflow: 'auto',
+        maxWidth: '500px',
         position: 'relative',
         boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+      }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '1.5rem',
+        }}>
+          <h2 style={{
+            color: COLORS.primary,
+            fontWeight: 700,
+            fontSize: '1.5rem',
+            margin: 0,
+          }}>
+            Create New Timeline
+          </h2>
+          <button
+            onClick={onClose}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              color: COLORS.muted,
+              padding: '0.5rem',
+            }}
+          >
+            ✕
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <InputField
+              label="Timeline Title *"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter timeline title (e.g., Website Development Project)"
+              required
+            />
+
+            <div>
+              <label style={{
+                display: "block",
+                color: COLORS.text,
+                fontWeight: 500,
+                marginBottom: "0.5rem",
+                fontSize: "0.9rem",
+              }}>
+                Description (Optional)
+              </label>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Enter timeline description"
+                rows={3}
+                style={{
+                  ...commonStyles.input,
+                  resize: "vertical",
+                  minHeight: "80px",
+                }}
+                onFocus={(e) => e.target.style.borderColor = COLORS.primary}
+                onBlur={(e) => e.target.style.borderColor = COLORS.border}
+              />
+            </div>
+
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              marginTop: '1rem',
+            }}>
+              <button
+                type="button"
+                onClick={onClose}
+                style={{
+                  ...commonStyles.button,
+                  background: COLORS.muted,
+                  color: "#fff",
+                  padding: "0.75rem 1.5rem",
+                  flex: 1,
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={!title.trim()}
+                style={{
+                  ...commonStyles.button,
+                  background: title.trim() ? COLORS.primary : COLORS.muted,
+                  color: "#fff",
+                  padding: "0.75rem 1.5rem",
+                  flex: 1,
+                }}
+              >
+                Create Timeline
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+});
+
+NewTimelineModal.displayName = 'NewTimelineModal';
+
+// TimelineSelector component
+const TimelineSelector = React.memo(({ 
+  isOpen, 
+  onClose, 
+  timelines, 
+  currentTimelineId, 
+  onSelect,
+  onDelete,
+  onDuplicate,
+  onCleanup,
+  onRename,
+  legacyCount,
+  isLoading 
+}) => {
+  const formatDate = useCallback((dateStr) => {
+    try {
+      return new Date(dateStr).toLocaleDateString();
+    } catch {
+      return 'Unknown';
+    }
+  }, []);
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown, isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000,
+    }}>
+      <div style={{
+        backgroundColor: COLORS.card,
+        borderRadius: 16,
+        padding: '2rem',
+        width: '90%',
+        maxWidth: '800px',
+        maxHeight: '80vh',
+        position: 'relative',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+        overflow: 'hidden',
       }}>
         <div style={{
           display: 'flex',
@@ -763,20 +805,19 @@ const TimelineSelector = React.memo(({
           </button>
         </div>
 
-        {/* Legacy Timeline Cleanup */}
         {legacyCount > 0 && (
           <div style={{
-            backgroundColor: `${COLORS.warning}10`,
-            border: `1px solid ${COLORS.warning}30`,
+            backgroundColor: `${COLORS.warning}15`,
+            border: `1px solid ${COLORS.warning}40`,
             borderRadius: 8,
             padding: '1rem',
             marginBottom: '1rem',
           }}>
             <h4 style={{
               color: COLORS.warning,
+              margin: '0 0 0.5rem 0',
               fontSize: '0.9rem',
               fontWeight: 600,
-              marginBottom: '0.5rem',
             }}>
               ⚠️ Legacy Timelines Found
             </h4>
@@ -785,7 +826,7 @@ const TimelineSelector = React.memo(({
               color: COLORS.muted,
               marginBottom: '0.75rem',
             }}>
-              Found {legacyCount} old timelines named "My Timeline". Clean them up?
+              Found {legacyCount} old timelines named &quot;My Timeline&quot;. Clean them up?
             </p>
             <div style={{
               display: 'flex',
@@ -991,7 +1032,7 @@ const TimelineSelector = React.memo(({
                       }}
                       title="Delete timeline"
                       onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = '#fee';
+                        e.target.style.backgroundColor = `${COLORS.error}20`;
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.backgroundColor = 'transparent';
@@ -1010,235 +1051,7 @@ const TimelineSelector = React.memo(({
   );
 });
 
-// Notification component
-const Notification = React.memo(({ notification }) => {
-  if (!notification) return null;
-
-  const getNotificationStyles = useCallback(() => {
-    const baseStyles = {
-      position: 'fixed',
-      top: '20px',
-      right: '20px',
-      padding: '1rem 1.5rem',
-      borderRadius: 8,
-      fontSize: '0.9rem',
-      fontWeight: 500,
-      zIndex: 2000,
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-      transition: 'all 0.3s ease',
-      border: '1px solid',
-    };
-
-    switch (notification.type) {
-      case 'success':
-        return {
-          ...baseStyles,
-          backgroundColor: COLORS.success,
-          color: 'white',
-          borderColor: COLORS.success,
-        };
-      case 'error':
-        return {
-          ...baseStyles,
-          backgroundColor: COLORS.error,
-          color: 'white',
-          borderColor: COLORS.error,
-        };
-      case 'warning':
-        return {
-          ...baseStyles,
-          backgroundColor: COLORS.warning,
-          color: 'white',
-          borderColor: COLORS.warning,
-        };
-      default:
-        return {
-          ...baseStyles,
-          backgroundColor: COLORS.primary,
-          color: 'white',
-          borderColor: COLORS.primary,
-        };
-    }
-  }, [notification.type]);
-
-  return (
-    <div style={getNotificationStyles()}>
-      {notification.message}
-    </div>
-  );
-});
-
-// NewTimelineModal component
-const NewTimelineModal = React.memo(({ 
-  isOpen, 
-  onClose, 
-  onSubmit, 
-  title, 
-  setTitle, 
-  description, 
-  setDescription 
-}) => {
-  if (!isOpen) return null;
-
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    if (!title.trim()) {
-      return;
-    }
-    onSubmit();
-  }, [title, onSubmit]);
-
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-      handleSubmit(e);
-    }
-  }, [onClose, handleSubmit]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
-
-  return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 1000,
-    }}>
-      <div style={{
-        backgroundColor: COLORS.card,
-        borderRadius: 16,
-        padding: '2rem',
-        width: '90%',
-        maxWidth: '500px',
-        position: 'relative',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-      }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '1.5rem',
-        }}>
-          <h2 style={{
-            color: COLORS.primary,
-            fontWeight: 700,
-            fontSize: '1.5rem',
-            margin: 0,
-          }}>
-            Create New Timeline
-          </h2>
-          <button
-            onClick={onClose}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              color: COLORS.muted,
-              padding: '0.5rem',
-            }}
-          >
-            ✕
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <InputField
-              label="Timeline Title *"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter timeline title (e.g., Website Development Project)"
-              required
-            />
-
-            <div>
-              <label style={{
-                display: "block",
-                color: COLORS.text,
-                fontWeight: 500,
-                marginBottom: "0.5rem",
-                fontSize: "0.9rem",
-              }}>
-                Description (Optional)
-              </label>
-              <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Enter timeline description"
-                rows={3}
-                style={{
-                  ...commonStyles.input,
-                  resize: "vertical",
-                  minHeight: "80px",
-                }}
-                onFocus={(e) => e.target.style.borderColor = COLORS.primary}
-                onBlur={(e) => e.target.style.borderColor = COLORS.border}
-              />
-            </div>
-
-            <div style={{
-              display: 'flex',
-              gap: '1rem',
-              marginTop: '1rem',
-            }}>
-              <button
-                type="button"
-                onClick={onClose}
-                style={{
-                  ...commonStyles.button,
-                  background: COLORS.muted,
-                  color: "#fff",
-                  padding: "0.75rem 1.5rem",
-                  flex: 1,
-                }}
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={!title.trim()}
-                style={{
-                  ...commonStyles.button,
-                  background: title.trim() ? COLORS.primary : COLORS.muted,
-                  color: "#fff",
-                  padding: "0.75rem 1.5rem",
-                  flex: 1,
-                  cursor: title.trim() ? 'pointer' : 'not-allowed',
-                  opacity: title.trim() ? 1 : 0.7,
-                }}
-              >
-                Create Timeline
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div style={{
-          marginTop: '1rem',
-          padding: '0.75rem',
-          backgroundColor: `${COLORS.primary}10`,
-          borderRadius: 8,
-          fontSize: '0.8rem',
-          color: COLORS.muted,
-        }}>
-          💡 <strong>Tip:</strong> Use Ctrl+Enter to quickly create the timeline
-        </div>
-      </div>
-    </div>
-  );
-});
+TimelineSelector.displayName = 'TimelineSelector';
 
 // Main component
 export default function TimelineConfigurePage() {
@@ -1276,6 +1089,26 @@ export default function TimelineConfigurePage() {
   const [showNewTimelineModal, setShowNewTimelineModal] = useState(false);
   const [newTimelineTitle, setNewTimelineTitle] = useState("");
   const [newTimelineDescription, setNewTimelineDescription] = useState("");
+  const [legacyCount, setLegacyCount] = useState(0);
+  const [showLegacyWarning, setShowLegacyWarning] = useState(false);
+
+  // Add CSS animation for pulse effect
+  useEffect(() => {
+    if (!document.getElementById('timeline-animations')) {
+      const style = document.createElement('style');
+      style.id = 'timeline-animations';
+      style.textContent = `
+        @keyframes pulse-timeline {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+        .pulse-timeline {
+          animation: pulse-timeline 2s ease-in-out infinite;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
 
   // Smart timeline name generator
   const generateSmartTimelineName = useCallback((baseName = '', includeTime = true) => {
@@ -1374,7 +1207,7 @@ export default function TimelineConfigurePage() {
     }
     
     const confirmCleanup = window.confirm(
-      `Found ${oldTimelines.length} empty legacy timelines named "My Timeline". Delete them all?`
+      `Found ${oldTimelines.length} empty legacy timelines named &quot;My Timeline&quot;. Delete them all?`
     );
     
     if (!confirmCleanup) return;
@@ -1408,14 +1241,14 @@ export default function TimelineConfigurePage() {
     }
     
     const confirmRename = window.confirm(
-      `Found ${legacyTimelines.length} legacy timelines named "My Timeline". Rename them with unique names?`
+      `Found ${legacyTimelines.length} legacy timelines named &quot;My Timeline&quot;. Rename them with unique names?`
     );
     
     if (!confirmRename) return;
     
     try {
       const renamePromises = legacyTimelines.map(async (timeline, index) => {
-        const newName = `Legacy Timeline ${index + 1}`;
+        const newName = `Timeline ${new Date(timeline.createdAt).getFullYear()}-${String(timeline.createdAt.slice(5, 7)).padStart(2, '0')}-${String(timeline.createdAt.slice(8, 10)).padStart(2, '0')}`;
         
         return fetch(`/api/timelines/${timeline._id}`, {
           method: 'PUT',
@@ -1875,7 +1708,7 @@ export default function TimelineConfigurePage() {
     
     createNewTimeline(newTimelineTitle.trim(), newTimelineDescription.trim());
     setHasUserDismissedSelector(false); // Reset dismissal flag when creating new
-  }, [newTimelineTitle, newTimelineDescription, createNewTimeline]);
+  }, [newTimelineTitle, newTimelineDescription, createNewTimeline, showNotification]);
 
   const handleCancelNewTimeline = useCallback(() => {
     setShowNewTimelineModal(false);
@@ -2002,19 +1835,78 @@ export default function TimelineConfigurePage() {
             Create and manage your project timeline from {currentYear} to {endYear}
           </p>
           
-          <SaveStatus
-            saveStatus={saveStatus}
-            lastSaved={lastSaved}
-            onSaveNow={saveTimeline}
-            onNewTimeline={handleCreateNewTimeline}
-            onSelectTimeline={handleLoadTimeline}
-            currentTimelineTitle={timelineTitle}
-            timelineCount={availableTimelines.length}
-            currentTasksCount={tasks.length}
-            currentYear={currentYear}
-            endYear={endYear}
-          />
-
+          {/* Timeline Controls */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem',
+            marginBottom: '1.5rem',
+            padding: '1rem',
+            backgroundColor: COLORS.background,
+            borderRadius: 8,
+            border: `1px solid ${COLORS.border}`,
+          }}>
+            {/* Status Row */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '0.5rem',
+            }}>
+              <span style={{
+                color: COLORS.text,
+                fontSize: '0.9rem',
+                fontWeight: 500,
+              }}>
+                {tasks.length} tasks • {availableTimelines.length} timelines
+              </span>
+              <span style={{
+                color: saveStatus === 'saved' ? COLORS.success : saveStatus === 'saving' ? COLORS.warning : COLORS.error,
+                fontSize: '0.8rem',
+                fontWeight: 500,
+              }}>
+                {saveStatus === 'saved' ? '✓ Auto-saved' : saveStatus === 'saving' ? '⏳ Saving' : '❌ Error'}
+              </span>
+            </div>
+            
+            {/* Action Buttons */}
+            <div style={{
+              display: 'flex',
+              gap: '0.5rem',
+            }}>
+              <button
+                onClick={handleCreateNewTimeline}
+                style={{
+                  background: 'none',
+                  border: `1px solid ${COLORS.border}`,
+                  borderRadius: 6,
+                  padding: '0.5rem 0.75rem',
+                  fontSize: '0.8rem',
+                  color: COLORS.text,
+                  cursor: 'pointer',
+                  flex: 1,
+                }}
+              >
+                ➕ New Timeline
+              </button>
+              <button
+                onClick={handleLoadTimeline}
+                style={{
+                  background: 'none',
+                  border: `1px solid ${COLORS.border}`,
+                  borderRadius: 6,
+                  padding: '0.5rem 0.75rem',
+                  fontSize: '0.8rem',
+                  color: COLORS.text,
+                  cursor: 'pointer',
+                  flex: 1,
+                }}
+              >
+                📂 Load Timeline
+              </button>
+            </div>
+          </div>
+          
           {/* Timeline Metadata */}
           <div style={{
             ...commonStyles.card,
@@ -2240,15 +2132,17 @@ export default function TimelineConfigurePage() {
 
       {showTimelineSelector && (
         <TimelineSelector
+          isOpen={showTimelineSelector}
+          onClose={handleCloseTimelineSelector}
           timelines={availableTimelines}
-          isLoading={isLoadingTimelines}
+          currentTimelineId={currentTimelineId}
           onSelect={handleSelectTimeline}
           onDelete={handleDeleteTimeline}
           onDuplicate={duplicateTimeline}
-          onClose={handleCloseTimelineSelector}
-          currentTimelineId={currentTimelineId}
           onCleanup={cleanupOldTimelines}
           onRename={renameLegacyTimelines}
+          legacyCount={legacyCount}
+          isLoading={isLoadingTimelines}
         />
       )}
 

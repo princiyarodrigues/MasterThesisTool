@@ -26,11 +26,10 @@ const BusinessCapabilitiesPage = () => {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    // Load data when component mounts
     if (!initialized) {
       loadAllData();
     }
-  }, [initialized]);
+  }, [initialized, loadAllData]);
 
   // Add effect to reload data when the page becomes visible again (e.g., after selecting goals)
   useEffect(() => {
@@ -46,7 +45,7 @@ const BusinessCapabilitiesPage = () => {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [initialized]);
+  }, [initialized, loadAllData]);
 
   const toggleSection = (sectionType) => {
     setExpandedSections(prev => ({

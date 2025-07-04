@@ -140,12 +140,6 @@ export default function StrategicGoalsPage() {
 
   // Use useCallback to memoize the handler
   const handleGoalSelection = useCallback((goalId) => {
-    // Skip if goalId is invalid
-    if (!goalId || goalId === 'undefined' || goalId === 'null') {
-      console.error('Invalid goal ID:', goalId);
-      return;
-    }
-    
     console.log('Goal clicked:', goalId);
     console.log('Current selection state:', selectedGoals);
     
@@ -162,7 +156,7 @@ export default function StrategicGoalsPage() {
       console.log('New selections:', newSelections);
       return newSelections;
     });
-  }, []);
+  }, [selectedGoals]);
 
   const handleSave = useCallback(async () => {
     setIsSaving(true);
