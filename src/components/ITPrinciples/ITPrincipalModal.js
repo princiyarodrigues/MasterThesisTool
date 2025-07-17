@@ -51,9 +51,9 @@ export function ITPrincipleModal({ isOpen, onClose, principle }) {
                 <div className="bg-amber-100 p-2 rounded-lg mr-3">
                   <Target className="w-6 h-6 text-amber-600" />
                 </div>
-                <h3 className="text-lg font-semibold">Rationale</h3>
+                <h3 className="text-lg font-semibold text-black">Rationale</h3>
               </div>
-              <p className="text-gray-700 leading-relaxed">{principle?.rationale}</p>
+              <p className="text-black leading-relaxed">{principle?.rationale}</p>
             </div>
 
             {/* Implications */}
@@ -62,13 +62,13 @@ export function ITPrincipleModal({ isOpen, onClose, principle }) {
                 <div className="bg-green-100 p-2 rounded-lg mr-3">
                   <AlertCircle className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-lg font-semibold">Implications</h3>
+                <h3 className="text-lg font-semibold text-black">Implications</h3>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 space-y-4">
                 {principle?.implications?.map((implication, index) => (
                   <div key={index} className="flex items-start">
                     <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3" />
-                    <p className="text-gray-700">{implication}</p>
+                    <p className="text-black">{implication}</p>
                   </div>
                 ))}
               </div>

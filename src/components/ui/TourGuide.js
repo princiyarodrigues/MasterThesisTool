@@ -6,7 +6,7 @@ import { X, ChevronRight, ArrowRight, Info, CheckCircle } from 'lucide-react';
 const TOUR_STEPS = [
   {
     id: 'welcome',
-    title: 'Welcome to Digital Twin Factory Tool',
+    title: 'Welcome to DTFT',
     description: 'This guided tour will help you navigate through the application effectively. You will need to manually navigate to each recommended section.',
     position: 'center',
     highlight: null,

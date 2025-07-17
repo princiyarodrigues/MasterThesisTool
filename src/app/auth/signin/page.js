@@ -41,7 +41,7 @@ export default function SignIn() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-[#009374]">Digital Twin Factory Tool</h1>
+        <h1 className="text-4xl font-bold text-[#009374]">DTFT</h1>
         <p className="mt-2 text-gray-600">Sign in to access the process model</p>
       </div>
 

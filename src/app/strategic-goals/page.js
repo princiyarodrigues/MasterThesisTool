@@ -18,6 +18,7 @@ export default function StrategicGoalsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [initialized, setInitialized] = useState(false);
+  const [showFilterNotification, setShowFilterNotification] = useState(false);
 
   // Redirect if not authenticated
   useEffect(() => {
@@ -191,6 +192,8 @@ export default function StrategicGoalsPage() {
           type: 'success',
           message: 'Selections saved successfully'
         });
+        // Show the filter notification popup
+        setShowFilterNotification(true);
       } else {
         throw new Error(responseData.error || 'Error saving selections');
       }
@@ -205,6 +208,16 @@ export default function StrategicGoalsPage() {
       setTimeout(() => setSaveStatus({ type: '', message: '' }), 3000);
     }
   }, [selectedGoals]);
+
+  // Function to handle the notification popup
+  const handleNotificationClose = () => {
+    setShowFilterNotification(false);
+  };
+
+  const handleGoToDashboard = () => {
+    setShowFilterNotification(false);
+    router.push('/');
+  };
 
   if (status === 'loading' || loading) {
     return <LoadingSpinner />;
@@ -238,6 +251,38 @@ export default function StrategicGoalsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Filter Notification Popup */}
+      {showFilterNotification && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md mx-4 shadow-xl">
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <Check className="w-6 h-6 text-green-600" />
+              </div>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 text-center mb-2">
+              Goals Saved Successfully!
+            </h3>
+            <p className="text-gray-600 text-center mb-6">
+              Based on your selected strategic goals, the <strong>business capabilities</strong> have been filtered to show only relevant options. Please check the dashboard to explore your customized capabilities.
+            </p>
+            <div className="flex space-x-3">
+              <button
+                onClick={handleNotificationClose}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+              >
+                Continue Here
+              </button>
+              <button
+                onClick={handleGoToDashboard}
+                className="flex-1 px-4 py-2 bg-[#009374] text-white rounded-lg hover:bg-[#007a60] transition-colors"
+              >
+                Go to Dashboard
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       
       <div className="mx-auto px-6 py-8">
         <div className="mb-4">

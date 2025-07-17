@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Digital Twin Factory Tool",
+  title: "DTFT - Digital Twin Factory Tool",
   description: "Knowledge management portal for digital twin factory",
 };
 

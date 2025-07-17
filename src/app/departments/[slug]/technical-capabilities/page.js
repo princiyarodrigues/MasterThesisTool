@@ -19,7 +19,7 @@ export default function TechnicalCapabilitiesPage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#009374] mb-2">Technical Factory Twin Capabilities</h1>
-            <p className="text-gray-600">
+            <p className="text-black">
               Showing technical capabilities filtered by your selected strategic goals
             </p>
           </div>

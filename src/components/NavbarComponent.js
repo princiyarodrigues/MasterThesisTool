@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { File, LogOut, User } from 'lucide-react';
+import { Building, LogOut, User } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -22,10 +22,10 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-              <File className="w-5 h-5 text-white" />
+              <Building className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-semibold text-white">
-              Digital Twin Factory Tool
+              DTFT
             </span>
           </Link>
 

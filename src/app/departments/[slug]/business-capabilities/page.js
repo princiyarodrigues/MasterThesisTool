@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronDown, ChevronRight, Plus, Search, Filter } from 'lucide-react';
 import BusinessCapabilityModal from '@/components/BusinessCapabilities/BusinessCapabilityModal';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -25,76 +25,8 @@ const BusinessCapabilitiesPage = () => {
   const [error, setError] = useState(null);
   const [initialized, setInitialized] = useState(false);
 
-  useEffect(() => {
-    if (!initialized) {
-      loadAllData();
-    }
-  }, [initialized, loadAllData]);
-
-  // Add effect to reload data when the page becomes visible again (e.g., after selecting goals)
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (!document.hidden && initialized) {
-        console.log('Page became visible, reloading capabilities data...');
-        loadAllData();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, [initialized, loadAllData]);
-
-  const toggleSection = (sectionType) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [sectionType]: !prev[sectionType]
-    }));
-  };
-
-  const handleSubCapabilityClick = (capability) => {
-    setSelectedCapability(capability);
-    setShowModal(true);
-  };
-
-  // Function to convert capability data to the format expected by UI
-  const formatCapabilityForUI = (capability) => {
-    // Handle the new data structure from BusinessFactoryPlanningCapas.json
-    if (capability.map && capability.children_capabilities) {
-      return {
-        number: capability.map.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung V2")
-        title: capability.map.name.includes(' ') ? capability.map.name.split(' ').slice(1).join(' ') : capability.map.name,
-        parentId: capability.map.identifier,
-        parentName: capability.map.name,
-        subCapabilities: capability.children_capabilities || []
-      };
-    }
-    
-    // For capabilities with children (isParent=true) - legacy format
-    if (capability.children && capability.children.length > 0) {
-      return {
-        number: capability.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung")
-        title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
-        parentId: capability.id,
-        parentName: capability.name,
-        subCapabilities: capability.children.map(child => child.name)
-      };
-    }
-    
-    // For standalone capabilities
-    return {
-      number: capability.name.split(' ')[0], 
-      title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
-      parentId: capability.id,
-      parentName: capability.name,
-      subCapabilities: [] // No subCapabilities for standalone capabilities
-    };
-  };
-  
   // Function to fetch user profile and get selected strategic goals
-  const fetchUserProfile = async () => {
+  const fetchUserProfile = useCallback(async () => {
     try {
       const response = await fetch('/api/user/profile');
       
@@ -122,107 +54,10 @@ const BusinessCapabilitiesPage = () => {
       console.error('Error fetching user profile:', error);
       return [];
     }
-  };
-
-  // Fetch capabilities by category
-  const fetchCapabilitiesByCategory = async (category) => {
-    try {
-      const response = await fetch(`/api/capabilities/by-category/${encodeURIComponent(category)}`);
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${category} capabilities: ${response.status}`);
-      }
-      
-      const capabilities = await response.json();
-      console.log(`Fetched ${capabilities.length} ${category} capabilities`);
-      return capabilities;
-    } catch (error) {
-      console.error(`Error fetching ${category} capabilities:`, error);
-      return [];
-    }
-  };
-
-  // Fetch compositions for parent-child relationships
-  const fetchCompositions = async () => {
-    try {
-      const response = await fetch('/api/compositions');
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch compositions: ${response.status}`);
-      }
-      
-      const compositions = await response.json();
-      return compositions;
-    } catch (error) {
-      console.error('Error fetching compositions:', error);
-      return [];
-    }
-  };
-
-  // Function to organize capabilities into hierarchy
-  const organizeCapabilitiesHierarchy = (capabilities, compositions) => {
-    // If capabilities already have the parent-child structure (through children array),
-    // we can use them directly
-    const haveParentChildStructure = capabilities.some(cap => cap.children && Array.isArray(cap.children));
-    
-    if (haveParentChildStructure) {
-      // Just flatten the nested children structure to match our expected UI format
-      return capabilities.map(cap => {
-        // Get all children if they exist
-        const allSubCapabilities = cap.children || [];
-        
-        // Return the capability with subCapabilities field
-        return {
-          ...cap,
-          subCapabilities: allSubCapabilities
-        };
-      });
-    }
-    
-    // If we have the old format, use the old hierarchy building logic
-    // Map to store capabilities by ID
-    const capabilitiesMap = capabilities.reduce((map, cap) => {
-      map[cap.id] = { ...cap, subCapabilities: [] };
-      return map;
-    }, {});
-    
-    // Map for parent-child relationships
-    const parentChildMap = {};
-    compositions.forEach(comp => {
-      if (!parentChildMap[comp.source]) {
-        parentChildMap[comp.source] = [];
-      }
-      parentChildMap[comp.source].push(comp.target);
-    });
-    
-    // Find root capabilities
-    const childIds = new Set(compositions.map(comp => comp.target));
-    const rootCapabilities = capabilities
-      .filter(cap => !childIds.has(cap.id))
-      .map(cap => {
-        const result = { ...cap, subCapabilities: [] };
-        
-        // Function to recursively add children
-        const addChildren = (parentId, parentResult) => {
-          const childrenIds = parentChildMap[parentId] || [];
-          childrenIds.forEach(childId => {
-            if (capabilitiesMap[childId]) {
-              const childCap = { ...capabilitiesMap[childId], subCapabilities: [] };
-              parentResult.subCapabilities.push(childCap);
-              addChildren(childId, childCap);
-            }
-          });
-        };
-        
-        addChildren(cap.id, result);
-        return result;
-      });
-    
-    return rootCapabilities;
-  };
+  }, []);
 
   // Filter capabilities based on goals
-  const fetchCapabilitiesForGoals = async (goalIds) => {
+  const fetchCapabilitiesForGoals = useCallback(async (goalIds) => {
     if (!goalIds || goalIds.length === 0) {
       return [];
     }
@@ -283,10 +118,10 @@ const BusinessCapabilitiesPage = () => {
         return [];
       }
     }
-  };
+  }, []);
 
   // Filter capabilities based on goal influence
-  const filterCapabilitiesByGoalInfluence = (capabilities, relevantCapabilities) => {
+  const filterCapabilitiesByGoalInfluence = useCallback((capabilities, relevantCapabilities) => {
     if (!relevantCapabilities || relevantCapabilities.length === 0) {
       // Return empty array if no relevant capabilities to ensure we don't show all capabilities
       console.log('No relevant capabilities provided, returning empty array');
@@ -381,9 +216,9 @@ const BusinessCapabilitiesPage = () => {
     
     console.log(`Filtered to ${filteredCapabilities.length} parent capabilities with hierarchy maintained`);
     return filteredCapabilities;
-  };
+  }, []);
 
-  const loadAllData = async () => {
+  const loadAllData = useCallback(async () => {
     setLoading(true);
     try {
       // 1. Get selected goals from user profile
@@ -465,8 +300,80 @@ const BusinessCapabilitiesPage = () => {
       setLoading(false);
       setInitialized(true);
     }
+  }, [fetchUserProfile, fetchCapabilitiesForGoals, filterCapabilitiesByGoalInfluence]);
+
+  useEffect(() => {
+    if (!initialized) {
+      loadAllData();
+    }
+  }, [initialized, loadAllData]);
+
+  // Add effect to reload data when the page becomes visible again (e.g., after selecting goals)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (typeof window !== 'undefined' && !document.hidden && initialized) {
+        console.log('Page became visible, reloading capabilities data...');
+        loadAllData();
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
+    
+    return () => {
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      }
+    };
+  }, [initialized, loadAllData]);
+
+  const toggleSection = (sectionType) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionType]: !prev[sectionType]
+    }));
   };
 
+  const handleSubCapabilityClick = (capability) => {
+    setSelectedCapability(capability);
+    setShowModal(true);
+  };
+
+  // Function to convert capability data to the format expected by UI
+  const formatCapabilityForUI = (capability) => {
+    // Handle the new data structure from BusinessFactoryPlanningCapas.json
+    if (capability.map && capability.children_capabilities) {
+      return {
+        number: capability.map.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung V2")
+        title: capability.map.name.includes(' ') ? capability.map.name.split(' ').slice(1).join(' ') : capability.map.name,
+        parentId: capability.map.identifier,
+        parentName: capability.map.name,
+        subCapabilities: capability.children_capabilities || []
+      };
+    }
+    
+    // For capabilities with children (isParent=true) - legacy format
+    if (capability.children && capability.children.length > 0) {
+      return {
+        number: capability.name.split(' ')[0], // Extract number from name (e.g., "1.0" from "1.0 Zielplanung")
+        title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
+        parentId: capability.id,
+        parentName: capability.name,
+        subCapabilities: capability.children.map(child => child.name)
+      };
+    }
+    
+    // For standalone capabilities
+    return {
+      number: capability.name.split(' ')[0], 
+      title: capability.name.includes(' ') ? capability.name.split(' ').slice(1).join(' ') : capability.name,
+      parentId: capability.id,
+      parentName: capability.name,
+      subCapabilities: [] // No subCapabilities for standalone capabilities
+    };
+  };
+  
   const CapabilityCard = ({ capability }) => {
     const formattedCap = formatCapabilityForUI(capability);
     
@@ -475,7 +382,7 @@ const BusinessCapabilitiesPage = () => {
         {/* Parent Capability Header */}
         <div className="px-6 py-4 border-b" style={{ backgroundColor: '#F3E8A6', borderColor: '#E5D985' }}>
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-800">
+            <h3 className="text-lg font-semibold text-black">
               {formattedCap.parentName}
             </h3>
           </div>
@@ -497,10 +404,10 @@ const BusinessCapabilitiesPage = () => {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium text-black">
                       {typeof sub === 'object' ? sub.name.split(' ')[0] : `${formattedCap.number}.${index + 1}`}
                     </span>
-                    <span className="text-sm text-gray-800">
+                    <span className="text-sm text-black">
                       {typeof sub === 'object' ? 
                         sub.name.includes(' ') ? sub.name.split(' ').slice(1).join(' ') : sub.name
                         : sub
@@ -557,7 +464,7 @@ const BusinessCapabilitiesPage = () => {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-black">
                   <p>No {title.toLowerCase()} capabilities found for your selected strategic goals.</p>
                   <p className="mt-2 font-medium">Please select strategic goals on the goals page to see relevant capabilities.</p>
                   <a 
@@ -601,7 +508,7 @@ const BusinessCapabilitiesPage = () => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#009374] mb-2">Business Capabilities</h1>
-            <p className="text-gray-600">
+            <p className="text-black">
               Showing Factory Planning and Production Management business capabilities with their parent-child relationships
             </p>
           </div>

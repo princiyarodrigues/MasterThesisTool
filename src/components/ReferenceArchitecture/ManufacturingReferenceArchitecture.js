@@ -444,12 +444,21 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     'datenquellen-grafisches-datenmodell': [],
     'datenquellen-datenmodell': []
   });
+  // Add state for cross-diagram blocks
+  const [crossDiagramBlocks, setCrossDiagramBlocks] = useState({
+    'datenquellen-grafisches-modell': [],
+    'datenquellen-grafisches-datenmodell': [],
+    'datenquellen-datenmodell': []
+  });
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState(null);
+  // New state for use case block connections
   const [selectedUseCaseBlock, setSelectedUseCaseBlock] = useState(null);
   const [highlightedLayers, setHighlightedLayers] = useState([]);
   const [useCaseConnections, setUseCaseConnections] = useState([]);
+  // New state for tracking drag hover
+  const [dragHoveredContainer, setDragHoveredContainer] = useState(null);
   
   const { data: session } = useSession();
   const saveTimeoutRef = useRef(null);
@@ -542,86 +551,8 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     return allUsed;
   }, []);
 
-  // Load user's selections from database on component mount
-  useEffect(() => {
-    loadUserSelections();
-  }, [session?.user?.email]);
-
-  // Auto-save when changes are made (debounced) - Simplified and fixed pattern
-  useEffect(() => {
-    if (hasUnsavedChanges && session?.user?.email) {
-      if (saveTimeoutRef.current) {
-        clearTimeout(saveTimeoutRef.current);
-      }
-      
-      saveTimeoutRef.current = setTimeout(() => {
-        console.log('🔄 Auto-saving Manufacturing perspective changes...');
-        saveUserSelections();
-      }, 500); // Reduced from 1000ms to 500ms for faster saves
-    }
-    
-    return () => {
-      if (saveTimeoutRef.current) {
-        clearTimeout(saveTimeoutRef.current);
-      }
-    };
-  }, [hasUnsavedChanges, containerSelections, useCaseConnections, session?.user?.email]);
-
-  // Reset selections when UCBlocks component triggers reset
-  useEffect(() => {
-    const handleReset = () => {
-      setContainerSelections({
-        'datenquellen-grafisches-modell': [],
-        'datenquellen-grafisches-datenmodell': [],
-        'datenquellen-datenmodell': []
-      });
-      setUseCaseConnections([]);
-      setSelectedUseCaseBlock(null);
-      setHighlightedLayers([]);
-      setHasUnsavedChanges(false);
-
-      // Save the cleared state to database to prevent old connections from reappearing
-      if (session?.user?.email) {
-        setTimeout(() => {
-          saveUserSelections();
-        }, 100); // Small delay to ensure state is updated
-      }
-    };
-
-    // Listen for the proper reset event
-    window.addEventListener('resetManufacturingArchitectureDiagram', handleReset);
-    return () => {
-      window.removeEventListener('resetManufacturingArchitectureDiagram', handleReset);
-      // Clean up any pending timeouts
-      if (saveTimeoutRef.current) {
-        clearTimeout(saveTimeoutRef.current);
-      }
-      if (loadingTimeoutRef.current) {
-        clearTimeout(loadingTimeoutRef.current);
-      }
-    };
-  }, [session?.user?.email]);
-
-  // Track element usage and notify parent component
-  useEffect(() => {
-    const currentUsedElements = [
-      ...Object.values(containerSelections).flat().map(block => block.id),
-      ...useCaseConnections.map(conn => conn.elementId)
-    ];
-    
-    // Only update if the arrays are actually different
-    const currentUsedSet = new Set(currentUsedElements);
-    const lastUsedSet = new Set(lastUsedElementsRef.current);
-    
-    if (currentUsedSet.size !== lastUsedSet.size || 
-        [...currentUsedSet].some(id => !lastUsedSet.has(id))) {
-      lastUsedElementsRef.current = currentUsedElements;
-      onElementUsageChange(currentUsedElements);
-    }
-  }, [containerSelections, useCaseConnections, onElementUsageChange]);
-
   // Load user's selections for Manufacturing Perspective
-  const loadUserSelections = async () => {
+  const loadUserSelections = useCallback(async () => {
     if (!session?.user?.email) {
       // Try loading from localStorage as fallback
       try {
@@ -679,10 +610,126 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     } catch (error) {
       console.error('❌ MANUFACTURING: Error loading selections:', error);
     }
+  }, [session?.user?.email, onElementUsageChange, getAllUsedElementIds]);
+
+  // Load blocks from other diagrams for cross-diagram sharing
+  const loadCrossDiagramBlocks = useCallback(async () => {
+    if (!session?.user?.email) return;
+    
+    console.log('=== LOADING CROSS-DIAGRAM BLOCKS (MANUFACTURING) ===');
+    try {
+      const otherDiagramTypes = [
+        'reference-architecture', // Factory perspective
+        'product-perspective',
+        'order-perspective',
+        'final-view'
+      ];
+      
+      // Load selections from other diagrams in parallel
+      const responses = await Promise.all(
+        otherDiagramTypes.map(async diagramType => {
+          try {
+            const response = await fetch(`/api/diagram-selections?diagramType=${diagramType}`);
+            if (response.ok) {
+              const data = await response.json();
+              console.log(`📊 MANUFACTURING: ${diagramType}:`, data.selections ? Object.values(data.selections).reduce((total, arr) => total + arr.length, 0) : 0, 'blocks');
+              return { diagramType, data };
+            } else {
+              console.log(`❌ MANUFACTURING: Failed to load ${diagramType}: ${response.status}`);
+              return { diagramType, data: null };
+            }
+          } catch (err) {
+            console.error(`❌ MANUFACTURING: Error loading ${diagramType}:`, err);
+            return { diagramType, data: null };
+          }
+        })
+      );
+      
+      // Initialize cross-diagram blocks
+      const crossBlocks = {
+        'datenquellen-grafisches-modell': [],
+        'datenquellen-grafisches-datenmodell': [],
+        'datenquellen-datenmodell': []
+      };
+      
+      // Process each response
+      responses.forEach(({ diagramType, data }) => {
+        if (data && data.selections) {
+          Object.keys(data.selections).forEach(containerId => {
+            if (crossBlocks[containerId]) {
+              const newBlocks = data.selections[containerId] || [];
+              console.log(`🔍 MANUFACTURING: Processing ${diagramType} container ${containerId}: ${newBlocks.length} blocks`);
+              
+              // Add blocks that don't already exist (based on ID)
+              newBlocks.forEach(block => {
+                if (!crossBlocks[containerId].some(existing => existing.id === block.id)) {
+                  // Map diagramType to proper source name for display
+                  let sourcePerspective = diagramType;
+                  if (diagramType === 'reference-architecture') {
+                    sourcePerspective = 'factory-perspective';
+                  } else if (diagramType === 'final-view') {
+                    sourcePerspective = 'final-view';
+                  }
+                  
+                  console.log(`✅ MANUFACTURING: Adding cross-diagram block "${block.name}" from ${sourcePerspective} to ${containerId}`);
+                  crossBlocks[containerId].push({
+                    ...block,
+                    sourcePerspective: sourcePerspective
+                  });
+                } else {
+                  console.log(`⚠️ MANUFACTURING: Skipping duplicate cross-diagram block "${block.name}" from ${diagramType}`);
+                }
+              });
+            }
+          });
+        }
+      });
+      
+      setCrossDiagramBlocks(crossBlocks);
+      console.log('✅ MANUFACTURING: Cross-diagram blocks loaded successfully');
+      console.log('🔍 MANUFACTURING: Final crossBlocks state:', crossBlocks);
+      
+    } catch (error) {
+      console.error('❌ MANUFACTURING: Error loading cross-diagram blocks:', error);
+    }
+  }, [session?.user?.email]);
+
+  // Combined load function
+  const loadAllData = useCallback(async () => {
+    console.log('🔄 MANUFACTURING: Loading all data...');
+    await loadUserSelections();
+    await loadCrossDiagramBlocks();
+    console.log('✅ MANUFACTURING: All data loaded');
+  }, [loadUserSelections, loadCrossDiagramBlocks]);
+
+  // Helper function to set saving state with timeout protection
+  const setSavingWithTimeout = (saving) => {
+    setIsSaving(saving);
+    
+    if (saving) {
+      // Clear any existing timeout
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      
+      // Set a 5-second timeout to ensure spinner doesn't get stuck
+      loadingTimeoutRef.current = setTimeout(() => {
+        console.log('⚠️ MANUFACTURING: Force stopping loading spinner after 5 seconds');
+        setIsSaving(false);
+        setSaveStatus('timeout');
+        setTimeout(() => setSaveStatus(null), 3000);
+      }, 5000);
+    } else {
+      // Clear timeout when saving is complete
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+        loadingTimeoutRef.current = null;
+      }
+    }
   };
 
   // Save user's selections for Manufacturing Perspective
-  const saveUserSelections = async () => {
+  const saveUserSelections = useCallback(async () => {
     if (!session?.user?.email) {
       // Save to localStorage as fallback
       try {
@@ -761,6 +808,15 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         setHasUnsavedChanges(false);
         setSaveStatus('saved');
         setTimeout(() => setSaveStatus(null), 5000);
+        
+        // Trigger refresh in other diagrams by dispatching custom events
+        console.log('📡 MANUFACTURING: Notifying other diagrams of changes...');
+        window.dispatchEvent(new CustomEvent('cross-diagram-refresh', {
+          detail: { 
+            sourceDiagram: 'manufacturing-perspective',
+            changes: containerSelections
+          }
+        }));
       } else {
         const errorText = await response.text();
         console.error('❌ MANUFACTURING: Failed to save selections:', response.status, errorText);
@@ -775,7 +831,132 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
       setSavingWithTimeout(false); // Use the protected setter
       console.log('🏁 MANUFACTURING: Save process completed');
     }
-  };
+  }, [session?.user?.email, isSaving, containerSelections, useCaseConnections, elements, setSavingWithTimeout]);
+
+  // Load user's selections from database on component mount
+  useEffect(() => {
+    if (session?.user?.email) {
+      console.log('🔄 MANUFACTURING: Component mounted, loading data...');
+      loadAllData();
+    } else {
+      console.log('⚠️ MANUFACTURING: No session email, skipping data load');
+    }
+  }, [loadAllData, session?.user?.email]);
+
+  // Auto-save when changes are made (debounced) - Simplified and fixed pattern
+  useEffect(() => {
+    if (hasUnsavedChanges && session?.user?.email) {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+      
+      saveTimeoutRef.current = setTimeout(() => {
+        console.log('🔄 Auto-saving Manufacturing perspective changes...');
+        saveUserSelections();
+      }, 500); // Reduced from 1000ms to 500ms for faster saves
+    }
+    
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [hasUnsavedChanges, containerSelections, useCaseConnections, session?.user?.email, saveUserSelections]);
+
+  // Listen for reset events and cross-diagram refresh events
+  useEffect(() => {
+    const handleReset = () => {
+      setContainerSelections({
+        'datenquellen-grafisches-modell': [],
+        'datenquellen-grafisches-datenmodell': [],
+        'datenquellen-datenmodell': []
+      });
+      setUseCaseConnections([]);
+      setSelectedUseCaseBlock(null);
+      setHighlightedLayers([]);
+      setHasUnsavedChanges(false);
+      setCrossDiagramBlocks({
+        'datenquellen-grafisches-modell': [],
+        'datenquellen-grafisches-datenmodell': [],
+        'datenquellen-datenmodell': []
+      });
+
+      // Save the cleared state to database to prevent old connections from reappearing
+      if (session?.user?.email) {
+        setTimeout(() => {
+          saveUserSelections();
+          // Reload cross-diagram blocks after saving cleared state
+          setTimeout(() => {
+            loadCrossDiagramBlocks();
+          }, 500);
+        }, 100); // Small delay to ensure state is updated
+      }
+    };
+
+    const handleCrossDiagramRefresh = (event) => {
+      // Only refresh if the change came from a different diagram
+      if (event.detail.sourceDiagram !== 'manufacturing-perspective') {
+        console.log('🔄 MANUFACTURING: Received cross-diagram refresh from:', event.detail.sourceDiagram);
+        // Delay refresh to allow the source diagram to finish saving
+        setTimeout(() => {
+          loadCrossDiagramBlocks();
+        }, 1000);
+      }
+    };
+
+    // Listen for the proper reset event
+    window.addEventListener('resetManufacturingArchitectureDiagram', handleReset);
+    window.addEventListener('cross-diagram-refresh', handleCrossDiagramRefresh);
+    
+    return () => {
+      window.removeEventListener('resetManufacturingArchitectureDiagram', handleReset);
+      window.removeEventListener('cross-diagram-refresh', handleCrossDiagramRefresh);
+      // Clean up any pending timeouts
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+    };
+  }, [session?.user?.email, saveUserSelections, loadCrossDiagramBlocks]);
+
+  // Auto-refresh cross-diagram blocks when local blocks change
+  useEffect(() => {
+    if (session?.user?.email) {
+      const refreshTimeout = setTimeout(() => {
+        console.log('🔄 MANUFACTURING: Auto-refreshing cross-diagram blocks due to local changes...');
+        loadCrossDiagramBlocks();
+      }, 2000); // Refresh cross-diagram blocks 2 seconds after local changes
+
+      return () => clearTimeout(refreshTimeout);
+    }
+  }, [containerSelections, session?.user?.email, loadCrossDiagramBlocks]);
+
+  // Track element usage and notify parent component
+  useEffect(() => {
+    const currentUsedElements = [
+      ...Object.values(containerSelections).flat().map(block => block.id),
+      ...useCaseConnections.map(conn => conn.elementId)
+    ];
+    
+    // Only update if the arrays are actually different
+    const currentUsedSet = new Set(currentUsedElements);
+    const lastUsedSet = new Set(lastUsedElementsRef.current);
+    
+    if (currentUsedSet.size !== lastUsedSet.size || 
+        [...currentUsedSet].some(id => !lastUsedSet.has(id))) {
+      lastUsedElementsRef.current = currentUsedElements;
+      onElementUsageChange(currentUsedElements);
+    }
+  }, [containerSelections, useCaseConnections, onElementUsageChange]);
+
+  // Debug: Log crossDiagramBlocks state whenever it changes
+  useEffect(() => {
+    console.log('🔍 MANUFACTURING: crossDiagramBlocks state changed:', crossDiagramBlocks);
+    const totalCrossBlocks = Object.values(crossDiagramBlocks).reduce((total, blocks) => total + blocks.length, 0);
+    console.log(`📊 MANUFACTURING: Total cross-diagram blocks: ${totalCrossBlocks}`);
+  }, [crossDiagramBlocks]);
 
   // Get colors for dropped blocks based on their type
   const getBlockColors = (type) => {
@@ -1107,13 +1288,33 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
         {/* Render dropped blocks in containers */}
         {type === 'Container' && (
           <g>
-            {containerSelections[id] && containerSelections[id].length > 0 ? (
-              containerSelections[id].map((block, index) => {
+            {/* Combine local blocks and cross-diagram blocks for display */}
+            {(() => {
+              const localBlocks = containerSelections[id] || [];
+              const crossBlocks = crossDiagramBlocks[id] || [];
+              
+              // Filter out cross-diagram blocks that are already in local blocks
+              const filteredCrossBlocks = crossBlocks.filter(crossBlock => 
+                !localBlocks.some(localBlock => localBlock.id === crossBlock.id)
+              );
+              
+              const allBlocks = [
+                ...localBlocks.map(block => ({ ...block, isLocal: true })),
+                ...filteredCrossBlocks.map(block => ({ ...block, isLocal: false }))
+              ];
+              
+              // Debug logging for container rendering
+              if (allBlocks.length > 0) {
+                console.log(`🎨 MANUFACTURING: Rendering container ${id} with ${allBlocks.length} blocks (${localBlocks.length} local, ${filteredCrossBlocks.length} cross-diagram)`);
+              }
+              
+              return allBlocks.map((block, index) => {
+                // Calculate multi-column layout
                 const blockHeight = 20;
                 const blockSpacing = 5;
                 const totalBlockHeight = blockHeight + blockSpacing;
                 const startY = 40;
-                const availableHeight = height - startY - 10;
+                const availableHeight = height - startY - 10; // Leave 10px margin at bottom
                 const blocksPerColumn = Math.floor(availableHeight / totalBlockHeight);
                 
                 const columnIndex = Math.floor(index / blocksPerColumn);
@@ -1126,24 +1327,61 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
                 const x = 10 + (columnIndex * totalColumnWidth);
                 const y = startY + (rowIndex * totalBlockHeight);
                 
+                // Determine block color and icon based on source
+                let blockColor, perspectiveIcon;
+                if (block.isLocal) {
+                  // Local blocks use the original color scheme
+                  blockColor = getBlockColors(block.type).fill;
+                } else {
+                  // Cross-diagram blocks use perspective-specific colors
+                  switch (block.sourcePerspective) {
+                    case 'factory-perspective':
+                      blockColor = '#059669'; // Green  
+                      perspectiveIcon = 'F';
+                      break;
+                    case 'product-perspective':
+                      blockColor = '#EA580C'; // Orange
+                      perspectiveIcon = 'P';
+                      break;
+                    case 'order-perspective':
+                      blockColor = '#7C3AED'; // Purple
+                      perspectiveIcon = 'O';
+                      break;
+                    case 'final-view':
+                      blockColor = '#1E40AF'; // Blue
+                      perspectiveIcon = 'V';
+                      break;
+                    default:
+                      blockColor = '#6B7280'; // Gray
+                      perspectiveIcon = '?';
+                  }
+                }
+                
+                // Check if this block is selected
                 const isBlockSelected = selectedUseCaseBlock?.id === block.id && 
                                        selectedUseCaseBlock?.containerId === id;
                 
                 return (
-                  <g key={block.id} transform={`translate(${x}, ${y})`}>
+                  <g key={`${block.id}-${index}`} transform={`translate(${x}, ${y})`}>
                     <rect
                       x="0"
                       y="0"
                       width={blockWidth}
                       height={blockHeight}
                       rx="3"
-                      fill={getBlockColors(block.type).fill}
-                      stroke={isBlockSelected ? '#FF3366' : getBlockColors(block.type).stroke}
+                      fill={block.isLocal ? getBlockColors(block.type).fill : blockColor}
+                      stroke={isBlockSelected ? '#FF3366' : (block.isLocal ? getBlockColors(block.type).stroke : '#fff')}
                       strokeWidth={isBlockSelected ? "2" : "1"}
                       className="cursor-pointer"
+                      style={{
+                        opacity: block.isLocal ? 1 : 0.85,
+                        filter: block.isLocal ? 'none' : 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'
+                      }}
                       onClick={(e) => {
                         e.stopPropagation();
+                        if (block.isLocal) {
                         handleUseCaseBlockClick(block, id);
+                        }
                       }}
                     />
                     <text
@@ -1152,15 +1390,26 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
                       textAnchor="middle"
                       dominantBaseline="middle"
                       fontSize="9"
-                      fill={getBlockColors(block.type).text}
+                      fill={block.isLocal ? getBlockColors(block.type).text : '#fff'}
+                      fontWeight={block.isLocal ? "normal" : "600"}
                       className="select-none cursor-pointer"
+                      style={{ 
+                        pointerEvents: 'none',
+                        filter: block.isLocal ? 'none' : 'drop-shadow(0 1px 1px rgba(0,0,0,0.3))'
+                      }}
                       onClick={(e) => {
                         e.stopPropagation();
+                        if (block.isLocal) {
                         handleUseCaseBlockClick(block, id);
+                        }
                       }}
                     >
                       {block.name.length > 15 ? `${block.name.substring(0, 15)}...` : block.name}
                     </text>
+                    
+                    {/* Show remove button only for local blocks */}
+                    {block.isLocal && (
+                      <>
                     <circle
                       cx={blockWidth - 10}
                       cy={blockHeight/2}
@@ -1187,10 +1436,39 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
                     >
                       ×
                     </text>
+                      </>
+                    )}
+                    
+                    {/* Show perspective icon for cross-diagram blocks */}
+                    {!block.isLocal && perspectiveIcon && (
+                      <g>
+                        <circle
+                          cx={12}
+                          cy={8}
+                          r="6"
+                          fill="rgba(255,255,255,0.9)"
+                          stroke={blockColor}
+                          strokeWidth="1"
+                        />
+                        <text
+                          x={12}
+                          y={8}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          fontSize="8"
+                          fill={blockColor}
+                          fontWeight="700"
+                          className="select-none"
+                          style={{ pointerEvents: 'none' }}
+                        >
+                          {perspectiveIcon}
+                        </text>
+                      </g>
+                    )}
                   </g>
                 );
-              })
-            ) : null}
+              });
+            })()}
           </g>
         )}
       </g>
@@ -1337,31 +1615,34 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
     }),
   }));
 
-  // Helper function to set saving state with timeout protection
-  const setSavingWithTimeout = (saving) => {
-    setIsSaving(saving);
-    
-    if (saving) {
-      // Clear any existing timeout
-      if (loadingTimeoutRef.current) {
-        clearTimeout(loadingTimeoutRef.current);
-      }
-      
-      // Set a 5-second timeout to ensure spinner doesn't get stuck
-      loadingTimeoutRef.current = setTimeout(() => {
-        console.log('⚠️ MANUFACTURING: Force stopping loading spinner after 5 seconds');
-        setIsSaving(false);
-        setSaveStatus('timeout');
-        setTimeout(() => setSaveStatus(null), 3000);
-      }, 5000);
-    } else {
-      // Clear timeout when saving is complete
-      if (loadingTimeoutRef.current) {
-        clearTimeout(loadingTimeoutRef.current);
-        loadingTimeoutRef.current = null;
-      }
-    }
-  };
+  // Legend component to show block color coding
+  const BlockLegend = () => (
+    <div className="absolute top-20 right-4 bg-white border-2 border-gray-300 rounded-lg p-3 shadow-lg z-10 text-xs">
+      <h4 className="font-bold text-gray-900 mb-2">Block Sources</h4>
+      <div className="space-y-1">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded bg-red-100 border border-red-300"></div>
+          <span className="text-gray-700">Manufacturing (Local)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: '#059669' }}></div>
+          <span className="text-gray-700">Factory (F)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: '#D97706' }}></div>
+          <span className="text-gray-700">Product (P)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: '#7C3AED' }}></div>
+          <span className="text-gray-700">Order (O)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: '#1E40AF' }}></div>
+          <span className="text-gray-700">Final View (V)</span>
+        </div>
+      </div>
+    </div>
+  );
 
             return (
     <>
@@ -1490,6 +1771,7 @@ const ManufacturingReferenceArchitecture = ({ selectedElement, setSelectedElemen
             );
           })}
         </svg>
+        <BlockLegend />
       </div>
 
       {/* Save Button Component */}

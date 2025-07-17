@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight, Zap, Info } from 'lucide-react';
 
 // Helper to get step number based on category ID
 const getStepNumber = (categoryId) => {
@@ -12,6 +12,8 @@ const getStepNumber = (categoryId) => {
       return 2;
     case 'use-cases':
       return 3;
+    case 'reference-architecture':
+      return 4;
     default:
       return null;
   }
@@ -19,13 +21,19 @@ const getStepNumber = (categoryId) => {
 
 // Helper to check if this is a recommended category
 const isRecommendedCategory = (categoryId) => {
-  return ['architecture-goals', 'business-capabilities', 'use-cases'].includes(categoryId);
+  return ['architecture-goals', 'business-capabilities', 'use-cases', 'reference-architecture'].includes(categoryId);
+};
+
+// Helper to check if category should have info icon
+const hasInfoIcon = (categoryId) => {
+  return ['it-vendors', 'technical-capabilities'].includes(categoryId);
 };
 
 export function CategoryCard({ category, departmentId, onClick }) {
   const router = useRouter();
   const stepNumber = getStepNumber(category.id);
   const isRecommended = isRecommendedCategory(category.id);
+  const showInfoIcon = hasInfoIcon(category.id);
 
   const handleClick = () => {
     if (category.id === 'architecture-goals') {
@@ -66,6 +74,12 @@ export function CategoryCard({ category, departmentId, onClick }) {
         {isRecommended && (
           <div className="absolute top-2 right-2">
             <Zap className="w-5 h-5 text-teal-500" />
+          </div>
+        )}
+        
+        {showInfoIcon && (
+          <div className="absolute -top-3 -right-3 w-8 h-8 bg-teal-500 text-white rounded-full flex items-center justify-center shadow-md z-10 group-hover:bg-teal-600 transition-colors duration-200">
+            <Info className="w-4 h-4" />
           </div>
         )}
         

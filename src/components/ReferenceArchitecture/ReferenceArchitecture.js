@@ -165,10 +165,10 @@ const ReferenceArchitecture = ({ departmentId = 'operations' }) => {
             <div className="flex items-center justify-between">
               <Link 
                 href="/"
-                className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#009374] border border-[#009374] rounded-lg hover:bg-[#007a60] hover:border-[#007a60] transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                <span>Back to Department</span>
+                <span>Back to Dashboard</span>
               </Link>
             </div>
 

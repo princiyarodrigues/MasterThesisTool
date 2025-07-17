@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { FileText, Target, Activity, ChevronRight, ChevronLeft, Filter, ChevronDown } from 'lucide-react';
-import UseCaseDetailModal from '../../components/UseCases/UseCaseDetailModal';
 // Import from static data as fallback
 import { useCasesData as staticUseCasesData } from '@/lib/use-cases-data';
 
@@ -19,7 +18,6 @@ export default function UseCases() {
   const [useCases, setUseCases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedUseCase, setSelectedUseCase] = useState(null);
   const [selectedCapabilityId, setSelectedCapabilityId] = useState(null);
   const [relatedCapabilities, setRelatedCapabilities] = useState([]);
   const [filterSource, setFilterSource] = useState(null);
@@ -275,9 +273,9 @@ export default function UseCases() {
   
   return (
     <>
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Use Cases Catalogue</h1>
+      <h1 className="text-4xl font-bold text-black mb-8">Use Cases Catalogue</h1>
       
-      {loading && <p className="text-gray-600">Loading use cases...</p>}
+      {loading && <p className="text-black">Loading use cases...</p>}
       
       {error && <p className="text-amber-600 mb-4">{error}</p>}
       
@@ -285,7 +283,7 @@ export default function UseCases() {
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <Filter className="h-4 w-4 text-green-600" />
-          <h3 className="text-md font-medium">Filter by Business Capability:</h3>
+          <h3 className="text-md font-medium text-black">Filter by Business Capability:</h3>
         </div>
         
         <div className="relative">
@@ -399,14 +397,14 @@ export default function UseCases() {
       )}
       
       <div className="mb-6">
-        <p className="text-gray-600">
+        <p className="text-black">
           Showing {useCases.length > 0 ? indexOfFirstItem + 1 : 0}-{Math.min(indexOfLastItem, useCases.length)} of {useCases.length} use cases
         </p>
       </div>
       
       {useCases.length === 0 && !loading ? (
         <div className="text-center py-8">
-          <p className="text-gray-500">No use cases found for the selected filter.</p>
+          <p className="text-black">No use cases found for the selected filter.</p>
           {selectedCapabilityId && (
             <button 
               onClick={() => changeCapabilityFilter(null)}
@@ -421,12 +419,11 @@ export default function UseCases() {
           {currentItems.map((useCase, index) => {
             const Icon = iconMap[useCase.type] || FileText;
             return (
-              <button
+              <div
                 key={useCase.id}
-                className="text-left w-full group"
-                onClick={() => setSelectedUseCase(useCase)}
+                className="text-left w-full"
               >
-                <Card className="hover:shadow-md transition-shadow duration-200 border-green-100 h-full">
+                <Card className="border-green-100 h-full">
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-3">
                       <div className="bg-green-100 p-2 rounded-lg">
@@ -437,10 +434,9 @@ export default function UseCases() {
                           <span className="text-xs font-medium text-green-600">
                             #{(indexOfFirstItem + index + 1).toString().padStart(2, '0')}
                           </span>
-                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-green-500 transition-colors" />
                         </div>
-                        <h3 className="text-base font-semibold text-gray-900 mt-1 line-clamp-2">{useCase.title}</h3>
-                        <p className="text-xs text-gray-600 mt-1 line-clamp-2">{useCase.description}</p>
+                        <h3 className="text-base font-semibold text-black mt-1 line-clamp-2">{useCase.title}</h3>
+                        <p className="text-xs text-black mt-1 line-clamp-2">{useCase.description}</p>
                         <div className="mt-2">
                           <span className="inline-block px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
                             {useCase.category}
@@ -450,7 +446,7 @@ export default function UseCases() {
                     </div>
                   </CardContent>
                 </Card>
-              </button>
+              </div>
             );
           })}
         </div>
@@ -496,12 +492,6 @@ export default function UseCases() {
         </div>
       )}
       
-      {selectedUseCase && (
-        <UseCaseDetailModal 
-          useCase={selectedUseCase} 
-          onClose={() => setSelectedUseCase(null)} 
-        />
-      )}
     </>
   );
 }

@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">Digital Twin Factory Tool</h3>
+            <h3 className="text-xl font-bold mb-4">DTFT</h3>
             <p className="text-teal-100 text-sm leading-relaxed">
               Empowering digital transformation in manufacturing through strategic planning, 
               business capabilities analysis, and comprehensive process modeling.
@@ -62,7 +62,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-teal-500 mt-8 pt-6 text-center">
           <p className="text-teal-100 text-sm">
-            © {new Date().getFullYear()} Digital Twin Factory Tool. Built for manufacturing excellence.
+            © {new Date().getFullYear()} DTFT. Built for manufacturing excellence.
           </p>
         </div>
       </div>
